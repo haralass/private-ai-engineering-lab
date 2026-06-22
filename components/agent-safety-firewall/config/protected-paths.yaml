@@ -1,0 +1,43 @@
+# Protected paths — agents may not write to these without explicit human confirmation
+# Supports glob patterns
+
+protected:
+  # Environment and secrets
+  - "**/.env"
+  - "**/.env.*"
+  - "**/*.pem"
+  - "**/*.key"
+  - "**/*.p12"
+  - "**/*.pfx"
+  - "**/id_rsa"
+  - "**/id_ed25519"
+
+  # Git internals
+  - "**/.git/**"
+  - "**/.gitconfig"
+
+  # CI/CD configuration
+  - "**/.github/workflows/**"
+  - "**/.gitlab-ci.yml"
+  - "**/Jenkinsfile"
+  - "**/.circleci/**"
+
+  # Package publishing
+  - "**/package.json"  # version field changes
+  - "**/pyproject.toml"
+  - "**/Cargo.toml"
+
+  # Database
+  - "**/*.sqlite"
+  - "**/*.sqlite3"
+  - "**/*.db"
+
+  # Upstream source snapshots — never modify
+  - "**/sources/*/upstream/**"
+
+# Paths that require confirmation (softer than full block)
+require_confirmation:
+  - "**/CLAUDE.md"
+  - "**/.claude/**"
+  - "**/settings.json"
+  - "**/settings.local.json"
