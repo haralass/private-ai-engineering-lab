@@ -1,0 +1,22 @@
+display_name: taste-skill
+functional_name: design-taste
+source_url: https://github.com/Leonxlnx/taste-skill
+source_label: external
+upstream_owner: Leonxlnx
+upstream_repository: taste-skill
+pinned_commit: 06d6028b5c623016c59ce8536f578e5a1127b499
+retrieved_at: '2026-06-22T05:11:49.015211+00:00'
+license: MIT
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/design-taste/upstream
+adapted_path: sources/design-taste/adapted
+subsystem: ''
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: ''

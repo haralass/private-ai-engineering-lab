@@ -1,0 +1,22 @@
+display_name: superpowers
+functional_name: structured-agent-development
+source_url: https://github.com/obra/superpowers
+source_label: external
+upstream_owner: obra
+upstream_repository: superpowers
+pinned_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+retrieved_at: '2026-06-22T05:10:13.506409+00:00'
+license: MIT
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/structured-agent-development/upstream
+adapted_path: sources/structured-agent-development/adapted
+subsystem: ''
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: ''

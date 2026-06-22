@@ -1,0 +1,1122 @@
+{
+  "generated_at": "2026-06-22T05:09:18.578145+00:00",
+  "file_count": 279,
+  "files": {
+    ".claude-plugin/marketplace.json": {
+      "sha256": "73e20138bcfeb650d9fa67ea52d654b0d51fdd1cf54a581d7a654b1f0b6df80f",
+      "size": 11561
+    },
+    ".gitguardian.yaml": {
+      "sha256": "e0c5c64cea85aea954b61f6e58dd5d2ec1fe3011eb180659a7bd1f99a1723595",
+      "size": 266
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "791870b031fceadca0e20605d41ef2b166521585a8e0c17f2fd6b7f6c27f05ff",
+      "size": 3055
+    },
+    ".gitignore": {
+      "sha256": "1f6c05ca70b8cb119182c2d41555b8afc6a6426905dfb20c6fb68e82dc57764b",
+      "size": 215
+    },
+    "CLAUDE.local.md.example": {
+      "sha256": "63aa0bde048d30e9947a348fbca60fcb738da12d3d52ff5793f9a3a08e089508",
+      "size": 689
+    },
+    "CLAUDE.md": {
+      "sha256": "931ff4b24bb92834a53e7be1ed5362f2a5f562cf8101a9aa0e97f33efb49180c",
+      "size": 1956
+    },
+    "CLAUDE.template.md": {
+      "sha256": "bd6ea9a1d480a2d8c98465e2e66396b79b801d21d4ea5503cf7a6ba805ff91c2",
+      "size": 1768
+    },
+    "CONTRIBUTING.md": {
+      "sha256": "e5a3aa72f89c00d3bbdb9ea7de78004be9b0a5ff41dcff97cf4c26cd213a5d21",
+      "size": 7462
+    },
+    "LICENSE": {
+      "sha256": "2b68b45dd76746dc3af41d2607d3aa870f0e1b8c6845925a68c3d479da2ecf15",
+      "size": 1067
+    },
+    "PRIVACY.md": {
+      "sha256": "3beef0bc9bf4875bedfdca4d6362d41b04d36bbdeea550ededa269d3e1a9283c",
+      "size": 1711
+    },
+    "README.md": {
+      "sha256": "8a64b1e0cf3d8cfd0b0e9e91a9733e6acf4b62b74622d5fa46cd17704913db9a",
+      "size": 20810
+    },
+    "agents/README.md": {
+      "sha256": "f88079311405c3647b2d6621a7aa16dc3365b331097c58f45d72f61812395a39",
+      "size": 3016
+    },
+    "agents/code-reviewer/code-reviewer.md": {
+      "sha256": "60f1aad46c385b3db6f8d1b3e17190d13029f3f82dfd4c625a180f62f759e316",
+      "size": 3801
+    },
+    "agents/doc-reviewer/doc-reviewer.md": {
+      "sha256": "15fffff80ac7f439745d6f47eb4b9dee7e29a04bfaf533e85c0aadbc101b6acc",
+      "size": 3440
+    },
+    "agents/frontend-designer/frontend-designer.md": {
+      "sha256": "4a83184693c36dfe43fddfad09da4665da333fa8dc14ee12db247e187473d86e",
+      "size": 5207
+    },
+    "agents/performance-reviewer/performance-reviewer.md": {
+      "sha256": "2193738fd1973b442c893424a34938cd751467a3415957304030ccf6111b428d",
+      "size": 4994
+    },
+    "agents/pr-test-analyzer/pr-test-analyzer.md": {
+      "sha256": "1d0e9cfb99b670bfa9968a8fe47fff26dc3dfeb0a8eb639b14dc667c0c010d07",
+      "size": 4288
+    },
+    "agents/security-reviewer/security-reviewer.md": {
+      "sha256": "adf8182209ecdd95347c8c218a76a5bd1bfc93405e8ddb477969fc68d519da3e",
+      "size": 5144
+    },
+    "agents/silent-failure-hunter/silent-failure-hunter.md": {
+      "sha256": "44beb262664b9f6315438332a1be0e8bad3ef818122e23c5b50a1dcd68dac57c",
+      "size": 4351
+    },
+    "hooks/README.md": {
+      "sha256": "75e696905989b2b018498df6156af3dad831d31db5c046905c07468e704c70e8",
+      "size": 5340
+    },
+    "hooks/auto-test.sh": {
+      "sha256": "a8a0594717332fb4eeff5babf2e2311f6b64cecdc4ee1dabfe9d9d677de186f7",
+      "size": 4291
+    },
+    "hooks/block-dangerous-commands.sh": {
+      "sha256": "b7740c5e59f2bed6c979077b15c25b8e67b56d48d9c262cc1508d85ac30e03b8",
+      "size": 7872
+    },
+    "hooks/format-on-save.sh": {
+      "sha256": "dd9b8c6e637f69f148d02a9c3db1ae721f912073ffb0e68b5ca3fa4f6dab8e70",
+      "size": 3816
+    },
+    "hooks/notify.sh": {
+      "sha256": "1c102edeb297f63fb3b00787761d2649ba7f3a4e59e64a8b9398d5cb0031783d",
+      "size": 1395
+    },
+    "hooks/protect-files.sh": {
+      "sha256": "3176c7bcece1444cb236715d0426a8981bddde59116abc57bc19d9caacc1fdb4",
+      "size": 2197
+    },
+    "hooks/scan-secrets.sh": {
+      "sha256": "2c75441e1e672c9f71bef4850da2000d07bb13c29c8ae90efff5a033839bd5c8",
+      "size": 2931
+    },
+    "hooks/session-start.sh": {
+      "sha256": "a03f612a078382d7b6c2eb74017161567a329d20d80e7730df7ec735ad31e0bd",
+      "size": 3340
+    },
+    "hooks/tests/fixtures/auto-test/01-skip-missing-file-path.json": {
+      "sha256": "69b018d14a29dea4a3f11544bc6df992daac0c40e77fb38d3012ef4bede91cf3",
+      "size": 102
+    },
+    "hooks/tests/fixtures/auto-test/02-skip-nonexistent-file.json": {
+      "sha256": "0db1378acf6538ff26e459befa4b607d074886a6d5628fbef94cf78925238439",
+      "size": 144
+    },
+    "hooks/tests/fixtures/auto-test/03-skip-test-file-itself.json": {
+      "sha256": "2ab9b86e6d1c9d3d60c4a7546d6e88d790939f427d196bd59ae0740fef13cb2a",
+      "size": 241
+    },
+    "hooks/tests/fixtures/auto-test/04-skip-config-extension.json": {
+      "sha256": "65fa12a75bd695068bf05f14f79425ea1f0ace4a2f5fbd661c7e6a7b0b3f6b19",
+      "size": 240
+    },
+    "hooks/tests/fixtures/auto-test/05-no-matching-test-silent.json": {
+      "sha256": "733e2aec3e251105387f12fca0f8e2bf7f06ac016e09e20e10fc1413e446640f",
+      "size": 230
+    },
+    "hooks/tests/fixtures/auto-test/test_sample.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/01-allow-safe-ls.json": {
+      "sha256": "d8f693302151ca9b4cdb1de1c19cb5baa3208597afdf0f9256784ad4da802d21",
+      "size": 114
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/02-block-push-main.json": {
+      "sha256": "972ab797f5031d71936b7d15c6d141043400f35110e54a0ff7a045bd583572aa",
+      "size": 176
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/03-block-push-HEAD-main.json": {
+      "sha256": "c48601ef0cc255c3eba5fa9e4207d498f6f007dfb466d042de1e74cf912f7986",
+      "size": 138
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/04-block-push-upstream-main.json": {
+      "sha256": "95b3bfba9152a99c51e549c8e8d6b00bbd276eaeb66fdafc8e1a1bb024280743",
+      "size": 152
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/05-allow-force-with-lease.json": {
+      "sha256": "0ceffc063ae95621c0fc5de5f84c7d3ddf3b309f8f2c17accd93d027f5ba9480",
+      "size": 156
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/06-block-force-combined-flag.json": {
+      "sha256": "869181cc555498ff3c817ec93154c6162cb190d1e2d1d68c7279086ce1b252bc",
+      "size": 141
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/07-block-rm-rf-root.json": {
+      "sha256": "bce1189b88bb8e16c167a3ff9e526340f68623d957e8236e36d0955f871356aa",
+      "size": 107
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/08-block-rm-rf-quoted.json": {
+      "sha256": "4069a8307f9a732e5ed0a731f7b657cd11ef2ddc59a35bd1ce0ea7ff4b0b0e8f",
+      "size": 144
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/09-block-rm-rf-var.json": {
+      "sha256": "fc7c3997ac53e27d7b5c13a9bd3ed3b756c27ee39806cd90293b3089d31340d5",
+      "size": 154
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/10-allow-rm-rf-subdir.json": {
+      "sha256": "96a6d0abbd35fcc169ad930428cd34446cb18065a1c079f5d7823db542949a4d",
+      "size": 151
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/11-allow-stderr-redirect.json": {
+      "sha256": "594d0e0fbbe972670cdfca40196dd06a43aee33575f404826c9f117a7e4d3362",
+      "size": 148
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/12-block-dev-sda.json": {
+      "sha256": "67ad1da095fe877746e2f6189a1289817eb3b0193f66b46864eb09b01c43f3bd",
+      "size": 138
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/13-block-delete-no-where.json": {
+      "sha256": "15b72fdef2b1ec0acb7924a75ea08121e1750b1fae7321ddbae72f4ef78b40ab",
+      "size": 145
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/14-allow-delete-with-where.json": {
+      "sha256": "ef851e04a7d1006679eb51f72db6c19098f88416b6f66c37963adb7f7144cdf8",
+      "size": 155
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/15-block-delete-multistatement.json": {
+      "sha256": "bb198626070f50a7f1ea77e44d4d40cf4af0ca166ea2b06cf5ea2c22d9944ed6",
+      "size": 236
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/16-block-chmod-0777.json": {
+      "sha256": "5402898825b851130d46593ff59789d4ee046f1480e456d3022f3500c4054eb9",
+      "size": 131
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/17-block-chmod-R-777.json": {
+      "sha256": "418e8ffaaa7914b6ebc03ace18adf593fe5ddbf6d9872add061fcc7e0a3dc737",
+      "size": 117
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/18-allow-npm-publish-dry-run.json": {
+      "sha256": "a1ef9292270c9dc974f914c724cd567a247da97db4725128e8d8c0914c09ec61",
+      "size": 133
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/19-block-curl-pipe-sudo.json": {
+      "sha256": "bbefeadd983ab4b92ffcdd28d186c224ac94b41e89f078e572b67e706ceab846",
+      "size": 142
+    },
+    "hooks/tests/fixtures/block-dangerous-commands/20-block-push-develop-configurable.json": {
+      "sha256": "2433f08370c57547b6720c90bdaa84b539bacc76ee03ca8f8a89b084b52ec924",
+      "size": 244
+    },
+    "hooks/tests/fixtures/format-on-save/01-missing-file-path.json": {
+      "sha256": "9724ae8cc2468aac45f4d17efcb0403a8c81c6e60a1bda817d48a0d6812cd7dc",
+      "size": 145
+    },
+    "hooks/tests/fixtures/format-on-save/02-nonexistent-file.json": {
+      "sha256": "d040d4cfa09442945d47e0203392bd91729b2322c398e3b8830453f08e6e6c6f",
+      "size": 143
+    },
+    "hooks/tests/fixtures/format-on-save/03-no-formatter-configured.json": {
+      "sha256": "1b0f81dedd33d82af30b89199600f638f8469b2241346a9138e3435e866e7a7b",
+      "size": 224
+    },
+    "hooks/tests/fixtures/notify/01-dryrun-custom-message.json": {
+      "sha256": "032e2e6c20cfb44f3f20dd8b400b99bf48e4dd1907796b0926f222f0bac7dbe5",
+      "size": 264
+    },
+    "hooks/tests/fixtures/notify/02-dryrun-default-message.json": {
+      "sha256": "e5db469a8b1e7a351630692a8b5e7c68552195bb2aa69ad81cf0a919f861edff",
+      "size": 220
+    },
+    "hooks/tests/fixtures/protect-files/01-allow-src-file.json": {
+      "sha256": "0c9d815061d9e2b7ccc66e7293615b8897894bd8931a5bd091a7514345528927",
+      "size": 127
+    },
+    "hooks/tests/fixtures/protect-files/02-block-env.json": {
+      "sha256": "c8857b743ed61ad0a7b21bdf6934149c383d88ac0d2bc8edb98e756fbcb5bd39",
+      "size": 144
+    },
+    "hooks/tests/fixtures/protect-files/03-block-env-local.json": {
+      "sha256": "5077f889c57f9230785b7abe7013751796f250b99b98fca2bb301d3be751e4f0",
+      "size": 123
+    },
+    "hooks/tests/fixtures/protect-files/04-block-env-case-insensitive.json": {
+      "sha256": "ce6b13dbffac5c7e1e55ee3e7e1043470bc599f426e5e1d46acf77c9968ba9a3",
+      "size": 120
+    },
+    "hooks/tests/fixtures/protect-files/05-allow-env-suffix-file.json": {
+      "sha256": "e99789030f9359edd977ed36ec4b8c6f8e5a99e1162fdc67795aef866ae4ad40",
+      "size": 182
+    },
+    "hooks/tests/fixtures/protect-files/06-block-pem.json": {
+      "sha256": "3e327794b8f7ee52503cd53f9dc7b6b0c29884423691c90e3d7a558a29584b2e",
+      "size": 114
+    },
+    "hooks/tests/fixtures/protect-files/07-block-id_rsa.json": {
+      "sha256": "2793f185e20bdb028536c20a768ee383b7778c9df904b4fc5e85f97f0d3a0c39",
+      "size": 119
+    },
+    "hooks/tests/fixtures/protect-files/08-block-lock-file.json": {
+      "sha256": "363a2dfeb44206de42b5729c7612ac8d2e6ca37727d075304dffe91c00e3c542",
+      "size": 127
+    },
+    "hooks/tests/fixtures/protect-files/09-block-generated.json": {
+      "sha256": "fc06abc88849c7fcf2e23ef222316dd0d26eba29206b01f11e1391ef0258e8ab",
+      "size": 129
+    },
+    "hooks/tests/fixtures/protect-files/10-block-git-dir.json": {
+      "sha256": "f88f03aaffdadbad71ff54f48105b64f07be4d92bc9398253d14f5f7f5db840a",
+      "size": 127
+    },
+    "hooks/tests/fixtures/protect-files/11-block-secrets-dir.json": {
+      "sha256": "d9092e78623fcdd95b181884b981f728828cdfca745e93defd212d3bbdd86c2f",
+      "size": 130
+    },
+    "hooks/tests/fixtures/protect-files/12-block-claude-hook-edit.json": {
+      "sha256": "e5fc93c86ee9f2932b1ba4e391aaba641b53019cd706d52722df2801845892d5",
+      "size": 140
+    },
+    "hooks/tests/fixtures/protect-files/13-ask-settings.json": {
+      "sha256": "bceaeb6196b107ca0b08005f0a2fbd41aa7d843ae5ac8d8d55d2d8f17092ab8b",
+      "size": 183
+    },
+    "hooks/tests/fixtures/protect-files/14-allow-missing-file_path.json": {
+      "sha256": "e46aabc40a3fdcb887a416ab293feab4372a2544f94ac1ed8e441db3b8f1bfb9",
+      "size": 107
+    },
+    "hooks/tests/fixtures/protect-files/15-block-pfx.json": {
+      "sha256": "42a149874508b18235db08860cde43f8af79e8a669cf238418c8701bbb78ec60",
+      "size": 106
+    },
+    "hooks/tests/fixtures/protect-files/16-block-env-subpath.json": {
+      "sha256": "23cd14c70ca31f250aa4aef649caa897b728424fd77c46f18d782f6c78983ee7",
+      "size": 115
+    },
+    "hooks/tests/fixtures/scan-secrets/01-allow-clean-source.json": {
+      "sha256": "3c3d48217eabdfec20b8ffef2070146c426ba7850a52ad6610e6758fe80a1c9a",
+      "size": 167
+    },
+    "hooks/tests/fixtures/scan-secrets/02-allow-env-reference.json": {
+      "sha256": "086f6e018ef551ae7698b5bfa34c2559ab866f496e27d23ba52775da0cda7713",
+      "size": 174
+    },
+    "hooks/tests/fixtures/scan-secrets/03-block-double-quoted-credential.json": {
+      "sha256": "6a2c7395e9d502dcebd00d56a492ae7281badbe17508ed048b5e9fba2bfaac9e",
+      "size": 238
+    },
+    "hooks/tests/fixtures/scan-secrets/04-block-single-quoted-credential.json": {
+      "sha256": "d328504441599db61cd0fa0ff1815b91221760135a679ae482c8559a8bb9ed00",
+      "size": 235
+    },
+    "hooks/tests/fixtures/scan-secrets/05-block-anthropic-hyphenated-key.json": {
+      "sha256": "85702d41753284e348ebe350a201fc08d56700e77382cc1fc73c125b99be1ed9",
+      "size": 229
+    },
+    "hooks/tests/fixtures/scan-secrets/06-block-aws-access-key.json": {
+      "sha256": "fea9123d6b6eba8767ace50a13ec9c87555df816d2941d84c36af1d78b557cdc",
+      "size": 194
+    },
+    "hooks/tests/fixtures/scan-secrets/07-block-github-token.json": {
+      "sha256": "3b6a8e70d55256f6434ebe869f1ca2a16cd6a8b22d476ecc801f1a3d241d78fd",
+      "size": 205
+    },
+    "hooks/tests/fixtures/scan-secrets/08-block-private-key.json": {
+      "sha256": "9bde09eb2a87748fedf7a6f11364501763e55bf33f6737344af7fd9bc5f60b35",
+      "size": 248
+    },
+    "hooks/tests/fixtures/scan-secrets/09-block-conn-string-creds.json": {
+      "sha256": "a6e6a28d69bc6e37f12223fdbbeee7695e049553d4d09502c1df142faa2a184c",
+      "size": 265
+    },
+    "hooks/tests/fixtures/scan-secrets/10-ignore-read-tool.json": {
+      "sha256": "55ad41241b95421349bbde10c7c5261c872bea8b52a75b44522d4f5db41677b2",
+      "size": 119
+    },
+    "hooks/tests/fixtures/session-start/01-default-minimal.json": {
+      "sha256": "543188998a9c162e3e3e7bfdbd7f2a555e083b2a6e86360a0fa316b1afd426e6",
+      "size": 86
+    },
+    "hooks/tests/fixtures/session-start/02-verbose-mode.json": {
+      "sha256": "339f6f3cba55bf540ed4c6ecc4b054a2afb2203434d1ceeb02ce99832a5e7818",
+      "size": 119
+    },
+    "hooks/tests/fixtures/session-start/03-fingerprint-mode.json": {
+      "sha256": "820b504851c74c32fc92229c466d9fdb8940899d2529c01071fc767bacbdcc33",
+      "size": 198
+    },
+    "hooks/tests/fixtures/session-start/04-drift-detected.json": {
+      "sha256": "fd556c4df43cf3f0a740032b88fa1f178c9fb95053b8239d901ea4f336093ea7",
+      "size": 275
+    },
+    "hooks/tests/fixtures/session-start/05-no-drift-silent.json": {
+      "sha256": "64025784b38075ad776758e7322361a62ea1e0aab7fcbe18fd86c937f8ca93de",
+      "size": 268
+    },
+    "hooks/tests/fixtures/session-start/data/meta-match.json": {
+      "sha256": "7970c98a0c23f0977cb031b3c2862344345f65e92873e871aa42d8a6ed9adba2",
+      "size": 58
+    },
+    "hooks/tests/fixtures/session-start/data/meta-stale.json": {
+      "sha256": "0a7e770af175c52c84d9845cde06a081905a8c57ac35d80f5d7bddfe67163901",
+      "size": 55
+    },
+    "hooks/tests/fixtures/warn-large-files/01-allow-src-file.json": {
+      "sha256": "0c9d815061d9e2b7ccc66e7293615b8897894bd8931a5bd091a7514345528927",
+      "size": 127
+    },
+    "hooks/tests/fixtures/warn-large-files/02-block-node-modules.json": {
+      "sha256": "3fc0b2ae054c73ebfd0cb9d65c7bf30ffeee6fde95bb9d82330a3ff0f2ef2dac",
+      "size": 214
+    },
+    "hooks/tests/fixtures/warn-large-files/03-block-nested-dist.json": {
+      "sha256": "aff896f546297f2b1b6636bed018bdd09cb019c1a8b0c156fd62bd9969046959",
+      "size": 191
+    },
+    "hooks/tests/fixtures/warn-large-files/04-block-wasm-binary.json": {
+      "sha256": "9377d3ed80eaf0020c2a2fec6d67af81f3d80dbc9041e77f9e0a39e03c572987",
+      "size": 167
+    },
+    "hooks/tests/fixtures/warn-large-files/05-block-archive.json": {
+      "sha256": "09b2374a910f389bd3e6f731058c03d0f0948f9d5eeb9f88cae32a168adbe131",
+      "size": 171
+    },
+    "hooks/tests/fixtures/warn-large-files/06-block-pycache.json": {
+      "sha256": "01376abb652259ced19792488bfb39afbe140e6b0079d0e3f28356b7216822cc",
+      "size": 204
+    },
+    "hooks/tests/fixtures/warn-large-files/07-allow-missing-file-path.json": {
+      "sha256": "0962ef8c02fe81aaff61e154b3ef9ea7a4724b203c783e74ad0fd8212ade0330",
+      "size": 95
+    },
+    "hooks/tests/run-all.sh": {
+      "sha256": "3df5b89e74e88892202d222e2672ae1fa8acc7ea9c43fb66111813b63e5dd9bb",
+      "size": 3123
+    },
+    "hooks/warn-large-files.sh": {
+      "sha256": "b1488ded3fa7ea9fb03b7b68649c00e10f9b504b10852ae7d2b74c4b54863398",
+      "size": 2218
+    },
+    "plugins/catchup/.claude-plugin/plugin.json": {
+      "sha256": "e83087b495c0fb47aa9cd2ba630a1b6fadd2a4ff95f8fe7eca3219e8591ace50",
+      "size": 544
+    },
+    "plugins/catchup/skills/catchup/SKILL.md": {
+      "sha256": "1fe2e2d830eb1e39e438aedc9f1d46b44e4c4e512d1180b072d1e495a9ed0fa5",
+      "size": 2966
+    },
+    "plugins/claude-md/.claude-plugin/plugin.json": {
+      "sha256": "c6dcf42f3e6d40de3bd19f79e3e294f1836d1303b4cc671612ec2265c9d7b966",
+      "size": 523
+    },
+    "plugins/claude-md/skills/claude-md/SKILL.md": {
+      "sha256": "54d74ec28997d95a222165e8780189ba65e65a30522595c9c454eb28a683fbb0",
+      "size": 3197
+    },
+    "plugins/code-reviewer/.claude-plugin/plugin.json": {
+      "sha256": "b4c60f22ad60306c5706a42e1c403d86ddcaf2d97fce9420cbb3a53b56528f13",
+      "size": 506
+    },
+    "plugins/code-reviewer/agents/code-reviewer.md": {
+      "sha256": "60f1aad46c385b3db6f8d1b3e17190d13029f3f82dfd4c625a180f62f759e316",
+      "size": 3801
+    },
+    "plugins/context-budget/.claude-plugin/plugin.json": {
+      "sha256": "a96992b0f46ccf632b7805c1c6f1a5edee014f77cb32b4cdba6c9b1403119555",
+      "size": 566
+    },
+    "plugins/context-budget/skills/context-budget/SKILL.md": {
+      "sha256": "84230afc47cce74c88505f53e462fd156c9353450020addec0bb45900e01a413",
+      "size": 5400
+    },
+    "plugins/debug-fix/.claude-plugin/plugin.json": {
+      "sha256": "44234666f48777d9de6dd71e590184a19612aa33c11ed0ee6a058d2e090e306c",
+      "size": 520
+    },
+    "plugins/debug-fix/skills/debug-fix/SKILL.md": {
+      "sha256": "d4e4e70a3a907a39af625df870265bc849165cd1ddd96a332d5b540d72ff8009",
+      "size": 4887
+    },
+    "plugins/doc-reviewer/.claude-plugin/plugin.json": {
+      "sha256": "0691ba361a96f11d19824623d36e6fe94b809525c42af59bb674766be9ead853",
+      "size": 491
+    },
+    "plugins/doc-reviewer/agents/doc-reviewer.md": {
+      "sha256": "15fffff80ac7f439745d6f47eb4b9dee7e29a04bfaf533e85c0aadbc101b6acc",
+      "size": 3440
+    },
+    "plugins/explain/.claude-plugin/plugin.json": {
+      "sha256": "7734b9d9da7a85ec816227fb67101d8f49220457ab3c56649600e46c6f71fd88",
+      "size": 490
+    },
+    "plugins/explain/skills/explain/SKILL.md": {
+      "sha256": "335ce34d8f54048bf236e7915793d0a7d4af115cdf1b296a50152df5392f7992",
+      "size": 1393
+    },
+    "plugins/fix-issue/.claude-plugin/plugin.json": {
+      "sha256": "752df8626673b932007b06505abcf237abae98433c28706f26ab0e3d5230d2a7",
+      "size": 517
+    },
+    "plugins/fix-issue/skills/fix-issue/SKILL.md": {
+      "sha256": "92f8a261bd9898be98661e2b7b1d4c9a9aab02c49ebe27d4a99e40d5e634f081",
+      "size": 2985
+    },
+    "plugins/frontend-designer/.claude-plugin/plugin.json": {
+      "sha256": "27ddaf06b567334f7d67f7aa780f7ea016ee936d9d90638d4a4449e9a955c2ac",
+      "size": 513
+    },
+    "plugins/frontend-designer/agents/frontend-designer.md": {
+      "sha256": "4a83184693c36dfe43fddfad09da4665da333fa8dc14ee12db247e187473d86e",
+      "size": 5207
+    },
+    "plugins/performance-reviewer/.claude-plugin/plugin.json": {
+      "sha256": "27399082426425b2e8e8c7d29255c1958c2c2501e314820372850058e005b7e3",
+      "size": 486
+    },
+    "plugins/performance-reviewer/agents/performance-reviewer.md": {
+      "sha256": "2193738fd1973b442c893424a34938cd751467a3415957304030ccf6111b428d",
+      "size": 4994
+    },
+    "plugins/pr-review/.claude-plugin/plugin.json": {
+      "sha256": "c57ea0d8e7ef0dc1a4768c2c15b62a4c472caec238cc82cad1e9fc2a858a90ff",
+      "size": 509
+    },
+    "plugins/pr-review/skills/pr-review/SKILL.md": {
+      "sha256": "851b44527c3eb4b86240524c1cc46c74cc6dd01b96b66b11c62d13615971b70b",
+      "size": 6943
+    },
+    "plugins/pr-test-analyzer/.claude-plugin/plugin.json": {
+      "sha256": "5244d028e101205676718878a7fe4beaec1e21234dc5861aea4afab0fe6a89b6",
+      "size": 534
+    },
+    "plugins/pr-test-analyzer/agents/pr-test-analyzer.md": {
+      "sha256": "1d0e9cfb99b670bfa9968a8fe47fff26dc3dfeb0a8eb639b14dc667c0c010d07",
+      "size": 4288
+    },
+    "plugins/refactor/.claude-plugin/plugin.json": {
+      "sha256": "367f6af469757b831efaa0ce8fc4f26f87fac63d57b8b93d04e01ab342ecc041",
+      "size": 537
+    },
+    "plugins/refactor/skills/refactor/SKILL.md": {
+      "sha256": "6a65cd9c80b1edee35adcbb8bc5ced3018d5205963dec9b21b4dab107c0b010d",
+      "size": 2524
+    },
+    "plugins/safety-hooks/.claude-plugin/plugin.json": {
+      "sha256": "836652701c483dfda240d019989ebceed739dae81561b19b3ab1e2fa47efe1a6",
+      "size": 586
+    },
+    "plugins/safety-hooks/hooks/block-dangerous-commands.sh": {
+      "sha256": "b7740c5e59f2bed6c979077b15c25b8e67b56d48d9c262cc1508d85ac30e03b8",
+      "size": 7872
+    },
+    "plugins/safety-hooks/hooks/hooks.json": {
+      "sha256": "64d53b31046109499b066ea0f80ef8dfad0e4873f2e0424d06ee914f6dce67d2",
+      "size": 1207
+    },
+    "plugins/safety-hooks/hooks/protect-files.sh": {
+      "sha256": "3176c7bcece1444cb236715d0426a8981bddde59116abc57bc19d9caacc1fdb4",
+      "size": 2197
+    },
+    "plugins/safety-hooks/hooks/scan-secrets.sh": {
+      "sha256": "2c75441e1e672c9f71bef4850da2000d07bb13c29c8ae90efff5a033839bd5c8",
+      "size": 2931
+    },
+    "plugins/safety-hooks/hooks/warn-large-files.sh": {
+      "sha256": "b1488ded3fa7ea9fb03b7b68649c00e10f9b504b10852ae7d2b74c4b54863398",
+      "size": 2218
+    },
+    "plugins/security-reviewer/.claude-plugin/plugin.json": {
+      "sha256": "a338b41bcf2e7c8ad1ea9b0711b31078c7bff36d74d50468b0c8d2416db5b02a",
+      "size": 499
+    },
+    "plugins/security-reviewer/agents/security-reviewer.md": {
+      "sha256": "adf8182209ecdd95347c8c218a76a5bd1bfc93405e8ddb477969fc68d519da3e",
+      "size": 5144
+    },
+    "plugins/setupdotclaude/.claude-plugin/plugin.json": {
+      "sha256": "1bfb5f4764056d1b52178149c867efcb8e2b763f834a219d46b6354fb615797e",
+      "size": 553
+    },
+    "plugins/setupdotclaude/skills/setupdotclaude/SKILL.md": {
+      "sha256": "a7a2be6d87693fe06577359ba4f4978d81ced9fca394f5a462af15cb24b82730",
+      "size": 13967
+    },
+    "plugins/setupdotclaude/template/CLAUDE.local.md.example": {
+      "sha256": "63aa0bde048d30e9947a348fbca60fcb738da12d3d52ff5793f9a3a08e089508",
+      "size": 689
+    },
+    "plugins/setupdotclaude/template/CLAUDE.md": {
+      "sha256": "bd6ea9a1d480a2d8c98465e2e66396b79b801d21d4ea5503cf7a6ba805ff91c2",
+      "size": 1768
+    },
+    "plugins/setupdotclaude/template/agents/README.md": {
+      "sha256": "f88079311405c3647b2d6621a7aa16dc3365b331097c58f45d72f61812395a39",
+      "size": 3016
+    },
+    "plugins/setupdotclaude/template/agents/code-reviewer/code-reviewer.md": {
+      "sha256": "60f1aad46c385b3db6f8d1b3e17190d13029f3f82dfd4c625a180f62f759e316",
+      "size": 3801
+    },
+    "plugins/setupdotclaude/template/agents/doc-reviewer/doc-reviewer.md": {
+      "sha256": "15fffff80ac7f439745d6f47eb4b9dee7e29a04bfaf533e85c0aadbc101b6acc",
+      "size": 3440
+    },
+    "plugins/setupdotclaude/template/agents/frontend-designer/frontend-designer.md": {
+      "sha256": "4a83184693c36dfe43fddfad09da4665da333fa8dc14ee12db247e187473d86e",
+      "size": 5207
+    },
+    "plugins/setupdotclaude/template/agents/performance-reviewer/performance-reviewer.md": {
+      "sha256": "2193738fd1973b442c893424a34938cd751467a3415957304030ccf6111b428d",
+      "size": 4994
+    },
+    "plugins/setupdotclaude/template/agents/pr-test-analyzer/pr-test-analyzer.md": {
+      "sha256": "1d0e9cfb99b670bfa9968a8fe47fff26dc3dfeb0a8eb639b14dc667c0c010d07",
+      "size": 4288
+    },
+    "plugins/setupdotclaude/template/agents/security-reviewer/security-reviewer.md": {
+      "sha256": "adf8182209ecdd95347c8c218a76a5bd1bfc93405e8ddb477969fc68d519da3e",
+      "size": 5144
+    },
+    "plugins/setupdotclaude/template/agents/silent-failure-hunter/silent-failure-hunter.md": {
+      "sha256": "44beb262664b9f6315438332a1be0e8bad3ef818122e23c5b50a1dcd68dac57c",
+      "size": 4351
+    },
+    "plugins/setupdotclaude/template/hooks/README.md": {
+      "sha256": "75e696905989b2b018498df6156af3dad831d31db5c046905c07468e704c70e8",
+      "size": 5340
+    },
+    "plugins/setupdotclaude/template/hooks/auto-test.sh": {
+      "sha256": "a8a0594717332fb4eeff5babf2e2311f6b64cecdc4ee1dabfe9d9d677de186f7",
+      "size": 4291
+    },
+    "plugins/setupdotclaude/template/hooks/block-dangerous-commands.sh": {
+      "sha256": "b7740c5e59f2bed6c979077b15c25b8e67b56d48d9c262cc1508d85ac30e03b8",
+      "size": 7872
+    },
+    "plugins/setupdotclaude/template/hooks/format-on-save.sh": {
+      "sha256": "dd9b8c6e637f69f148d02a9c3db1ae721f912073ffb0e68b5ca3fa4f6dab8e70",
+      "size": 3816
+    },
+    "plugins/setupdotclaude/template/hooks/notify.sh": {
+      "sha256": "1c102edeb297f63fb3b00787761d2649ba7f3a4e59e64a8b9398d5cb0031783d",
+      "size": 1395
+    },
+    "plugins/setupdotclaude/template/hooks/protect-files.sh": {
+      "sha256": "3176c7bcece1444cb236715d0426a8981bddde59116abc57bc19d9caacc1fdb4",
+      "size": 2197
+    },
+    "plugins/setupdotclaude/template/hooks/scan-secrets.sh": {
+      "sha256": "2c75441e1e672c9f71bef4850da2000d07bb13c29c8ae90efff5a033839bd5c8",
+      "size": 2931
+    },
+    "plugins/setupdotclaude/template/hooks/session-start.sh": {
+      "sha256": "a03f612a078382d7b6c2eb74017161567a329d20d80e7730df7ec735ad31e0bd",
+      "size": 3340
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/01-skip-missing-file-path.json": {
+      "sha256": "69b018d14a29dea4a3f11544bc6df992daac0c40e77fb38d3012ef4bede91cf3",
+      "size": 102
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/02-skip-nonexistent-file.json": {
+      "sha256": "0db1378acf6538ff26e459befa4b607d074886a6d5628fbef94cf78925238439",
+      "size": 144
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/03-skip-test-file-itself.json": {
+      "sha256": "2ab9b86e6d1c9d3d60c4a7546d6e88d790939f427d196bd59ae0740fef13cb2a",
+      "size": 241
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/04-skip-config-extension.json": {
+      "sha256": "65fa12a75bd695068bf05f14f79425ea1f0ace4a2f5fbd661c7e6a7b0b3f6b19",
+      "size": 240
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/05-no-matching-test-silent.json": {
+      "sha256": "733e2aec3e251105387f12fca0f8e2bf7f06ac016e09e20e10fc1413e446640f",
+      "size": 230
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/auto-test/test_sample.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/01-allow-safe-ls.json": {
+      "sha256": "d8f693302151ca9b4cdb1de1c19cb5baa3208597afdf0f9256784ad4da802d21",
+      "size": 114
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/02-block-push-main.json": {
+      "sha256": "972ab797f5031d71936b7d15c6d141043400f35110e54a0ff7a045bd583572aa",
+      "size": 176
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/03-block-push-HEAD-main.json": {
+      "sha256": "c48601ef0cc255c3eba5fa9e4207d498f6f007dfb466d042de1e74cf912f7986",
+      "size": 138
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/04-block-push-upstream-main.json": {
+      "sha256": "95b3bfba9152a99c51e549c8e8d6b00bbd276eaeb66fdafc8e1a1bb024280743",
+      "size": 152
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/05-allow-force-with-lease.json": {
+      "sha256": "0ceffc063ae95621c0fc5de5f84c7d3ddf3b309f8f2c17accd93d027f5ba9480",
+      "size": 156
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/06-block-force-combined-flag.json": {
+      "sha256": "869181cc555498ff3c817ec93154c6162cb190d1e2d1d68c7279086ce1b252bc",
+      "size": 141
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/07-block-rm-rf-root.json": {
+      "sha256": "bce1189b88bb8e16c167a3ff9e526340f68623d957e8236e36d0955f871356aa",
+      "size": 107
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/08-block-rm-rf-quoted.json": {
+      "sha256": "4069a8307f9a732e5ed0a731f7b657cd11ef2ddc59a35bd1ce0ea7ff4b0b0e8f",
+      "size": 144
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/09-block-rm-rf-var.json": {
+      "sha256": "fc7c3997ac53e27d7b5c13a9bd3ed3b756c27ee39806cd90293b3089d31340d5",
+      "size": 154
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/10-allow-rm-rf-subdir.json": {
+      "sha256": "96a6d0abbd35fcc169ad930428cd34446cb18065a1c079f5d7823db542949a4d",
+      "size": 151
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/11-allow-stderr-redirect.json": {
+      "sha256": "594d0e0fbbe972670cdfca40196dd06a43aee33575f404826c9f117a7e4d3362",
+      "size": 148
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/12-block-dev-sda.json": {
+      "sha256": "67ad1da095fe877746e2f6189a1289817eb3b0193f66b46864eb09b01c43f3bd",
+      "size": 138
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/13-block-delete-no-where.json": {
+      "sha256": "15b72fdef2b1ec0acb7924a75ea08121e1750b1fae7321ddbae72f4ef78b40ab",
+      "size": 145
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/14-allow-delete-with-where.json": {
+      "sha256": "ef851e04a7d1006679eb51f72db6c19098f88416b6f66c37963adb7f7144cdf8",
+      "size": 155
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/15-block-delete-multistatement.json": {
+      "sha256": "bb198626070f50a7f1ea77e44d4d40cf4af0ca166ea2b06cf5ea2c22d9944ed6",
+      "size": 236
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/16-block-chmod-0777.json": {
+      "sha256": "5402898825b851130d46593ff59789d4ee046f1480e456d3022f3500c4054eb9",
+      "size": 131
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/17-block-chmod-R-777.json": {
+      "sha256": "418e8ffaaa7914b6ebc03ace18adf593fe5ddbf6d9872add061fcc7e0a3dc737",
+      "size": 117
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/18-allow-npm-publish-dry-run.json": {
+      "sha256": "a1ef9292270c9dc974f914c724cd567a247da97db4725128e8d8c0914c09ec61",
+      "size": 133
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/19-block-curl-pipe-sudo.json": {
+      "sha256": "bbefeadd983ab4b92ffcdd28d186c224ac94b41e89f078e572b67e706ceab846",
+      "size": 142
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/block-dangerous-commands/20-block-push-develop-configurable.json": {
+      "sha256": "2433f08370c57547b6720c90bdaa84b539bacc76ee03ca8f8a89b084b52ec924",
+      "size": 244
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/format-on-save/01-missing-file-path.json": {
+      "sha256": "9724ae8cc2468aac45f4d17efcb0403a8c81c6e60a1bda817d48a0d6812cd7dc",
+      "size": 145
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/format-on-save/02-nonexistent-file.json": {
+      "sha256": "d040d4cfa09442945d47e0203392bd91729b2322c398e3b8830453f08e6e6c6f",
+      "size": 143
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/format-on-save/03-no-formatter-configured.json": {
+      "sha256": "1b0f81dedd33d82af30b89199600f638f8469b2241346a9138e3435e866e7a7b",
+      "size": 224
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/notify/01-dryrun-custom-message.json": {
+      "sha256": "032e2e6c20cfb44f3f20dd8b400b99bf48e4dd1907796b0926f222f0bac7dbe5",
+      "size": 264
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/notify/02-dryrun-default-message.json": {
+      "sha256": "e5db469a8b1e7a351630692a8b5e7c68552195bb2aa69ad81cf0a919f861edff",
+      "size": 220
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/01-allow-src-file.json": {
+      "sha256": "0c9d815061d9e2b7ccc66e7293615b8897894bd8931a5bd091a7514345528927",
+      "size": 127
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/02-block-env.json": {
+      "sha256": "c8857b743ed61ad0a7b21bdf6934149c383d88ac0d2bc8edb98e756fbcb5bd39",
+      "size": 144
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/03-block-env-local.json": {
+      "sha256": "5077f889c57f9230785b7abe7013751796f250b99b98fca2bb301d3be751e4f0",
+      "size": 123
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/04-block-env-case-insensitive.json": {
+      "sha256": "ce6b13dbffac5c7e1e55ee3e7e1043470bc599f426e5e1d46acf77c9968ba9a3",
+      "size": 120
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/05-allow-env-suffix-file.json": {
+      "sha256": "e99789030f9359edd977ed36ec4b8c6f8e5a99e1162fdc67795aef866ae4ad40",
+      "size": 182
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/06-block-pem.json": {
+      "sha256": "3e327794b8f7ee52503cd53f9dc7b6b0c29884423691c90e3d7a558a29584b2e",
+      "size": 114
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/07-block-id_rsa.json": {
+      "sha256": "2793f185e20bdb028536c20a768ee383b7778c9df904b4fc5e85f97f0d3a0c39",
+      "size": 119
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/08-block-lock-file.json": {
+      "sha256": "363a2dfeb44206de42b5729c7612ac8d2e6ca37727d075304dffe91c00e3c542",
+      "size": 127
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/09-block-generated.json": {
+      "sha256": "fc06abc88849c7fcf2e23ef222316dd0d26eba29206b01f11e1391ef0258e8ab",
+      "size": 129
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/10-block-git-dir.json": {
+      "sha256": "f88f03aaffdadbad71ff54f48105b64f07be4d92bc9398253d14f5f7f5db840a",
+      "size": 127
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/11-block-secrets-dir.json": {
+      "sha256": "d9092e78623fcdd95b181884b981f728828cdfca745e93defd212d3bbdd86c2f",
+      "size": 130
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/12-block-claude-hook-edit.json": {
+      "sha256": "e5fc93c86ee9f2932b1ba4e391aaba641b53019cd706d52722df2801845892d5",
+      "size": 140
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/13-ask-settings.json": {
+      "sha256": "bceaeb6196b107ca0b08005f0a2fbd41aa7d843ae5ac8d8d55d2d8f17092ab8b",
+      "size": 183
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/14-allow-missing-file_path.json": {
+      "sha256": "e46aabc40a3fdcb887a416ab293feab4372a2544f94ac1ed8e441db3b8f1bfb9",
+      "size": 107
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/15-block-pfx.json": {
+      "sha256": "42a149874508b18235db08860cde43f8af79e8a669cf238418c8701bbb78ec60",
+      "size": 106
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/protect-files/16-block-env-subpath.json": {
+      "sha256": "23cd14c70ca31f250aa4aef649caa897b728424fd77c46f18d782f6c78983ee7",
+      "size": 115
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/01-allow-clean-source.json": {
+      "sha256": "3c3d48217eabdfec20b8ffef2070146c426ba7850a52ad6610e6758fe80a1c9a",
+      "size": 167
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/02-allow-env-reference.json": {
+      "sha256": "086f6e018ef551ae7698b5bfa34c2559ab866f496e27d23ba52775da0cda7713",
+      "size": 174
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/03-block-double-quoted-credential.json": {
+      "sha256": "6a2c7395e9d502dcebd00d56a492ae7281badbe17508ed048b5e9fba2bfaac9e",
+      "size": 238
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/04-block-single-quoted-credential.json": {
+      "sha256": "d328504441599db61cd0fa0ff1815b91221760135a679ae482c8559a8bb9ed00",
+      "size": 235
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/05-block-anthropic-hyphenated-key.json": {
+      "sha256": "85702d41753284e348ebe350a201fc08d56700e77382cc1fc73c125b99be1ed9",
+      "size": 229
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/06-block-aws-access-key.json": {
+      "sha256": "fea9123d6b6eba8767ace50a13ec9c87555df816d2941d84c36af1d78b557cdc",
+      "size": 194
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/07-block-github-token.json": {
+      "sha256": "3b6a8e70d55256f6434ebe869f1ca2a16cd6a8b22d476ecc801f1a3d241d78fd",
+      "size": 205
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/08-block-private-key.json": {
+      "sha256": "9bde09eb2a87748fedf7a6f11364501763e55bf33f6737344af7fd9bc5f60b35",
+      "size": 248
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/09-block-conn-string-creds.json": {
+      "sha256": "a6e6a28d69bc6e37f12223fdbbeee7695e049553d4d09502c1df142faa2a184c",
+      "size": 265
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/scan-secrets/10-ignore-read-tool.json": {
+      "sha256": "55ad41241b95421349bbde10c7c5261c872bea8b52a75b44522d4f5db41677b2",
+      "size": 119
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/01-default-minimal.json": {
+      "sha256": "543188998a9c162e3e3e7bfdbd7f2a555e083b2a6e86360a0fa316b1afd426e6",
+      "size": 86
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/02-verbose-mode.json": {
+      "sha256": "339f6f3cba55bf540ed4c6ecc4b054a2afb2203434d1ceeb02ce99832a5e7818",
+      "size": 119
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/03-fingerprint-mode.json": {
+      "sha256": "820b504851c74c32fc92229c466d9fdb8940899d2529c01071fc767bacbdcc33",
+      "size": 198
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/04-drift-detected.json": {
+      "sha256": "fd556c4df43cf3f0a740032b88fa1f178c9fb95053b8239d901ea4f336093ea7",
+      "size": 275
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/05-no-drift-silent.json": {
+      "sha256": "64025784b38075ad776758e7322361a62ea1e0aab7fcbe18fd86c937f8ca93de",
+      "size": 268
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/data/meta-match.json": {
+      "sha256": "7970c98a0c23f0977cb031b3c2862344345f65e92873e871aa42d8a6ed9adba2",
+      "size": 58
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/session-start/data/meta-stale.json": {
+      "sha256": "0a7e770af175c52c84d9845cde06a081905a8c57ac35d80f5d7bddfe67163901",
+      "size": 55
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/01-allow-src-file.json": {
+      "sha256": "0c9d815061d9e2b7ccc66e7293615b8897894bd8931a5bd091a7514345528927",
+      "size": 127
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/02-block-node-modules.json": {
+      "sha256": "3fc0b2ae054c73ebfd0cb9d65c7bf30ffeee6fde95bb9d82330a3ff0f2ef2dac",
+      "size": 214
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/03-block-nested-dist.json": {
+      "sha256": "aff896f546297f2b1b6636bed018bdd09cb019c1a8b0c156fd62bd9969046959",
+      "size": 191
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/04-block-wasm-binary.json": {
+      "sha256": "9377d3ed80eaf0020c2a2fec6d67af81f3d80dbc9041e77f9e0a39e03c572987",
+      "size": 167
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/05-block-archive.json": {
+      "sha256": "09b2374a910f389bd3e6f731058c03d0f0948f9d5eeb9f88cae32a168adbe131",
+      "size": 171
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/06-block-pycache.json": {
+      "sha256": "01376abb652259ced19792488bfb39afbe140e6b0079d0e3f28356b7216822cc",
+      "size": 204
+    },
+    "plugins/setupdotclaude/template/hooks/tests/fixtures/warn-large-files/07-allow-missing-file-path.json": {
+      "sha256": "0962ef8c02fe81aaff61e154b3ef9ea7a4724b203c783e74ad0fd8212ade0330",
+      "size": 95
+    },
+    "plugins/setupdotclaude/template/hooks/tests/run-all.sh": {
+      "sha256": "3df5b89e74e88892202d222e2672ae1fa8acc7ea9c43fb66111813b63e5dd9bb",
+      "size": 3123
+    },
+    "plugins/setupdotclaude/template/hooks/warn-large-files.sh": {
+      "sha256": "b1488ded3fa7ea9fb03b7b68649c00e10f9b504b10852ae7d2b74c4b54863398",
+      "size": 2218
+    },
+    "plugins/setupdotclaude/template/rules/README.md": {
+      "sha256": "3cd62b5a4ceb8071fa9eb1c8e252e8844390822599764fa60f3c36deb89dca97",
+      "size": 2913
+    },
+    "plugins/setupdotclaude/template/rules/code-quality.md": {
+      "sha256": "692f4585c7c6c0756fef6ffb5f71afb5a1436d9db441a0cd4ed0250dc521627c",
+      "size": 1480
+    },
+    "plugins/setupdotclaude/template/rules/database.md": {
+      "sha256": "3eec770c2fde3e244bb9a2eed978bafa5855a785c955ec7d9de07f2a2313c27b",
+      "size": 1057
+    },
+    "plugins/setupdotclaude/template/rules/error-handling.md": {
+      "sha256": "c34acb819c39e5ec709c91032e4708fd77c88306abdc01107a906c470bd74f9e",
+      "size": 859
+    },
+    "plugins/setupdotclaude/template/rules/frontend.md": {
+      "sha256": "72ba2d47c5ad26cff748772c05dfbd7facf7071e639f94199e92fd0bbc743e66",
+      "size": 2873
+    },
+    "plugins/setupdotclaude/template/rules/security.md": {
+      "sha256": "e04ab61ad127e4cedd3cf28df3a49accad4585102246a8e51dd2a792e017d6b3",
+      "size": 642
+    },
+    "plugins/setupdotclaude/template/rules/testing.md": {
+      "sha256": "93e7a9774122a0fd31204dbf1f68644b8eb6311328354b776501541b3ea45685",
+      "size": 554
+    },
+    "plugins/setupdotclaude/template/settings.json": {
+      "sha256": "f1ca7e4362abacf8e1db2f42cb556335aaec8b953f85bfaaea4c6ace534c8fe3",
+      "size": 3174
+    },
+    "plugins/setupdotclaude/template/settings.local.json.example": {
+      "sha256": "eb26395da1ef307e5cbf8b99eaa4b7af3babcdb51e21d4328ca445d8e07a0814",
+      "size": 198
+    },
+    "plugins/setupdotclaude/template/skills/README.md": {
+      "sha256": "19e8fd7160088b1799091fd8fd9788bf5443c77509bf60831f7f2f695f7d15b0",
+      "size": 5667
+    },
+    "plugins/setupdotclaude/template/skills/catchup/SKILL.md": {
+      "sha256": "1fe2e2d830eb1e39e438aedc9f1d46b44e4c4e512d1180b072d1e495a9ed0fa5",
+      "size": 2966
+    },
+    "plugins/setupdotclaude/template/skills/claude-md/SKILL.md": {
+      "sha256": "54d74ec28997d95a222165e8780189ba65e65a30522595c9c454eb28a683fbb0",
+      "size": 3197
+    },
+    "plugins/setupdotclaude/template/skills/context-budget/SKILL.md": {
+      "sha256": "84230afc47cce74c88505f53e462fd156c9353450020addec0bb45900e01a413",
+      "size": 5400
+    },
+    "plugins/setupdotclaude/template/skills/debug-fix/SKILL.md": {
+      "sha256": "d4e4e70a3a907a39af625df870265bc849165cd1ddd96a332d5b540d72ff8009",
+      "size": 4887
+    },
+    "plugins/setupdotclaude/template/skills/explain/SKILL.md": {
+      "sha256": "335ce34d8f54048bf236e7915793d0a7d4af115cdf1b296a50152df5392f7992",
+      "size": 1393
+    },
+    "plugins/setupdotclaude/template/skills/fix-issue/SKILL.md": {
+      "sha256": "92f8a261bd9898be98661e2b7b1d4c9a9aab02c49ebe27d4a99e40d5e634f081",
+      "size": 2985
+    },
+    "plugins/setupdotclaude/template/skills/pr-review/SKILL.md": {
+      "sha256": "851b44527c3eb4b86240524c1cc46c74cc6dd01b96b66b11c62d13615971b70b",
+      "size": 6943
+    },
+    "plugins/setupdotclaude/template/skills/refactor/SKILL.md": {
+      "sha256": "6a65cd9c80b1edee35adcbb8bc5ced3018d5205963dec9b21b4dab107c0b010d",
+      "size": 2524
+    },
+    "plugins/setupdotclaude/template/skills/setupdotclaude/SKILL.md": {
+      "sha256": "a7a2be6d87693fe06577359ba4f4978d81ced9fca394f5a462af15cb24b82730",
+      "size": 13967
+    },
+    "plugins/setupdotclaude/template/skills/ship/SKILL.md": {
+      "sha256": "4cffd1035cfec5d6cfde61c4d3c06c667a2bb8d15f3ae9bc9ed8ed9b8a87bd4a",
+      "size": 3371
+    },
+    "plugins/setupdotclaude/template/skills/tdd/SKILL.md": {
+      "sha256": "8b549eac62d4897a5f5b3ef2a2869551a59b66d170805bd7f065872d7418717f",
+      "size": 3120
+    },
+    "plugins/setupdotclaude/template/skills/test-writer/SKILL.md": {
+      "sha256": "768af8db4a2dc1f6e2ecaaa545ad7ecadc21222ae9f003c4d4dab5758e0aa1ce",
+      "size": 4238
+    },
+    "plugins/ship/.claude-plugin/plugin.json": {
+      "sha256": "02bf38ad22c6bc27c85572f255787dea064f05a8bdf2459fcac127681ecf153e",
+      "size": 532
+    },
+    "plugins/ship/skills/ship/SKILL.md": {
+      "sha256": "4cffd1035cfec5d6cfde61c4d3c06c667a2bb8d15f3ae9bc9ed8ed9b8a87bd4a",
+      "size": 3371
+    },
+    "plugins/silent-failure-hunter/.claude-plugin/plugin.json": {
+      "sha256": "bb0583e682c7a63224ef4421ec3e54b1688c593fc690e48030909ce162bc4fd3",
+      "size": 550
+    },
+    "plugins/silent-failure-hunter/agents/silent-failure-hunter.md": {
+      "sha256": "44beb262664b9f6315438332a1be0e8bad3ef818122e23c5b50a1dcd68dac57c",
+      "size": 4351
+    },
+    "plugins/tdd/.claude-plugin/plugin.json": {
+      "sha256": "57bf8113ad3df7ce2bdf7c34ae1e7174ea8bf5dad502da6a743c72aaf7dd3683",
+      "size": 502
+    },
+    "plugins/tdd/skills/tdd/SKILL.md": {
+      "sha256": "8b549eac62d4897a5f5b3ef2a2869551a59b66d170805bd7f065872d7418717f",
+      "size": 3120
+    },
+    "plugins/test-writer/.claude-plugin/plugin.json": {
+      "sha256": "94e1ea506c27166c980c80729d3fc8eb97b6396ff7bdd54f82312d21bc78d07c",
+      "size": 502
+    },
+    "plugins/test-writer/skills/test-writer/SKILL.md": {
+      "sha256": "768af8db4a2dc1f6e2ecaaa545ad7ecadc21222ae9f003c4d4dab5758e0aa1ce",
+      "size": 4238
+    },
+    "rules/README.md": {
+      "sha256": "3cd62b5a4ceb8071fa9eb1c8e252e8844390822599764fa60f3c36deb89dca97",
+      "size": 2913
+    },
+    "rules/code-quality.md": {
+      "sha256": "692f4585c7c6c0756fef6ffb5f71afb5a1436d9db441a0cd4ed0250dc521627c",
+      "size": 1480
+    },
+    "rules/database.md": {
+      "sha256": "3eec770c2fde3e244bb9a2eed978bafa5855a785c955ec7d9de07f2a2313c27b",
+      "size": 1057
+    },
+    "rules/error-handling.md": {
+      "sha256": "c34acb819c39e5ec709c91032e4708fd77c88306abdc01107a906c470bd74f9e",
+      "size": 859
+    },
+    "rules/frontend.md": {
+      "sha256": "72ba2d47c5ad26cff748772c05dfbd7facf7071e639f94199e92fd0bbc743e66",
+      "size": 2873
+    },
+    "rules/security.md": {
+      "sha256": "e04ab61ad127e4cedd3cf28df3a49accad4585102246a8e51dd2a792e017d6b3",
+      "size": 642
+    },
+    "rules/testing.md": {
+      "sha256": "93e7a9774122a0fd31204dbf1f68644b8eb6311328354b776501541b3ea45685",
+      "size": 554
+    },
+    "settings.json": {
+      "sha256": "f1ca7e4362abacf8e1db2f42cb556335aaec8b953f85bfaaea4c6ace534c8fe3",
+      "size": 3174
+    },
+    "settings.local.json.example": {
+      "sha256": "eb26395da1ef307e5cbf8b99eaa4b7af3babcdb51e21d4328ca445d8e07a0814",
+      "size": 198
+    },
+    "skills/README.md": {
+      "sha256": "19e8fd7160088b1799091fd8fd9788bf5443c77509bf60831f7f2f695f7d15b0",
+      "size": 5667
+    },
+    "skills/catchup/SKILL.md": {
+      "sha256": "1fe2e2d830eb1e39e438aedc9f1d46b44e4c4e512d1180b072d1e495a9ed0fa5",
+      "size": 2966
+    },
+    "skills/claude-md/SKILL.md": {
+      "sha256": "54d74ec28997d95a222165e8780189ba65e65a30522595c9c454eb28a683fbb0",
+      "size": 3197
+    },
+    "skills/context-budget/SKILL.md": {
+      "sha256": "84230afc47cce74c88505f53e462fd156c9353450020addec0bb45900e01a413",
+      "size": 5400
+    },
+    "skills/debug-fix/SKILL.md": {
+      "sha256": "d4e4e70a3a907a39af625df870265bc849165cd1ddd96a332d5b540d72ff8009",
+      "size": 4887
+    },
+    "skills/explain/SKILL.md": {
+      "sha256": "335ce34d8f54048bf236e7915793d0a7d4af115cdf1b296a50152df5392f7992",
+      "size": 1393
+    },
+    "skills/fix-issue/SKILL.md": {
+      "sha256": "92f8a261bd9898be98661e2b7b1d4c9a9aab02c49ebe27d4a99e40d5e634f081",
+      "size": 2985
+    },
+    "skills/pr-review/SKILL.md": {
+      "sha256": "851b44527c3eb4b86240524c1cc46c74cc6dd01b96b66b11c62d13615971b70b",
+      "size": 6943
+    },
+    "skills/refactor/SKILL.md": {
+      "sha256": "6a65cd9c80b1edee35adcbb8bc5ced3018d5205963dec9b21b4dab107c0b010d",
+      "size": 2524
+    },
+    "skills/setupdotclaude/SKILL.md": {
+      "sha256": "a7a2be6d87693fe06577359ba4f4978d81ced9fca394f5a462af15cb24b82730",
+      "size": 13967
+    },
+    "skills/ship/SKILL.md": {
+      "sha256": "4cffd1035cfec5d6cfde61c4d3c06c667a2bb8d15f3ae9bc9ed8ed9b8a87bd4a",
+      "size": 3371
+    },
+    "skills/tdd/SKILL.md": {
+      "sha256": "8b549eac62d4897a5f5b3ef2a2869551a59b66d170805bd7f065872d7418717f",
+      "size": 3120
+    },
+    "skills/test-writer/SKILL.md": {
+      "sha256": "768af8db4a2dc1f6e2ecaaa545ad7ecadc21222ae9f003c4d4dab5758e0aa1ce",
+      "size": 4238
+    }
+  }
+}

@@ -1,0 +1,22 @@
+display_name: "code-review-assistant"
+functional_name: code-review-assistant
+source_url: https://github.com/pbakaus/code-review-assistant
+source_label: external
+upstream_owner: "pbakaus"
+upstream_repository: "code-review-assistant"
+pinned_commit: 5e801967db2cba84c0f69faff4e896538a31ae77
+retrieved_at: "2026-06-22T05:14:16Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Code review patterns."

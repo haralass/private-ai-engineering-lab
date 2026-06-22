@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-06-22T05:12:45.838964+00:00",
+  "file_count": 13,
+  "files": {
+    ".gitignore": {
+      "sha256": "eecc2de2149ad026c61905ca503da45b18d2b7cef7219772d923361f797e69f6",
+      "size": 40
+    },
+    "LICENSE": {
+      "sha256": "beaa87353d22dc115da2fe59677b6221af124b250a0df5219a32e4e3f97dc92d",
+      "size": 1077
+    },
+    "README.md": {
+      "sha256": "e9c349c2910428a4b71eb4eadd419d387e34820efe03c93efcf6bdfb37e7b5a5",
+      "size": 2544
+    },
+    "app.py": {
+      "sha256": "d547c93a87719ab55bda5f43a05dec9c0df36f9abe43d4ebe2ec2c6fb51da7a7",
+      "size": 16766
+    },
+    "assets/app-banner.png": {
+      "sha256": "fae3e44fdc4752698abb34100d17a94e4da0f2c9376bd62cce41ccc68f65af0c",
+      "size": 19048
+    },
+    "assets/v1_screenshot.png": {
+      "sha256": "a6eb0e166089f3a02d9f52aad48e67fe870b02a9e48e011c648778358ef548f4",
+      "size": 244347
+    },
+    "dummy-data.txt": {
+      "sha256": "3cb21b26a98ada64a8074f68fcb040dcc553814cc662098f6c591fde4f3dce30",
+      "size": 1987
+    },
+    "requirements.txt": {
+      "sha256": "76d4baf7daae65933a4a10039c4c45c20ec0ef5fe83a635b2027e71bae390f58",
+      "size": 142
+    },
+    "src/chunk_and_embed.py": {
+      "sha256": "a8f3b6171438ee8e385dae03cf726a740433fba10cce04107674532a68503a77",
+      "size": 802
+    },
+    "src/document_loader.py": {
+      "sha256": "5404550ad7d9e13562604a195944e0636c8bc0f436b624ba46f961259c4e3efc",
+      "size": 419
+    },
+    "src/flashcard_generator.py": {
+      "sha256": "41319f53a5b8527d769a7abe9a7aca73b5f3592a8060c7f92d2a8c0f5095cee3",
+      "size": 1766
+    },
+    "src/quiz_generator.py": {
+      "sha256": "ea2aa983ddcd6e651aa97aca495f9a1f4b19e93e12291276d51c0cbf6fb14b9b",
+      "size": 1922
+    },
+    "src/summarizer.py": {
+      "sha256": "190cd7492628501544a53e3ef292d9e083e916e1d1d25171785ba60fca083f79",
+      "size": 3454
+    }
+  }
+}

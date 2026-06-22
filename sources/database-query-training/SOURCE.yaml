@@ -1,0 +1,22 @@
+display_name: SQL-Gym
+functional_name: database-query-training
+source_url: https://github.com/tsembp/SQL-Gym
+source_label: student-2
+upstream_owner: tsembp
+upstream_repository: SQL-Gym
+pinned_commit: cf16081778edddd663d333b0fc2c1287b1af98e1
+retrieved_at: '2026-06-22T05:11:21.253485+00:00'
+license: MIT
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/database-query-training/upstream
+adapted_path: sources/database-query-training/adapted
+subsystem: ''
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: ''
