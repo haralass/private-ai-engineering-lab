@@ -28,8 +28,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
-import re
 import shutil
 import subprocess
 import sys
@@ -38,6 +36,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
+
+# Use the canonical secret scanner — single source of truth for detection patterns.
+sys.path.insert(0, str(Path(__file__).parent.parent / "security"))
+from secret_scan import scan_directory as _scan_directory
 
 REPO_ROOT = Path(__file__).parent.parent.parent
 SOURCES_DIR = REPO_ROOT / "sources"
@@ -65,50 +67,23 @@ ALWAYS_REMOVE = [
 # File extensions that are build/binary artifacts
 REMOVE_EXTENSIONS = {".pyc", ".pyo", ".pyd", ".log", ".DS_Store"}
 
-# Secret patterns (high confidence)
-SECRET_PATTERNS = [
-    (r"(?i)(?:api[_-]?key|apikey)\s*[:=]\s*['\"]?([a-zA-Z0-9_\-]{20,})", "API key"),
-    (r"(?i)(?:secret|password|passwd|pwd)\s*[:=]\s*['\"]?([a-zA-Z0-9_\-@!#$%^&*]{8,})", "Password/secret"),
-    (r"sk-[a-zA-Z0-9]{32,}", "OpenAI/Anthropic API key"),
-    (r"ghp_[a-zA-Z0-9]{36}", "GitHub personal access token"),
-    (r"gho_[a-zA-Z0-9]{36}", "GitHub OAuth token"),
-    (r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----", "Private key"),
-    (r"(?i)aws_access_key_id\s*[:=]\s*([A-Z0-9]{20})", "AWS access key"),
-    (r"(?i)aws_secret_access_key\s*[:=]\s*([a-zA-Z0-9/+]{40})", "AWS secret key"),
-    (r"(?i)(?:token|bearer)\s*[:=]\s*['\"]?([a-zA-Z0-9_\-\.]{20,})", "Token"),
-]
-
 
 def run(cmd: list[str], cwd: Path | None = None, check: bool = True) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=check)
 
 
 def secret_scan(directory: Path) -> list[dict]:
-    """Scan all text files for secret patterns. Returns list of findings."""
-    findings = []
-    text_extensions = {
-        ".py", ".js", ".ts", ".jsx", ".tsx", ".sh", ".bash", ".yaml", ".yml",
-        ".json", ".toml", ".ini", ".cfg", ".env", ".md", ".txt", ".conf",
-        ".rb", ".go", ".rs", ".java", ".cs", ".php", ".html", ".css",
-    }
-    for path in directory.rglob("*"):
-        if not path.is_file():
-            continue
-        if path.suffix.lower() not in text_extensions and path.suffix:
-            continue
-        try:
-            content = path.read_text(errors="ignore")
-        except (OSError, PermissionError):
-            continue
-        for pattern, label in SECRET_PATTERNS:
-            for match in re.finditer(pattern, content):
-                findings.append({
-                    "file": str(path.relative_to(directory)),
-                    "label": label,
-                    "line": content[: match.start()].count("\n") + 1,
-                    "match_preview": match.group(0)[:60] + ("…" if len(match.group(0)) > 60 else ""),
-                })
-    return findings
+    """Delegate to the canonical scanner in scripts/security/secret_scan.py."""
+    raw = _scan_directory(directory, threshold="high")
+    return [
+        {
+            "file": str(Path(f["file"]).relative_to(directory)),
+            "label": f["label"],
+            "line": f["line"],
+            "match_preview": f["preview"],
+        }
+        for f in raw
+    ]
 
 
 def detect_license(repo_path: Path) -> tuple[str, bool]:

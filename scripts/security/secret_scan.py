@@ -7,6 +7,7 @@ Usage:
     python secret_scan.py <path>
     python secret_scan.py <path> --threshold high
     python secret_scan.py <path> --json
+    python secret_scan.py <path> --exclude 'sources/*/upstream'
 
 Exit codes:
     0  No findings
@@ -16,6 +17,7 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import sys
@@ -47,9 +49,32 @@ TEXT_EXTENSIONS = {
     ".yaml", ".yml", ".json", ".toml", ".ini", ".cfg",
     ".env", ".md", ".txt", ".conf", ".rb", ".go", ".rs",
     ".java", ".cs", ".php", ".html", ".css", ".xml",
+    # Certificate and key files — high-value targets for accidental commits
+    ".pem", ".key", ".crt", ".cer", ".p12",
 }
 
 SKIP_DIRS = {".git", "node_modules", "venv", ".venv", "__pycache__", "dist", "build"}
+
+
+def is_excluded(path: Path, root: Path, excludes: list[str]) -> bool:
+    """Return True if path matches any exclude pattern (glob or path prefix)."""
+    try:
+        rel = str(path.relative_to(root))
+    except ValueError:
+        return False
+    for pattern in excludes:
+        if fnmatch.fnmatch(rel, pattern):
+            return True
+        # Also match if rel starts with the pattern (directory prefix)
+        norm = pattern.rstrip("/")
+        if rel == norm or rel.startswith(norm + "/"):
+            return True
+        # Support glob prefix: sources/*/upstream → match sources/foo/upstream/...
+        parts = norm.split("*")
+        if len(parts) == 2:
+            if rel.startswith(parts[0]) and (parts[1] == "" or ("/" + parts[1].lstrip("/")) in rel or rel.endswith(parts[1])):
+                return True
+    return False
 
 
 def scan_file(path: Path, threshold: str) -> list[dict]:
@@ -81,10 +106,13 @@ def scan_file(path: Path, threshold: str) -> list[dict]:
     return findings
 
 
-def scan_directory(root: Path, threshold: str) -> list[dict]:
+def scan_directory(root: Path, threshold: str, excludes: list[str] | None = None) -> list[dict]:
+    excludes = excludes or []
     findings = []
     for path in root.rglob("*"):
         if any(part in SKIP_DIRS for part in path.parts):
+            continue
+        if is_excluded(path, root, excludes):
             continue
         if path.is_file():
             findings.extend(scan_file(path, threshold))
@@ -96,6 +124,13 @@ def main() -> None:
     parser.add_argument("path", help="File or directory to scan")
     parser.add_argument("--threshold", default="high", choices=["high", "medium", "low"])
     parser.add_argument("--json", action="store_true", dest="as_json")
+    parser.add_argument(
+        "--exclude",
+        action="append",
+        default=[],
+        metavar="PATTERN",
+        help="Glob pattern or path prefix to exclude (may be repeated)",
+    )
     args = parser.parse_args()
 
     target = Path(args.path)
@@ -106,7 +141,7 @@ def main() -> None:
     if target.is_file():
         findings = scan_file(target, args.threshold)
     else:
-        findings = scan_directory(target, args.threshold)
+        findings = scan_directory(target, args.threshold, excludes=args.exclude)
 
     if args.as_json:
         print(json.dumps(findings, indent=2))

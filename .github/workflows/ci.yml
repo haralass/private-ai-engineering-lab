@@ -23,10 +23,13 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Run secret scan on changed files
+      - name: Run secret scan
         run: |
-          python scripts/security/secret_scan.py . --threshold high
-        # Fail if any high-confidence secrets are found
+          # Exclude sources/*/upstream/ — already scanned and documented at import time.
+          # CI protects our own code: components/, scripts/, docs/, source-catalog/, etc.
+          python scripts/security/secret_scan.py . --threshold high \
+            --exclude 'sources/*/upstream'
+        # Fail if any high-confidence secrets are found in our own code
 
   validate-sources:
     name: Validate source manifests
@@ -116,6 +119,10 @@ jobs:
           cd components/agent-safety-firewall
           python -m pytest tests/ -v
 
+      - name: Run script tests
+        run: |
+          python -m pytest scripts/security/tests/ scripts/validation/tests/ -v
+
   large-file-check:
     name: Large file check
     runs-on: ubuntu-latest
@@ -148,10 +155,14 @@ jobs:
 
       - name: Check that upstream/ dirs were not modified
         run: |
-          # On PR, check if any files in sources/*/upstream/ were modified
-          if git diff --name-only origin/main...HEAD | grep "^sources/.*/upstream/"; then
+          # Check for MODIFICATIONS to existing upstream/ files (not additions of new sources).
+          # --diff-filter=M means only files that existed in main and were then changed.
+          # Adding new sources/*/upstream/ trees via a PR is intentional and should not fail.
+          modified=$(git diff --diff-filter=M --name-only origin/main...HEAD | grep "^sources/.*/upstream/" || true)
+          if [ -n "$modified" ]; then
             echo "ERROR: Files in sources/*/upstream/ must never be modified."
             echo "       All changes must go into sources/*/adapted/ or components/"
+            echo "$modified"
             exit 1
           fi
           echo "Upstream immutability: OK"
