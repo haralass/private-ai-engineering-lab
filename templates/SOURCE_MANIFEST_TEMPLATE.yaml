@@ -1,0 +1,23 @@
+# SOURCE.yaml template — copy to sources/<functional-name>/SOURCE.yaml
+
+display_name: ""                     # Human-readable name
+functional_name: ""                  # Must match directory name
+source_url: ""                       # Full GitHub URL
+source_label: "external"            # external | student-1 | student-2
+upstream_owner: ""                   # GitHub username or org
+upstream_repository: ""              # Repository name
+pinned_commit: ""                    # Full 40-char SHA
+retrieved_at: ""                     # ISO 8601 timestamp
+license: ""                          # SPDX identifier or NOT-FOUND
+license_file_verified: false        # Was a LICENSE file actually found?
+import_mode: "vendored-snapshot"    # vendored-snapshot | selected-subsystem | reference-only | clean-room-reimplementation | submodule
+snapshot_path: ""                    # Relative path to upstream/
+adapted_path: ""                     # Relative path to adapted/
+subsystem: ""                        # If selected-subsystem, which subdir
+removed_paths: []                    # List of paths removed before import
+local_modifications: []              # Files changed in adapted/
+security_review_status: "pending"  # pending | in-progress | approved | rejected
+license_review_status: "pending"   # pending | approved | rejected
+execution_allowed: false            # Is this safe to execute in our environment?
+decision: "candidate"               # candidate | approved | rejected | reference-only
+notes: ""
