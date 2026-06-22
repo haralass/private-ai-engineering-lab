@@ -180,6 +180,7 @@ def import_source(
     mode: str = "vendored-snapshot",
     subsystem: str | None = None,
     license_override: str | None = None,
+    reviewed_secrets: bool = False,
 ) -> None:
     out_dir = SOURCES_DIR / functional_name
     if out_dir.exists():
@@ -246,12 +247,20 @@ def import_source(
             print(f"\nSECRET SCAN FINDINGS ({len(findings)} potential secrets found):", file=sys.stderr)
             for f in findings:
                 print(f"  {f['file']}:{f['line']} [{f['label']}] {f['match_preview']}", file=sys.stderr)
-            print(
-                "\nImport aborted due to potential secrets.\n"
-                "Review the findings, remove secrets, then re-run with the cleaned repo.",
-                file=sys.stderr,
-            )
-            sys.exit(1)
+            if reviewed_secrets:
+                print(
+                    "\n[import] --reviewed-secrets set: proceeding after human review.\n"
+                    "         Document findings and disposition in AUDIT.md.",
+                    file=sys.stderr,
+                )
+            else:
+                print(
+                    "\nImport aborted due to potential secrets.\n"
+                    "Review findings. If they are test fixtures or false positives,\n"
+                    "re-run with --reviewed-secrets and document in AUDIT.md.",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
         print("[import] Secret scan: clean")
 
         # Copy to upstream/
@@ -400,6 +409,11 @@ def main() -> None:
     )
     parser.add_argument("--subsystem", default=None, help="Subdirectory within the repo to import")
     parser.add_argument("--license-override", default=None, help="Override license detection (use SPDX identifier)")
+    parser.add_argument(
+        "--reviewed-secrets",
+        action="store_true",
+        help="Confirm that secret scan findings have been manually reviewed and are false positives or test fixtures",
+    )
     args = parser.parse_args()
 
     import_source(
@@ -410,6 +424,7 @@ def main() -> None:
         mode=args.mode,
         subsystem=args.subsystem,
         license_override=args.license_override,
+        reviewed_secrets=args.reviewed_secrets,
     )
 
 
