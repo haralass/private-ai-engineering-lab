@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-06-22T05:53:26.781848+00:00",
+  "file_count": 69,
+  "files": {
+    ".github/workflows/playwright.yml": {
+      "sha256": "638c2084840a6361d86795326cfde7b54a5253384385b70c9a33f2768bad2572",
+      "size": 662
+    },
+    ".gitignore": {
+      "sha256": "2e35886d3afb8a1ee96ac8e7a79e928a6717bce01f624a499b191ef5ae053db8",
+      "size": 442
+    },
+    ".prettierrc.js": {
+      "sha256": "251a4195cd042b31f8e24b334b208c8d6f36140da419c3dbdac983e3e66e8f1e",
+      "size": 115
+    },
+    "FUNDING.yml": {
+      "sha256": "7676c36e160ac6dcb41320f2424f773d68f9e5abf6da498ec192654f6ee1cb03",
+      "size": 21
+    },
+    "LICENSE.md": {
+      "sha256": "da9201378c36ffd81f51ad0b305f3f0981e90bc558789210ad65d1161eec3b7d",
+      "size": 1070
+    },
+    "README.md": {
+      "sha256": "0809d104ce28f9c14b3b1e73257d93096f96134d2a5f2f225e5abf38b1aa4549",
+      "size": 867
+    },
+    "package.json": {
+      "sha256": "dec51c786328f55cd227b1266fac7ada3d2ed5376fe2b71a34a8aea2e2174a30",
+      "size": 1670
+    },
+    "playwright.config.ts": {
+      "sha256": "89d9018cb3efcf73e6b267f4414aabf0eab3f98105ea8157cd6a6a5f9f0b24af",
+      "size": 2058
+    },
+    "pnpm-lock.yaml": {
+      "sha256": "545922cd50fad950b3968b237f61d532675cce591bff030f2546c64d96c29241",
+      "size": 262969
+    },
+    "pnpm-workspace.yaml": {
+      "sha256": "b8951bb79b9c26070656caec1bfdecf6bf8c5246e0e49949e320b8a1ee25d367",
+      "size": 43
+    },
+    "src/assets.tsx": {
+      "sha256": "7fca6c53bbe5edf4ce785e9d069d80136a3cfb8eb759cdfe839aaf2d0aaa3fda",
+      "size": 2797
+    },
+    "src/hooks.tsx": {
+      "sha256": "b23d537b70618ae63072732607582f9ae88b3b5143e039339ca3dd0b75273626",
+      "size": 440
+    },
+    "src/index.tsx": {
+      "sha256": "6486436e1a7abb755ab2eb02d7f611300a368c6ea681e4d0d8dff84e25857ea3",
+      "size": 30197
+    },
+    "src/state.ts": {
+      "sha256": "91b3d92ac31ee165ba21be41332b200e4ce7162100962d927d7db16c1305dd0d",
+      "size": 9264
+    },
+    "src/styles.css": {
+      "sha256": "15543b942bc2ae35ddef4a98af1b9632178ced3ab4a55c0553e8ef1c1d849b32",
+      "size": 17522
+    },
+    "src/types.ts": {
+      "sha256": "3ba0a8cfa967ec512fe93c8f1d252917e27208030a6c5479ce2a1fb13383590c",
+      "size": 5243
+    },
+    "test/.eslintrc.json": {
+      "sha256": "1589a15e55fbebc6519c95d91d8f0a090618f20dc78e479858b9c27552484961",
+      "size": 40
+    },
+    "test/.gitignore": {
+      "sha256": "b9b5c3718807af8cc963149738f308cd09be48ea3c70535e8b200b6b211ffe97",
+      "size": 440
+    },
+    "test/.npmrc": {
+      "sha256": "2f6bd9172915b171c073687ceae303738d4dd13bc9b478a7e0f02f8155e8e0fc",
+      "size": 29
+    },
+    "test/.vscode/settings.json": {
+      "sha256": "45a4d3fe5242765b56164c642d637a97c53a9749937b9ed90ad0e607d5e9151e",
+      "size": 145
+    },
+    "test/README.md": {
+      "sha256": "2a2b595ba42520fa4e36c2ff22d79f03a7a2f962e82f2e5fb28c546d28d82fac",
+      "size": 1748
+    },
+    "test/next.config.js": {
+      "sha256": "549704cecfddd6f6c20e181566bbabb2e390f729be865edf881a4464ff50f50d",
+      "size": 94
+    },
+    "test/package-lock.json": {
+      "sha256": "e11908c96f53d5cb7a92f425656a7cf276e1704fcf5da819dd69c2a049917c6f",
+      "size": 219181
+    },
+    "test/package.json": {
+      "sha256": "de997e85c932064319ce6e973c700cf0642bc76f33ff083ebd46cf42c67e2dea",
+      "size": 512
+    },
+    "test/src/app/action.tsx": {
+      "sha256": "da80f5fcfef33592108ed1fefc728a5c610c391999b461967366519a1b89797d",
+      "size": 409
+    },
+    "test/src/app/layout.tsx": {
+      "sha256": "fc33b24706ce7606326d6ba127925aff7afee18f12081219605968811ea0085d",
+      "size": 268
+    },
+    "test/src/app/page.tsx": {
+      "sha256": "1a168704497e0fd2819788ede010ad8433815a4fcc238cb6a4599f0d824ea6c4",
+      "size": 12001
+    },
+    "test/tests/basic.spec.ts": {
+      "sha256": "556578ce798e27365e82b3eb43f59ba43465d96581b5d758ddcdc5270f99422a",
+      "size": 14011
+    },
+    "test/tsconfig.json": {
+      "sha256": "dc0f069e47e83687ed3d311571aecbd2659806b9f4cd9aa19cbdee936875b90f",
+      "size": 669
+    },
+    "tsconfig.json": {
+      "sha256": "2e2e9f4e588969e49797f0f232074d3e9110ad5d9074f2fc7a69b7e97ba7fef1",
+      "size": 187
+    },
+    "turbo.json": {
+      "sha256": "3cd2dbdde0599a6a6f9fd9223c7bccb8001b3560e9ec16c6181f176c16cd650a",
+      "size": 227
+    },
+    "website/.eslintrc.json": {
+      "sha256": "1589a15e55fbebc6519c95d91d8f0a090618f20dc78e479858b9c27552484961",
+      "size": 40
+    },
+    "website/.gitignore": {
+      "sha256": "39688688e26f2389bdd9d3683986f158a146d5de2909b2f83e542ceb471d5ed4",
+      "size": 385
+    },
+    "website/.vscode/settings.json": {
+      "sha256": "45a4d3fe5242765b56164c642d637a97c53a9749937b9ed90ad0e607d5e9151e",
+      "size": 145
+    },
+    "website/README.md": {
+      "sha256": "2a2b595ba42520fa4e36c2ff22d79f03a7a2f962e82f2e5fb28c546d28d82fac",
+      "size": 1748
+    },
+    "website/next.config.js": {
+      "sha256": "2d0cefb5ba4b18f852a22e0a3c7cb6792a9ae09d9219a6098d9eccd630b4c748",
+      "size": 307
+    },
+    "website/package.json": {
+      "sha256": "e7334d839a730dc05a40e3bd7b44d39f523f3451c72f31fdbcea65e85117995c",
+      "size": 858
+    },
+    "website/postcss.config.js": {
+      "sha256": "fa650b380adfabb151a0b352f7135e107e6352345f899060f1c5c231228f94bf",
+      "size": 83
+    },
+    "website/public/emil.jpeg": {
+      "sha256": "e4ece306f299d4255a6af253dbb4068ba63c395b1d36295c6fee4a1391c4b5be",
+      "size": 6268
+    },
+    "website/public/favicon.ico": {
+      "sha256": "5c3849b7069c51a6f4c86f34bef457f07df5589acec9eeb65cae83bbf6f12040",
+      "size": 119743
+    },
+    "website/public/og.png": {
+      "sha256": "bb34534af3ea815933393e9646ebbc4e6c496fff92efb3dcf99bfad52d3f9863",
+      "size": 214308
+    },
+    "website/src/components/CodeBlock/code-block.module.css": {
+      "sha256": "47b3ca130aa3f03494645a03ef22cb36442c8cf4dae332fc1542ed9c6ddc5039",
+      "size": 1080
+    },
+    "website/src/components/CodeBlock/index.tsx": {
+      "sha256": "31d9e016363780d5ee5a2987a6098aa61edca1d98a7a04b996030d89e95e0811",
+      "size": 4162
+    },
+    "website/src/components/ExpandModes/index.tsx": {
+      "sha256": "15bc36091723d49369baea1cb6c6e1eaa9efabfbcd7b1a50516b21d0bd7d8ca0",
+      "size": 1136
+    },
+    "website/src/components/Footer/footer.module.css": {
+      "sha256": "98983f070865b174b179a069ec0986ca73ca3da8032132396b1c67cd9d884508",
+      "size": 457
+    },
+    "website/src/components/Footer/index.tsx": {
+      "sha256": "c4685bcd45d391ada094dd608ad9666fca9736685bea6195053483aa5b34200f",
+      "size": 561
+    },
+    "website/src/components/Head/index.tsx": {
+      "sha256": "18ff40b41972447823b63c51ed5d956664bc693d4e1f48914d656763fe011cbe",
+      "size": 1243
+    },
+    "website/src/components/Hero/hero.module.css": {
+      "sha256": "2c00ad67cb93fc41bb811e9089c69fea978d054d0f4b5746f749cffe9f73b950",
+      "size": 3063
+    },
+    "website/src/components/Hero/index.tsx": {
+      "sha256": "d870b53df15ebd0ff8398d8ad3b7aad6a6357b0002a44d8a588a58850ca1d947",
+      "size": 1111
+    },
+    "website/src/components/How/How.tsx": {
+      "sha256": "671b76e67c8891a54fa3990686938d8a48f746500bf60ae13d60ee445e67c3d4",
+      "size": 490
+    },
+    "website/src/components/Installation/index.tsx": {
+      "sha256": "dc6c5e84a09f5002fd9d301535fc736715a147e9fc966778a42cc987949ae2f3",
+      "size": 2492
+    },
+    "website/src/components/Installation/installation.module.css": {
+      "sha256": "901d529e98ee75b799eefc4ee07b39b478c1ae9d61e2b434d63ed2625d6a7055",
+      "size": 710
+    },
+    "website/src/components/Other/Other.tsx": {
+      "sha256": "76ffcecbf31faaf16ac84cd897ecb14fb49b93c8026623094c8b3c681bdd258e",
+      "size": 3984
+    },
+    "website/src/components/Other/other.module.css": {
+      "sha256": "e53ba0b2394928b0fd40ecc836bd1783edd5c6215e5c73cbe0635b5255def8f3",
+      "size": 1013
+    },
+    "website/src/components/Position/index.tsx": {
+      "sha256": "3414c6cb297011ef90dbf79454e5c78270a4401b3998ca0866cbd9862c7fb11e",
+      "size": 1364
+    },
+    "website/src/components/Types/Types.tsx": {
+      "sha256": "b0e1416cb53666d215487443556b9da93d20587bde77d21a8f9af773fc5c1c3a",
+      "size": 3176
+    },
+    "website/src/components/Usage/index.tsx": {
+      "sha256": "b0f9f5ad299117822a9f52544c9cdcaf97f8d69c015e777f9f6cfb30257bf5d6",
+      "size": 460
+    },
+    "website/src/globals.css": {
+      "sha256": "b48961aa4c33ab4d3167c06129b0288a3bda4296dd7b3e2b5a17332b1b93a849",
+      "size": 4201
+    },
+    "website/src/pages/_app.tsx": {
+      "sha256": "3763a6c6e8934356b015e5a1950bb071874f9de5a614cb1b5849540f40368719",
+      "size": 383
+    },
+    "website/src/pages/_meta.json": {
+      "sha256": "01cde922f38bb53390ea116070bdbc9f90777280ea7591ffb4c85a36082ff6af",
+      "size": 421
+    },
+    "website/src/pages/getting-started.mdx": {
+      "sha256": "88aca87c0c291566a30290aa2dcaac75edddf813881c80c78a85f669758055c6",
+      "size": 1122
+    },
+    "website/src/pages/index.tsx": {
+      "sha256": "3ed952038a4819005040f852ea3d26a7ce3a9db571f8feba93d8ef5e239699b2",
+      "size": 1578
+    },
+    "website/src/pages/styling.mdx": {
+      "sha256": "96fd2469a73fdea3e07cdeff5de2ae47867dde72b0f8d9a129fee69edc8c3766",
+      "size": 1805
+    },
+    "website/src/pages/toast.mdx": {
+      "sha256": "24c21295b681f32f4b8ff08c383154f522b848a0ac560f6469149b24f1dc808a",
+      "size": 7988
+    },
+    "website/src/pages/toaster.mdx": {
+      "sha256": "952a709ecf3d9a5058d1311a5aff363d480fbdc0135da27aa853ebd41bc417b2",
+      "size": 4911
+    },
+    "website/src/style.css": {
+      "sha256": "a5d15f6479ccdfeb1672622408379e63588a5c7f9722479e68b44be087bbab9d",
+      "size": 2959
+    },
+    "website/tailwind.config.js": {
+      "sha256": "ed933cea3569d12f509d8b319c18c4b5f51572298b09b4628b634aab449d6b61",
+      "size": 285
+    },
+    "website/theme.config.jsx": {
+      "sha256": "15a4bcbd0b889b2aedfe5be19d6c79d8ff9e7caed89bf0003e163e1d4526743c",
+      "size": 595
+    },
+    "website/tsconfig.json": {
+      "sha256": "b73713cfac8b8589f059a89cad408a557f1132d5e7f8124e6284220d3a86391c",
+      "size": 658
+    }
+  }
+}
