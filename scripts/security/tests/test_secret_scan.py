@@ -55,14 +55,17 @@ def test_detects_github_pat(tmp_path):
 
 def test_detects_private_key(tmp_path):
     f = tmp_path / "key.pem"
-    f.write_text("-----BEGIN RSA PRIVATE KEY-----\nMIIE...")
+    # Split to avoid triggering the scanner on this source file itself
+    content = "-----BEGIN RSA PRIVATE KEY" + "-----\nMIIEfake..."
+    f.write_text(content)
     findings = scan_file(f, "high")
     assert any("Private key" in x["label"] for x in findings)
 
 
 def test_detects_aws_key(tmp_path):
     f = tmp_path / "config.yml"
-    f.write_text("aws_access_key_id: AKIAIOSFODNN7EXAMPLE")
+    # AKIA prefix split to avoid self-detection
+    f.write_text("aws_access_key_id: AKIA" + "IOSFODNN7EXAMPLE")
     findings = scan_file(f, "high")
     assert len(findings) >= 1
 
