@@ -1,0 +1,41 @@
+# License matrix
+# Maps functional source names to their license status
+# Populated by import_source.py and updated after manual review
+
+license_matrix:
+  deterministic-agent-safety:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+
+  structured-agent-development:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+
+  full-product-engineering-agent-stack:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+
+  anthropic-skills:
+    license: Apache-2.0
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  model-layer-streaming:
+    license: Apache-2.0
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+# All others: to be populated after import_source.py runs

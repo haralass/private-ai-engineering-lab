@@ -1,0 +1,13 @@
+# Import status — tracks progress of source imports
+# Updated by import_source.py after each run
+
+imports: []
+# Each entry will look like:
+# - functional_name: deterministic-agent-safety
+#   url: https://github.com/poshan0126/dotclaude
+#   pinned_commit: <sha>
+#   imported_at: 2026-06-22T00:00:00Z
+#   secret_scan: passed
+#   license_found: MIT
+#   files_removed: [node_modules, .git]
+#   status: complete
