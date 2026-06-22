@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.egg-info/
+*.egg
+*.whl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment — never commit real env files
+.env
+.env.local
+.env.*.local
+*.env.secret
+
+# Logs
+*.log
+logs/
+
+# Test artifacts
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Large generated/downloaded content
+*.bin
+*.safetensors
+*.gguf
+*.ggml
+*.pth
+*.pt
+*.ckpt
+*.h5
+
+# Caches
+.cache/
+__snapshots__/
+
+# Database files (never commit real data)
+*.sqlite
+*.sqlite3
+*.db
