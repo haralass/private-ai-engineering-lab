@@ -77,7 +77,11 @@ def analyze(
 
     # Check dangerous patterns
     for entry in patterns:
-        if re.search(re.escape(entry["pattern"]).replace(r"\*", ".*"), command, re.IGNORECASE):
+        if entry.get("regex"):
+            matched = re.search(entry["pattern"], command, re.IGNORECASE)
+        else:
+            matched = re.search(re.escape(entry["pattern"]).replace(r"\*", ".*"), command, re.IGNORECASE)
+        if matched:
             return PolicyDecision(
                 action=Action(entry["action"]),
                 severity=Severity(entry["severity"]),

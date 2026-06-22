@@ -51,25 +51,30 @@ patterns:
     reason: "Force branch deletion — irreversible"
 
   # Pipe execution (supply chain risk)
-  - pattern: "curl.*|.*bash"
+  # These are regex patterns — use regex: true flag
+  - pattern: "curl.+\\|.+bash"
+    regex: true
     action: block
     severity: critical
-    reason: "Piped execution of remote script"
+    reason: "Piped execution of remote script via curl"
 
-  - pattern: "curl.*|.*sh"
+  - pattern: "curl.+\\|.+sh\\b"
+    regex: true
     action: block
     severity: critical
-    reason: "Piped execution of remote script"
+    reason: "Piped execution of remote script via curl"
 
-  - pattern: "wget.*|.*bash"
+  - pattern: "wget.+\\|.+bash"
+    regex: true
     action: block
     severity: critical
-    reason: "Piped execution of remote script"
+    reason: "Piped execution of remote script via wget"
 
-  - pattern: "wget.*|.*sh"
+  - pattern: "wget.+\\|.+sh\\b"
+    regex: true
     action: block
     severity: critical
-    reason: "Piped execution of remote script"
+    reason: "Piped execution of remote script via wget"
 
   # Permission expansion
   - pattern: "chmod 777"
