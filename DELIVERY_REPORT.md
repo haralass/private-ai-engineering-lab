@@ -1,7 +1,7 @@
 # Phase 1 Delivery Report
 
-Generated: 2026-06-23 (pre-merge quality gate — 10-item fix list applied)  
-Branch: `research/initial-agent-engineering-knowledge-base`  
+Generated: 2026-06-23 (second pre-merge quality gate — 5-item fix list applied)
+Branch: `research/initial-agent-engineering-knowledge-base`
 PR: #1 (open, pending merge)
 
 ---
@@ -14,135 +14,137 @@ PR: #1 (open, pending merge)
 | Validate source manifests | ✅ pass | Handles reference-only and vendored modes |
 | YAML validation | ✅ pass | Checks both `*.yaml` and `*.yml` |
 | ShellCheck | ✅ pass | All hook scripts pass |
-| Component tests | ✅ pass | 81/81 (41 new hook integration tests) |
-| Large file check | ✅ pass | No files >10 MB; no `|| true` masking |
+| Component tests | ✅ pass | 89/89 (49 new hook integration tests) |
+| Large file check | ✅ pass | Excludes `sources/*/upstream/`; no large files in our own code |
 | Upstream immutability | ✅ pass | `--diff-filter=M` distinguishes edits from additions |
+
+CI now runs on **all pushes** (including `main`) and on PRs to `main`.
 
 ---
 
 ## 2. Test Results
 
-### agent-safety-firewall (81 tests)
+### agent-safety-firewall (89 tests)
 
 ```
 tests/test_command_analyzer.py   — 22 tests  (command pattern matching)
 tests/test_git_rules.py          —  8 tests  (git + file write integration)
 tests/test_path_guard.py         — 11 tests  (protected path rules)
-tests/test_hooks_integration.py  — 41 tests  (real .sh hooks via subprocess)
-Total: 81 passed in 3.45s
+tests/test_hooks_integration.py  — 49 tests  (real .sh hooks via subprocess)
+Total: 89 passed in 2.83s
 ```
 
-Hook integration tests cover: report-only mode (BLOCK → exit 0 + REPORT-ONLY stderr),
-enforce mode (BLOCK → exit 2, CONFIRM → exit 3, ALLOW → exit 0), dangerous commands
-(`rm -rf`, `git push --force`, `git reset --hard`, `git clean -f`, `curl|bash`, `wget|sh`,
-`chmod 777`, `npm publish`, `sudo`, `DROP TABLE`), safe commands that must be allowed,
-edge-case inputs (single quotes, double quotes, backslashes, newlines), malformed JSON,
-empty input, before-file-write (`.env`, `.pem`, upstream dirs), before-git-operation.
+Integration test precision:
+- `git push origin main` → exit 3 (CONFIRM, not BLOCK)
+- `sudo apt-get install vim` → exit 3 (CONFIRM)
+- `DROP TABLE` → exit 3 (CONFIRM)
+- `.env` write → exit 2 (BLOCK)
+- `.pem` write → exit 2 (BLOCK)
+- `sources/*/upstream/**` write → exit 2 (BLOCK)
+- `CLAUDE.md` write → exit 3 (CONFIRM, not BLOCK)
+- `settings.json` write → exit 3 (CONFIRM)
+- Malformed JSON in enforce → exit 4 (blocked)
+- Malformed JSON in report-only → exit 4, verdict=allow
+- Policy engine failure in enforce → exit 5 (blocked)
 
 ### Script tests (35 tests)
 
 ```
 scripts/security/tests/test_secret_scan.py              — 22 tests
 scripts/validation/tests/test_validate_source_manifests.py — 13 tests
-Total: 35 passed in 0.08s
+Total: 35 passed in 0.06s
 ```
 
-Secret scan tests include 7 redaction tests verifying that `findings[*]["preview"]`
-never contains the full secret value.
+**Grand total: 124 tests, all passing.**
 
 ---
 
-## 3. Pre-Merge Fixes Applied (10-item list)
+## 3. Pre-Merge Fixes Applied (second pass — 5 items)
 
-### Fix 1 — CI large-file / model-weight checks
+### Fix 1 — Fail-closed hook behavior
 
-Removed `|| true` that silently swallowed all failures. Both checks now use the
-assignment pattern (`result=$(find ...)`) and explicit `if [ -n "$result" ]; then exit 1`.
+**Problem:** hooks did `json.load(CLAUDE_TOOL_INPUT) || true` in shell, so malformed
+JSON produced empty COMMAND, and the hook exited 0 — even in enforce mode.
 
-After removing `|| true`, two legitimately-vendored files were correctly detected:
-- `sources/full-product-engineering-agent-stack/upstream/.../security-bench-haiku-responses.json` (27MB test fixture)
-- `sources/persistent-agent-memory/upstream/plans/inbox/...slides.pdf` (10MB PDF)
+**Fix:** hooks now pipe `CLAUDE_TOOL_INPUT` **raw** directly to `run_policy.py`. No
+shell-side JSON parsing, no `|| true`. `run_policy.py` owns all parsing and fail-closed logic:
+- Malformed JSON → exit 4, verdict=block in enforce / verdict=allow in report-only
+- Policy engine import failure → exit 5, verdict=block in enforce
 
-Both are in `sources/*/upstream/` — inspected and documented at import time. Both checks
-now exclude `sources/*/upstream/` (same rationale as the secret scan exclusion), so the
-guard protects `components/`, `scripts/`, and source-catalog only.
+Also discovered and fixed: `run_policy.py` only checked `data.get("target_path")` but
+Claude Code sends `file_path` for file-write hooks. Fixed by checking both keys:
+`data.get("target_path") or data.get("file_path")`.
 
-### Fix 2 — Hook shell-injection vulnerability
+### Fix 2 — Full catalog consistency validation
 
-All three hooks previously used `evaluate(command='$COMMAND')` — string-interpolating
-the command directly into Python source, breaking on quotes/newlines/backslashes.
+`validate_catalog_consistency.py` now **requires** every SOURCE.yaml to appear in all 3 catalogs:
+- `source-catalog/sources.yaml` — must have `functional_name`
+- `source-catalog/import-status.yaml` — must be in `imports` (vendored) or `reference_only`
+- `source-catalog/license-matrix.yaml` — must have an entry
 
-New design:
-1. `hooks/run_policy.py` — new safe runner that reads JSON from stdin and calls the policy engine
-2. All `.sh` hooks build safe JSON via `python3 -c "...json.dumps({...})" "$COMMAND"` (command passed as `sys.argv[1]`, never interpolated into source)
+Cross-checks:
+- `source_label` matches sources.yaml `label`
+- `pinned_commit` prefix matches import-status.yaml (vendored sources only)
+- `license` matches license-matrix.yaml (when matrix has a non-unknown, non-NOT-FOUND entry)
+- vendored sources are in `imports[]`, reference-only are in `reference_only[]`
 
-**Bug discovered and fixed:** original code used `-- "$COMMAND"` after the Python
-one-liner. Python passes `--` as `sys.argv[1]` rather than consuming it as an option
-terminator, making the command field always `"--"`. Removed `--`; Python does not
-reprocess remaining args as options after `-c "script"`, so this is safe.
+Catalog files updated to cover all 30 sources:
+- `import-status.yaml`: added `design-agent-reviews` and `interaction-motion-toast`;
+  added `pinned_commit` to all reference-only entries
+- `license-matrix.yaml`: rewritten to cover all 30 sources (was missing 25)
 
-### Fix 3 — Configurable enforcement mode
+Result: `validate_catalog_consistency.py` passes for all 30 sources across all 3 catalogs.
 
-`AGENT_SAFETY_MODE=report-only` (default): logs warnings, always exits 0.  
-`AGENT_SAFETY_MODE=enforce`: real exit codes — 2 (block), 3 (confirm).  
-Controlled by `is_report_only()` in `policy_engine.py`; no hardcoded boolean.
+### Fix 3 — CI runs on push to main
 
-### Fix 4 — Hook integration tests (41 tests)
+Changed from `branches-ignore: [main]` to:
+```yaml
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+```
+CI now runs on every push to every branch (including main) and on PRs to main.
 
-See Section 2 above. Tests run actual `.sh` scripts via `subprocess.run()`.
+### Fix 4 — Import-time large-file and model-weight validation
 
-### Fix 5 — Secret redaction
+`import_source.py` now runs a large-file and model-weight scan before copying files:
 
-`redact(value, keep=4)` masks the middle of any matched string. `scan_file()` calls
-`redact()` on every match; preview never exposes the full token. Tests verify this
-property for GitHub PATs, AWS secret keys, and OpenAI keys.
+- **Model weights** (`.safetensors`, `.gguf`, `.ggml`, `.pt`, `.pth`, `.ckpt`): always abort.
+- **Large files** (>10 MB): abort unless `--allow-large-files` is passed.
+- `--allow-large-files`: allows non-weight large files (test fixtures, PDFs, benchmark data).
+  Each finding is documented in AUDIT.md with type and size. Justification required.
+- AUDIT.md now has a "Large files and model weights" section showing scan result.
 
-### Fix 6 — Source importer hardening
+### Fix 5 — Precise test assertions and honest delivery report
 
-| Before | After |
-|---|---|
-| SHA checkout failure → silently continued at HEAD | SHA checkout failure → `sys.exit(1)` with message |
-| SHA verification used exact prefix match only | Both directions checked (`startswith` symmetrically) |
-| `--license-override` → `license_file_verified: True` | `license_file_verified: False` when override is used |
-| `license_override_applied` field absent | Added to SOURCE.yaml |
-| reference-only mode still copied upstream code | reference-only creates catalog entry only, no files copied |
-| AUDIT.md showed "clean" even when scan was not run | AUDIT.md is honest: pending counts or true clean |
-| Inline `SECRET_PATTERNS` duplicating secret_scan.py | Delegates to canonical `scan_directory` import |
+All `assert returncode in (2, 3)` replaced with exact expected values based on policy:
+- CONFIRM action → exit 3 (not 2)
+- BLOCK action → exit 2
+- Malformed JSON → exit 4
+- Policy engine failure → exit 5
 
-### Fix 7 — Unified source catalog
-
-New `scripts/validation/validate_catalog_consistency.py`:
-- Reads all `sources/*/SOURCE.yaml` as canonical truth
-- Validates `functional_name` present in `source-catalog/sources.yaml`
-- Validates `pinned_commit` matches `import-status.yaml` (vendored sources only)
-- Validates `license` matches `license-matrix.yaml` (skips `unknown` entries)
-- Called from CI `validate-sources` job; exits 1 on any discrepancy
-
-Catalog fixes:
-- `anthropic-skills` in `license-matrix.yaml` was `Apache-2.0` → corrected to `unknown` (reference-only, no LICENSE file)
-- `code-review-assistant`, `design-agent-reviews`, `interaction-motion-toast` were missing from `sources.yaml` → added
-
-### Fix 8 — YAML validation covers both extensions
-
-CI now checks `*.yaml` and `*.yml` (was `*.yaml` only).
-
-### Fix 9 — Audit status review
-
-Confirmed: no `SOURCE.yaml` in the repo has `decision: approved`. All vendored sources
-are `candidate` (pending human review). All reference-only sources are `reference-only`.
-The only hits for `decision: approved` are in terminal-coding-agent upstream test code —
-nothing to do with our metadata.
-
-### Fix 10 — This report
-
-All changes committed in a single commit, pushed, CI running.
+DELIVERY_REPORT.md corrected:
+- "Files >10 MB: None tracked in Git" was inaccurate — 2 large files exist in approved
+  upstream snapshots. Corrected to: "No large files outside approved upstream snapshots."
 
 ---
 
-## 4. Vendored Sources (16 sources)
+## 4. Catalog Status — All 30 Sources
 
-All have: `SOURCE.yaml` with pinned commit SHA, `LICENSE`, `ATTRIBUTION.md`, `AUDIT.md`,
-`FILE_MANIFEST.json`, non-empty `upstream/`.
+Vendor/reference split: 16 vendored + 14 reference-only = 30 total.
+
+All 30 present in:
+- `source-catalog/sources.yaml` ✅
+- `source-catalog/import-status.yaml` (imports or reference_only) ✅
+- `source-catalog/license-matrix.yaml` ✅
+
+Consistency check runs in CI; exits 1 on any missing entry or field mismatch.
+
+---
+
+## 5. Vendored Sources (16 sources)
 
 | Source | Mode | License | Commit | Files |
 |---|---|---|---|---|
@@ -165,9 +167,7 @@ All have: `SOURCE.yaml` with pinned commit SHA, `LICENSE`, `ATTRIBUTION.md`, `AU
 
 ---
 
-## 5. Reference-Only Sources (14 sources)
-
-Catalog entries only. No code copied. `SOURCE.yaml` + `ATTRIBUTION.md` present.
+## 6. Reference-Only Sources (14 sources)
 
 | Source | Label | Reason |
 |---|---|---|
@@ -188,32 +188,21 @@ Catalog entries only. No code copied. `SOURCE.yaml` + `ATTRIBUTION.md` present.
 
 ---
 
-## 6. Security Checks
+## 7. Security Checks
 
 | Check | Result |
 |---|---|
 | Secret scan (our code, excl. upstream) | Clean — 0 findings |
 | Secret scan (upstream test fixtures) | 50 findings; all test fixtures, documented in AUDIT.md |
-| Model weights | None tracked (.safetensors, .gguf, .pt, .ckpt, etc.) |
-| Files >10 MB | None tracked in Git |
+| Model weights | None tracked |
+| Files >10 MB outside approved upstream snapshots | None |
+| Large files in approved upstream snapshots | 2 (27 MB JSON test fixture + 10 MB PDF — documented) |
 | .git in upstream/ | None |
 | node_modules / venv in upstream/ | None |
 | Upstream immutability | No modifications post-import |
-| Hook injection vulnerability | Fixed: JSON stdin pattern, no string interpolation |
+| Hook injection vulnerability | Fixed: raw JSON stdin, no shell interpolation |
+| Hook fail-closed (enforce mode) | Confirmed: malformed JSON → exit 4 block; engine fail → exit 5 block |
 | Secret preview redaction | Enforced: full values never in scan output |
-
----
-
-## 7. Repository Statistics
-
-| Metric | Value |
-|---|---|
-| Sources total | 30 (16 vendored + 14 reference-only) |
-| Component tests | 81 (40 unit + 41 hook integration) |
-| Script tests | 35 (22 secret-scan + 13 manifest-validator) |
-| Total tests | 116 |
-| CI jobs | 7/7 ✅ |
-| Scripts | 4 (import_source, secret_scan, validate_source_manifests, validate_catalog_consistency) |
 
 ---
 
@@ -222,10 +211,10 @@ Catalog entries only. No code copied. `SOURCE.yaml` + `ATTRIBUTION.md` present.
 | Issue | Severity | Notes |
 |---|---|---|
 | `AUDIT.md` checklists not manually completed | Low | Structure in place; human sign-off pending per source |
-| `full-product-engineering-agent-stack` AUDIT.md: 44 test fixtures listed as pending | Low | Disposition should be documented explicitly (same as `deterministic-agent-safety`) |
-| 10 component directories are stubs | Expected | Phase 2 will implement 4 of them |
-| 8 product concepts are documentation only | Expected | Infrastructure-first approach |
-| Branch protection not enforced on GitHub | Medium | GitHub Free plan limitation; policy is documented |
+| `full-product-engineering-agent-stack` AUDIT.md: 44 test fixtures listed as pending | Low | Document disposition explicitly |
+| 10 component directories are stubs | Expected | Phase 2 |
+| 8 product concepts are documentation only | Expected | Infrastructure-first |
+| Branch protection not enforced on GitHub | Medium | Free plan limitation; policy documented |
 
 ---
 
@@ -233,15 +222,16 @@ Catalog entries only. No code copied. `SOURCE.yaml` + `ATTRIBUTION.md` present.
 
 **Ready to merge.**
 
-All 10 pre-merge quality requirements from the review are addressed:
+All 5 second-pass quality requirements addressed:
 
-- CI: 7/7 jobs green, no `|| true` masking, both .yaml/.yml checked
-- Hook injection: eliminated; JSON stdin design verified via 41 integration tests
-- Enforcement mode: configurable, tested in both modes
-- Secret redaction: full secrets never exposed in scan output
-- Source importer: SHA abort on failure, honest AUDIT.md, no-copy reference-only
-- Catalog consistency: validated by new CI check, discrepancies fixed
-- Audit status: no source prematurely marked `approved`
+| Requirement | Status |
+|---|---|
+| Hooks fail-closed on malformed JSON in enforce mode | ✅ exit 4 block |
+| Hooks fail-closed on policy engine failure in enforce | ✅ exit 5 block |
+| All 3 catalogs complete for all 30 sources | ✅ 30/30/30 |
+| CI runs on push to main | ✅ |
+| Import-time model-weight and large-file guard | ✅ |
+| Test assertions are exact, not `in (2, 3)` | ✅ |
+| DELIVERY_REPORT.md accurate about large files | ✅ |
 
-The branch is clean, the pipeline is honest, and the test suite proves the safety
-components actually work.
+CI: 7/7 jobs. Tests: 124 passing.

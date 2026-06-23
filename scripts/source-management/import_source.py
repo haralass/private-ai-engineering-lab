@@ -67,6 +67,48 @@ ALWAYS_REMOVE = [
 # File extensions that are build/binary artifacts
 REMOVE_EXTENSIONS = {".pyc", ".pyo", ".pyd", ".log", ".DS_Store"}
 
+# Model weight extensions — always forbidden unless --allow-large-files override
+MODEL_WEIGHT_EXTENSIONS = {".safetensors", ".gguf", ".ggml", ".pt", ".pth", ".ckpt"}
+
+# Large file threshold (bytes). Files above this require explicit --allow-large-files.
+LARGE_FILE_THRESHOLD = 10 * 1024 * 1024  # 10 MB
+
+
+def check_large_files_and_weights(
+    directory: Path,
+    allow_large: bool = False,
+) -> list[dict]:
+    """
+    Scan directory for model weights and large files.
+    Returns a list of findings. Empty list = clean.
+
+    For model weights: always a finding regardless of size.
+    For large files: findings only when above LARGE_FILE_THRESHOLD.
+    """
+    findings = []
+    for path in sorted(directory.rglob("*")):
+        if not path.is_file():
+            continue
+        ext = path.suffix.lower()
+        size = path.stat().st_size
+        rel = str(path.relative_to(directory))
+
+        if ext in MODEL_WEIGHT_EXTENSIONS:
+            findings.append({
+                "file": rel,
+                "size_mb": round(size / 1024 / 1024, 1),
+                "type": "model-weight",
+                "ext": ext,
+            })
+        elif size > LARGE_FILE_THRESHOLD:
+            findings.append({
+                "file": rel,
+                "size_mb": round(size / 1024 / 1024, 1),
+                "type": "large-file",
+                "ext": ext,
+            })
+    return findings
+
 
 def run(cmd: list[str], cwd: Path | None = None, check: bool = True) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=check)
@@ -156,6 +198,7 @@ def import_source(
     subsystem: str | None = None,
     license_override: str | None = None,
     reviewed_secrets: bool = False,
+    allow_large_files: bool = False,
 ) -> None:
     out_dir = SOURCES_DIR / functional_name
     if out_dir.exists():
@@ -234,6 +277,40 @@ def import_source(
             removed_log.append(".git/")
 
         remove_ignored(source_root, removed_log)
+
+        # Large-file and model-weight scan (before secret scan, so we abort early)
+        print("[import] Checking for model weights and large files…")
+        large_findings = check_large_files_and_weights(source_root, allow_large=allow_large_files)
+        if large_findings:
+            weight_findings = [f for f in large_findings if f["type"] == "model-weight"]
+            size_findings = [f for f in large_findings if f["type"] == "large-file"]
+            if weight_findings:
+                print(f"\nMODEL WEIGHT FINDINGS ({len(weight_findings)} file(s)):", file=sys.stderr)
+                for f in weight_findings:
+                    print(f"  {f['file']} ({f['size_mb']} MB, {f['ext']})", file=sys.stderr)
+            if size_findings:
+                print(f"\nLARGE FILE FINDINGS ({len(size_findings)} file(s) > {LARGE_FILE_THRESHOLD // (1024*1024)} MB):", file=sys.stderr)
+                for f in size_findings:
+                    print(f"  {f['file']} ({f['size_mb']} MB)", file=sys.stderr)
+            if allow_large_files:
+                print(
+                    "\n[import] --allow-large-files set: proceeding with documented oversized files.\n"
+                    "         Each finding MUST be documented in AUDIT.md with justification\n"
+                    "         (e.g., test fixture, benchmark data — not model weights).",
+                    file=sys.stderr,
+                )
+            else:
+                print(
+                    "\nImport aborted due to model weights or large files.\n"
+                    "Model weight files (.safetensors, .gguf, .pt, .pth, .ckpt, .ggml)\n"
+                    "are NEVER permitted in the repository.\n"
+                    "For large non-weight files (test fixtures, PDFs, benchmark data):\n"
+                    "  re-run with --allow-large-files and document each in AUDIT.md.",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
+        else:
+            print("[import] Large-file check: clean")
 
         # Secret scan (always run, even for reference-only, to document findings)
         print("[import] Running secret scan…")
@@ -325,7 +402,7 @@ Retrieved: {now}
 """
     (out_dir / "ATTRIBUTION.md").write_text(attribution)
 
-    # Write AUDIT.md — be honest about secret scan status
+    # Write AUDIT.md — be honest about secret scan and large-file status
     if secret_findings and reviewed_secrets:
         secret_status = (
             f"- [ ] Automated scan: {len(secret_findings)} potential secrets found — "
@@ -338,6 +415,18 @@ Retrieved: {now}
             "- [x] Automated scan: clean — 0 findings at import time\n"
             "- [ ] Manual review of configuration files"
         )
+
+    if large_findings and allow_large_files:
+        large_lines = "\n".join(
+            f"  - {f['file']} ({f['size_mb']} MB, {f['type']})" for f in large_findings
+        )
+        large_status = (
+            f"- [ ] **{len(large_findings)} large/weight file(s) present — each requires justification:**\n"
+            f"{large_lines}\n"
+            "- [ ] Confirmed: none are model weights intended for training/inference"
+        )
+    else:
+        large_status = "- [x] No model weights or files >10 MB detected at import time"
 
     license_check = (
         f"- [ ] License MANUALLY set to {license_id} — verify upstream license before use"
@@ -357,6 +446,9 @@ Audited: (pending)
 
 ## Secret scan
 {secret_status}
+
+## Large files and model weights
+{large_status}
 
 ## Prompt injection review
 - [ ] No files with AI-visible instruction injections
@@ -437,6 +529,15 @@ def main() -> None:
         action="store_true",
         help="Confirm that secret scan findings have been manually reviewed and are false positives or test fixtures",
     )
+    parser.add_argument(
+        "--allow-large-files",
+        action="store_true",
+        help=(
+            "Allow files >10 MB that are not model weights (e.g. test fixtures, PDFs, benchmark data). "
+            "Each large file MUST be documented in AUDIT.md with justification. "
+            "Model weight files (.safetensors, .gguf, .pt, .pth, .ckpt, .ggml) are NEVER allowed."
+        ),
+    )
     args = parser.parse_args()
 
     import_source(
@@ -448,6 +549,7 @@ def main() -> None:
         subsystem=args.subsystem,
         license_override=args.license_override,
         reviewed_secrets=args.reviewed_secrets,
+        allow_large_files=args.allow_large_files,
     )
 
 

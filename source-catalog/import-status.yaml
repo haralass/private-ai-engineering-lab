@@ -1,4 +1,7 @@
-# Import status — updated 2026-06-22
+# Import status — updated 2026-06-23
+# Canonical record of every import performed.
+# Vendored sources go under `imports:`.
+# Reference-only sources (no code copied) go under `reference_only:`.
 
 imports:
   - functional_name: deterministic-agent-safety
@@ -144,67 +147,107 @@ imports:
     files_removed: [.git]
     status: complete
 
+  - functional_name: design-agent-reviews
+    url: https://github.com/pbakaus/agent-reviews
+    pinned_commit: a2f56449df44f2ad81891ab56d08cd6170430230
+    imported_at: "2026-06-22T00:00:00Z"
+    secret_scan: clean
+    license_found: MIT
+    files_kept: 39
+    files_removed: [.git]
+    status: complete
+
+  - functional_name: interaction-motion-toast
+    url: https://github.com/emilkowalski/sonner
+    pinned_commit: 45d894085af8ca8421912789a8f5a4ac4ac3d0ea
+    imported_at: "2026-06-22T00:00:00Z"
+    secret_scan: clean
+    license_found: MIT
+    files_kept: 69
+    files_removed: [.git, node_modules]
+    status: complete
+
 reference_only:
   - functional_name: asynchronous-job-processing
     url: https://github.com/sgavriil01/sms-platform
+    pinned_commit: 46398c4e423ae5ed017658004487c9309a2ce127
     source_label: student-1
     reason: No LICENSE file
 
   - functional_name: business-energy-dispatch
     url: https://github.com/sgavriil01/neura-btm-battery-dispatch
+    pinned_commit: d0e3735dd26855ceb41509022c71a44696ef42aa
     source_label: student-1
     reason: No LICENSE file
 
   - functional_name: semantic-audio-search
     url: https://github.com/sgavriil01/whisper-faiss-example
+    pinned_commit: b60476ac98494293fce46f8c299b991e4dfa5007
     source_label: student-1
     reason: No LICENSE file
 
   - functional_name: privacy-safe-commit-assistant
     url: https://github.com/sgavriil01/commitgen
+    pinned_commit: 0619458775acb2da839ce627763fbf61ee7220fa
     source_label: student-1
     reason: No LICENSE file
 
   - functional_name: change-monitoring-notifications
     url: https://github.com/tsembp/WG-Course-Task-Notifier-Bot
+    pinned_commit: 9abbac6f4f4126e44187da84889cf6b6571397b0
     source_label: student-2
     reason: No LICENSE file
 
   - functional_name: synthetic-relational-data
     url: https://github.com/tsembp/one-stop-ride-hail
+    pinned_commit: 14e0f42a9b32ea0b7f27543f7eeb6fe9fb92a9ff
     source_label: student-2
     reason: No LICENSE file
 
   - functional_name: algorithm-benchmarking
     url: https://github.com/tsembp/Hitting-Set-Problem
+    pinned_commit: fe6bd5947d28f7170a4a2cd5bccfa26f4c3ecbcf
     source_label: student-2
     reason: No LICENSE file
 
   - functional_name: data-structure-search-engine
     url: https://github.com/tsembp/EPL231-GroupAssignment
+    pinned_commit: 8026a0a9a73ef10f742592e948bef2a82c26589f
     source_label: student-2
     reason: No LICENSE file
 
   - functional_name: kimi-model-family
     url: https://github.com/MoonshotAI/Kimi-K2
-    reason: Model weights not committed. Future import for code only.
+    pinned_commit: 1b4022bbb7187cf4011a8bdf0b4cd10e2daa26c4
+    source_label: external
+    reason: No LICENSE file. Model weights not committed.
 
   - functional_name: glm-model-family
     url: https://github.com/zai-org/GLM-5
-    reason: Model weights not committed. Future import for code only.
+    pinned_commit: bd7fafe70ba9ac7cbfe070573f8acf76e5944d5d
+    source_label: external
+    reason: No LICENSE file. Model weights not committed.
 
   - functional_name: anthropic-skills
     url: https://github.com/anthropics/skills
-    reason: No LICENSE file in root. Studied for skill-creator and frontend-design patterns.
+    pinned_commit: 57546260929473d4e0d1c1bb75297be2fdfa1949
+    source_label: external
+    reason: No LICENSE file in root. Skill-creator and frontend-design patterns studied.
 
   - functional_name: vercel-skills
     url: https://github.com/vercel-labs/skills
+    pinned_commit: e5c075e3a84b37c5eb398ab74e581558d3fceb0e
+    source_label: external
     reason: No LICENSE file. find-skills pattern studied.
 
   - functional_name: interaction-and-motion-design
     url: https://github.com/emilkowalski/skills
+    pinned_commit: ea2cd0ddb235abbe85cdbc03f26686cd465df897
+    source_label: external
     reason: No LICENSE file. Animation patterns studied.
 
   - functional_name: code-review-assistant
     url: https://github.com/pbakaus/code-review-assistant
+    pinned_commit: 5e801967db2cba84c0f69faff4e896538a31ae77
+    source_label: external
     reason: No LICENSE file. Code review patterns studied.

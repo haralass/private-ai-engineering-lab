@@ -57,7 +57,9 @@ def main() -> None:
             _exit(4, "allow", msg)
 
     command = data.get("command") or None
-    target_path = data.get("target_path") or None
+    # Accept both "target_path" (built by positional-arg code path) and
+    # "file_path" (the key Claude Code sends for before-file-write hooks).
+    target_path = data.get("target_path") or data.get("file_path") or None
 
     try:
         from policy_engine import evaluate, Verdict

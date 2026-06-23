@@ -1,36 +1,116 @@
-# License matrix
-# Maps functional source names to their license status
-# Populated by import_source.py and updated after manual review
+# License matrix — updated 2026-06-23
+# Canonical license status for every source.
+# Populated from SOURCE.yaml at import time; updated after manual review.
+# Fields:
+#   license          — SPDX identifier or NOT-FOUND
+#   file_present     — whether a LICENSE file was found in the repo root
+#   review_status    — pending | reviewed
+#   vendoring_allowed — true | false | null (null = not yet determined)
+#   copy_allowed     — true | false | null
 
 license_matrix:
+
+  # ── Vendored (MIT) ────────────────────────────────────────────────────────
+
   deterministic-agent-safety:
-    license: unknown
-    file_present: false
+    license: MIT
+    file_present: true
     review_status: pending
-    vendoring_allowed: null
-    copy_allowed: null
+    vendoring_allowed: true
+    copy_allowed: true
 
   structured-agent-development:
-    license: unknown
-    file_present: false
+    license: MIT
+    file_present: true
     review_status: pending
-    vendoring_allowed: null
-    copy_allowed: null
+    vendoring_allowed: true
+    copy_allowed: true
 
   full-product-engineering-agent-stack:
-    license: unknown
-    file_present: false
+    license: MIT
+    file_present: true
     review_status: pending
-    vendoring_allowed: null
-    copy_allowed: null
+    vendoring_allowed: true
+    copy_allowed: true
 
-  anthropic-skills:
-    license: unknown
-    file_present: false
+  writing-quality:
+    license: MIT
+    file_present: true
     review_status: pending
-    vendoring_allowed: null
-    copy_allowed: null
-    notes: reference-only; no LICENSE file in repo root
+    vendoring_allowed: true
+    copy_allowed: true
+
+  product-marketing-context:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  terminal-coding-agent:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  durable-background-job-queue:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  database-query-training:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  design-taste:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  modular-rag-learning:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  ui-ux-reference:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  design-agent-reviews:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  interaction-motion-toast:
+    license: MIT
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  # ── Vendored (Apache-2.0) ─────────────────────────────────────────────────
+
+  persistent-agent-memory:
+    license: Apache-2.0
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
 
   model-layer-streaming:
     license: Apache-2.0
@@ -39,4 +119,112 @@ license_matrix:
     vendoring_allowed: true
     copy_allowed: true
 
-# All others: to be populated after import_source.py runs
+  design-quality-and-review:
+    license: Apache-2.0
+    file_present: true
+    review_status: pending
+    vendoring_allowed: true
+    copy_allowed: true
+
+  # ── Reference-only (no LICENSE file) ─────────────────────────────────────
+
+  algorithm-benchmarking:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  anthropic-skills:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+    notes: reference-only; no LICENSE file in repo root
+
+  asynchronous-job-processing:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  business-energy-dispatch:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  change-monitoring-notifications:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  code-review-assistant:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  data-structure-search-engine:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  glm-model-family:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+    notes: model weights not imported
+
+  interaction-and-motion-design:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  kimi-model-family:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: null
+    copy_allowed: null
+    notes: model weights not imported
+
+  privacy-safe-commit-assistant:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  semantic-audio-search:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  synthetic-relational-data:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+
+  vercel-skills:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false

@@ -2,7 +2,7 @@
 # Hook: before-git-operation
 # Called before an agent runs a git command.
 #
-# Input:  CLAUDE_TOOL_INPUT env var (JSON with "command" field)
+# Input:  CLAUDE_TOOL_INPUT env var (JSON with "command" field) — passed raw to run_policy.py
 #         or positional arguments as the raw git command
 #
 # Exit 0 = allow
@@ -14,18 +14,24 @@ set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMPONENT_DIR="$(dirname "$SCRIPT_DIR")"
 
+_run_policy() {
+  printf '%s' "$1" | python3 "$COMPONENT_DIR/hooks/run_policy.py"
+}
+
 if [[ -n "${CLAUDE_TOOL_INPUT:-}" ]]; then
-  COMMAND=$(printf '%s' "$CLAUDE_TOOL_INPUT" | \
-    python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('command',''))" || true)
-else
-  COMMAND="${*:-}"
+  # run_policy.py sees the raw JSON including "command" field.
+  # Non-git commands will be evaluated but will ALLOW (no pattern matches non-git ops).
+  _run_policy "$CLAUDE_TOOL_INPUT"
+  exit $?
 fi
 
+# Positional argument mode: all args joined form the command string
+COMMAND="${*:-}"
 if [[ -z "${COMMAND:-}" ]]; then
   exit 0
 fi
 
-# Only evaluate git commands
+# Only evaluate git commands when called with positional args
 case "$COMMAND" in
   git\ *|git) ;;
   *) exit 0 ;;
@@ -33,12 +39,12 @@ esac
 
 JSON_INPUT=$(python3 -c \
   "import json,sys; print(json.dumps({'command': sys.argv[1]}))" \
-  "$COMMAND")
-
-if [[ -z "$JSON_INPUT" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] ERROR: could not JSON-encode command" >&2
+  "$COMMAND") || {
+  echo "[AGENT-SAFETY-FIREWALL] ERROR: JSON encoder failed for positional command" >&2
+  if [[ "${AGENT_SAFETY_MODE:-report-only}" == "enforce" ]]; then
+    exit 2
+  fi
   exit 0
-fi
+}
 
-printf '%s' "$JSON_INPUT" | python3 "$COMPONENT_DIR/hooks/run_policy.py"
-exit $?
+_run_policy "$JSON_INPUT"
