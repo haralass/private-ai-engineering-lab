@@ -1,0 +1,126 @@
+# Dangerous command patterns
+# action: block | confirm | warn | log
+# severity: critical | high | medium | low
+
+patterns:
+  # Destructive filesystem
+  - pattern: "rm -rf"
+    action: block
+    severity: critical
+    reason: "Irreversible mass deletion"
+
+  - pattern: "rm -fr"
+    action: block
+    severity: critical
+    reason: "Irreversible mass deletion"
+
+  # Destructive Git
+  - pattern: "git reset --hard"
+    action: block
+    severity: critical
+    reason: "Discards uncommitted work irreversibly"
+
+  - pattern: "git clean -f"
+    action: block
+    severity: critical
+    reason: "Deletes untracked files irreversibly"
+
+  - pattern: "git clean -fd"
+    action: block
+    severity: critical
+    reason: "Deletes untracked files and dirs irreversibly"
+
+  - pattern: "git push --force"
+    action: block
+    severity: critical
+    reason: "Force push can overwrite remote history"
+
+  - pattern: "git push -f"
+    action: block
+    severity: critical
+    reason: "Force push can overwrite remote history"
+
+  - pattern: "git push origin main"
+    action: confirm
+    severity: high
+    reason: "Direct push to main — must go through PR"
+
+  - pattern: "git branch -D"
+    action: confirm
+    severity: high
+    reason: "Force branch deletion — irreversible"
+
+  # Pipe execution (supply chain risk)
+  # These are regex patterns — use regex: true flag
+  - pattern: "curl.+\\|.+bash"
+    regex: true
+    action: block
+    severity: critical
+    reason: "Piped execution of remote script via curl"
+
+  - pattern: "curl.+\\|.+sh\\b"
+    regex: true
+    action: block
+    severity: critical
+    reason: "Piped execution of remote script via curl"
+
+  - pattern: "wget.+\\|.+bash"
+    regex: true
+    action: block
+    severity: critical
+    reason: "Piped execution of remote script via wget"
+
+  - pattern: "wget.+\\|.+sh\\b"
+    regex: true
+    action: block
+    severity: critical
+    reason: "Piped execution of remote script via wget"
+
+  # Permission expansion
+  - pattern: "chmod 777"
+    action: block
+    severity: high
+    reason: "World-writable permissions"
+
+  - pattern: "chmod -R 777"
+    action: block
+    severity: critical
+    reason: "Recursive world-writable permissions"
+
+  # Package publishing
+  - pattern: "npm publish"
+    action: block
+    severity: critical
+    reason: "Publishes package to npm registry"
+
+  - pattern: "pip publish"
+    action: block
+    severity: critical
+    reason: "Publishes package to PyPI"
+
+  - pattern: "cargo publish"
+    action: block
+    severity: critical
+    reason: "Publishes crate to crates.io"
+
+  # Destructive SQL
+  - pattern: "DROP TABLE"
+    action: confirm
+    severity: critical
+    reason: "Drops a database table"
+
+  - pattern: "TRUNCATE"
+    action: confirm
+    severity: high
+    reason: "Removes all rows from table"
+
+  - pattern: "DELETE FROM"
+    action: confirm
+    severity: high
+    reason: "Deletes rows — verify WHERE clause"
+
+  # System modification
+  - pattern: "sudo"
+    action: confirm
+    severity: high
+    reason: "Elevated privileges"

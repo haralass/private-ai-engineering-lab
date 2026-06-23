@@ -1,0 +1,330 @@
+{
+  "generated_at": "2026-06-22T05:11:50.145574+00:00",
+  "file_count": 81,
+  "files": {
+    ".github/FUNDING.yml": {
+      "sha256": "cee8df9038cb631f01a2166d4a8edea58b9c7378fedcdd610152283328584660",
+      "size": 884
+    },
+    ".gitignore": {
+      "sha256": "89819bacc00b9f2d76598771b5f2eea1a31a4273a77ec8a7dbaf77907c38ea97",
+      "size": 73
+    },
+    "LICENSE": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    "README.md": {
+      "sha256": "322290a7fea83d17207ef8deca7bf7ca26802bed06eb83d7ba4e4e39105a801c",
+      "size": 13674
+    },
+    "README_ja.md": {
+      "sha256": "5f1a6ac2626485d28056468c8b561ed2fa732924a5baa3d10ea50e4f5125d53d",
+      "size": 33281
+    },
+    "air_llm/LICENSE": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    "air_llm/README.md": {
+      "sha256": "5d8abaeca3dc1216edb0598f6f35fb9c0faefa7f97c729b930ba4a36f9db07b9",
+      "size": 12222
+    },
+    "air_llm/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "air_llm/airllm/__init__.py": {
+      "sha256": "d85be5cc3093f4f2220b2c6c6f6f81ddaf7771dc424f3c7c59492655947345ab",
+      "size": 737
+    },
+    "air_llm/airllm/airllm.py": {
+      "sha256": "94e8218b95991acff6f3dfcce54bd6ab9eaa15b9a663e4af4b95c6828b4b47a7",
+      "size": 185
+    },
+    "air_llm/airllm/airllm_baichuan.py": {
+      "sha256": "d91e3fd5bb91d733a7cb094033bd6f4840e1e8075f93588e69e5e80d82ec1e3c",
+      "size": 697
+    },
+    "air_llm/airllm/airllm_base.py": {
+      "sha256": "0627cd155d535a505c89afccebc5c659de8b8a80f5d906b19018e4b7aa38a019",
+      "size": 27195
+    },
+    "air_llm/airllm/airllm_chatglm.py": {
+      "sha256": "75119ab7e8ef6f4bdab6e25ef8047fd57f79bf82a348966ee292e3f2a6217ef3",
+      "size": 1630
+    },
+    "air_llm/airllm/airllm_internlm.py": {
+      "sha256": "52c7c179aa50e308f33a40a0155fe082b3a7f0a8ea85344d4204866472033cd9",
+      "size": 371
+    },
+    "air_llm/airllm/airllm_llama_mlx.py": {
+      "sha256": "18efc6e12f757020f5a21c5e2c16925ac2cbca1681b4dc4693ee67363ab29062",
+      "size": 16729
+    },
+    "air_llm/airllm/airllm_mistral.py": {
+      "sha256": "eed4feb33e275417c9ac04e6fe153531be73c12a3b94232a8f6de98d9b523fda",
+      "size": 369
+    },
+    "air_llm/airllm/airllm_mixtral.py": {
+      "sha256": "41d8c11a4cf016f5fd590d7ab6b58543a7c20a6e7114c35b0fe1901e2329d43f",
+      "size": 370
+    },
+    "air_llm/airllm/airllm_qwen.py": {
+      "sha256": "05718c264ca8499765ffab50b43f73950c685457dd92c9eb66a686ed93fd01ab",
+      "size": 1833
+    },
+    "air_llm/airllm/airllm_qwen2.py": {
+      "sha256": "93674e3157984c713737970f3f0796bdbb2a0d56a29e5bec1cbd9ce2ddc236b9",
+      "size": 295
+    },
+    "air_llm/airllm/auto_model.py": {
+      "sha256": "6b15d919a4489da41a01b5cb6f1a8521785ae3d9727395f5f5f440ac42d91a16",
+      "size": 2240
+    },
+    "air_llm/airllm/persist/__init__.py": {
+      "sha256": "874b1b1e11889eff5e96e514182c4b01d43bfd0efac867d754aab04a620fd15e",
+      "size": 44
+    },
+    "air_llm/airllm/persist/mlx_model_persister.py": {
+      "sha256": "d9c3c7db6b3dc0835958cdca64a72a1883fcac958502d5fd43881bd9b77135ec",
+      "size": 3669
+    },
+    "air_llm/airllm/persist/model_persister.py": {
+      "sha256": "265ebe565c75e9c680e5004d9b2cc7962c04ded4b4af8742f88eefca56812924",
+      "size": 897
+    },
+    "air_llm/airllm/persist/safetensor_model_persister.py": {
+      "sha256": "f96e3cc0f6d5b875287e3a2a08f3610db4967f228d8364c54747d0636fd19307",
+      "size": 1091
+    },
+    "air_llm/airllm/profiler.py": {
+      "sha256": "4056853c1c00eb2187285a2e276266ead44e5b3bcb4fbae2105fe3b54be5addc",
+      "size": 996
+    },
+    "air_llm/airllm/tokenization_baichuan.py": {
+      "sha256": "68473185ba7025b111f68b3c9c96ee84eec39f5a93356020d90ec3954c4e08b0",
+      "size": 9613
+    },
+    "air_llm/airllm/utils.py": {
+      "sha256": "bf17484a607a6055e2c2c77f0991e312dd536bd12df1b7a5e5b77e69f1f9b066",
+      "size": 17794
+    },
+    "air_llm/examples/run_all_types_of_models.ipynb": {
+      "sha256": "c93445386a4853086a1cec048c03a0d56b4d77c47aec3bb4c4f80eefb6e0abf6",
+      "size": 1722759
+    },
+    "air_llm/examples/run_llama3.1_405B.ipynb": {
+      "sha256": "329bd2b1712d6b04f861273523498b371a6e4a70de1b3f028c6850b7cd5c48f7",
+      "size": 1910
+    },
+    "air_llm/examples/run_on_macos.ipynb": {
+      "sha256": "e3ef4c36a3b1c6eb902ad604faf35554688626535178af84e75557867cedf726",
+      "size": 75219
+    },
+    "air_llm/inference_example.py": {
+      "sha256": "df2cac0bd5367bbe86eb0668e98af8dee97a2514d13f4656bdaf3b9a09017974",
+      "size": 844
+    },
+    "air_llm/setup.py": {
+      "sha256": "35b695e562715ca77a6d3d2e87822edf3d4687b6311c7afde7aff2fd7950eaf0",
+      "size": 1679
+    },
+    "air_llm/tests/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "air_llm/tests/test_automodel.py": {
+      "sha256": "145ae0ee1472a732eaf3cc3a22295b91816e95775b72916ecc52234ef2eb601b",
+      "size": 871
+    },
+    "air_llm/tests/test_compression.py": {
+      "sha256": "9be3d49b9794c1756422c316364fed6a0aa22e63168dfeac87484251d05990d2",
+      "size": 1344
+    },
+    "air_llm/tests/test_notebooks/test_compression.ipynb": {
+      "sha256": "6285e07fd1cd0d68f9222f69743455e4be024c4a6280fcc2ffecf009eac1bce3",
+      "size": 208388
+    },
+    "air_llm/tests/test_notebooks/test_mixtral.ipynb": {
+      "sha256": "424c6124ca47cdc56e716f64a2d3bd8123dd9d45f2109a22f75128ce5df1fbd3",
+      "size": 15075
+    },
+    "air_llm/tests/test_notebooks/test_mlx.ipynb": {
+      "sha256": "e3ef4c36a3b1c6eb902ad604faf35554688626535178af84e75557867cedf726",
+      "size": 75219
+    },
+    "air_llm/tests/test_notebooks/test_models_transformer_4_35_2.ipynb": {
+      "sha256": "c93445386a4853086a1cec048c03a0d56b4d77c47aec3bb4c4f80eefb6e0abf6",
+      "size": 1722759
+    },
+    "air_llm/tests/test_notebooks/test_models_transformer_4_36_2_torch_2_1_2.ipynb": {
+      "sha256": "16b9c66aae0afa135c8e6f79ed4ea3a0cb302b3f4396435a2554f63ab631c70b",
+      "size": 863123
+    },
+    "air_llm/tests/test_notebooks/test_sealllm.ipynb": {
+      "sha256": "b6b43bd8862624331426b63ffe15ae04f13c5b2f621458afbd4b316799dc70f3",
+      "size": 152203
+    },
+    "anima_100k/120_topics_en.jsonl": {
+      "sha256": "0d8d4bd3b17f3d65ff5cd0c2b1114a2abb6bc74f202941e932df08143dffa4c3",
+      "size": 339042
+    },
+    "anima_100k/README.md": {
+      "sha256": "a66930b7fd29ccade11028b4de15639c49b9840f62ca411eb3a4b87b960643a1",
+      "size": 12639
+    },
+    "anima_100k/extened_longchat_topiced_conversations.json": {
+      "sha256": "e43dad3946ff72604a8459dafa15cf25eba42b0be8186595610d7d04b333dbe4",
+      "size": 488242
+    },
+    "anima_100k/gen_longchat_lines_retrieval_eval_dataset.ipynb": {
+      "sha256": "7408da456d447555512be658e13fa27f916d8b4c18d38e336878959ed5973d0c",
+      "size": 10142
+    },
+    "anima_100k/gen_longchat_topics_retrieval_eval_dataset_extended.ipynb": {
+      "sha256": "357cbc53b51ef5f105e120463ba20c67fc8eea2b977de74cf5aa356e69871d55",
+      "size": 28034
+    },
+    "anima_100k/longer_training.py": {
+      "sha256": "e8e313c03b69e8c447b98ef680b56bc900918feec65beb18aff3b17493152408",
+      "size": 37942
+    },
+    "anima_100k/modeling_flash_llama.py": {
+      "sha256": "9c702cae97e123413c882597c66b714168a6e58f3aa29f2fe08e679d3f19144f",
+      "size": 46241
+    },
+    "anima_100k/run_longer_training.sh": {
+      "sha256": "d79641ca1493abe9a9d4ac93b59b897f56dfabd7954d2a385620c6fb7c2abdfa",
+      "size": 1316
+    },
+    "anima_logo.png": {
+      "sha256": "57faa7f00836ad59551f63e5113f19f24ce24e56dbe0267ac1e8dbed2f1474d4",
+      "size": 44593
+    },
+    "assets/8millionwaystodie.jpeg": {
+      "sha256": "d01c10041038cdb16f4b844d8216eec3eee5772c4e959cac02f015df0feab524",
+      "size": 130919
+    },
+    "assets/airllm2_time_improvement.png": {
+      "sha256": "6baafef988165a5db1fc3a5ff130c3a26db663f6f27794db66ac3dc02613ab6d",
+      "size": 37922
+    },
+    "assets/airllm_logo.png": {
+      "sha256": "7e7c276b9a582446c64e9f389bdbf48c766d0c066a5e774bb48195d89475c453",
+      "size": 22608
+    },
+    "assets/airllm_logo_sm.png": {
+      "sha256": "e1cd9b757ba78184a4666bc03fd6c3a76e86027710b7da40a075fbf797578868",
+      "size": 21156
+    },
+    "assets/anima_q1.png": {
+      "sha256": "90bd60b01da6fdf4fae0e4ae93d070235831ecb9a5e910297f0376acb6a4956e",
+      "size": 20328
+    },
+    "assets/anima_q2.png": {
+      "sha256": "17b0a56efce0a2b1b3a98082d680cb79ec0709a012668f89ed567eb5dd88db18",
+      "size": 44085
+    },
+    "assets/bloome.png": {
+      "sha256": "02346f371ac4162679104dddae8d718d7a2f77778b8aaf292f634245c3cbdcac",
+      "size": 334943
+    },
+    "assets/gpt4_q1.png": {
+      "sha256": "9d58f6f8d57ea4385db82c58ae23ca13e514a6ec7daf2a743b8427e1aae7f278",
+      "size": 32214
+    },
+    "assets/gpt4_q2.png": {
+      "sha256": "6caf34fd6784ab163c8e78ff48ea966c58751ceabe14e709777d3c8787406929",
+      "size": 30728
+    },
+    "assets/oom.png": {
+      "sha256": "666f576309bf870dd4e6bf40c6839f1d93fb2a291ad0520784b2928ed97b5b98",
+      "size": 14856
+    },
+    "assets/wechat_group.png": {
+      "sha256": "22d6f85d576c103b54ab5db628291b49c103816f13be09c145a892560475c9b7",
+      "size": 59194
+    },
+    "assets/wechat_pub_account.jpg": {
+      "sha256": "66b81b611968dc39076a3d7713cfec444024801222536c84c3c7b950f5ddf81f",
+      "size": 27114
+    },
+    "data/gpt4_translate_vicuna_eval_set.ipynb": {
+      "sha256": "1f142c70c8c3d5785f5004e645d18b21dc595030d55f00e8a984c65662d1f9bf",
+      "size": 48293
+    },
+    "data/translated_vicuna_eval_set.json": {
+      "sha256": "dad9eafe831b916a7cef218b74073ab07b75e1aaf6b21242e37106721212b74d",
+      "size": 22269
+    },
+    "eval/elo_tournanment_all_models_on_translated_vicuna.ipynb": {
+      "sha256": "2a6da243b171756941674b3925d92c63da1a5d2534dcec1fa8917684158667bb",
+      "size": 1660786
+    },
+    "examples/inferrence.ipynb": {
+      "sha256": "482fde4310fb334e3dbc14f17e7dcd5ce72ebe66db97a1654e5f8557e95a0acc",
+      "size": 386562
+    },
+    "funding.json": {
+      "sha256": "5a560d0a2bc5e0c2c613ff485c68b1dfb883152e20277ca0ec0664c9be3517ae",
+      "size": 1957
+    },
+    "requirements.txt": {
+      "sha256": "5d62163a99f4149c3e2ecd1594e68acf1a04f10dea4ec1321132d4dff2070cbe",
+      "size": 303
+    },
+    "rlhf/DPO_loss.png": {
+      "sha256": "e3073faecb41df210db667e0dacdbda0751295d99dd3774055bdeacb372a88dd",
+      "size": 15633
+    },
+    "rlhf/README.md": {
+      "sha256": "2b1668d083ea2b40115d129d619c0c0fa2a6f70159e4cd420dd22a79afc31bb3",
+      "size": 9798
+    },
+    "rlhf/RLHF.png": {
+      "sha256": "6d61a4b46ff15fb2b544567aa7062a2a2e9faf9325ea8373303eaa2b26df353a",
+      "size": 98803
+    },
+    "rlhf/pre_post_dpo_model_output_belle_eval_1k.csv": {
+      "sha256": "aac928f82d50cdecb4d4dd291ef72ca6415e846833ea5ef260f9f0737668f580",
+      "size": 1175735
+    },
+    "rlhf/qlora_dpo.py": {
+      "sha256": "68219562ad8ee303599b6d85182fb0fa6c318799fb6a52df384a3fd2d8631689",
+      "size": 39695
+    },
+    "rlhf/run_dpo_training.sh": {
+      "sha256": "f1d75e82ccc5c4cff3bc671935af02e388bfdcb5b8a50da5612f881676e48199",
+      "size": 1523
+    },
+    "rlhf/wandb_eval_loss_chart.png": {
+      "sha256": "bad7a74f09f306a00764cf50a62d273ac62ad63a0f5d26d1a44d3ff0a328361a",
+      "size": 122505
+    },
+    "scripts/test_cn_dataset_lenghts.py": {
+      "sha256": "3a1560827c4b2ae250b9e584544e16bc327ac3f70fb8247e215dd0eabb9cb55c",
+      "size": 901
+    },
+    "training/README.md": {
+      "sha256": "e67ffd649587b380f4c513964f5fc8e3f677d1b16a7d1a4b4d72161fe924598e",
+      "size": 28304
+    },
+    "training/README_en.md": {
+      "sha256": "6ec3def596d362cd082903894d956444cca1c88c8532ce85bc03ab5aae15147b",
+      "size": 27902
+    },
+    "training/qlora.py": {
+      "sha256": "88efb894c01ab9687c462fd5093d7d50f6726868ab9b681ede911c22a71f16de",
+      "size": 36763
+    },
+    "training/run_Amina_training.sh": {
+      "sha256": "6b88fa613f2d85f9c20fbabdf45dd8be55bbde16e1f732a54c7693c7b09b0fea",
+      "size": 1673
+    },
+    "training/run_finetune_raining_based_on_Anima.sh": {
+      "sha256": "6b88fa613f2d85f9c20fbabdf45dd8be55bbde16e1f732a54c7693c7b09b0fea",
+      "size": 1673
+    }
+  }
+}

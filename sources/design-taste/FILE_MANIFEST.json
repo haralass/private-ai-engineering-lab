@@ -1,0 +1,226 @@
+{
+  "generated_at": "2026-06-22T05:11:49.010612+00:00",
+  "file_count": 55,
+  "files": {
+    ".claude-plugin/marketplace.json": {
+      "sha256": "669b9a23f5b46326946465198829ff6d35a9b7fd36abc6b4a2ef652f02e615e2",
+      "size": 501
+    },
+    ".claude-plugin/plugin.json": {
+      "sha256": "bc9ddf22f1025944447bf56197e35a65aef0f8921fc7e68c616d4599d3d8bbf4",
+      "size": 447
+    },
+    ".github/FUNDING.yml": {
+      "sha256": "38f3a3fac585c3c35d6ed2297baba8d2d22ea974fa9799f842771c2f7c42d916",
+      "size": 17
+    },
+    ".github/copilot-instructions.md": {
+      "sha256": "bb3a5ee79ef5a6d292b0298d7bba686200fad1bd6e1f71a7091fadf26a64ff63",
+      "size": 959
+    },
+    "CHANGELOG.md": {
+      "sha256": "55a81cbf8d45c5ca064b21d4ce61792e8d973c525cf2a65ee3e2c65f28b16f3b",
+      "size": 8272
+    },
+    "LICENSE": {
+      "sha256": "4575a543ab88dad12ccea7d97e563d0bce5b448b06072e65d3264497dad326df",
+      "size": 1065
+    },
+    "README.md": {
+      "sha256": "f51f773274af8cf72824a3a2f75961d1704bb4dabde5a3c5cf0d6471d4cb7ce6",
+      "size": 13567
+    },
+    "assets/.gitkeep": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "assets/readme-banner.webp": {
+      "sha256": "2ee8933393eb15190040135b4a5a2ab87456c5269398d0089ae1b376c8cfccbe",
+      "size": 99902
+    },
+    "assets/readme-buttons/btn-agent-skills.webp": {
+      "sha256": "b1c4844cd59ce0b61e448933beab8988f25228b36a948354adc97da9878c9f50",
+      "size": 17150
+    },
+    "assets/readme-buttons/btn-changelog.webp": {
+      "sha256": "49650fcb4739ad331b83d1b82e58b4047d6bb2565e413bb0238dd611adba6df5",
+      "size": 15476
+    },
+    "assets/readme-buttons/btn-mit.webp": {
+      "sha256": "ce87211af13ccb11991b02ce220164be06f719be022dd87a14f52f950208b61c",
+      "size": 12962
+    },
+    "assets/readme-buttons/btn-site.webp": {
+      "sha256": "1b776c5c6d91b4d32047eddceed3e03635117da2898737d193fcac4f45df2d55",
+      "size": 19080
+    },
+    "assets/readme-buttons/btn-tools.webp": {
+      "sha256": "0fb2189928c221441c6c9398fb85af0b820f73aef133aed2b66b6f57e7e3d10b",
+      "size": 19698
+    },
+    "assets/readme-cta-tasteskill.svg": {
+      "sha256": "bd9c6ffff65c3b50b47d358bbdb5a68d524153e7cd905c6ef9c6afdd0f3e101c",
+      "size": 4864
+    },
+    "assets/sponsors/animations-dev.webp": {
+      "sha256": "5860105a4ccd67a9c62bff8d5235f962b013c08fe6d61cc7f0816235f96761fb",
+      "size": 2986
+    },
+    "assets/sponsors/emil-animations-dev.webp": {
+      "sha256": "64dde04e4594bea4f17b48214f30fee884462faabd70b98feac50703bbbd9ef4",
+      "size": 39216
+    },
+    "assets/taste-skill-logo.png": {
+      "sha256": "0a1071bf1b34238add2519dccd4e727cd5d269ef91dd467ea664aa80d83efaad",
+      "size": 17279
+    },
+    "assets/taste-skill-logo.webp": {
+      "sha256": "f59c2954a0a2a32c4a65a3599d2d2834a2a4068820aa34c8b2c902491bafc16c",
+      "size": 3280
+    },
+    "assets/vercel-oss-program-badge.svg": {
+      "sha256": "9c76b9842c8fc0a7befeee54b376ac4ffe47ffebad7d47e45122c4d029e36ea7",
+      "size": 13206
+    },
+    "examples/floria-bottom.webp": {
+      "sha256": "cd9f6c6588b988a604ead58db5518b253f01388e1797388cf7578deb2f1894c9",
+      "size": 170130
+    },
+    "examples/floria-full.webp": {
+      "sha256": "51cd51c4d436c4b9173efb336912213befd25b44d3aa2d9eb0bff12b155ea920",
+      "size": 568180
+    },
+    "examples/floria-top.webp": {
+      "sha256": "5de90622fc0adb6207102630ff5fcdd6505aa602a9aa90c28847345ff5c62ae0",
+      "size": 303012
+    },
+    "research/README.md": {
+      "sha256": "6af3f83631c2fcb740df05ba5b1bad447745f5ee8677a12dbe41b5cdae765d62",
+      "size": 368
+    },
+    "research/laziness/README.md": {
+      "sha256": "baec2b1cf754ce8c772cc169d9ab98c8440c314f47b126f39356df6aafc34a75",
+      "size": 1870
+    },
+    "research/laziness/findings/empirical-results.md": {
+      "sha256": "e48786188084a861079de1eb4f24a9896aed7318fb8a9254efc06c8e04ec36c3",
+      "size": 2820
+    },
+    "research/laziness/findings/references.md": {
+      "sha256": "e2b1192c22274062b3beea8539024604df82fab5c009983f2bfa98a9d933b6c7",
+      "size": 1512
+    },
+    "research/laziness/remediation/architectural-patterns.md": {
+      "sha256": "d4503aee332ac71be509908a5c0455642af86b8c6aca2be561c6b7ab017fdade",
+      "size": 3142
+    },
+    "research/laziness/remediation/parameter-tuning.md": {
+      "sha256": "efa8888a0849947be26d7b7185f1ec689f56da7400d415943e5b53ceb67d881c",
+      "size": 2856
+    },
+    "research/laziness/remediation/prompt-engineering.md": {
+      "sha256": "d702f06f68ccb367958e79b05093dc9dd5e6d37995569e89c8fb68fa720300d9",
+      "size": 3261
+    },
+    "research/laziness/remediation/reference-prompts.md": {
+      "sha256": "b39dd6724397684081bdb41a8a407b60853d5152522fc4c1e305984cdb03fe0d",
+      "size": 2363
+    },
+    "research/laziness/root-causes/cognitive-shortcuts.md": {
+      "sha256": "d0400b85c5f4f63904eab21689c00c218b227bb474d9a7b3c24607f21a6071f7",
+      "size": 2124
+    },
+    "research/laziness/root-causes/output-limits.md": {
+      "sha256": "acd1cbf44e931409343dc588cac5b4d7254bc40040889b70be1ca1fb745dda85",
+      "size": 2568
+    },
+    "research/laziness/root-causes/rlhf-and-compute.md": {
+      "sha256": "c0563aaf6fd9cfc68f765ed0a0d12344d27bfc03a8706ff8791bf10327d2f981",
+      "size": 2165
+    },
+    "research/laziness/root-causes/training-data-bias.md": {
+      "sha256": "433b4fbec70c06aa710bc69492c58f9013360cb3ef63dddb485148359005cfdd",
+      "size": 1666
+    },
+    "scripts/build-emil-sponsor-row.mjs": {
+      "sha256": "4e48beb43439e2f1136d36c1c1a00554bd6136700812b7f7d4890d5f4972ed18",
+      "size": 1112
+    },
+    "scripts/convert-readme-assets-webp.mjs": {
+      "sha256": "e3439bbef12845b07bb0475a34a9f4b8695a9db8d9621c40aebecb9d1dce9edd",
+      "size": 4228
+    },
+    "scripts/process-readme-buttons.mjs": {
+      "sha256": "10090fe18260cea2b99306ad7b27e3ccfa7b907e6a25fe26960d988de0a38802",
+      "size": 3010
+    },
+    "scripts/process-sponsor-badge.mjs": {
+      "sha256": "31fe1016f562ab736ff7240d054ccb81592b23942e33f0885ca57c3d5c143996",
+      "size": 2396
+    },
+    "skill.sh": {
+      "sha256": "adfa39e7ef08dc030500de961cf40b4089463c7f4c302ad29bf20b21ae0fc53d",
+      "size": 897
+    },
+    "skills/brandkit/SKILL.md": {
+      "sha256": "b0c4837e1bd140ca816ae54948754ddd2ac1e2a4d3619363777a80caf00b2ede",
+      "size": 15992
+    },
+    "skills/brutalist-skill/SKILL.md": {
+      "sha256": "fffbaac8597f07679e9d87145533567658aedba3b5eca6f16a7075a333048caa",
+      "size": 8456
+    },
+    "skills/gpt-tasteskill/SKILL.md": {
+      "sha256": "2e64c269953f2656c21bf5a0fa6b4568e82fe0c72b36e8f84758e090349966a5",
+      "size": 7857
+    },
+    "skills/image-to-code-skill/SKILL.md": {
+      "sha256": "4c060a8064a8b13380bc2ef3d6e6a1d0b1e316aa093cd9807d0ce9e4eeb037fa",
+      "size": 36442
+    },
+    "skills/imagegen-frontend-mobile/SKILL.md": {
+      "sha256": "8a33389979f3074fa0926678e266ad2eb9234624472254469fc1ad916b9caa24",
+      "size": 40326
+    },
+    "skills/imagegen-frontend-web/SKILL.md": {
+      "sha256": "6b5c2256522fdba1e3313eafa3d743b960a7b13ec029d3e6586e04b23327c1f8",
+      "size": 36854
+    },
+    "skills/llms.txt": {
+      "sha256": "c34dc218fe2940a3944967add63e4220e43975f5b15b31b8a280e73055484301",
+      "size": 1846
+    },
+    "skills/minimalist-skill/SKILL.md": {
+      "sha256": "36bc7328f085405f43b476938e62460fa573bf7e984e949e072bcf014831a44c",
+      "size": 7901
+    },
+    "skills/output-skill/SKILL.md": {
+      "sha256": "e5bf48b1ae561511439cf71672209a10a88cee0968cc925909ff861dfa0a96a7",
+      "size": 2592
+    },
+    "skills/redesign-skill/SKILL.md": {
+      "sha256": "98ad3e5b051bfb71b2795f7e8a6aa0d32b51ee095606c098a4b2822ac07926c9",
+      "size": 15060
+    },
+    "skills/soft-skill/SKILL.md": {
+      "sha256": "e1e32f5e2d420872c6c7332b53d5ff7721946766b78c4822b424c2d512c8fdbc",
+      "size": 10561
+    },
+    "skills/stitch-skill/DESIGN.md": {
+      "sha256": "0ab6740c4ebb1966dbceddb823a66d4bf027e960efbd73faca56cbf8370ae2ad",
+      "size": 12053
+    },
+    "skills/stitch-skill/SKILL.md": {
+      "sha256": "46bdb08fee2dded38b6ba0a051230a502d6ac6e4044afd47592cb40c256028b5",
+      "size": 11851
+    },
+    "skills/taste-skill/SKILL.md": {
+      "sha256": "aa194351b246b8b4799099d4ed7b033d29eab6e6e3d58d8d2172978be7b3ec89",
+      "size": 87253
+    },
+    "skills/taste-skill-v1/SKILL.md": {
+      "sha256": "033d45af1ed23832730642f95f40ab49db7fb5222848489a6c5656144bfc6dae",
+      "size": 21195
+    }
+  }
+}

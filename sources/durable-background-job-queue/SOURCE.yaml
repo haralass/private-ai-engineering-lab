@@ -1,0 +1,22 @@
+display_name: forgequeue
+functional_name: durable-background-job-queue
+source_url: https://github.com/sgavriil01/forgequeue
+source_label: student-1
+upstream_owner: sgavriil01
+upstream_repository: forgequeue
+pinned_commit: a08a6f9caf24a929db50fac00f8096983a8a8f1f
+retrieved_at: '2026-06-22T05:11:20.048257+00:00'
+license: MIT
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/durable-background-job-queue/upstream
+adapted_path: sources/durable-background-job-queue/adapted
+subsystem: ''
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: ''

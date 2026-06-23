@@ -1,0 +1,23 @@
+display_name: impeccable
+functional_name: design-quality-and-review
+source_url: https://github.com/pbakaus/impeccable
+source_label: external
+upstream_owner: pbakaus
+upstream_repository: impeccable
+pinned_commit: 609bbfbd5b8d4ac629267c13f06489eca8689cca
+retrieved_at: '2026-06-22T05:12:25.396018+00:00'
+license: Apache-2.0
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/design-quality-and-review/upstream
+adapted_path: sources/design-quality-and-review/adapted
+subsystem: ''
+removed_paths:
+- .git/
+- tests/framework-fixtures/multipage-with-generator/files/dist
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: ''

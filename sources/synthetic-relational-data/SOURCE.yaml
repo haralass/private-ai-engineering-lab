@@ -1,0 +1,22 @@
+display_name: "one-stop-ride-hail"
+functional_name: synthetic-relational-data
+source_url: https://github.com/tsembp/one-stop-ride-hail
+source_label: student-2
+upstream_owner: "tsembp"
+upstream_repository: "one-stop-ride-hail"
+pinned_commit: 14e0f42a9b32ea0b7f27543f7eeb6fe9fb92a9ff
+retrieved_at: "2026-06-22T05:14:16Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Ride-hail synthetic data generation."

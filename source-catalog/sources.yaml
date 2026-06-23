@@ -1,0 +1,184 @@
+# Source catalog — master registry of all imported sources
+# Each entry corresponds to a directory under sources/
+# Detailed metadata lives in sources/<functional-name>/SOURCE.yaml
+
+sources:
+  - functional_name: deterministic-agent-safety
+    upstream_repo: poshan0126/dotclaude
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: structured-agent-development
+    upstream_repo: obra/superpowers
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: full-product-engineering-agent-stack
+    upstream_repo: garrytan/gstack
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: anthropic-skills
+    upstream_repo: anthropics/skills
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: vercel-skills
+    upstream_repo: vercel-labs/skills
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: persistent-agent-memory
+    upstream_repo: thedotmack/claude-mem
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: design-quality-and-review
+    upstream_repo: pbakaus/impeccable
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: interaction-and-motion-design
+    upstream_repo: emilkowalski/skills
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: design-taste
+    upstream_repo: Leonxlnx/taste-skill
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: ui-ux-reference
+    upstream_repo: nextlevelbuilder/ui-ux-pro-max-skill
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: writing-quality
+    upstream_repo: hardikpandya/stop-slop
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: product-marketing-context
+    upstream_repo: coreyhaines31/marketingskills
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: terminal-coding-agent
+    upstream_repo: MoonshotAI/kimi-code
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: kimi-model-family
+    upstream_repo: MoonshotAI/Kimi-K2
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: glm-model-family
+    upstream_repo: zai-org/GLM-5
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: model-layer-streaming
+    upstream_repo: lyogavin/airllm
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: asynchronous-job-processing
+    upstream_repo: sgavriil01/sms-platform
+    label: student-1
+    status: pending
+    phase: 1
+
+  - functional_name: business-energy-dispatch
+    upstream_repo: sgavriil01/neura-btm-battery-dispatch
+    label: student-1
+    status: pending
+    phase: 1
+
+  - functional_name: semantic-audio-search
+    upstream_repo: sgavriil01/whisper-faiss-example
+    label: student-1
+    status: pending
+    phase: 1
+
+  - functional_name: durable-background-job-queue
+    upstream_repo: sgavriil01/forgequeue
+    label: student-1
+    status: pending
+    phase: 1
+
+  - functional_name: privacy-safe-commit-assistant
+    upstream_repo: sgavriil01/commitgen
+    label: student-1
+    status: pending
+    phase: 1
+
+  - functional_name: database-query-training
+    upstream_repo: tsembp/SQL-Gym
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: change-monitoring-notifications
+    upstream_repo: tsembp/WG-Course-Task-Notifier-Bot
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: synthetic-relational-data
+    upstream_repo: tsembp/one-stop-ride-hail
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: algorithm-benchmarking
+    upstream_repo: tsembp/Hitting-Set-Problem
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: modular-rag-learning
+    upstream_repo: tsembp/AI-Study-Mate
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: data-structure-search-engine
+    upstream_repo: tsembp/EPL231-GroupAssignment
+    label: student-2
+    status: pending
+    phase: 1
+
+  - functional_name: code-review-assistant
+    upstream_repo: pbakaus/code-review-assistant
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: design-agent-reviews
+    upstream_repo: pbakaus/agent-reviews
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: interaction-motion-toast
+    upstream_repo: emilkowalski/sonner
+    label: external
+    status: pending
+    phase: 1

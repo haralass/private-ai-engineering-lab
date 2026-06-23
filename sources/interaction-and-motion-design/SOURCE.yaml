@@ -1,0 +1,22 @@
+display_name: "skills"
+functional_name: interaction-and-motion-design
+source_url: https://github.com/emilkowalski/skills
+source_label: external
+upstream_owner: "emilkowalski"
+upstream_repository: "skills"
+pinned_commit: ea2cd0ddb235abbe85cdbc03f26686cd465df897
+retrieved_at: "2026-06-22T05:14:16Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Motion and animation patterns."

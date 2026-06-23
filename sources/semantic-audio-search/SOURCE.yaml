@@ -1,0 +1,22 @@
+display_name: "whisper-faiss-example"
+functional_name: semantic-audio-search
+source_url: https://github.com/sgavriil01/whisper-faiss-example
+source_label: student-1
+upstream_owner: "sgavriil01"
+upstream_repository: "whisper-faiss-example"
+pinned_commit: b60476ac98494293fce46f8c299b991e4dfa5007
+retrieved_at: "2026-06-22T05:14:15Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Whisper + FAISS semantic search."

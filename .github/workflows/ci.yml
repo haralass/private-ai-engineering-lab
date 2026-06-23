@@ -1,0 +1,213 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  secret-scan:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run secret scan
+        run: |
+          # Exclude sources/*/upstream/ — already scanned and documented at import time.
+          # CI protects our own code: components/, scripts/, docs/, source-catalog/, etc.
+          python scripts/security/secret_scan.py . --threshold high \
+            --exclude 'sources/*/upstream'
+        # Fail if any high-confidence secrets are found in our own code
+
+  validate-sources:
+    name: Validate source manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate source manifests
+        run: |
+          if ls sources/ | grep -v README.md | grep -q .; then
+            python scripts/validation/validate_source_manifests.py
+          else
+            echo "No sources yet — skipping"
+          fi
+
+      - name: Validate catalog consistency
+        run: |
+          python scripts/validation/validate_catalog_consistency.py
+
+  yaml-validation:
+    name: YAML validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate all YAML files (*.yaml and *.yml)
+        run: |
+          python -c "
+          import yaml, sys, pathlib
+          errors = []
+          patterns = ['*.yaml', '*.yml']
+          skip = ['node_modules', '.git', 'venv', '__pycache__']
+          seen = set()
+          for pat in patterns:
+            for f in pathlib.Path('.').rglob(pat):
+              if any(p in str(f) for p in skip):
+                continue
+              key = str(f.resolve())
+              if key in seen:
+                continue
+              seen.add(key)
+              try:
+                yaml.safe_load(f.read_text())
+              except yaml.YAMLError as e:
+                errors.append(f'{f}: {e}')
+          if errors:
+            for e in errors:
+              print('ERROR:', e)
+            sys.exit(1)
+          print(f'YAML validation: OK ({len(seen)} files checked)')
+          "
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck on hook scripts
+        run: |
+          find components/ scripts/ -name "*.sh" -exec shellcheck {} +
+
+  component-tests:
+    name: Component tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: pip install pytest pyyaml
+
+      - name: Run agent-safety-firewall tests
+        run: |
+          cd components/agent-safety-firewall
+          python -m pytest tests/ -v
+
+      - name: Run script tests
+        run: |
+          python -m pytest scripts/security/tests/ scripts/validation/tests/ -v
+
+      - name: Run importer tests
+        run: |
+          python -m pytest scripts/source-management/tests/ -v
+
+  large-file-check:
+    name: Large file check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for large files (>10MB)
+        run: |
+          # Collect all tracked files >10MB outside .git, node_modules, and
+          # sources/*/upstream/ (upstream files are inspected + documented at import time).
+          # Do NOT use || true — we want real failures.
+          large=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
+            -type f -size +10M 2>/dev/null)
+          if [ -n "$large" ]; then
+            echo "ERROR: Large file(s) detected (>10MB) outside vendored upstream snapshots:"
+            echo "$large"
+            exit 1
+          fi
+          echo "Large file check: OK"
+
+      - name: Check for model weights and forbidden binaries
+        run: |
+          # Find model weight files by extension (any size) plus large .bin files.
+          # Exclude sources/*/upstream/ — upstream content is inspected at import time.
+          # Do NOT use || true — we want real failures.
+          weights=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
+            \( \
+              -name "*.safetensors" \
+              -o -name "*.gguf" \
+              -o -name "*.ggml" \
+              -o -name "*.pt" \
+              -o -name "*.pth" \
+              -o -name "*.ckpt" \
+            \) 2>/dev/null)
+          # .bin files are only suspicious at large size (small ones are legit)
+          large_bin=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
+            -name "*.bin" -size +50M 2>/dev/null)
+          all="${weights}${large_bin}"
+          if [ -n "$all" ]; then
+            echo "ERROR: Model weight or forbidden binary file(s) detected outside vendored upstream:"
+            echo "$all"
+            exit 1
+          fi
+          echo "Model weight check: OK"
+
+  upstream-immutability:
+    name: Upstream immutability check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check that upstream/ dirs were not modified
+        run: |
+          # Check for MODIFICATIONS to existing upstream/ files (not additions of new sources).
+          # --diff-filter=M means only files that existed in main and were then changed.
+          # Adding new sources/*/upstream/ trees via a PR is intentional and should not fail.
+          modified=$(git diff --diff-filter=M --name-only origin/main...HEAD | grep "^sources/.*/upstream/" || true)
+          if [ -n "$modified" ]; then
+            echo "ERROR: Files in sources/*/upstream/ must never be modified."
+            echo "       All changes must go into sources/*/adapted/ or components/"
+            echo "$modified"
+            exit 1
+          fi
+          echo "Upstream immutability: OK"
