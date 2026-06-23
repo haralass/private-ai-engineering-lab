@@ -57,6 +57,22 @@ No user interviews conducted.
 - The sandbox security model can be made production-safe without prohibitive complexity
 - AI error explanations meaningfully improve learning outcomes vs. raw error messages
 
+## Competitor landscape
+
+Source: competitor websites verified 2026-06-23. Full analysis in `research/domain-synthesis/data-and-learning.md`.
+
+| Competitor | Approach | Pricing | Gap |
+|---|---|---|---|
+| DataCamp | Structured courses with pre-set exercises | $25–$300/year | No AI feedback on student queries; no generated datasets |
+| SQLZoo | Free SQL exercises | Free | No AI feedback; no progress tracking; dated UX |
+| Mode Analytics | SQL editor + collaborative notebooks | Free tier (limited) | Not a learning platform; no curriculum; no AI explanation |
+| Strata Scratch (StrataScratch) | SQL interview practice with real datasets | Free / $99/year | Static datasets; no AI error explanation |
+| LeetCode (SQL section) | SQL challenge problems | Free / $159/year | No sandboxed execution with AI explanation |
+
+**Gap confirmed:** No verified platform combines (1) AI-powered error explanation, (2) fresh generated datasets per session, and (3) a production-safe sandboxed execution engine. The specific gap is the AI feedback loop, not the exercises themselves.
+
+evidence_level: initial-research (competitor landscape verified; no user interviews conducted)
+
 ## Next validation step
 
 1. Talk to 3–5 people currently learning SQL for interviews: what tools do they use, what's missing?

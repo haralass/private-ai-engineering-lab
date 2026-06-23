@@ -59,6 +59,23 @@ No user interviews conducted.
 - Schema inference from existing migrations is reliable enough to be the primary input method
 - Relationship-aware generation is the key differentiator over existing tools (Faker, Mockaroo)
 
+## Competitor landscape
+
+Source: competitor websites verified 2026-06-23. Full analysis in `research/domain-synthesis/data-and-learning.md`.
+
+| Competitor | Approach | Pricing | Gap |
+|---|---|---|---|
+| Faker (Python/JS) | Random fake data per field | Free, open-source | No relational consistency; no schema inference |
+| Mimesis (Python) | Type-aware fake data | Free, open-source | No relational consistency |
+| Mockaroo | Web UI for fake data generation | Free (limited) / $50/month | Limited relational consistency; no schema inference from migrations |
+| Tonic.ai | Production data anonymization + synthetic data | Enterprise; contact sales | Enterprise pricing (>$10k); not accessible to SME dev teams |
+| Mostly AI | Statistically faithful synthetic data (ML-based) | Free trial / enterprise | ML-based; overkill for test data; expensive |
+| Snaplet (now Supabase) | Postgres snapshot + fake data | Acquired; shifting scope | Postgres-only; integration with Supabase dependency |
+
+**Gap confirmed:** Faker/Mimesis are too simple (no relational consistency). Tonic.ai/Mostly AI are enterprise-priced. Mid-market gap: a tool that does relationship-aware generation with schema inference at $50–$200/month for a dev team. No verified product fills this.
+
+evidence_level: initial-research (competitor landscape partially verified; no user interviews conducted)
+
 ## Next validation step
 
 1. Talk to 3–5 backend developers: how do they handle test data today? What breaks?

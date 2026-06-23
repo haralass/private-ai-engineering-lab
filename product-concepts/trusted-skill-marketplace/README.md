@@ -61,6 +61,24 @@ want or need a shared registry.
 - Security and performance vetting are blockers for skill adoption in team settings
 - This is a community/ecosystem problem, not just a personal productivity problem
 
+## Competitor landscape
+
+Source: verified from product websites and GitHub, 2026-06-23. Full analysis in `research/domain-synthesis/agent-engineering-and-safety.md`.
+
+| Platform | Type | Scope | Gap |
+|---|---|---|---|
+| Anthropic Skills (anthropics/skills) | Official skill collection | Claude Code only; no marketplace | No security vetting, no benchmarks, no community submissions |
+| Vercel Labs Skills (vercel-labs/skills) | Framework skills | Claude Code / Next.js | Framework-specific; no registry or security audit |
+| Claude Code Plugin registry (hypothetical) | Anthropic may build | Not yet announced | Risk: Anthropic builds official registry |
+| npm / PyPI | General package registries | Any code | No AI-skill-specific fields (permissions, hooks, prompt injection) |
+| Model Context Protocol (Anthropic MCP) | Tool plugin protocol | MCP-compatible agents | Protocol only; no registry with security vetting |
+
+**Key observation:** No verified skill registry with security vetting, benchmark data, and permission auditing exists as of 2026-06-23. The gap is real. The main competitive risk is Anthropic building an official skill store — this is a likely outcome given the MCP ecosystem growth.
+
+**Mitigation strategy:** Build the internal version first (already underway via skill-library/). If Anthropic builds official registry, the lab's internal pipeline remains valuable as an enterprise-grade review tool.
+
+evidence_level: initial-research (competitor landscape verified; no external user validation)
+
 ## Next validation step
 
 1. Find 3–5 teams using Claude Code or similar in shared codebases: do they share skills,

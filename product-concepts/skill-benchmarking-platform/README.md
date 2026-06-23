@@ -60,6 +60,24 @@ The platform generalized from that internal use case.
 - The measurement methodology is valid (correctness delta is the right primary metric)
 - Skills cause meaningful regressions often enough to justify a dedicated tool
 
+## Competitor landscape
+
+Source: verified from GitHub and product websites, 2026-06-23.
+
+| Tool | Type | Scope | Gap |
+|---|---|---|---|
+| Claude Code evals (Anthropic internal) | Internal benchmarking | Not public | Evaluates Claude models, not individual skills |
+| LangSmith (LangChain) | LLM observability + evaluation | LangChain framework | Framework-specific; not Claude Code skill testing |
+| Braintrust | LLM evaluation platform | General LLM | Not skill-specific; no overtriggering measurement |
+| OpenEvals (Anthropic) | Open evaluation framework | General LLM | Not Claude Code skill-specific |
+| Custom test scripts (typical) | Ad-hoc | Lab-specific | No standardization; no cross-skill comparison |
+
+**Gap confirmed:** No verified tool measures the specific Claude Code skill impact metrics: overtriggering rate, regression on unrelated tasks, correctness delta with and without the skill. This gap is real but the market (Claude Code skill developers) is currently small.
+
+**Timing risk:** This product's viability depends on the Claude Code skill ecosystem growing. Current evidence of ecosystem size is limited. Validate market size before investing significant engineering.
+
+evidence_level: initial-research (competitor landscape verified; no external user validation)
+
 ## Next validation step
 
 1. Dogfood the prototype on 3–5 lab skills: does the benchmark output match intuition?
