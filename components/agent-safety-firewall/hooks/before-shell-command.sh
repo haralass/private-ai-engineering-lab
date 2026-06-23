@@ -1,49 +1,44 @@
 #!/usr/bin/env bash
 # Hook: before-shell-command
 # Called before an agent executes a shell command.
-# Input via CLAUDE_TOOL_INPUT env var (JSON with "command" field)
-# Exit 0 = allow, exit 2 = block (with message to stderr)
 #
-# In report-only mode this hook always exits 0 but prints warnings.
+# Input:  CLAUDE_TOOL_INPUT env var (JSON with "command" field)
+#         or first positional argument as the raw command string
+#
+# Exit 0 = allow
+# Exit 2 = block  (enforce mode only; AGENT_SAFETY_MODE=enforce)
+# Exit 3 = confirm required (enforce mode only)
+#
+# Default mode (AGENT_SAFETY_MODE=report-only): always exits 0, logs warnings.
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMPONENT_DIR="$(dirname "$SCRIPT_DIR")"
 
-# Parse command from CLAUDE_TOOL_INPUT if available
+# Extract command string from CLAUDE_TOOL_INPUT (JSON) or positional arg
 if [[ -n "${CLAUDE_TOOL_INPUT:-}" ]]; then
-  COMMAND=$(echo "$CLAUDE_TOOL_INPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('command',''))" 2>/dev/null || echo "")
+  COMMAND=$(printf '%s' "$CLAUDE_TOOL_INPUT" | \
+    python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('command',''))" || true)
 else
   COMMAND="${1:-}"
 fi
 
-if [[ -z "$COMMAND" ]]; then
+if [[ -z "${COMMAND:-}" ]]; then
   exit 0
 fi
 
-# Run the policy engine
-RESULT=$(python3 -c "
-import sys
-sys.path.insert(0, '$COMPONENT_DIR/src')
-from policy_engine import evaluate
-v = evaluate(command='$COMMAND')
-print(v.verdict.value)
-print(v.summary)
-" 2>/dev/null || echo "allow
-Policy engine unavailable — allowing by default")
+# Build a safe JSON payload without shell interpolation into Python source.
+# python3 receives the command as a positional argument (sys.argv[1]),
+# never as part of the -c script source.
+JSON_INPUT=$(python3 -c \
+  "import json,sys; print(json.dumps({'command': sys.argv[1]}))" \
+  "$COMMAND")
 
-VERDICT=$(echo "$RESULT" | head -1)
-SUMMARY=$(echo "$RESULT" | tail -1)
-
-if [[ "$VERDICT" == "block" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] BLOCKED: $SUMMARY" >&2
-  # In report-only mode: comment out the exit 2 below
-  # exit 2
+if [[ -z "$JSON_INPUT" ]]; then
+  echo "[AGENT-SAFETY-FIREWALL] ERROR: could not JSON-encode command" >&2
+  exit 0
 fi
 
-if [[ "$VERDICT" == "confirm" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] REQUIRES CONFIRMATION: $SUMMARY" >&2
-fi
-
-exit 0
+printf '%s' "$JSON_INPUT" | python3 "$COMPONENT_DIR/hooks/run_policy.py"
+exit $?

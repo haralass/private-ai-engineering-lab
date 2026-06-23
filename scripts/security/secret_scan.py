@@ -44,6 +44,15 @@ PATTERNS = {
     ],
 }
 
+def redact(value: str, keep: int = 4) -> str:
+    """Show only the first and last `keep` chars; mask the middle with asterisks.
+    Never expose more than `keep` chars on either side regardless of value length."""
+    if len(value) <= keep * 2:
+        return value[:keep] + "***"
+    stars = min(len(value) - keep * 2, 20)
+    return value[:keep] + "*" * stars + value[-keep:]
+
+
 TEXT_EXTENSIONS = {
     ".py", ".js", ".ts", ".jsx", ".tsx", ".sh", ".bash",
     ".yaml", ".yml", ".json", ".toml", ".ini", ".cfg",
@@ -101,7 +110,7 @@ def scan_file(path: Path, threshold: str) -> list[dict]:
                     "line": line_num,
                     "level": level,
                     "label": label,
-                    "preview": match.group(0)[:80],
+                    "preview": redact(match.group(0)),
                 })
     return findings
 

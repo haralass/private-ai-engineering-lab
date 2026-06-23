@@ -1,45 +1,38 @@
 #!/usr/bin/env bash
 # Hook: before-file-write
 # Called before an agent writes to a file.
-# Input via CLAUDE_TOOL_INPUT env var (JSON with "file_path" field)
-# Exit 0 = allow, exit 2 = block (with message to stderr)
+#
+# Input:  CLAUDE_TOOL_INPUT env var (JSON with "file_path" field)
+#         or first positional argument as the raw file path
+#
+# Exit 0 = allow
+# Exit 2 = block  (enforce mode only; AGENT_SAFETY_MODE=enforce)
+# Exit 3 = confirm required (enforce mode only)
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMPONENT_DIR="$(dirname "$SCRIPT_DIR")"
 
 if [[ -n "${CLAUDE_TOOL_INPUT:-}" ]]; then
-  FILE_PATH=$(echo "$CLAUDE_TOOL_INPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('file_path',''))" 2>/dev/null || echo "")
+  FILE_PATH=$(printf '%s' "$CLAUDE_TOOL_INPUT" | \
+    python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('file_path',''))" || true)
 else
   FILE_PATH="${1:-}"
 fi
 
-if [[ -z "$FILE_PATH" ]]; then
+if [[ -z "${FILE_PATH:-}" ]]; then
   exit 0
 fi
 
-RESULT=$(python3 -c "
-import sys
-sys.path.insert(0, '$COMPONENT_DIR/src')
-from policy_engine import evaluate
-v = evaluate(target_path='$FILE_PATH')
-print(v.verdict.value)
-print(v.summary)
-" 2>/dev/null || echo "allow
-Policy engine unavailable — allowing by default")
+JSON_INPUT=$(python3 -c \
+  "import json,sys; print(json.dumps({'target_path': sys.argv[1]}))" \
+  "$FILE_PATH")
 
-VERDICT=$(echo "$RESULT" | head -1)
-SUMMARY=$(echo "$RESULT" | tail -1)
-
-if [[ "$VERDICT" == "block" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] FILE WRITE BLOCKED: $SUMMARY" >&2
-  # In report-only mode: comment out the exit 2 below
-  # exit 2
+if [[ -z "$JSON_INPUT" ]]; then
+  echo "[AGENT-SAFETY-FIREWALL] ERROR: could not JSON-encode file path" >&2
+  exit 0
 fi
 
-if [[ "$VERDICT" == "confirm" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] FILE WRITE REQUIRES CONFIRMATION: $SUMMARY" >&2
-fi
-
-exit 0
+printf '%s' "$JSON_INPUT" | python3 "$COMPONENT_DIR/hooks/run_policy.py"
+exit $?

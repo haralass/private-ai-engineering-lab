@@ -25,11 +25,12 @@ license_matrix:
     copy_allowed: null
 
   anthropic-skills:
-    license: Apache-2.0
-    file_present: true
+    license: unknown
+    file_present: false
     review_status: pending
-    vendoring_allowed: true
-    copy_allowed: true
+    vendoring_allowed: null
+    copy_allowed: null
+    notes: reference-only; no LICENSE file in repo root
 
   model-layer-streaming:
     license: Apache-2.0

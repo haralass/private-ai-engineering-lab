@@ -164,3 +164,21 @@ sources:
     label: student-2
     status: pending
     phase: 1
+
+  - functional_name: code-review-assistant
+    upstream_repo: pbakaus/code-review-assistant
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: design-agent-reviews
+    upstream_repo: pbakaus/agent-reviews
+    label: external
+    status: pending
+    phase: 1
+
+  - functional_name: interaction-motion-toast
+    upstream_repo: emilkowalski/sonner
+    label: external
+    status: pending
+    phase: 1

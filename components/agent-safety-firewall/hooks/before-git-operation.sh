@@ -1,47 +1,44 @@
 #!/usr/bin/env bash
 # Hook: before-git-operation
-# Wraps git commands for policy evaluation before execution.
+# Called before an agent runs a git command.
+#
+# Input:  CLAUDE_TOOL_INPUT env var (JSON with "command" field)
+#         or positional arguments as the raw git command
+#
+# Exit 0 = allow
+# Exit 2 = block  (enforce mode only; AGENT_SAFETY_MODE=enforce)
+# Exit 3 = confirm required (enforce mode only)
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMPONENT_DIR="$(dirname "$SCRIPT_DIR")"
 
 if [[ -n "${CLAUDE_TOOL_INPUT:-}" ]]; then
-  COMMAND=$(echo "$CLAUDE_TOOL_INPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('command',''))" 2>/dev/null || echo "")
+  COMMAND=$(printf '%s' "$CLAUDE_TOOL_INPUT" | \
+    python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('command',''))" || true)
 else
   COMMAND="${*:-}"
 fi
 
-if [[ -z "$COMMAND" ]]; then
+if [[ -z "${COMMAND:-}" ]]; then
   exit 0
 fi
 
 # Only evaluate git commands
-if [[ "$COMMAND" != git* ]]; then
+case "$COMMAND" in
+  git\ *|git) ;;
+  *) exit 0 ;;
+esac
+
+JSON_INPUT=$(python3 -c \
+  "import json,sys; print(json.dumps({'command': sys.argv[1]}))" \
+  "$COMMAND")
+
+if [[ -z "$JSON_INPUT" ]]; then
+  echo "[AGENT-SAFETY-FIREWALL] ERROR: could not JSON-encode command" >&2
   exit 0
 fi
 
-RESULT=$(python3 -c "
-import sys
-sys.path.insert(0, '$COMPONENT_DIR/src')
-from policy_engine import evaluate
-v = evaluate(command='$COMMAND')
-print(v.verdict.value)
-print(v.summary)
-" 2>/dev/null || echo "allow
-Policy engine unavailable")
-
-VERDICT=$(echo "$RESULT" | head -1)
-SUMMARY=$(echo "$RESULT" | tail -1)
-
-if [[ "$VERDICT" == "block" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] GIT OPERATION BLOCKED: $SUMMARY" >&2
-  # exit 2  # uncomment to enforce blocking
-fi
-
-if [[ "$VERDICT" == "confirm" ]]; then
-  echo "[AGENT-SAFETY-FIREWALL] GIT OPERATION REQUIRES CONFIRMATION: $SUMMARY" >&2
-fi
-
-exit 0
+printf '%s' "$JSON_INPUT" | python3 "$COMPONENT_DIR/hooks/run_policy.py"
+exit $?

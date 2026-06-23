@@ -166,34 +166,55 @@ def import_source(
     adapted_dir = out_dir / "adapted"
 
     print(f"[import] Cloning {url} at {commit}…")
+    removed_log: list[str] = []
+    secret_findings: list[dict] = []
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp) / "clone"
 
         # Shallow clone
         run(["git", "clone", "--depth", "1", url, str(tmp_path)])
-        # Checkout the pinned commit
+
+        # Checkout the pinned commit — abort on failure, never silently use HEAD
         try:
             run(["git", "fetch", "--depth", "1", "origin", commit], cwd=tmp_path)
             run(["git", "checkout", commit], cwd=tmp_path)
-        except subprocess.CalledProcessError:
-            print(f"[import] Could not checkout {commit} — using HEAD")
+        except subprocess.CalledProcessError as e:
+            print(
+                f"ERROR: Could not checkout requested commit {commit}.\n"
+                f"       {e.stderr.strip()}\n"
+                "       Aborting — do not import from an unverified commit.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
-        # Get actual commit SHA
-        result = run(["git", "rev-parse", "HEAD"], cwd=tmp_path)
-        actual_commit = result.stdout.strip()
+        # Verify actual commit matches what was requested
+        actual_commit = run(["git", "rev-parse", "HEAD"], cwd=tmp_path).stdout.strip()
+        if not actual_commit.startswith(commit) and not commit.startswith(actual_commit[:len(commit)]):
+            print(
+                f"ERROR: SHA mismatch — requested {commit!r} but got {actual_commit!r}.\n"
+                "       This may indicate the commit was rewritten or the SHA is wrong.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        print(f"[import] Verified commit: {actual_commit}")
 
         # Detect license before removing anything
         license_id, license_found = detect_license(tmp_path)
         if license_override:
             license_id = license_override
-            print(f"[import] License override: {license_id}")
+            # Manual override: license_file_verified stays False — it was not auto-detected
+            license_file_verified = False
+            print(f"[import] License MANUALLY overridden to: {license_id} (not auto-detected from LICENSE file)")
         else:
+            license_file_verified = license_found
             print(f"[import] Detected license: {license_id} (file found: {license_found})")
 
-        if not license_found and not license_override:
+        # reference-only mode requires no license file (that's the whole point)
+        if mode != "reference-only" and not license_found and not license_override:
             print(
                 "ERROR: No LICENSE file found and no --license-override given.\n"
-                "       Set import mode to reference-only or provide --license-override.",
+                "       Use --mode reference-only for repos without a clear license,\n"
+                "       or provide --license-override with the correct SPDX identifier.",
                 file=sys.stderr,
             )
             sys.exit(1)
@@ -207,7 +228,6 @@ def import_source(
                 sys.exit(1)
 
         # Remove internal .git and ignored directories
-        removed_log: list[str] = []
         git_dir = tmp_path / ".git"
         if git_dir.exists():
             shutil.rmtree(git_dir)
@@ -215,17 +235,17 @@ def import_source(
 
         remove_ignored(source_root, removed_log)
 
-        # Secret scan
+        # Secret scan (always run, even for reference-only, to document findings)
         print("[import] Running secret scan…")
-        findings = secret_scan(source_root)
-        if findings:
-            print(f"\nSECRET SCAN FINDINGS ({len(findings)} potential secrets found):", file=sys.stderr)
-            for f in findings:
+        secret_findings = secret_scan(source_root)
+        if secret_findings:
+            print(f"\nSECRET SCAN FINDINGS ({len(secret_findings)} potential secrets found):", file=sys.stderr)
+            for f in secret_findings:
                 print(f"  {f['file']}:{f['line']} [{f['label']}] {f['match_preview']}", file=sys.stderr)
             if reviewed_secrets:
                 print(
                     "\n[import] --reviewed-secrets set: proceeding after human review.\n"
-                    "         Document findings and disposition in AUDIT.md.",
+                    "         Document each finding and its disposition in AUDIT.md.",
                     file=sys.stderr,
                 )
             else:
@@ -236,22 +256,28 @@ def import_source(
                     file=sys.stderr,
                 )
                 sys.exit(1)
-        print("[import] Secret scan: clean")
+        else:
+            print("[import] Secret scan: clean")
 
-        # Copy to upstream/
-        upstream_dir.mkdir(parents=True)
-        shutil.copytree(str(source_root), str(upstream_dir), dirs_exist_ok=True)
-        adapted_dir.mkdir(parents=True)
+        # For reference-only: catalog entry only, no code copied
+        if mode == "reference-only":
+            out_dir.mkdir(parents=True)
+            manifest = {"file_count": 0, "files": {}, "note": "reference-only — no code vendored"}
+        else:
+            # Copy to upstream/
+            upstream_dir.mkdir(parents=True)
+            shutil.copytree(str(source_root), str(upstream_dir), dirs_exist_ok=True)
+            adapted_dir.mkdir(parents=True)
 
-        # Copy LICENSE
-        for name in ["LICENSE", "LICENSE.txt", "LICENSE.md"]:
-            src = tmp_path / name
-            if src.exists():
-                shutil.copy(src, out_dir / "LICENSE")
-                break
+            # Copy LICENSE
+            for name in ["LICENSE", "LICENSE.txt", "LICENSE.md"]:
+                src = tmp_path / name
+                if src.exists():
+                    shutil.copy(src, out_dir / "LICENSE")
+                    break
 
-        # Build manifest
-        manifest = build_file_manifest(upstream_dir)
+            # Build manifest
+            manifest = build_file_manifest(upstream_dir)
 
     # Write SOURCE.yaml
     now = datetime.now(timezone.utc).isoformat()
@@ -265,10 +291,11 @@ def import_source(
         "pinned_commit": actual_commit,
         "retrieved_at": now,
         "license": license_id,
-        "license_file_verified": license_found,
+        "license_file_verified": license_file_verified,
+        "license_override_applied": bool(license_override),
         "import_mode": mode,
-        "snapshot_path": f"sources/{functional_name}/upstream",
-        "adapted_path": f"sources/{functional_name}/adapted",
+        "snapshot_path": f"sources/{functional_name}/upstream" if mode != "reference-only" else "",
+        "adapted_path": f"sources/{functional_name}/adapted" if mode != "reference-only" else "",
         "subsystem": subsystem or "",
         "removed_paths": removed_log[:50],
         "local_modifications": [],
@@ -276,40 +303,60 @@ def import_source(
         "license_review_status": "pending",
         "execution_allowed": False,
         "decision": "candidate",
-        "notes": "",
+        "notes": "license manually overridden — verify upstream license before use" if license_override else "",
     }
 
     (out_dir / "SOURCE.yaml").write_text(yaml.dump(source_yaml, default_flow_style=False, sort_keys=False))
 
     # Write ATTRIBUTION.md
+    license_note = (
+        f"License: {license_id} (MANUALLY OVERRIDDEN — not auto-detected from LICENSE file)"
+        if license_override
+        else f"License: {license_id}"
+    )
     attribution = f"""# Attribution
 
 Source: {url}
 Commit: {actual_commit}
 Retrieved: {now}
-License: {license_id}
+{license_note}
 
-This snapshot is used in accordance with the upstream license.
-Original copyright belongs to the upstream authors.
-See LICENSE file for full license text.
+{"This snapshot is used in accordance with the upstream license. Original copyright belongs to the upstream authors. See LICENSE file for full license text." if mode != "reference-only" else "Reference-only: no code vendored. Study only."}
 """
     (out_dir / "ATTRIBUTION.md").write_text(attribution)
 
-    # Write AUDIT.md
+    # Write AUDIT.md — be honest about secret scan status
+    if secret_findings and reviewed_secrets:
+        secret_status = (
+            f"- [ ] Automated scan: {len(secret_findings)} potential secrets found — "
+            "reviewed with --reviewed-secrets flag\n"
+            "- [ ] **Each finding must be documented below with disposition**\n"
+            "- [ ] Manual review of configuration files"
+        )
+    else:
+        secret_status = (
+            "- [x] Automated scan: clean — 0 findings at import time\n"
+            "- [ ] Manual review of configuration files"
+        )
+
+    license_check = (
+        f"- [ ] License MANUALLY set to {license_id} — verify upstream license before use"
+        if license_override
+        else f"- [ ] LICENSE file verified\n- [ ] License permits vendoring: {license_id}\n- [ ] Copyright notices preserved"
+    )
+
     audit = f"""# Audit — {functional_name}
 
 Source: {url}
 Commit: {actual_commit}
+Import mode: {mode}
 Audited: (pending)
 
 ## License review
-- [ ] LICENSE file verified
-- [ ] License permits vendoring: {license_id}
-- [ ] Copyright notices preserved
+{license_check}
 
 ## Secret scan
-- [x] Automated scan: clean (run at import time)
-- [ ] Manual review of configuration files
+{secret_status}
 
 ## Prompt injection review
 - [ ] No files with AI-visible instruction injections
@@ -355,8 +402,9 @@ Our changes, improvements, and integrations go here.
     # Write FILE_MANIFEST.json
     (out_dir / "FILE_MANIFEST.json").write_text(json.dumps(manifest, indent=2))
 
-    # Create placeholder adapted/.gitkeep
-    (adapted_dir / ".gitkeep").touch()
+    # Create placeholder adapted/.gitkeep (vendored modes only)
+    if mode != "reference-only":
+        (adapted_dir / ".gitkeep").touch()
 
     print(f"\n[import] Done!")
     print(f"  Directory:   {out_dir}")

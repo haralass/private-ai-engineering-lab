@@ -1,10 +1,15 @@
 """
 Composite policy engine that aggregates command and path decisions.
 Produces a single final verdict for an agent action.
+
+Enforcement mode is controlled by the AGENT_SAFETY_MODE environment variable:
+  AGENT_SAFETY_MODE=report-only  (default) — log violations, never block
+  AGENT_SAFETY_MODE=enforce      — BLOCK returns exit 2, CONFIRM pauses execution
 """
 
 from __future__ import annotations
 
+import os
 import sys
 from dataclasses import dataclass
 from enum import Enum
@@ -30,8 +35,10 @@ class AgentActionVerdict:
     summary: str
 
 
-# report-only mode: never block, always log and return ALLOW
-REPORT_ONLY = True
+def is_report_only() -> bool:
+    """Return True when running in report-only mode (default).
+    Set AGENT_SAFETY_MODE=enforce to enable actual blocking."""
+    return os.environ.get("AGENT_SAFETY_MODE", "report-only").lower().strip() != "enforce"
 
 
 def evaluate(
@@ -40,7 +47,9 @@ def evaluate(
 ) -> AgentActionVerdict:
     """
     Evaluate a proposed agent action (command and/or file write).
-    In report-only mode (default) returns ALLOW but prints warnings.
+
+    report-only mode: returns ALLOW but prints warnings to stderr.
+    enforce mode: returns the actual verdict (BLOCK, CONFIRM, etc.).
     """
     cmd_decision = None
     path_decision = None
@@ -69,8 +78,11 @@ def evaluate(
         parts.append(path_report(path_decision))
     summary = " | ".join(parts) if parts else "No action evaluated"
 
-    if REPORT_ONLY and worst_verdict in (Verdict.BLOCK, Verdict.CONFIRM):
-        print(f"[AGENT-SAFETY-FIREWALL] REPORT-ONLY: would {worst_verdict.upper()} — {summary}", file=sys.stderr)
+    if is_report_only() and worst_verdict in (Verdict.BLOCK, Verdict.CONFIRM):
+        print(
+            f"[AGENT-SAFETY-FIREWALL] REPORT-ONLY: would {worst_verdict.upper()} — {summary}",
+            file=sys.stderr,
+        )
         return AgentActionVerdict(
             verdict=Verdict.ALLOW,
             command_decision=cmd_decision,

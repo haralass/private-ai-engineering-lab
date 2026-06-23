@@ -47,12 +47,15 @@ jobs:
 
       - name: Validate source manifests
         run: |
-          # Only validate if sources/ has any subdirectories
           if ls sources/ | grep -v README.md | grep -q .; then
             python scripts/validation/validate_source_manifests.py
           else
             echo "No sources yet — skipping"
           fi
+
+      - name: Validate catalog consistency
+        run: |
+          python scripts/validation/validate_catalog_consistency.py
 
   yaml-validation:
     name: YAML validation
@@ -68,23 +71,31 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Validate all YAML files
+      - name: Validate all YAML files (*.yaml and *.yml)
         run: |
           python -c "
           import yaml, sys, pathlib
           errors = []
-          for f in pathlib.Path('.').rglob('*.yaml'):
-            if any(p in str(f) for p in ['node_modules', '.git', 'venv']):
-              continue
-            try:
-              yaml.safe_load(f.read_text())
-            except yaml.YAMLError as e:
-              errors.append(f'{f}: {e}')
+          patterns = ['*.yaml', '*.yml']
+          skip = ['node_modules', '.git', 'venv', '__pycache__']
+          seen = set()
+          for pat in patterns:
+            for f in pathlib.Path('.').rglob(pat):
+              if any(p in str(f) for p in skip):
+                continue
+              key = str(f.resolve())
+              if key in seen:
+                continue
+              seen.add(key)
+              try:
+                yaml.safe_load(f.read_text())
+              except yaml.YAMLError as e:
+                errors.append(f'{f}: {e}')
           if errors:
             for e in errors:
               print('ERROR:', e)
             sys.exit(1)
-          print(f'YAML validation: OK')
+          print(f'YAML validation: OK ({len(seen)} files checked)')
           "
 
   shellcheck:
@@ -131,19 +142,46 @@ jobs:
 
       - name: Check for large files (>10MB)
         run: |
-          find . -not -path './.git/*' -size +10M | grep -v 'node_modules' | while read f; do
-            echo "ERROR: Large file detected: $f"
+          # Collect all tracked files >10MB outside .git and node_modules.
+          # Do NOT use || true — we want real failures.
+          large=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            -type f -size +10M 2>/dev/null)
+          if [ -n "$large" ]; then
+            echo "ERROR: Large file(s) detected (>10MB):"
+            echo "$large"
             exit 1
-          done || true
+          fi
+          echo "Large file check: OK"
 
-      - name: Check for model weights
+      - name: Check for model weights and forbidden binaries
         run: |
-          find . -name "*.safetensors" -o -name "*.gguf" -o -name "*.ggml" \
-            -o -name "*.pt" -o -name "*.pth" -o -name "*.ckpt" \
-            -o -name "*.bin" -size +50M 2>/dev/null | while read f; do
-            echo "ERROR: Model weight file detected: $f"
+          # Find model weight files by extension (any size) plus large .bin files.
+          # Do NOT use || true — we want real failures.
+          weights=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            \( \
+              -name "*.safetensors" \
+              -o -name "*.gguf" \
+              -o -name "*.ggml" \
+              -o -name "*.pt" \
+              -o -name "*.pth" \
+              -o -name "*.ckpt" \
+            \) 2>/dev/null)
+          # .bin files are only suspicious at large size (small ones are legit)
+          large_bin=$(find . \
+            -not -path './.git/*' \
+            -not -path '*/node_modules/*' \
+            -name "*.bin" -size +50M 2>/dev/null)
+          all="${weights}${large_bin}"
+          if [ -n "$all" ]; then
+            echo "ERROR: Model weight or forbidden binary file(s) detected:"
+            echo "$all"
             exit 1
-          done || true
+          fi
+          echo "Model weight check: OK"
 
   upstream-immutability:
     name: Upstream immutability check

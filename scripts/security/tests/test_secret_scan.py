@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from secret_scan import is_excluded, scan_directory, scan_file
+from secret_scan import is_excluded, redact, scan_directory, scan_file
 
 
 # ── is_excluded ──────────────────────────────────────────────────────────────
@@ -135,3 +135,67 @@ def test_medium_threshold_detects_api_pattern(tmp_path):
     f.write_text('api_key = "supersecretkeyvalue12345678"')
     findings = scan_directory(tmp_path, "medium")
     assert len(findings) >= 1
+
+
+# ── redact() ─────────────────────────────────────────────────────────────────
+
+def test_redact_masks_middle():
+    secret = "ghp_" + "A" * 36
+    result = redact(secret)
+    assert result != secret
+    assert "***" in result or "*" * 5 in result
+
+
+def test_redact_never_exposes_full_secret():
+    secret = "sk-" + "x" * 40
+    result = redact(secret)
+    assert result != secret
+    assert len(result) < len(secret)
+
+
+def test_redact_short_value_truncated():
+    short = "abc123"
+    result = redact(short)
+    # Short value: shows up to keep chars then ***
+    assert result.endswith("***")
+    assert len(result) <= len(short) + 3
+
+
+def test_redact_long_secret_keeps_first_and_last():
+    secret = "AKIA" + "A" * 16 + "ZZZZ"
+    result = redact(secret, keep=4)
+    assert result.startswith("AKIA")
+    assert result.endswith("ZZZZ")
+    assert "*" in result
+
+
+def test_preview_does_not_contain_full_token(tmp_path):
+    full_token = "ghp_" + "B" * 36
+    f = tmp_path / "creds.py"
+    f.write_text(f'token = "{full_token}"')
+    findings = scan_file(f, "high")
+    assert len(findings) == 1
+    preview = findings[0]["preview"]
+    # The full token must never appear verbatim in the preview
+    assert full_token not in preview
+
+
+def test_preview_does_not_expose_full_aws_secret(tmp_path):
+    key_body = "a" * 40
+    f = tmp_path / "config.yml"
+    f.write_text(f"aws_secret_access_key: {key_body}")
+    findings = scan_file(f, "high")
+    assert len(findings) >= 1
+    for finding in findings:
+        assert key_body not in finding["preview"]
+
+
+def test_preview_does_not_expose_full_openai_key(tmp_path):
+    key_suffix = "z" * 32
+    full_key = "sk-" + key_suffix
+    f = tmp_path / "app.py"
+    f.write_text(f'OPENAI_KEY = "{full_key}"')
+    findings = scan_file(f, "high")
+    assert len(findings) >= 1
+    for finding in findings:
+        assert full_key not in finding["preview"]
