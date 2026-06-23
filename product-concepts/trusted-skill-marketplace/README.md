@@ -29,3 +29,41 @@ The current ecosystem for AI skills (Claude Code skills, agent plugins, custom s
 - License: SPDX identifier, verified
 - Conflict: known conflicts with other skills
 - Agent compatibility: Claude Code, Kimi Code, generic
+
+---
+
+## Related sources
+
+- `sources/anthropic-skills/` — Claude Code official skills (candidate inputs for the registry)
+- `sources/vercel-skills/` — Vercel-published Claude Code skills
+- `sources/deterministic-agent-safety/` — safety hook patterns relevant to skill security audit
+- `skill-library/` — this lab's private implementation of the approval pipeline
+
+## Research connections
+
+- `product-concepts/skill-benchmarking-platform/README.md` — provides the benchmark data
+  required by the approval pipeline
+
+## Origin
+
+Derived from building the lab's internal skill approval pipeline (`skill-library/`).
+The internal version handles provenance, license, security review, and benchmark gating
+for skills used in this lab. The product concept extends this to a shared public registry.
+
+## Current evidence level
+
+`assumption` — internal version in use. No external validation of whether other teams
+want or need a shared registry.
+
+## Open assumptions
+
+- The skill ecosystem is large enough to justify a registry (enough skills being published)
+- Security and performance vetting are blockers for skill adoption in team settings
+- This is a community/ecosystem problem, not just a personal productivity problem
+
+## Next validation step
+
+1. Find 3–5 teams using Claude Code or similar in shared codebases: do they share skills,
+   and what problems have they had with untrusted skills?
+2. Check if Anthropic or other agent vendors plan to build an official skill registry
+3. Determine: open-source community registry vs. commercial enterprise approval tool
