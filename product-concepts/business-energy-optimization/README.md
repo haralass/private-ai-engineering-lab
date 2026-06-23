@@ -56,6 +56,25 @@ No user interviews with hotel operators or energy consultants conducted.
 - The ROI calculation and scenario comparison are the highest-value features
 - Tariff data can be reliably sourced or input manually by target users
 
+## Competitor landscape
+
+Source: verified from product websites, 2026-06-23. Full analysis in `research/domain-synthesis/data-and-learning.md`.
+
+| Competitor | Type | Target | Gap |
+|---|---|---|---|
+| Homer Energy (HOMER Pro) | PV+storage system design | Energy engineers / consultants | Complex; requires engineering expertise; not self-serve for building managers |
+| PVsyst | Solar simulation | Engineers | Solar-only; no battery dispatch optimization; technical tool |
+| EnergyHub | Grid-connected asset management | Utilities / enterprise | Utility-side; not accessible to individual building operators |
+| AutoGrid (Enel X) | AI-based grid optimization | Enterprise utilities | Enterprise; requires hardware integration |
+| Stem | Battery storage AI (Athena) | Commercial C&I | Hardware bundle; not a standalone software tool |
+| Voltaware | Residential energy monitoring | Residential | Consumer product; no ROI/dispatch optimization |
+
+**Key finding:** Existing tools are either too technical (Homer/PVsyst require engineering expertise), enterprise-only (EnergyHub, AutoGrid, Stem require hardware bundles and enterprise contracts), or residential (Voltaware). A self-serve web tool for commercial building managers evaluating PV+battery ROI — without requiring an engineering consultant — is not served by any identified competitor.
+
+**Caveat:** Energy consulting is a domain requiring specific regulatory and tariff knowledge per country. Building this without local energy market expertise is a significant risk. The lab source (neura-btm-battery-dispatch) is a student project with no license — the technical foundation is weak.
+
+evidence_level: initial-research (competitor landscape verified; lab source is ref-only student project)
+
 ## Next validation step
 
 1. Talk to 2–3 hotel or commercial building managers: how do they currently evaluate PV+battery investments?
