@@ -52,33 +52,71 @@ data categories observed.
 
 ---
 
+## Regulatory context
+
+Source: GDPR (Regulation (EU) 2016/679), EDPB guidelines, Apple/Google developer docs, verified 2026-06-23. Full citations in `research/domain-synthesis/regulatory-landscape.md`.
+
+**GDPR obligations relevant to mobile apps:**
+- **Article 5(c) data minimisation** — data must be "adequate, relevant and limited to what is necessary"
+- **Article 5(f) integrity and confidentiality** — appropriate security measures required
+- **Article 25 data protection by design and by default** — controllers must implement data minimisation by design
+- **EDPB Guidelines 3/2022 on dark patterns** — six categories of prohibited design patterns under Article 5(1)(a) (overloading, skipping, stirring, obstructing, faking, hindering)
+- **EDPB DeepSeek precedent:** Italy banned DeepSeek and EDPB formed a task force for data transfer issues. This enforcement signal applies equally to any app collecting EU personal data and routing it to non-adequate countries.
+
+**Apple App Store (mandatory, verified from Apple developer docs):**
+- Privacy Nutrition Labels: required for all apps — 15 data categories must be disclosed
+- Privacy Manifests: required from 1 May 2024 for new/updated apps using certain SDKs
+- "Collect" = transmitting data off-device for longer than real-time request servicing
+
+**Google Play (mandatory, verified from Google developer docs):**
+- Data Safety Form: required for all apps — 14 data categories must be disclosed
+- Inaccurate declarations → blocked app updates or app removal
+
+**Key regulatory implication:** App stores now enforce privacy disclosure at the platform level. This is more immediately credible enforcement than DPA action for many mobile developers. The gap this product addresses: verifying that what developers disclose in privacy nutrition labels / data safety forms accurately reflects what the app actually does.
+
+---
+
 ## Evidence status
 
-evidence_level: none
-No research has been conducted beyond naming this idea.
+evidence_level: initial-research
+
+Updated 2026-06-23. GDPR mobile requirements and Apple/Google platform requirements verified from primary sources. Competitor landscape researched.
+
+---
+
+## Competitor landscape
+
+Source: pts-project.org, corellium.com, verified 2026-06-23. Full details in `research/domain-synthesis/regulatory-landscape.md`.
+
+| Tool | Type | Target buyer | Gap |
+|---|---|---|---|
+| PiRogue Tool Suite | Open-source, NGO | Privacy researchers, NGOs | Not a SaaS product; requires security expertise |
+| Corellium | Enterprise cloud mobile testing | Security teams, compliance | Enterprise pricing; requires security expertise |
+| SentinelOne Singularity Mobile | Enterprise MDM security | Enterprise IT security | Ongoing monitoring, not privacy audit reports |
+| Jamf Pro | MDM (Apple-focused) | Enterprise IT | Device management, not privacy auditing |
+| Didomi | Consent management SDK | App developers | Consent UI only — does not audit existing apps |
+
+**Gap confirmed:** No verified self-serve product delivers a plain-language "privacy truth report" (static + dynamic analysis combined) for an arbitrary app binary that is accessible to enterprise IT teams without security researcher expertise. PiRogue is the closest but is an NGO research tool, not a SaaS product.
 
 ---
 
 ## Unknowns
 
-- Is this a real enterprise pain point or a personal/consumer concern?
-- Who currently does app privacy audits for enterprises, and at what cost?
-- Are app stores (Apple, Google) building this natively?
-- What is the technical feasibility of dynamic analysis at scale in a cloud environment?
-- What regulatory frameworks require or incentivize this?
+- Is the primary buyer enterprise IT (MDM team vetting business apps) or developers (verifying their own apps comply)?
+- What is the technical feasibility of cloud-hosted dynamic analysis for iOS? (Apple's sandboxing makes this harder than Android)
+- Are Apple and Google building more automated disclosure verification natively?
+- Is there a B2G opportunity with Data Protection Authorities or app store regulators?
 
 ---
 
 ## Lab sources potentially relevant
 
-- `sources/privacy-safe-commit-assistant/` (kaycebasques/git-privacy, MIT) — tangentially
-  relevant: demonstrates privacy-aware tooling patterns, not mobile-specific
+- `sources/privacy-safe-commit-assistant/` — privacy-aware developer tooling pattern (not mobile-specific)
 
 ---
 
 ## Next research question
 
-1. Talk to 3 enterprise IT administrators: how do they currently vet mobile apps?
-2. Check what MobileIron, Jamf, or similar MDM vendors offer for privacy auditing
-3. Research whether GDPR or AI Act impose obligations on mobile app data collection
-   that would create compliance demand for this tool
+1. Talk to 3 enterprise IT/MDM administrators: what is their current workflow for vetting apps before approving for employee devices?
+2. Investigate PiRogue Tool Suite in depth: could it be the technical foundation for a commercial product?
+3. Clarify: is the harder problem static analysis (finding SDK usage) or dynamic analysis (verifying network traffic)?

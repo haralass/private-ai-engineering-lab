@@ -53,20 +53,53 @@ attempt to auto-fix complex semantic structure violations.
 
 ---
 
+## Regulatory context
+
+Source: primary EU regulatory sources, verified 2026-06-23. Full citations in `research/domain-synthesis/regulatory-landscape.md`.
+
+**European Accessibility Act (Directive (EU) 2019/882):**
+- Enforcement date: **28 June 2025** — already in effect for newly placed products and services
+- **In-scope digital services:** e-commerce websites/apps, electronic communications, banking consumer interfaces, audio-visual media services, transport ticketing/information
+- **Microenterprise exemption for services:** companies with fewer than 10 employees and annual turnover/balance sheet ≤ €2M providing services are exempt
+- **No broader SME exemption** — companies with 10+ employees providing in-scope services must comply
+- Technical standard: EN 301 549 v3.2.1 (conformance presumption) references WCAG 2.1 for web content
+- Transition period: existing service infrastructure (in use before 28 June 2025) has until **28 June 2030** to comply
+- Enforcement: consumers can file complaints; national authorities can impose fines (amounts set by Member States)
+
+**Key product implication:** The EAA is already in force. E-commerce companies, fintechs, and digital media services with 10+ employees must comply. This is an active compliance obligation, not a future one. The 2030 transition window for existing infrastructure means teams have time but a known deadline.
+
+---
+
 ## Evidence status
 
-evidence_level: none
-No research conducted beyond naming this idea.
+evidence_level: initial-research
+
+Updated 2026-06-23. EAA enforcement date, scope, and SME treatment verified from primary regulatory sources. Competitor landscape researched.
+
+---
+
+## Competitor landscape
+
+Source: Deque, AccessProof websites, verified 2026-06-23. Full details in `research/domain-synthesis/regulatory-landscape.md`.
+
+| Tool | Type | Pricing | Auto-fix capability |
+|---|---|---|---|
+| axe-core (Deque) | Open-source CI engine | Free | None — detection only |
+| Axe DevTools (Deque) | Commercial CI/CD + IDE | Free (limited) / Enterprise | "One-click fixes" in IDE (human-reviewed suggestions, not automated PRs) |
+| Lighthouse (Google) | Open-source audit | Free | None — detection only |
+| Level Access | Enterprise platform | Enterprise (contact sales) | Monitoring + auditing, no automated fix generation |
+| AccessProof | axe-core-based SaaS | $0–$199/mo | Monitoring + reporting, no automated fixes |
+
+**Gap confirmed:** Axe DevTools Enterprise offers human-reviewed fix suggestions in IDE. No verified vendor offers fully automated pull-request generation for deterministic accessibility violations. This is the specific gap this product concept addresses.
 
 ---
 
 ## Unknowns
 
-- How much of a WCAG violation backlog is actually deterministically fixable?
-- Are axe-core + GitHub Actions already "good enough" for most teams?
-- Is the real bottleneck detecting violations or prioritizing and fixing them?
-- What is the European Accessibility Act enforcement timeline and scope for SMEs?
-- Who is the actual buyer: engineering lead, design lead, or legal/compliance?
+- How much of a WCAG violation backlog is actually deterministically fixable? (axe-core classifies violations — need to measure what % have deterministic fixes)
+- Is the real bottleneck detection or the remediation step? (needs developer interviews)
+- Who is the actual buyer: engineering lead, design lead, or legal/compliance? (likely depends on team size)
+- What percentage of EAA-in-scope companies are currently non-compliant? (likely high, given the EAA just entered force)
 
 ---
 
@@ -78,8 +111,6 @@ None directly. No accessibility tooling sources have been imported.
 
 ## Next research question
 
-1. Find 3 frontend developers: what do they do when CI reports an axe-core violation?
-2. Check: does any existing tool (Deque, Level Access, Accessibility Insights) offer
-   automated fix suggestions in CI?
-3. Research: which product categories are in scope for the European Accessibility Act
-   and what is the deadline for compliance?
+1. Find 3 frontend developers at e-commerce or fintech companies: have they received EAA compliance questions from legal teams?
+2. Get data from axe-core's violation taxonomy: what % of WCAG 2.1 violations fall into categories with deterministic fixes (color contrast, missing alt text, ARIA labels)?
+3. Test Axe DevTools Enterprise trial to understand exactly what "one-click fixes" means — is the gap really as large as assumed?

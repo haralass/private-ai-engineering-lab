@@ -55,9 +55,30 @@ full ESRS or GRI. Simpler, cheaper, accessible without a sustainability consulta
 
 ## Why now
 
-status: needs-user-input
-VSME standard status and adoption timeline: needs verification.
-Do not add regulatory claims or market numbers without a verified source.
+Source: EFRAG, European Commission, verified 2026-06-23. Full citations in `research/domain-synthesis/regulatory-landscape.md`.
+
+**VSME status (verified):**
+- EFRAG delivered the final VSME Standard to the European Commission: **17 December 2024**
+- Commission adopted as a Recommendation (C(2025) 4984): **30 July 2025** — currently **voluntary**
+- EFRAG released XBRL Taxonomy and digital tools: **27 May 2025**
+- Expected to become the cap on information requests to SMEs from CSRD-subject companies (proposed Omnibus I package — not yet enacted as of 2026-06-23)
+
+**Who is asking (verified):**
+1. Banks — green loan eligibility and EU Taxonomy alignment under the European Green Deal lending framework
+2. Large enterprise customers — CSRD supply chain due diligence obligations require ESG data from SME suppliers
+3. Investors — SFDR (Sustainable Finance Disclosure Regulation) obligations cascade to portfolio companies
+
+**VSME structure:**
+- Basic Module: 11 disclosures (energy, GHG, waste, water, workforce, health & safety, corruption)
+- Comprehensive Module: 9 additional disclosures (climate targets, transition planning, human rights, gender diversity)
+
+**Digital tools currently available:**
+- EFRAG Excel Template (free)
+- ExecutESG: free Basic tier (VSME reporting online, no automation)
+- DNK Platform (German-language only, free)
+- 23+ VSME tools in market as of 2025 (source: csr-tools.com)
+
+**Why a gap still exists:** The demand trigger is supply chain cascading (bank/enterprise customer sends a questionnaire), not proactive compliance. Tools exist for the reporting part; the gap may be in the workflow integration — i.e., receiving a questionnaire and knowing which VSME disclosures it maps to.
 
 ---
 
@@ -101,18 +122,34 @@ None. This is a raw idea.
 
 ## Unknowns
 
-- Current VSME standard status (adopted? voluntary? timeline?)
-- Adoption rate among requesting parties (banks, large enterprises)
-- Whether existing accounting/ERP software covers this already
-- Pricing sensitivity of target SMEs
-- Market size: status: needs-user-input
+- Adoption rate among banks and large enterprises for VSME-format requests (are they using VSME scope or their own custom questionnaires?)
+- Whether existing accounting/ERP software (Sage, QuickBooks, etc.) will add VSME modules
+- Pricing sensitivity of SMEs for a VSME tool vs. free existing options
+- Market size: status: needs-user-input (do not add numbers without source)
+- Whether the Omnibus I simplification changes will make VSME mandatory (pending)
 
 ---
 
 ## Evidence
 
-evidence_level: none
-No research conducted beyond naming this idea.
+evidence_level: initial-research
+
+Updated 2026-06-23. VSME standard status verified from EFRAG and European Commission primary sources.
+Key finding: VSME is voluntary (as of 2026-06-23) but formally adopted as a Commission Recommendation. Market has 23+ tools, including free tiers. The differentiation gap is integration with banking/customer onboarding workflows rather than standalone reporting.
+
+## Competitor landscape
+
+| Vendor | Approach | Pricing | Notes |
+|---|---|---|---|
+| ExecutESG | VSME-native SaaS | Free Basic; CSRD Pro from €149/year | Direct VSME competitor |
+| Vision Zero Connect | AI-powered VSME | €700/year | Complete VSME solution |
+| ESG Lift | SME ESG SaaS | From €792/year | VSME-focused |
+| EFRAG Excel Template | Manual template | Free | No automation |
+| Consultancies | Done-for-you | €3k–€15k/report | High cost |
+
+Source: executesg.com, csr-tools.com, verified 2026-06-23.
+
+**Key competitive observation:** Free tiers already exist. Competing on price alone is not viable. Differentiation would need to come from workflow integration (embedding into bank onboarding flows, responding to customer questionnaires), not standalone reporting.
 
 ---
 
