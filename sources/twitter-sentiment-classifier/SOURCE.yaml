@@ -1,0 +1,24 @@
+display_name: Twitter Sentiment Classifier
+functional_name: twitter-sentiment-classifier
+source_url: https://github.com/Matheos-Ioannides/epl499_group_project_TeamWIP
+source_label: student-collab
+upstream_owner: Matheos-Ioannides
+upstream_repository: epl499_group_project_TeamWIP
+pinned_commit: cc1651262581da8fef830e47031310b216557bf5
+retrieved_at: '2026-06-23T00:00:00.000000+00:00'
+license: unknown
+license_file_verified: false
+import_mode: vendored-snapshot
+snapshot_path: sources/twitter-sentiment-classifier/upstream
+adapted_path: sources/twitter-sentiment-classifier/adapted
+subsystem: nlp
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: clean
+license_review_status: pending
+execution_allowed: true
+decision: candidate
+notes: 'Group project (EPL499). Collaborative work. NLP pipeline: ekphrasis tokenizer,
+  BoW/TF-IDF/Word2Vec feature stacking, L1 feature selection, logistic regression.
+  85% accuracy on Twitter sentiment. Good reference for text classification pipelines.'

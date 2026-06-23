@@ -1,0 +1,25 @@
+display_name: Ride Booking System (OSRH)
+functional_name: ride-booking-php
+source_url: https://github.com/giannisHadjizorzis/OSRH
+source_label: student-collab
+upstream_owner: giannisHadjizorzis
+upstream_repository: OSRH
+pinned_commit: e4fe4835192974b22e42c5b4f45312906d93098c
+retrieved_at: '2026-06-23T00:00:00.000000+00:00'
+license: unknown
+license_file_verified: false
+import_mode: vendored-snapshot
+snapshot_path: sources/ride-booking-php/upstream
+adapted_path: sources/ride-booking-php/adapted
+subsystem: geospatial
+removed_paths:
+- .git/
+local_modifications: []
+security_review_status: flagged
+license_review_status: pending
+execution_allowed: false
+decision: candidate
+notes: 'Collaborative ride-booking platform (PHP + SQL Server). Key reusable utilities:
+  Haversine distance calculation, Nominatim smart search with Greek accent normalization,
+  OSRM routing with fallback, multi-segment ride logic, CSRF token pattern. SECURITY:
+  upstream contains hardcoded DB credentials — do not expose upstream/ publicly.'
