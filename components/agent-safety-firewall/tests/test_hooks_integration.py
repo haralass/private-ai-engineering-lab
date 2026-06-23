@@ -86,11 +86,9 @@ class TestShellCommandReportOnly:
         assert r.returncode == 0
 
     def test_malformed_json_report_only_exit_0(self):
-        """Malformed CLAUDE_TOOL_INPUT in report-only: run_policy exits 4 with allow verdict."""
+        """Malformed CLAUDE_TOOL_INPUT in report-only: logged as warning, exit 0 (allow)."""
         r = run_hook(SHELL_CMD, raw_tool_input="this is not json {", mode="report-only")
-        # run_policy.py exits 4 for malformed input; hook propagates that exit code
-        # In report-only the verdict is "allow" but exit code is 4 (malformed-input signal)
-        assert r.returncode == 4
+        assert r.returncode == 0
 
     def test_malformed_json_report_only_does_not_block(self):
         """Malformed JSON in report-only outputs 'allow' as verdict."""
@@ -271,10 +269,10 @@ class TestFileWriteHook:
         r = run_hook(FILE_WRITE, raw_tool_input='{"broken', mode="enforce")
         assert r.returncode == 4
 
-    def test_malformed_json_report_only_exit_4(self):
-        """Malformed JSON exits 4 in report-only too (malformed-input signal)."""
+    def test_malformed_json_report_only_exit_0(self):
+        """Malformed JSON in report-only: logged as warning, exit 0 (allow)."""
         r = run_hook(FILE_WRITE, raw_tool_input='not json', mode="report-only")
-        assert r.returncode == 4
+        assert r.returncode == 0
 
 
 # ── before-git-operation ──────────────────────────────────────────────────────

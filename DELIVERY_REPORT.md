@@ -1,6 +1,6 @@
 # Phase 1 Delivery Report
 
-Generated: 2026-06-23 (second pre-merge quality gate — 5-item fix list applied)
+Generated: 2026-06-23 (third pre-merge quality gate — 5-item fix list applied)
 Branch: `research/initial-agent-engineering-knowledge-base`
 PR: #1 (open, pending merge)
 
@@ -14,7 +14,7 @@ PR: #1 (open, pending merge)
 | Validate source manifests | ✅ pass | Handles reference-only and vendored modes |
 | YAML validation | ✅ pass | Checks both `*.yaml` and `*.yml` |
 | ShellCheck | ✅ pass | All hook scripts pass |
-| Component tests | ✅ pass | 89/89 (49 new hook integration tests) |
+| Component tests | ✅ pass | 89/89 hook tests + 17 importer tests + 35 script tests = 141 total |
 | Large file check | ✅ pass | Excludes `sources/*/upstream/`; no large files in our own code |
 | Upstream immutability | ✅ pass | `--diff-filter=M` distinguishes edits from additions |
 
@@ -31,7 +31,7 @@ tests/test_command_analyzer.py   — 22 tests  (command pattern matching)
 tests/test_git_rules.py          —  8 tests  (git + file write integration)
 tests/test_path_guard.py         — 11 tests  (protected path rules)
 tests/test_hooks_integration.py  — 49 tests  (real .sh hooks via subprocess)
-Total: 89 passed in 2.83s
+Total: 89 passed
 ```
 
 Integration test precision:
@@ -44,90 +44,87 @@ Integration test precision:
 - `CLAUDE.md` write → exit 3 (CONFIRM, not BLOCK)
 - `settings.json` write → exit 3 (CONFIRM)
 - Malformed JSON in enforce → exit 4 (blocked)
-- Malformed JSON in report-only → exit 4, verdict=allow
+- Malformed JSON in report-only → exit 0, verdict=allow (warning logged)
 - Policy engine failure in enforce → exit 5 (blocked)
+
+### Importer tests (17 tests)
+
+```
+scripts/source-management/tests/test_import_source.py  — 17 tests
+  TestOutputFiles         (3)  SOURCE.yaml, AUDIT.md, FILE_MANIFEST.json generation
+  TestLicenseHandling     (2)  no license aborts; --license-override works
+  TestReferenceOnlyMode   (2)  no upstream/ copied; no license required
+  TestCommitVerification  (2)  invalid SHA aborts; SHA mismatch aborts
+  TestSecretScan          (2)  findings abort; --reviewed-secrets proceeds
+  TestModelWeights        (3)  always blocked, including with --allow-large-files (.gguf, .safetensors, .pt)
+  TestLargeFiles          (3)  abort without flag; proceed with flag and document; weight overrides flag
+Total: 17 passed — no real network calls (local git repos + monkeypatching)
+```
 
 ### Script tests (35 tests)
 
 ```
 scripts/security/tests/test_secret_scan.py              — 22 tests
 scripts/validation/tests/test_validate_source_manifests.py — 13 tests
-Total: 35 passed in 0.06s
+Total: 35 passed
 ```
 
-**Grand total: 124 tests, all passing.**
+**Grand total: 141 tests, all passing.**
 
 ---
 
-## 3. Pre-Merge Fixes Applied (second pass — 5 items)
+## 3. Pre-Merge Fixes Applied (third pass — 5 items)
 
-### Fix 1 — Fail-closed hook behavior
+### Fix 1 — Model weights unconditionally blocked
 
-**Problem:** hooks did `json.load(CLAUDE_TOOL_INPUT) || true` in shell, so malformed
-JSON produced empty COMMAND, and the hook exited 0 — even in enforce mode.
+**Problem:** `--allow-large-files` inadvertently allowed model weights to pass through,
+because the old code checked `if allow_large_files: proceed` without first separating
+weight findings from size findings.
 
-**Fix:** hooks now pipe `CLAUDE_TOOL_INPUT` **raw** directly to `run_policy.py`. No
-shell-side JSON parsing, no `|| true`. `run_policy.py` owns all parsing and fail-closed logic:
-- Malformed JSON → exit 4, verdict=block in enforce / verdict=allow in report-only
-- Policy engine import failure → exit 5, verdict=block in enforce
+**Fix:** `import_source.py` now splits findings into two independent gates:
+1. **Model weights** (`.safetensors`, `.gguf`, `.ggml`, `.pt`, `.pth`, `.ckpt`) → always
+   `sys.exit(1)`, even with `--allow-large-files`. No override path exists.
+2. **Large non-weight files** (>10 MB) → abort unless `--allow-large-files`, then
+   proceed and document in AUDIT.md.
 
-Also discovered and fixed: `run_policy.py` only checked `data.get("target_path")` but
-Claude Code sends `file_path` for file-write hooks. Fixed by checking both keys:
-`data.get("target_path") or data.get("file_path")`.
+`check_large_files_and_weights()` signature simplified: removed unused `allow_large` param.
 
-### Fix 2 — Full catalog consistency validation
+### Fix 2 — Report-only malformed JSON → exit 0
 
-`validate_catalog_consistency.py` now **requires** every SOURCE.yaml to appear in all 3 catalogs:
-- `source-catalog/sources.yaml` — must have `functional_name`
-- `source-catalog/import-status.yaml` — must be in `imports` (vendored) or `reference_only`
-- `source-catalog/license-matrix.yaml` — must have an entry
+**Problem:** `run_policy.py` exited with code 4 for malformed JSON in *both* enforce and
+report-only modes. In report-only the intent is "log and allow" — exit 4 would cause
+hooks to propagate a non-zero code to Claude Code, which could be misinterpreted.
 
-Cross-checks:
-- `source_label` matches sources.yaml `label`
-- `pinned_commit` prefix matches import-status.yaml (vendored sources only)
-- `license` matches license-matrix.yaml (when matrix has a non-unknown, non-NOT-FOUND entry)
-- vendored sources are in `imports[]`, reference-only are in `reference_only[]`
+**Fix:** In report-only mode, malformed JSON now logs a WARNING to stderr and exits 0
+(verdict=allow). In enforce mode it still exits 4 (block). Tests updated accordingly.
 
-Catalog files updated to cover all 30 sources:
-- `import-status.yaml`: added `design-agent-reviews` and `interaction-motion-toast`;
-  added `pinned_commit` to all reference-only entries
-- `license-matrix.yaml`: rewritten to cover all 30 sources (was missing 25)
+### Fix 3 — Importer tests
 
-Result: `validate_catalog_consistency.py` passes for all 30 sources across all 3 catalogs.
+New: `scripts/source-management/tests/test_import_source.py` (17 tests, no network calls).
 
-### Fix 3 — CI runs on push to main
+Covers: SOURCE.yaml/AUDIT.md/manifest generation; no-license abort; license override;
+reference-only; invalid commit SHA; SHA mismatch; secret findings; --reviewed-secrets;
+model weights (.gguf/.safetensors/.pt); large files; --allow-large-files; weight+flag combo.
 
-Changed from `branches-ignore: [main]` to:
-```yaml
-on:
-  push:
-  pull_request:
-    branches:
-      - main
-```
-CI now runs on every push to every branch (including main) and on PRs to main.
+CI updated to run these tests in the component-tests job.
 
-### Fix 4 — Import-time large-file and model-weight validation
+### Fix 4 — Extended catalog validator
 
-`import_source.py` now runs a large-file and model-weight scan before copying files:
+`validate_catalog_consistency.py` now also checks:
+- `source_url` vs `upstream_repo` in sources.yaml (consistency)
+- `source_url` vs `url` in import-status.yaml (consistency)
+- Required fields in SOURCE.yaml: `license_file_verified`, `security_review_status`,
+  `license_review_status`, `decision`
+- `files_kept` present for all vendored sources in import-status.yaml
+- No duplicate `functional_name` in sources.yaml or import-status.yaml
+- No catalog entries without a corresponding `sources/<name>/SOURCE.yaml` (reverse check)
 
-- **Model weights** (`.safetensors`, `.gguf`, `.ggml`, `.pt`, `.pth`, `.ckpt`): always abort.
-- **Large files** (>10 MB): abort unless `--allow-large-files` is passed.
-- `--allow-large-files`: allows non-weight large files (test fixtures, PDFs, benchmark data).
-  Each finding is documented in AUDIT.md with type and size. Justification required.
-- AUDIT.md now has a "Large files and model weights" section showing scan result.
+CI now fails on extra or orphan entries, not only on missing ones.
 
-### Fix 5 — Precise test assertions and honest delivery report
+### Fix 5 — PR description updated
 
-All `assert returncode in (2, 3)` replaced with exact expected values based on policy:
-- CONFIRM action → exit 3 (not 2)
-- BLOCK action → exit 2
-- Malformed JSON → exit 4
-- Policy engine failure → exit 5
-
-DELIVERY_REPORT.md corrected:
-- "Files >10 MB: None tracked in Git" was inaccurate — 2 large files exist in approved
-  upstream snapshots. Corrected to: "No large files outside approved upstream snapshots."
+PR description rewritten with exact final numbers: 30 sources, 16 vendored,
+14 reference-only, 141 tests, 7 CI jobs.
 
 ---
 
@@ -226,12 +223,10 @@ All 5 second-pass quality requirements addressed:
 
 | Requirement | Status |
 |---|---|
-| Hooks fail-closed on malformed JSON in enforce mode | ✅ exit 4 block |
-| Hooks fail-closed on policy engine failure in enforce | ✅ exit 5 block |
-| All 3 catalogs complete for all 30 sources | ✅ 30/30/30 |
-| CI runs on push to main | ✅ |
-| Import-time model-weight and large-file guard | ✅ |
-| Test assertions are exact, not `in (2, 3)` | ✅ |
-| DELIVERY_REPORT.md accurate about large files | ✅ |
+| Model weights unconditionally blocked (even with --allow-large-files) | ✅ always exit 1 |
+| Report-only malformed JSON → exit 0, enforce → exit 4 | ✅ |
+| Importer tests (no network calls, 17 tests) | ✅ |
+| Catalog validator: duplicates, reverse checks, required fields, URL consistency | ✅ |
+| PR description updated with real final numbers | ✅ |
 
-CI: 7/7 jobs. Tests: 124 passing.
+CI: 7/7 jobs. Tests: **141 passing** (89 hooks + 17 importer + 35 scripts).

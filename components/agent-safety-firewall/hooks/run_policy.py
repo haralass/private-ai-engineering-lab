@@ -49,12 +49,12 @@ def main() -> None:
         data = json.loads(raw)
     except json.JSONDecodeError as e:
         msg = f"malformed-json: {e}"
-        print(f"[AGENT-SAFETY-FIREWALL] ERROR: {msg}", file=sys.stderr)
-        # Malformed input: in enforce mode block (unknown intent); in report-only allow
+        print(f"[AGENT-SAFETY-FIREWALL] WARNING: {msg}", file=sys.stderr)
+        # Malformed input: in enforce mode block with exit 4; in report-only log and allow with exit 0.
         if ENFORCE:
             _exit(4, "block", msg)
         else:
-            _exit(4, "allow", msg)
+            _exit(0, "allow", msg)
 
     command = data.get("command") or None
     # Accept both "target_path" (built by positional-arg code path) and

@@ -9,10 +9,19 @@ Every source MUST appear in all three catalog files:
 
 Fields cross-checked for consistency:
   - functional_name present in all three files
+  - source_url consistent with sources.yaml upstream_repo
+  - source_url consistent with import-status.yaml url field
   - source_label matches sources.yaml label
   - pinned_commit prefix matches import-status.yaml (vendored sources only)
   - license matches license-matrix.yaml (when matrix has a non-unknown entry)
   - import_mode consistent: vendored sources in imports[], reference-only in reference_only[]
+  - Required fields present in SOURCE.yaml: license_file_verified, security_review_status,
+    license_review_status, decision
+  - files_kept present for all vendored sources in import-status.yaml
+
+Additional catalog integrity checks:
+  - No duplicate functional_name entries in any catalog file
+  - No catalog entries that lack a corresponding sources/<name>/SOURCE.yaml
 
 Exit 0 if everything agrees. Exit 1 on any discrepancy.
 """
@@ -30,6 +39,14 @@ CATALOG_DIR = REPO_ROOT / "source-catalog"
 
 VENDORED_MODES = {"vendored-snapshot", "selected-subsystem", "clean-room-reimplementation"}
 REFERENCE_MODES = {"reference-only", "submodule"}
+
+# Fields that every SOURCE.yaml must declare (regardless of import mode).
+REQUIRED_SOURCE_FIELDS = [
+    "license_file_verified",
+    "security_review_status",
+    "license_review_status",
+    "decision",
+]
 
 
 def load_yaml(path: Path) -> dict | list:
@@ -102,7 +119,53 @@ def main() -> None:
             if isinstance(data, dict):
                 license_by_name[name] = data
 
-    # ── Check every source ────────────────────────────────────────────────────
+    # ── Duplicate detection ───────────────────────────────────────────────────
+
+    seen_in_sources: list[str] = []
+    for entry in sources_catalog.get("sources", []):
+        name = entry.get("functional_name")
+        if not name:
+            continue
+        if name in seen_in_sources:
+            errors.append(f"{name}: duplicate entry in source-catalog/sources.yaml")
+        seen_in_sources.append(name)
+
+    seen_in_status: list[str] = []
+    for entry in (
+        import_status.get("imports", []) + import_status.get("reference_only", [])
+    ):
+        name = entry.get("functional_name")
+        if not name:
+            continue
+        if name in seen_in_status:
+            errors.append(f"{name}: duplicate entry in source-catalog/import-status.yaml")
+        seen_in_status.append(name)
+
+    # ── Reverse checks: catalog entries without SOURCE.yaml ──────────────────
+
+    for entry in sources_catalog.get("sources", []):
+        name = entry.get("functional_name")
+        if name and name not in source_data:
+            errors.append(
+                f"{name}: entry in sources.yaml but sources/{name}/SOURCE.yaml not found"
+            )
+
+    for entry in (
+        import_status.get("imports", []) + import_status.get("reference_only", [])
+    ):
+        name = entry.get("functional_name")
+        if name and name not in source_data:
+            errors.append(
+                f"{name}: entry in import-status.yaml but sources/{name}/SOURCE.yaml not found"
+            )
+
+    for name in license_by_name:
+        if name not in source_data:
+            errors.append(
+                f"{name}: entry in license-matrix.yaml but sources/{name}/SOURCE.yaml not found"
+            )
+
+    # ── Check every source against all three catalogs ─────────────────────────
     for name, source in source_data.items():
         mode = source.get("import_mode", "vendored-snapshot")
         is_vendored = mode in VENDORED_MODES
@@ -110,6 +173,12 @@ def main() -> None:
         pinned = source.get("pinned_commit", "")
         license_id = source.get("license", "")
         source_label = source.get("source_label", "")
+        source_url = source.get("source_url", "")
+
+        # ── Required fields in SOURCE.yaml ────────────────────────────────
+        for field in REQUIRED_SOURCE_FIELDS:
+            if field not in source:
+                errors.append(f"{name}: SOURCE.yaml missing required field '{field}'")
 
         # ── 1. Must be in sources.yaml ─────────────────────────────────────
         if name not in catalog_by_name:
@@ -122,11 +191,21 @@ def main() -> None:
                     f"{name}: label mismatch — SOURCE.yaml={source_label!r} vs "
                     f"sources.yaml={cat_label!r}"
                 )
+            # source_url vs upstream_repo consistency
+            upstream_repo = cat_entry.get("upstream_repo", "")
+            if upstream_repo and source_url:
+                expected_suffix = "/" + upstream_repo
+                if not source_url.endswith(expected_suffix):
+                    errors.append(
+                        f"{name}: source_url {source_url!r} does not match "
+                        f"upstream_repo {upstream_repo!r} in sources.yaml"
+                    )
 
         # ── 2. Must be in import-status.yaml ──────────────────────────────
         if name not in import_by_name:
             errors.append(f"{name}: missing from source-catalog/import-status.yaml")
         else:
+            status_entry = import_by_name[name]
             status_mode = import_mode_in_status.get(name, "")
 
             if is_vendored and status_mode != "vendored":
@@ -142,13 +221,30 @@ def main() -> None:
 
             # Pinned commit consistency for vendored sources
             if is_vendored:
-                catalog_commit = import_by_name[name].get("pinned_commit", "")
+                catalog_commit = status_entry.get("pinned_commit", "")
                 if catalog_commit and pinned:
-                    if not (catalog_commit.startswith(pinned[:8]) or pinned.startswith(catalog_commit[:8])):
+                    if not (
+                        catalog_commit.startswith(pinned[:8])
+                        or pinned.startswith(catalog_commit[:8])
+                    ):
                         errors.append(
                             f"{name}: pinned_commit mismatch — SOURCE.yaml={pinned[:12]} vs "
                             f"import-status.yaml={catalog_commit[:12]}"
                         )
+
+                # files_kept required for vendored sources
+                if "files_kept" not in status_entry:
+                    errors.append(
+                        f"{name}: import-status.yaml missing 'files_kept' for vendored source"
+                    )
+
+            # source_url vs import-status url
+            status_url = status_entry.get("url", "")
+            if status_url and source_url and status_url != source_url:
+                errors.append(
+                    f"{name}: source_url {source_url!r} does not match "
+                    f"url {status_url!r} in import-status.yaml"
+                )
 
         # ── 3. Must be in license-matrix.yaml ─────────────────────────────
         if name not in license_by_name:

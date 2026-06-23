@@ -132,6 +132,10 @@ jobs:
         run: |
           python -m pytest scripts/security/tests/ scripts/validation/tests/ -v
 
+      - name: Run importer tests
+        run: |
+          python -m pytest scripts/source-management/tests/ -v
+
   large-file-check:
     name: Large file check
     runs-on: ubuntu-latest

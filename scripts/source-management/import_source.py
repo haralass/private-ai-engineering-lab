@@ -74,10 +74,7 @@ MODEL_WEIGHT_EXTENSIONS = {".safetensors", ".gguf", ".ggml", ".pt", ".pth", ".ck
 LARGE_FILE_THRESHOLD = 10 * 1024 * 1024  # 10 MB
 
 
-def check_large_files_and_weights(
-    directory: Path,
-    allow_large: bool = False,
-) -> list[dict]:
+def check_large_files_and_weights(directory: Path) -> list[dict]:
     """
     Scan directory for model weights and large files.
     Returns a list of findings. Empty list = clean.
@@ -280,35 +277,38 @@ def import_source(
 
         # Large-file and model-weight scan (before secret scan, so we abort early)
         print("[import] Checking for model weights and large files…")
-        large_findings = check_large_files_and_weights(source_root, allow_large=allow_large_files)
-        if large_findings:
-            weight_findings = [f for f in large_findings if f["type"] == "model-weight"]
-            size_findings = [f for f in large_findings if f["type"] == "large-file"]
-            if weight_findings:
-                print(f"\nMODEL WEIGHT FINDINGS ({len(weight_findings)} file(s)):", file=sys.stderr)
-                for f in weight_findings:
-                    print(f"  {f['file']} ({f['size_mb']} MB, {f['ext']})", file=sys.stderr)
-            if size_findings:
-                print(f"\nLARGE FILE FINDINGS ({len(size_findings)} file(s) > {LARGE_FILE_THRESHOLD // (1024*1024)} MB):", file=sys.stderr)
-                for f in size_findings:
-                    print(f"  {f['file']} ({f['size_mb']} MB)", file=sys.stderr)
-            if allow_large_files:
+        large_findings = check_large_files_and_weights(source_root)
+        weight_findings = [f for f in large_findings if f["type"] == "model-weight"]
+        size_findings = [f for f in large_findings if f["type"] == "large-file"]
+
+        if weight_findings:
+            print(f"\nMODEL WEIGHT FINDINGS ({len(weight_findings)} file(s)):", file=sys.stderr)
+            for f in weight_findings:
+                print(f"  {f['file']} ({f['size_mb']} MB, {f['ext']})", file=sys.stderr)
+            print(
+                "\nImport aborted: model weight files are NEVER permitted in this repository,\n"
+                "even with --allow-large-files. Use reference-only mode to catalog without vendoring.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
+        if size_findings:
+            print(f"\nLARGE FILE FINDINGS ({len(size_findings)} file(s) > {LARGE_FILE_THRESHOLD // (1024*1024)} MB):", file=sys.stderr)
+            for f in size_findings:
+                print(f"  {f['file']} ({f['size_mb']} MB)", file=sys.stderr)
+            if not allow_large_files:
                 print(
-                    "\n[import] --allow-large-files set: proceeding with documented oversized files.\n"
-                    "         Each finding MUST be documented in AUDIT.md with justification\n"
-                    "         (e.g., test fixture, benchmark data — not model weights).",
-                    file=sys.stderr,
-                )
-            else:
-                print(
-                    "\nImport aborted due to model weights or large files.\n"
-                    "Model weight files (.safetensors, .gguf, .pt, .pth, .ckpt, .ggml)\n"
-                    "are NEVER permitted in the repository.\n"
+                    "\nImport aborted due to large files.\n"
                     "For large non-weight files (test fixtures, PDFs, benchmark data):\n"
                     "  re-run with --allow-large-files and document each in AUDIT.md.",
                     file=sys.stderr,
                 )
                 sys.exit(1)
+            print(
+                "\n[import] --allow-large-files set: proceeding with documented oversized files.\n"
+                "         Each finding MUST be documented in AUDIT.md with justification.",
+                file=sys.stderr,
+            )
         else:
             print("[import] Large-file check: clean")
 
@@ -416,12 +416,12 @@ Retrieved: {now}
             "- [ ] Manual review of configuration files"
         )
 
-    if large_findings and allow_large_files:
+    if size_findings and allow_large_files:
         large_lines = "\n".join(
-            f"  - {f['file']} ({f['size_mb']} MB, {f['type']})" for f in large_findings
+            f"  - {f['file']} ({f['size_mb']} MB)" for f in size_findings
         )
         large_status = (
-            f"- [ ] **{len(large_findings)} large/weight file(s) present — each requires justification:**\n"
+            f"- [ ] **{len(size_findings)} large file(s) present — each requires justification:**\n"
             f"{large_lines}\n"
             "- [ ] Confirmed: none are model weights intended for training/inference"
         )
