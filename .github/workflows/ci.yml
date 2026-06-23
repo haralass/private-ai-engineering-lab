@@ -142,14 +142,16 @@ jobs:
 
       - name: Check for large files (>10MB)
         run: |
-          # Collect all tracked files >10MB outside .git and node_modules.
+          # Collect all tracked files >10MB outside .git, node_modules, and
+          # sources/*/upstream/ (upstream files are inspected + documented at import time).
           # Do NOT use || true — we want real failures.
           large=$(find . \
             -not -path './.git/*' \
             -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
             -type f -size +10M 2>/dev/null)
           if [ -n "$large" ]; then
-            echo "ERROR: Large file(s) detected (>10MB):"
+            echo "ERROR: Large file(s) detected (>10MB) outside vendored upstream snapshots:"
             echo "$large"
             exit 1
           fi
@@ -158,10 +160,12 @@ jobs:
       - name: Check for model weights and forbidden binaries
         run: |
           # Find model weight files by extension (any size) plus large .bin files.
+          # Exclude sources/*/upstream/ — upstream content is inspected at import time.
           # Do NOT use || true — we want real failures.
           weights=$(find . \
             -not -path './.git/*' \
             -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
             \( \
               -name "*.safetensors" \
               -o -name "*.gguf" \
@@ -174,10 +178,11 @@ jobs:
           large_bin=$(find . \
             -not -path './.git/*' \
             -not -path '*/node_modules/*' \
+            -not -path './sources/*/upstream/*' \
             -name "*.bin" -size +50M 2>/dev/null)
           all="${weights}${large_bin}"
           if [ -n "$all" ]; then
-            echo "ERROR: Model weight or forbidden binary file(s) detected:"
+            echo "ERROR: Model weight or forbidden binary file(s) detected outside vendored upstream:"
             echo "$all"
             exit 1
           fi
