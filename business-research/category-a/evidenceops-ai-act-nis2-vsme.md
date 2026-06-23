@@ -56,12 +56,30 @@ evidence organizer that maps regulatory requirements to required documentation.
 
 ## Why now
 
-status: needs-user-input
-- AI Act enforcement timelines: needs verification
-- NIS2 transposition deadlines: needs verification
-- VSME adoption trajectory: needs verification
+Sources: primary regulatory sources, verified 2026-06-23. Full citations in `research/domain-synthesis/regulatory-landscape.md`.
 
-No regulatory claims or deadlines are stated here without a verified source.
+**EU AI Act (Regulation (EU) 2024/1689, EUR-Lex):**
+- Prohibited AI practices applied from **2 February 2025** (Article 5)
+- GPAI model provider obligations apply from **2 August 2025** (Article 53)
+- Full general application for most AI systems: **2 August 2026** (Article 113)
+- SMEs are in scope — Article 62 offers supportive measures (reduced fees, sandbox access) but no exemptions
+- The August 2026 date creates near-term compliance pressure for SME deployers of high-risk AI systems
+
+**NIS2 Directive (Directive (EU) 2022/2555):**
+- Transposition deadline was 17 October 2024; 21/27 EU Member States have enacted national law (as of 2026-06-23)
+- **Small enterprises** (under 50 employees, turnover ≤ €10M) are typically **exempt**
+- **Medium enterprises** (50–249 employees) in covered sectors (energy, banking, health, digital infrastructure, manufacturing, food, etc.) are in scope
+- Article 21 requires documenting: risk analysis policies, incident handling, business continuity, supply chain security, cryptography policy, MFA
+- The compliance pain is evidence management, not technical implementation
+
+**VSME (Commission Recommendation C(2025) 4984):**
+- EFRAG delivered the final VSME Standard on **17 December 2024**
+- European Commission adopted as a Recommendation on **30 July 2025** (currently voluntary)
+- Demand drivers: banks (green loan eligibility), large enterprise customers (CSRD supply chain), investors (SFDR)
+- 23+ VSME tools already exist in market (see competitor section)
+
+**Cross-framework urgency pattern:**
+Documentation burden is the shared compliance cost across all three: AI Act (technical documentation, conformity records), NIS2 (risk assessments, incident logs, Article 21 measure evidence), VSME (sustainability disclosures). The operational challenge converges on structured evidence collection and reporting.
 
 ---
 
@@ -96,27 +114,46 @@ None. This is a raw idea.
 
 ## Unknowns
 
-- Exact regulatory scope and enforcement dates for AI Act, NIS2, VSME
-- Whether compliance consultants or SME founders are the primary buyer
-- Whether existing GRC tools are genuinely inaccessible to SMEs (cost? complexity?)
-- Whether AI Act scope applies to SMEs in this context
+- Whether compliance consultants or SME founders are the primary buyer — needs user interviews
+- Which single regulation to focus on first (AI Act, NIS2, or VSME)
+- Whether medium enterprise IT managers or legal/compliance teams are the day-to-day users
 - Market size estimates: status: needs-user-input (do not add numbers without source)
 
 ---
 
 ## Evidence
 
-evidence_level: none
-No research has been conducted for this idea beyond naming it.
+evidence_level: initial-research
+
+Updated 2026-06-23. Regulatory facts now verified from primary sources (EUR-Lex, EFRAG, AI Act Service Desk).
+Key findings: all three frameworks have near-term active or upcoming obligations. SME exemptions are narrow (NIS2 exempts small enterprises, not medium; EAA exempts microenterprises for services only). No verified product combines all three frameworks in an SME-accessible interface. Enterprise GRC tools cost €30k+ per year. Free tools cover scoping but not evidence collection workflows.
+
+---
+
+## Competitor landscape
+
+Source: `research/domain-synthesis/regulatory-landscape.md`, accessed 2026-06-23.
+
+| Vendor | Coverage | Pricing | SME accessible? |
+|---|---|---|---|
+| Legalithm | EU AI Act scoping + classification | Free through ~April 2028 | Yes — but limited to scoping, not evidence collection |
+| OneTrust | Enterprise GRC | €30k–€100k+/year | No |
+| Holistic AI | AI governance | Enterprise (sales call) | No |
+| Credo AI | AI governance | Enterprise | No |
+| Vanta / Drata | SOC 2, ISO 27001 (some NIS2) | $7k–$80k/year | Borderline |
+| ExecutESG | VSME-specific | Free Basic; €149+/year Pro | Yes |
+| Vision Zero Connect | AI-powered VSME | €700/year | Yes |
+
+**Gap identified:** No verified product combines AI Act + NIS2 + VSME in a single SME-accessible interface. Enterprise GRC tools are inaccessible at SME price points. The specific gap is ongoing evidence collection workflows (not just scoping checklists).
 
 ---
 
 ## Risks
 
-- status: needs-user-input
-- Regulatory timelines could shift
+- Regulatory timelines could shift (Omnibus simplification package may change EAA/CSRD scope)
 - Legal liability if tool gives incorrect compliance guidance
-- Established GRC vendors could address SME market
+- Legalithm is free through ~April 2028, creating price competition for AI Act scoping
+- Large GRC vendors (Vanta, Drata) could add AI Act / VSME modules
 
 ---
 

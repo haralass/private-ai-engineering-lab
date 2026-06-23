@@ -57,21 +57,58 @@ list.
 
 ---
 
+## Regulatory context
+
+Source: NIST CSRC, verified 2026-06-23. Full citations in `research/domain-synthesis/regulatory-landscape.md`.
+
+**NIST PQC finalized standards (published 13 August 2024):**
+- **FIPS 203** — ML-KEM (Module-Lattice Key Encapsulation) — replaces RSA/ECDH key exchange
+- **FIPS 204** — ML-DSA (Module-Lattice Digital Signature) — replaces RSA and ECDSA signatures
+- **FIPS 205** — SLH-DSA (Stateless Hash-Based Digital Signature) — conservative alternative
+
+**NIST IR 8547 migration timeline (Initial Public Draft, November 2024):**
+- RSA-2048, ECDH-P224 (112-bit): deprecated after 2030, disallowed after 2035
+- RSA-3072, ECDH-P256, AES-128 (128-bit+): disallowed after 2035
+- NIST recommendation (August 2024): "start integrating them into their systems immediately, because full integration will take time"
+
+**NSA CNSA 2.0:** 2030 mandatory migration deadline for National Security Systems (US government and cleared contractors).
+
+**No EU-level private-sector mandate found:** NIS2 Article 21(2)(h) requires appropriate cryptography measures but has not been enforced as a PQC-specific obligation as of 2026-06-23. [inference: this may change as ENISA updates guidance]
+
+**Migration size signal:** ML-DSA signatures are 2,420–4,595 bytes vs RSA-2048 at ~256 bytes. SLH-DSA is 7,856–49,856 bytes. These size increases mean PQC migration has measurable performance and storage implications — not a pure config change.
+
+---
+
 ## Evidence status
 
-evidence_level: none
-No research conducted beyond naming this idea.
+evidence_level: initial-research
+
+Updated 2026-06-23. NIST PQC standards and migration timeline verified from NIST CSRC primary sources. Competitor landscape researched.
+
+---
+
+## Competitor landscape
+
+Source: helpnetsecurity.com, ibm.com/docs, qramm.org, verified 2026-06-23.
+
+| Tool | Type | Scope | Gap |
+|---|---|---|---|
+| pqcscan (Anvil Secure) | Open-source, Rust | SSH/TLS server PQC support detection | Scans servers, not source code |
+| IBM Quantum Safe Explorer | Enterprise source code scanner | Code-level crypto discovery | Enterprise pricing; no dependency mapping |
+| QRAMM tools (CryptoScan, TLS Analyzer, CryptoDeps) | Open-source collection | Multiple scopes | No combined tool, no migration plan output |
+| PQScan (pqscan.io) | SaaS | Unclear scope | Limited public information |
+| Semgrep, Snyk, Veracode | General SAST | General security scanning | No verified PQC-specific rules as of 2026-06-23 |
+
+**Gap confirmed:** pqcscan scans servers for declared PQC support. IBM Quantum Safe Explorer scans source code but is enterprise-priced with no dependency mapping. No tool produces a combined code inventory + dependency PQC readiness map + prioritized migration plan. This is the specific gap this product concept addresses.
 
 ---
 
 ## Unknowns
 
-- How many organizations are actively working on PQC migration today vs. "later"?
-- Is this a tooling problem or a knowledge problem? (Do engineers know what to do
-  but lack tooling, or do they not know what to do?)
-- Do SAST vendors (Semgrep, Snyk, Veracode) already offer crypto-inventory scanning?
-- What are the actual regulatory deadlines that would create urgency?
-- Is the hard part discovery or the organizational change management of migration?
+- How many security teams are actively working on PQC migration vs. deferring until 2028–2030?
+- Is the bottleneck awareness, tooling, or organizational prioritization?
+- Will IBM Quantum Safe Explorer address the SME market?
+- EU: will ENISA or Member State supervisors issue PQC-specific NIS2 guidance?
 
 ---
 
@@ -83,8 +120,6 @@ None directly. No cryptography tooling sources have been imported.
 
 ## Next research question
 
-1. Research: what have NIST, NSA, and CISA published about migration timelines
-   and guidance for private sector organizations?
-2. Check: do Semgrep, Snyk, or Veracode have PQC-readiness scanning rules?
-3. Find 2–3 security engineers at financial or healthcare companies: are they
-   working on crypto inventory today, and what tools are they using?
+1. Find 2–3 security engineers at financial services companies: are they doing crypto inventory now? What is blocking them?
+2. Test IBM Quantum Safe Explorer pricing — is there a free tier or trial?
+3. Check if NIS2 national implementing laws in Germany, France, and Netherlands reference PQC obligations specifically
