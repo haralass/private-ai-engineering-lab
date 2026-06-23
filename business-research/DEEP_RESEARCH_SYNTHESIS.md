@@ -1,8 +1,9 @@
 # Deep Research Synthesis
 
 research_date: 2026-06-23
-covers: all 30 lab sources, 15 business ideas, 6 cross-source combinations
+covers: all 30 lab sources, 15 original + 21 new business ideas (36 total), 6 cross-source combinations
 status: initial-research (market hypotheses marked; customer validation pending for all ideas)
+last_updated: 2026-06-24 — wave 2 + wave 3 ideas added from 11 parallel research agents
 
 This document answers 12 specific questions and provides a scored ranking of all
 business ideas in the lab. All factual claims are sourced; all market size estimates
@@ -65,13 +66,18 @@ By overall value to the lab (technical reuse + business opportunity contribution
 
 ## Question 3: Which are the best business ideas?
 
-See full scoring table in Section 10. Top 5 by score:
+See full scoring tables in Section 10 (original 15) and Section 10b (wave 2+3 new ideas). Overall top 10 across all waves:
 
 1. **Agent Permission Firewall** (111/150) — prototype exists; regulatory tailwind; no verified competitor
-2. **EvidenceOps — AI Act/NIS2/VSME** (104/150) — strongest regulatory urgency; fastest validation path; perfect founder fit
-3. **AI Frontend Quality Gate** (103/150) — high lab leverage; new idea from cross-source analysis; strong differentiation
-4. **Accessibility Source-Fix CI** (96/150) — EAA in force; gap confirmed in competitor research; regulatory tailwind
-5. **VSME ESG Data Room** (93/150) — real demand cascading from CSRD; Commission Recommendation enacted; needs differentiation
+2. **Agent Liability Attribution Engine** (109/150) — EU AI Act Article 12, 40 days to enforcement, causal inference gap confirmed
+3. **AI Agent Cost Circuit Breaker** (107/150) — Uber budget burn, $47K loop incident, no hosted solution
+4. **Agent Specification Firewall** (105/150) — 41.77% of multi-agent failures from spec ambiguity; MAST taxonomy; open-source distribution
+5. **EvidenceOps — AI Act/NIS2/VSME** (104/150) — strongest regulatory urgency; fastest validation path; perfect founder fit
+6. **AI Frontend Quality Gate** (103/150) — high lab leverage; strong differentiation; cross-source combination product
+7. **GPAI Documentation Form Automation** (103/150) — 40 days to enforcement, 42-attribute mandatory form, 26 signatories, no tool
+8. **AI Support Response Pre-Send Gate** (103/150) — all existing QA tools are retrospective; pre-send gap confirmed
+9. **LC-as-a-Service** (103/150) — $3T market, 70-80% discrepancy rate, AI-native capability unlock
+10. **Hallucination Cost Accounting** (103/150) — $67.4B cost, $14,200/employee/year, no CFO-facing measurement tool
 
 ---
 
@@ -326,6 +332,113 @@ In priority order (each takes < 1 week):
 | 15 | Business Energy Optimization | 66 | Hardware dependency; no lab source applicable; niche market |
 
 *Note: Synthetic Regulatory Document AI and Skill Benchmarking Platform score above 75 but are HOLD due to evidence quality concerns (evidence_level: none). Score alone is insufficient without research.*
+
+---
+
+---
+
+## Section 10b: Wave 2 + Wave 3 New Idea Scores (21 additional ideas)
+
+Research waves from 2026-06-23/24. Same 15-dimension rubric as Section 10.
+
+### Wave 2 — Regulatory + AI infrastructure gaps (from parallel agent research)
+
+| # | Idea | P1 | P2 | P3 | P4 | P5 | P6 | P7 | P8 | P9 | P10 | P11 | P12 | P13 | P14 | P15 | Total | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| W1 | GPAI Documentation Form Automation | 8 | 5 | 9 | 8 | 2 | 6 | 8 | 8 | 6 | 10 | 6 | 6 | 8 | 6 | 7 | **103** | **PURSUE** |
+| W2 | AI Agent Cost Circuit Breaker | 8 | 7 | 8 | 9 | 4 | 9 | 9 | 7 | 7 | 3 | 5 | 8 | 8 | 6 | 9 | **107** | **PURSUE** |
+| W3 | PLD Liability Evidence Vault | 7 | 6 | 9 | 7 | 3 | 6 | 8 | 8 | 7 | 8 | 6 | 6 | 7 | 6 | 6 | **100** | **PURSUE** |
+| W4 | DORA Register of Information | 7 | 7 | 8 | 7 | 3 | 5 | 7 | 8 | 8 | 9 | 6 | 6 | 7 | 5 | 5 | **98** | **PROMISING** |
+| W5 | Training Data Bill of Materials | 8 | 6 | 9 | 7 | 3 | 6 | 8 | 7 | 7 | 8 | 7 | 6 | 8 | 5 | 6 | **101** | **PURSUE** |
+| W6 | CRA Vulnerability Disclosure Automation | 8 | 6 | 9 | 8 | 2 | 8 | 7 | 7 | 6 | 10 | 7 | 6 | 8 | 6 | 7 | **105**\* | **PURSUE** |
+| W7 | Vibe Security Gate | 8 | 6 | 8 | 7 | 4 | 7 | 8 | 7 | 6 | 6 | 6 | 7 | 7 | 5 | 7 | **99** | **PROMISING** |
+| W8 | Multi-Regulation Compliance Platform | 7 | 7 | 6 | 8 | 3 | 7 | 7 | 9 | 7 | 8 | 5 | 6 | 7 | 5 | 6 | **98** | **PROMISING** |
+
+\*CRA: 80 days to September 11, 2026 enforcement date
+
+### Wave 3 — Pioneering ideas not yet products (from 6 parallel agent research waves)
+
+| # | Idea | P1 | P2 | P3 | P4 | P5 | P6 | P7 | P8 | P9 | P10 | P11 | P12 | P13 | P14 | P15 | Total | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| N1 | Agent Liability Attribution Engine | 8 | 7 | 9 | 6 | 8 | 5 | 8 | 8 | 7 | 10 | 7 | 6 | 8 | 6 | 6 | **109** | **PURSUE** |
+| N2 | AI Support Response Pre-Send Gate | 7 | 7 | 8 | 8 | 4 | 8 | 8 | 7 | 7 | 5 | 6 | 7 | 7 | 6 | 8 | **103** | **PURSUE** |
+| N3 | LC-as-a-Service | 8 | 9 | 9 | 7 | 2 | 7 | 8 | 5 | 9 | 3 | 8 | 6 | 8 | 6 | 7 | **102** | **PURSUE** |
+| N4 | Hallucination Cost Accounting | 8 | 7 | 9 | 7 | 3 | 7 | 8 | 7 | 7 | 5 | 6 | 7 | 8 | 6 | 8 | **103** | **PURSUE** |
+| N5 | Agent Specification Firewall | 7 | 6 | 9 | 8 | 7 | 9 | 9 | 7 | 5 | 3 | 5 | 8 | 7 | 6 | 9 | **105** | **PURSUE** |
+| N6 | NHI Agent Identity Governance | 8 | 7 | 7 | 7 | 3 | 6 | 8 | 7 | 7 | 6 | 6 | 6 | 7 | 5 | 6 | **96** | **PROMISING** |
+| N7 | LLM Prompt Regression Monitor | 7 | 6 | 8 | 8 | 4 | 9 | 8 | 7 | 6 | 2 | 5 | 7 | 7 | 6 | 9 | **99** | **PROMISING** |
+| N8 | MDR + AI Act Dual Conformity | 6 | 5 | 9 | 7 | 2 | 5 | 7 | 8 | 6 | 7 | 7 | 5 | 7 | 6 | 5 | **92** | **PROMISING** |
+| N9 | GPAI Doc Form Automation | (same as W1 above — combined) | | | | | | | | | | | | | | | | |
+| N10 | AI Agent NHI Governance | (same as N6 above) | | | | | | | | | | | | | | | | |
+
+### Additional pioneering ideas (identified but not yet written as files)
+
+These ideas emerged from research but require further validation before writing full files:
+
+| Idea | Key finding | Preliminary assessment |
+|---|---|---|
+| **Agent Fleet SLA Monitor** | Enterprise buys agentic platforms with uptime SLAs; task-quality SLAs don't exist; no neutral monitor | PROMISING — first validate whether enterprises are asking for task-quality SLAs at procurement |
+| **Defect-to-Process Causal Attribution** (manufacturing) | Detecting defects is solved; root cause from process variables is not; requires multimodal + time-series | PROMISING — industrial domain; hardware dependency; long sales cycle |
+| **Brownfield Digital Twin** (acoustic/thermal) | 80% of industrial facilities have no sensors; acoustic+thermal sensing + foundation models enable state inference | PROMISING — long sales cycle; requires domain expertise |
+| **Construction Material Provenance Ledger** | No chain of custody from specification to poured concrete; insurance angle ($15B+ annual premium) | PROMISING — construction tech is slow; verify with insurance buyer first |
+| **Continuous Credit Monitoring for SME Loans** | Banks underwrite at origination, check quarterly; 6-8% of borrowers silently deteriorate between checks | PROMISING — fintech; regulatory constraints on credit advice |
+| **Insurance Evidence Provenance Engine** | AI-generated claim fraud (synthetic photos, forged PDFs) invisible to behavioral detectors | PROMISING — new threat vector; insurance buyer is well-funded; verify threat scale first |
+| **Study-Section-Aware Grant Scorer** | NIH summary statements are public; no tool scores proposals against historical section behavior | PROMISING — academic buyer; small market; validate with 3 PIs first |
+| **Replication Risk API** | REPRO-Bench (2025): agentic replication assessment feasible; no commercial product; $B+ pharma target validation cost | PROMISING — pharma buyer has budget; validate data access first |
+| **Commitment Provenance Layer** (DecisionDNA) | Decisions become contested; no causal graph of commitments across meetings; long-context models make this feasible | PROMISING — legal/ops buyer; validate with a law firm or consulting firm first |
+| **HalloScan** (CFO hallucination cost) | Already written as full file above | (see N4 above) |
+| **Dynamic ALM Co-Pilot for Pension Funds** | 5,000+ UK DB schemes; 4-year consulting cycle; daily funded ratio monitoring gap | PROMISING — regulatory constraints on financial advice; validate with pension trustee first |
+| **Adaptive Protocol Amendment Engine** (pharma) | FDA opens AI optimization pilot; protocol amendments take 3-6 months; AI can generate compliant amendments | PROMISING — FDA regulatory context; pharma buyer has budget |
+
+---
+
+## Section 10c: Updated Final Rankings (all 36 ideas)
+
+### PURSUE (score ≥ 100) — 10 ideas
+
+| Rank | Idea | Score | First Next Step | File |
+|---|---|---|---|---|
+| 1 | Agent Permission Firewall | 111 | Package prototype → 5 developer customer interviews | agent-permission-firewall.md |
+| 2 | Agent Liability Attribution Engine | 109 | CCO at financial institution → "how do you trace agent causality today?" | agent-liability-attribution-engine.md |
+| 3 | AI Agent Cost Circuit Breaker | 107 | Build Cloudflare Worker proxy in 2 days; show to 3 DevOps leads | ai-agent-cost-circuit-breaker.md |
+| 4 | Agent Specification Firewall | 105 | Build `agent-lint` CLI in 1 day; post on HN with MAST 41.77% finding | agent-specification-firewall.md |
+| 5 | CRA Vulnerability Disclosure Automation | 105 | Verify ENISA portal schema; find CISO at EU software company | cra-vulnerability-disclosure-automation.md |
+| 6 | EvidenceOps (AI Act/NIS2/VSME) | 104 | Interview 3 SME founders this week — received NIS2/AI Act questionnaire? | evidenceops-ai-act-nis2-vsme.md |
+| 7 | GPAI Documentation Form Automation | 103 | Contact compliance officer at Aleph Alpha / Cohere / Mistral | gpai-documentation-form-automation.md |
+| 8 | AI Frontend Quality Gate | 103 | Run impeccable on 10 lab PRs; document findings | (product-concepts/) |
+| 9 | AI Support Response Pre-Send Gate | 103 | Build Intercom webhook POC in 1 day; check app store gap | ai-support-response-gate.md |
+| 10 | LC-as-a-Service | 102 | Acquire 50 LC packages; run Claude Sonnet with UCP 600; measure precision | lc-as-a-service.md |
+| 11 | Hallucination Cost Accounting | 103 | LinkedIn post → test CFO demand before building | hallucination-cost-accounting.md |
+| 12 | Training Data Bill of Materials | 101 | Interview ML platform engineer; read EU Commission training data template | training-data-bill-of-materials.md |
+| 13 | PLD Liability Evidence Vault | 100 | Contact law firms publishing PLD guidance (Gibson Dunn, Freshfields) | pld-liability-evidence-vault.md |
+
+### PROMISING (score 75–99) — all remaining
+
+| Rank | Idea | Score | Blocking question | File |
+|---|---|---|---|---|
+| 14 | Accessibility Source-Fix CI | 96 | What % of WCAG violations are deterministically fixable? | (startup-white-spaces/) |
+| 15 | DORA Register of Information | 98 | Head of Operational Resilience: "what did your first regulatory exam reveal?" | dora-register-of-information.md |
+| 16 | Vibe Security Gate | 99 | Interview 3 DevSecOps engineers: AI code treated differently? | vibe-security-gate.md |
+| 17 | Multi-Regulation Compliance Platform | 98 | Test EuroComply free tier; interview 3 COOs at EU tech companies | multi-regulation-compliance-platform.md |
+| 18 | NHI Agent Identity Governance | 96 | CISO at multi-agent company: "how do agents authenticate today?" | nhi-agent-identity-governance.md |
+| 19 | LLM Prompt Regression Monitor | 99 | Build prototype: OpenAI release feed → run 3 prompts → Slack alert | llm-prompt-regression-monitor.md |
+| 20 | VSME ESG Data Room | 93 | How to differentiate from ExecutESG (free)? | vsme-esg-data-room.md |
+| 21 | MDR + AI Act Dual Conformity | 92 | "Are MDR and AI Act being treated as separate parallel workstreams?" | mdr-ai-act-dual-conformity.md |
+| 22 | PQC Discovery Copilot | 91 | How many security teams are actively working on PQC migration now? | pqc-discovery-copilot.md |
+| 23 | Synthetic Test Data Platform | 91 | Is the mid-market gap real (between Faker and Tonic.ai)? | (startup-white-spaces/) |
+| 24 | Adaptive SQL Learning Platform | 90 | Is AI feedback the feature users would pay for specifically? | (startup-white-spaces/) |
+| 25 | Functional Generative Design | 89 | How to differentiate from Flowcode and Uniqode? | (product-concepts/) |
+| 26 | Trusted Skill Marketplace | 88 | Will Anthropic build an official skill store? | (startup-white-spaces/) |
+| 27 | Mobile Privacy Truth Engine | 87 | Is iOS dynamic analysis in cloud technically feasible? | mobile-privacy-truth-engine.md |
+
+### HOLD (score 50–74)
+
+| Idea | Score | Reason |
+|---|---|---|
+| Synthetic Regulatory Document AI | 81 | evidence_level: none; validate before investing |
+| Skill Benchmarking Platform | 82 | Market too nascent; timing risk |
+| Intelligent Change Monitoring | 74 | Market crowded; differentiation unclear |
+| Business Energy Optimization | 66 | Hardware dependency; no lab source; niche |
 
 ---
 
