@@ -40,20 +40,26 @@ docs/             Architecture, decisions, policies, roadmap
 
 ## Component status
 
-| Component | Status | Source | License | Security review | Approved |
-|---|---|---|---|---|---|
-| agent-safety-firewall | prototype | deterministic-agent-safety | MIT | pending | no |
-| secret-and-credential-scanner | prototype | deterministic-agent-safety | MIT | pending | no |
-| code-quality-review-agent | research | deterministic-agent-safety | MIT | pending | no |
-| application-security-review-agent | research | deterministic-agent-safety | MIT | pending | no |
-| pull-request-review-orchestrator | research | deterministic-agent-safety | MIT | pending | no |
-| trusted-skill-registry | research | — | — | pending | no |
-| skill-evaluation-runner | research | anthropic-skills | — | pending | no |
-| persistent-project-context | research | persistent-agent-memory | MIT | pending | no |
-| product-context-manager | research | product-marketing-context | — | pending | no |
-| design-generation-and-review-pipeline | research | design-quality-and-review | — | pending | no |
+> **Key:** `real` = working code + tests · `planned` = directory only, no implementation · `research` = README + design notes only
 
-Statuses: `research` · `prototype` · `experimental` · `candidate` · `approved` · `rejected`
+| Component | Implementation | Tests | License reviewed | Security reviewed | Approved for reuse |
+|---|---|---|---|---|---|
+| **agent-safety-firewall** | **real** — command analyzer, path guard, policy engine | **40/40 passing** | MIT (deterministic-agent-safety) | pending manual | no |
+| application-security-review-agent | planned | — | — | — | no |
+| code-quality-review-agent | planned | — | — | — | no |
+| design-generation-and-review-pipeline | planned | — | — | — | no |
+| persistent-project-context | planned | — | — | — | no |
+| product-context-manager | planned | — | — | — | no |
+| protected-path-guard | planned (shares logic with agent-safety-firewall) | — | — | — | no |
+| pull-request-review-orchestrator | planned | — | — | — | no |
+| secret-and-credential-scanner | planned (shares engine with scripts/security/secret_scan.py) | — | — | — | no |
+| skill-evaluation-runner | planned | — | — | — | no |
+| trusted-skill-registry | planned | — | — | — | no |
+
+**`planned`** means a directory exists with a README describing the intended component.
+It is **not an implementation**. Do not treat it as functional.
+
+Statuses: `real` · `planned` · `research` · `experimental` · `candidate` · `approved` · `rejected`
 
 ---
 

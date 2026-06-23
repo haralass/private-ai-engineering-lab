@@ -1,0 +1,17 @@
+# Allowed actions — explicit bypass list
+# Add entries here when a specific safe use of a dangerous pattern is known
+
+allowed:
+  # Example: allow 'git push --force' only on personal feature branches
+  # - command: "git push --force origin feature/*"
+  #   reason: "Force push allowed on personal feature branches only"
+  #   approved_by: owner
+  #   approved_at: 2026-06-22
+
+  # Example: allow rm -rf for a specific build directory
+  # - command: "rm -rf dist/"
+  #   reason: "Cleaning build output is safe"
+  #   approved_by: owner
+  #   approved_at: 2026-06-22
+
+# Currently no exceptions defined

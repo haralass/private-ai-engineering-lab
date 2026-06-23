@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-06-22T05:11:20.045728+00:00",
+  "file_count": 30,
+  "files": {
+    ".env.example": {
+      "sha256": "3a7546ab7a96b1b9d757dd4cc1ac3571cfd766140e63a534f5521e2b2f355d09",
+      "size": 184
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "303dd7a13e75f97b42925d9d1c5d309c19d9bbee6ce64dd9e0141358848fab17",
+      "size": 1269
+    },
+    ".gitignore": {
+      "sha256": "f86706ded238e29ed369be3f5b667f85f6c649b6753ae6a42b484ff17fb5327d",
+      "size": 214
+    },
+    ".golang.yml": {
+      "sha256": "e142be8a5c1c2e896f89727e7a77eace87ae68f6afa9f71b6826f283db4e9ac1",
+      "size": 195
+    },
+    "LICENSE": {
+      "sha256": "0725dfdae6c71e74b1e38fe2dacd21680edae3e0cf62d810865f002c728e1ff8",
+      "size": 1071
+    },
+    "Makefile": {
+      "sha256": "65f4d39fa9d487773afbe81549e761ccedf9d0c227ffe82e3f3db1e3e0d9d559",
+      "size": 647
+    },
+    "README.md": {
+      "sha256": "7412560249eb3598a00a695771bcf098df60e2e395066159cf6419e5fc198b73",
+      "size": 348
+    },
+    "cmd/api/main.go": {
+      "sha256": "a86cedc83f8a08b31445ca2b5c7ebc5f9ea77a0f8ce61299e1c3beccb551412b",
+      "size": 1836
+    },
+    "cmd/worker/main.go": {
+      "sha256": "1909bb46afd10525b351081b99af8a36ccb3b44b99fd44b4f804f86bfa141dfa",
+      "size": 710
+    },
+    "docker-compose.yml": {
+      "sha256": "c7bb5956b3a7e30d158f83c10b33c1cac0f593eee127aec995bcbaf1a0443fd7",
+      "size": 478
+    },
+    "go.mod": {
+      "sha256": "fdfaf60520f6b15f2ed70c0b374c99649cb6b61ed09ff78b9bf2648baf3a47b2",
+      "size": 395
+    },
+    "go.sum": {
+      "sha256": "3759309ba150bf968c5ad01f9647bbfa365c2393977c7d9a85b18c14bba0ac5f",
+      "size": 2468
+    },
+    "internal/config/config.go": {
+      "sha256": "5c53618e7fc0efe40c7127f09e6480c28c2eb94719f9042d180f724f99f255e9",
+      "size": 989
+    },
+    "internal/config/config_test.go": {
+      "sha256": "6769c8f4674615a18f7270786acd0bfc18cbf4743647bf6de126b2b2c2497a1c",
+      "size": 1356
+    },
+    "internal/db/queries/jobs.sql": {
+      "sha256": "1d4689ab4f4df27d1985246409078c5cb4f8e53e5f93d122cbccd754dc843afb",
+      "size": 715
+    },
+    "internal/db/sqlc/db.go": {
+      "sha256": "c6013a34d5415f127be9cc3b1c443aab330b058e930a5b048fd437f3e888482b",
+      "size": 564
+    },
+    "internal/db/sqlc/jobs.sql.go": {
+      "sha256": "3c55f93ead948ba9dbc446890f0a62967686d7ac3f4d4b50b8c557e0808107d6",
+      "size": 4662
+    },
+    "internal/db/sqlc/jobs_integration_test.go": {
+      "sha256": "012553923f3fd42d4f766f3be5ec984863f4986f235772ef4a07821577136663",
+      "size": 1178
+    },
+    "internal/db/sqlc/models.go": {
+      "sha256": "59e7fac40d8a5d5f62dcc94d94003fb8913aa916b110b1676235b962838335f8",
+      "size": 1622
+    },
+    "internal/httpapi/health.go": {
+      "sha256": "75489d6849cef75d35876ad07deb271fed8e232e77f467bdffb8d3869e184367",
+      "size": 632
+    },
+    "internal/httpapi/json.go": {
+      "sha256": "7b50fb4cfb5615c6c38e743cbe2f46432d57a99fc19330f7dfb3ead2d55cb2d1",
+      "size": 323
+    },
+    "internal/httpapi/middleware.go": {
+      "sha256": "e9120a5a895ff0262d98ec3d760aa3e84135e4c406b134ecf94290b792536690",
+      "size": 756
+    },
+    "internal/httpapi/response.go": {
+      "sha256": "54773035aae33fd6c5ae4929a628c493263b07615117fc6a1b3980bc522b3743",
+      "size": 597
+    },
+    "internal/httpapi/routes.go": {
+      "sha256": "2bc51776add5327f5e7c9d8583635d201496ab8de7829f92875aab5464e21fc9",
+      "size": 212
+    },
+    "internal/httpapi/server.go": {
+      "sha256": "f3fe999d39b9092e37ecbaa842da354f01577f352d378976b96c314dd9186433",
+      "size": 1325
+    },
+    "internal/httpapi/server_test.go": {
+      "sha256": "537cf5ebcb5d5d100bfb0604a21a8cb3ba22d930d97167c2b06997fee824e27d",
+      "size": 1302
+    },
+    "internal/jobs/service.go": {
+      "sha256": "f9309f7df5c8883bf1173104dd6b69d8fee0f638efb7b12ecd6bd19b8d11ddd5",
+      "size": 3536
+    },
+    "migrations/000001_create_jobs_table.down.sql": {
+      "sha256": "a712d59e056e1a91ecbbf543ce9dedb67baecb955cc7facecb4dabd3a08ce7e5",
+      "size": 189
+    },
+    "migrations/000001_create_jobs_table.up.sql": {
+      "sha256": "6e9f3ea1bee7d7d86e82bb5a3ac2f382930d3d9c6252a7e3d04aba9a46b41f20",
+      "size": 989
+    },
+    "sqlc.yaml": {
+      "sha256": "f6b422ce350ace4b03fc27a4f527ecde406e20015d9d16feeaf1ad986068bd5d",
+      "size": 206
+    }
+  }
+}

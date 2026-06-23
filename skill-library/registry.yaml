@@ -1,0 +1,18 @@
+# Skill library registry
+# Tracks all candidate, approved, modified, and rejected skills
+
+skills: []
+# Each entry:
+# - name: ""
+#   origin_url: ""
+#   pinned_commit: ""
+#   license: ""
+#   status: candidate | approved | modified | rejected
+#   security_audit: pending | approved | rejected
+#   benchmark_run: false
+#   agent_compatibility: []
+#   permissions_requested: []
+#   hooks_installed: []
+#   overtriggering_rate: null
+#   approved_date: null
+#   notes: ""

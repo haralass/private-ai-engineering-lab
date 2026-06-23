@@ -1,0 +1,22 @@
+display_name: "GLM-5"
+functional_name: glm-model-family
+source_url: https://github.com/zai-org/GLM-5
+source_label: external
+upstream_owner: "zai-org"
+upstream_repository: "GLM-5"
+pinned_commit: bd7fafe70ba9ac7cbfe070573f8acf76e5944d5d
+retrieved_at: "2026-06-22T05:14:16Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "Apache 2.0. No weights committed. Reference for long-context benchmark."

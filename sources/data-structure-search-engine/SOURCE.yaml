@@ -1,0 +1,22 @@
+display_name: "EPL231-GroupAssignment"
+functional_name: data-structure-search-engine
+source_url: https://github.com/tsembp/EPL231-GroupAssignment
+source_label: student-2
+upstream_owner: "tsembp"
+upstream_repository: "EPL231-GroupAssignment"
+pinned_commit: 8026a0a9a73ef10f742592e948bef2a82c26589f
+retrieved_at: "2026-06-22T05:14:16Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Data structure and search engine."

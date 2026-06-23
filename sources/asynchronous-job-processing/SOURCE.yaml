@@ -1,0 +1,22 @@
+display_name: "sms-platform"
+functional_name: asynchronous-job-processing
+source_url: https://github.com/sgavriil01/sms-platform
+source_label: student-1
+upstream_owner: "sgavriil01"
+upstream_repository: "sms-platform"
+pinned_commit: 46398c4e423ae5ed017658004487c9309a2ce127
+retrieved_at: "2026-06-22T05:14:15Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Pattern: async job processing."

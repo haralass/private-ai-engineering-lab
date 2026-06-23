@@ -1,0 +1,22 @@
+display_name: "WG-Course-Task-Notifier-Bot"
+functional_name: change-monitoring-notifications
+source_url: https://github.com/tsembp/WG-Course-Task-Notifier-Bot
+source_label: student-2
+upstream_owner: "tsembp"
+upstream_repository: "WG-Course-Task-Notifier-Bot"
+pinned_commit: 9abbac6f4f4126e44187da84889cf6b6571397b0
+retrieved_at: "2026-06-22T05:14:15Z"
+license: NOT-FOUND
+license_file_verified: false
+import_mode: reference-only
+snapshot_path: ""
+adapted_path: ""
+subsystem: ""
+removed_paths: []
+local_modifications: []
+security_review_status: pending
+license_review_status: pending
+copy_allowed: false
+execution_allowed: false
+decision: reference-only
+notes: "No LICENSE file — reference-only. Notification bot pattern."
