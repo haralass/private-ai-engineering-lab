@@ -29,3 +29,39 @@ Real data cannot be used in dev/test for privacy reasons. Naive random data brea
 The tsembp/one-stop-ride-hail project includes synthetic data generation for a ride-hail scenario. We generalize the pattern to any schema.
 
 See `reference-implementations/synthetic-relational-data-generation/` for the reference build.
+
+---
+
+## Related sources
+
+- `sources/synthetic-relational-data/` (tsembp/one-stop-ride-hail, MIT) — upstream data generation patterns
+- `reference-implementations/synthetic-relational-data-generation/` — in-lab reference build
+
+## Research connections
+
+- `business-research/category-a/synthetic-regulatory-document-ai.md` — a compliance-specific
+  vertical of this same platform concept
+
+## Origin
+
+Sourced from tsembp/one-stop-ride-hail, which includes synthetic ride-hail data generation
+as a component. Product concept generalizes the relational consistency pattern to arbitrary schemas.
+
+## Current evidence level
+
+`initial-research` — upstream source studied, reference implementation planned.
+No user interviews conducted.
+
+## Open assumptions
+
+- Development teams using real data in dev/test environments have a real compliance or privacy
+  problem they want to solve with a tool (vs. just using simplified fake data)
+- Schema inference from existing migrations is reliable enough to be the primary input method
+- Relationship-aware generation is the key differentiator over existing tools (Faker, Mockaroo)
+
+## Next validation step
+
+1. Talk to 3–5 backend developers: how do they handle test data today? What breaks?
+2. Check: what does Faker/Mimesis/Mockaroo offer for relational consistency? Where do they fall short?
+3. Determine whether the compliance angle (privacy-safe test data) or the correctness angle
+   (internally consistent data) is the stronger hook
