@@ -28,7 +28,7 @@ CI now runs on **all pushes** (including `main`) and on PRs to `main`.
 
 ```
 tests/test_command_analyzer.py   — 22 tests  (command pattern matching)
-tests/test_git_rules.py          —  8 tests  (git + file write integration)
+tests/test_git_rules.py          —  7 tests  (git + file write integration)
 tests/test_path_guard.py         — 11 tests  (protected path rules)
 tests/test_hooks_integration.py  — 49 tests  (real .sh hooks via subprocess)
 Total: 89 passed

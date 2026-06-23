@@ -67,7 +67,7 @@ ALWAYS_REMOVE = [
 # File extensions that are build/binary artifacts
 REMOVE_EXTENSIONS = {".pyc", ".pyo", ".pyd", ".log", ".DS_Store"}
 
-# Model weight extensions — always forbidden unless --allow-large-files override
+# Model weight extensions — always forbidden, even with --allow-large-files
 MODEL_WEIGHT_EXTENSIONS = {".safetensors", ".gguf", ".ggml", ".pt", ".pth", ".ckpt"}
 
 # Large file threshold (bytes). Files above this require explicit --allow-large-files.
