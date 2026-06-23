@@ -59,6 +59,14 @@ never contains the full secret value.
 Removed `|| true` that silently swallowed all failures. Both checks now use the
 assignment pattern (`result=$(find ...)`) and explicit `if [ -n "$result" ]; then exit 1`.
 
+After removing `|| true`, two legitimately-vendored files were correctly detected:
+- `sources/full-product-engineering-agent-stack/upstream/.../security-bench-haiku-responses.json` (27MB test fixture)
+- `sources/persistent-agent-memory/upstream/plans/inbox/...slides.pdf` (10MB PDF)
+
+Both are in `sources/*/upstream/` — inspected and documented at import time. Both checks
+now exclude `sources/*/upstream/` (same rationale as the secret scan exclusion), so the
+guard protects `components/`, `scripts/`, and source-catalog only.
+
 ### Fix 2 — Hook shell-injection vulnerability
 
 All three hooks previously used `evaluate(command='$COMMAND')` — string-interpolating
