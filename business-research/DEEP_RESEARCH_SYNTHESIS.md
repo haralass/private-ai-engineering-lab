@@ -1,7 +1,7 @@
 # Deep Research Synthesis
 
 research_date: 2026-06-23
-covers: all 30 lab sources, 15 original + 21 new business ideas (36 total), 6 cross-source combinations
+covers: all 30 lab sources, 15 original + 16 new = 31 ideas with individual files (see BUSINESS_IDEAS_INDEX.md); additional ideas identified in synthesis but not yet filed, 6 cross-source combinations
 status: initial-research (market hypotheses marked; customer validation pending for all ideas)
 last_updated: 2026-06-24 — wave 2 + wave 3 ideas added from 11 parallel research agents
 
@@ -371,9 +371,10 @@ Research waves from 2026-06-23/24. Same 15-dimension rubric as Section 10.
 | N9 | GPAI Doc Form Automation | (same as W1 above — combined) | | | | | | | | | | | | | | | | |
 | N10 | AI Agent NHI Governance | (same as N6 above) | | | | | | | | | | | | | | | | |
 
-### Additional pioneering ideas (identified but not yet written as files)
+### Additional pioneering ideas (identified in synthesis; not yet written as standalone files)
 
-These ideas emerged from research but require further validation before writing full files:
+These ideas emerged from research but require further validation before writing full files.
+They are NOT counted in the 31 filed ideas in BUSINESS_IDEAS_INDEX.md.
 
 | Idea | Key finding | Preliminary assessment |
 |---|---|---|
@@ -392,7 +393,7 @@ These ideas emerged from research but require further validation before writing 
 
 ---
 
-## Section 10c: Updated Final Rankings (all 36 ideas)
+## Section 10c: Updated Final Rankings (all 31 filed ideas)
 
 ### PURSUE (score ≥ 100) — 10 ideas
 

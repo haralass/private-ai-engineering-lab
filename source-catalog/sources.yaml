@@ -341,26 +341,26 @@ sources:
   - functional_name: dance-studio-api
     upstream_repo: CS-UCY-EPL343/epl343.winter25.team6
     label: student-collab
-    import_mode: vendored-snapshot
+    import_mode: local-research-only
     license: unknown
     status: candidate
     phase: 2
-    notes: "ASP.NET Core 8 REST API. License unknown — vendoring provisional. No code reuse until confirmed."
+    notes: "ASP.NET Core 8 REST API. Studied locally; upstream not committed. License unknown."
 
   - functional_name: ride-booking-php
     upstream_repo: giannisHadjizorzis/OSRH
     label: student-collab
-    import_mode: vendored-snapshot
+    import_mode: local-research-only
     license: unknown
     status: candidate
     phase: 2
-    notes: "PHP ride-booking. Security: hardcoded demo password in login.php. License unknown. upstream/ must not be exposed publicly."
+    notes: "PHP ride-booking. Studied locally; upstream not committed. Demo credentials in upstream (password123, localhost/root/root) — assessed as non-production, no rotation required. License unknown. See AUDIT.md."
 
   - functional_name: twitter-sentiment-classifier
     upstream_repo: Matheos-Ioannides/epl499_group_project_TeamWIP
     label: student-collab
-    import_mode: vendored-snapshot
+    import_mode: local-research-only
     license: unknown
     status: candidate
     phase: 2
-    notes: "NLP pipeline (EPL499 group project). License unknown — vendoring provisional."
+    notes: "NLP pipeline (EPL499 group project). Studied locally; upstream not committed. License unknown."

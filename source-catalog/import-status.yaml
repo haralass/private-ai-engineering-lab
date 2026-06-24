@@ -180,47 +180,43 @@ imports:
     files_removed: [.git, node_modules]
     status: complete
 
+
+local_research_only:
+  # Code studied locally but not committed to this lab (no LICENSE file in source repo).
+  # For each entry: dossier in sources/<name>/ATTRIBUTION.md (student-collab) or research/people/<label>/ (person sources)
+
   - functional_name: dance-studio-api
     url: https://github.com/CS-UCY-EPL343/epl343.winter25.team6
     pinned_commit: d06f49fd9ec6a250d1ab816ceae914aa8487a0bf
-    imported_at: "2026-06-23T00:00:00Z"
+    studied_at: "2026-06-23T00:00:00Z"
+    source_label: student-collab
     secret_scan: clean
     license_found: unknown
-    source_label: student-collab
-    files_kept: 69
-    files_removed: [.git]
-    status: candidate
-    notes: License unknown — vendoring provisional. No code may be reused until license confirmed.
+    reason: No LICENSE file. Code studied locally. upstream/ removed 2026-06-24 before merge to main.
+    research_dossier: sources/dance-studio-api/ATTRIBUTION.md
 
   - functional_name: ride-booking-php
     url: https://github.com/giannisHadjizorzis/OSRH
     pinned_commit: e4fe4835192974b22e42c5b4f45312906d93098c
-    imported_at: "2026-06-23T00:00:00Z"
+    studied_at: "2026-06-23T00:00:00Z"
+    source_label: student-collab
     secret_scan: flagged-demo-credential
     license_found: unknown
-    source_label: student-collab
-    files_kept: 54
-    files_removed: [.git]
-    status: candidate
-    notes: >
-      Hardcoded demo password in login.php (password123). Not a real credential.
-      upstream/ must not be exposed publicly. License unknown.
+    reason: >
+      No LICENSE file. Code studied locally. upstream/ contained hardcoded demo credentials
+      (password123 in login.php; localhost/root/root in upload_documents.php) — demo only,
+      no rotation required. upstream/ removed 2026-06-24 before merge to main. See AUDIT.md.
+    research_dossier: sources/ride-booking-php/ATTRIBUTION.md
 
   - functional_name: twitter-sentiment-classifier
     url: https://github.com/Matheos-Ioannides/epl499_group_project_TeamWIP
     pinned_commit: cc1651262581da8fef830e47031310b216557bf5
-    imported_at: "2026-06-23T00:00:00Z"
+    studied_at: "2026-06-23T00:00:00Z"
+    source_label: student-collab
     secret_scan: clean
     license_found: unknown
-    source_label: student-collab
-    files_kept: 7
-    files_removed: [.git]
-    status: candidate
-    notes: License unknown — vendoring provisional.
-
-local_research_only:
-  # Code studied locally but not committed to this lab (no LICENSE file in source repo).
-  # For each entry: dossier in research/people/<label>/
+    reason: No LICENSE file. Code studied locally. upstream/ removed 2026-06-24 before merge to main.
+    research_dossier: sources/twitter-sentiment-classifier/ATTRIBUTION.md
 
   - functional_name: cyprus-price-scrapers
     url: person3/timicy-scrapers

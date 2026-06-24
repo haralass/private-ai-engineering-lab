@@ -1,4 +1,0 @@
-Drop-Database
-Remove-Migration
-Add-Migration HDS
-Update-Database

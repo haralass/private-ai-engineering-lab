@@ -287,9 +287,8 @@ license_matrix:
     vendoring_allowed: false
     copy_allowed: false
     source_label: student-collab
-    import_mode: vendored-snapshot
-    status: candidate
-    notes: License unknown. Vendoring provisional. Do not reuse code until license confirmed.
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed. Do not reuse code until license confirmed.
 
   ride-booking-php:
     license: unknown
@@ -298,9 +297,8 @@ license_matrix:
     vendoring_allowed: false
     copy_allowed: false
     source_label: student-collab
-    import_mode: vendored-snapshot
-    status: candidate
-    notes: License unknown. Hardcoded demo password in login.php. Do not expose upstream/ publicly.
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed. Demo credentials assessed as non-production.
 
   twitter-sentiment-classifier:
     license: unknown
@@ -309,9 +307,8 @@ license_matrix:
     vendoring_allowed: false
     copy_allowed: false
     source_label: student-collab
-    import_mode: vendored-snapshot
-    status: candidate
-    notes: License unknown. Vendoring provisional.
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed.
 
   # ── person4 no-license sources ────────────────────────────────────────────
 

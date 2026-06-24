@@ -110,3 +110,9 @@ Evidence levels reflect research-stage confidence only.
 
 If you have an idea that isn't in this index, add a file to one of the directories
 above and add a row here. Do not add rows to this index without a corresponding file.
+
+`DEEP_RESEARCH_SYNTHESIS.md` Section 10b contains additional pioneering ideas
+(Agent Fleet SLA Monitor, Brownfield Digital Twin, etc.) that emerged from parallel
+research but have not yet been written as standalone files. They are not counted
+in the 31 above. To file one, create a file in the appropriate directory and add
+a row to this index.

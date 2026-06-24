@@ -48,12 +48,13 @@ VENDORED_MODES = {"vendored-snapshot", "selected-subsystem", "clean-room-reimple
 LOCAL_RESEARCH_MODES = {"local-research-only"}
 REFERENCE_MODES = {"reference-only", "submodule"}
 
-REQUIRED_SOURCE_FIELDS = [
+REQUIRED_FIELDS_ALL = [
     "license_file_verified",
     "security_review_status",
     "license_review_status",
-    "decision",
 ]
+# `decision` is only meaningful for vendored sources (candidate / complete / rejected)
+REQUIRED_FIELDS_VENDORED_EXTRA = ["decision"]
 
 
 def load_yaml(path: Path) -> dict | list:
@@ -201,9 +202,21 @@ def main() -> None:
             counts["reference-only"] += 1
 
         # Required fields in SOURCE.yaml
-        for field in REQUIRED_SOURCE_FIELDS:
+        for field in REQUIRED_FIELDS_ALL:
             if field not in source:
                 errors.append(f"{name}: SOURCE.yaml missing required field '{field}'")
+        if is_vendored:
+            for field in REQUIRED_FIELDS_VENDORED_EXTRA:
+                if field not in source:
+                    errors.append(f"{name}: SOURCE.yaml missing required field '{field}' for vendored source")
+
+        # Security policy: vendored sources with security_review_status: flagged must have remediation
+        if is_vendored and source.get("security_review_status") == "flagged":
+            errors.append(
+                f"{name}: vendored source has security_review_status=flagged — "
+                "remediation required before vendoring. Change to local-research-only "
+                "or resolve the security finding first."
+            )
 
         # local-research-only must have research_dossier
         if is_local and not source.get("research_dossier"):

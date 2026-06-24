@@ -8,18 +8,18 @@ pinned_commit: e4fe4835192974b22e42c5b4f45312906d93098c
 retrieved_at: '2026-06-23T00:00:00.000000+00:00'
 license: unknown
 license_file_verified: false
-import_mode: vendored-snapshot
-snapshot_path: sources/ride-booking-php/upstream
-adapted_path: sources/ride-booking-php/adapted
-subsystem: geospatial
+import_mode: local-research-only
+research_dossier: sources/ride-booking-php/ATTRIBUTION.md
 removed_paths:
 - .git/
-local_modifications: []
+- upstream/
 security_review_status: flagged
 license_review_status: pending
-execution_allowed: false
-decision: candidate
-notes: 'Collaborative ride-booking platform (PHP + SQL Server). Key reusable utilities:
-  Haversine distance calculation, Nominatim smart search with Greek accent normalization,
-  OSRM routing with fallback, multi-segment ride logic, CSRF token pattern. SECURITY:
-  upstream contains hardcoded DB credentials — do not expose upstream/ publicly.'
+copy_allowed: false
+notes: 'PHP ride-booking platform (OSRH). Studied locally; upstream not committed
+  to lab. Key patterns: Haversine distance calculation, Nominatim smart search
+  with Greek accent normalization, OSRM routing with fallback, multi-segment ride
+  logic, CSRF token pattern. SECURITY: upstream contained hardcoded demo credentials
+  (password123 in login.php, localhost:test/root:root for dev MySQL) — demo only,
+  not real credentials. upstream/ removed 2026-06-24 before merge to main.
+  See AUDIT.md for full credential assessment.'

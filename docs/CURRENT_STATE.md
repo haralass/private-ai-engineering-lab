@@ -9,7 +9,7 @@ Last updated: 2026-06-24
 Phase 1 complete (merged to main). Phase 2 complete: person3 and person4 sources
 ingested and researched. All student-1/student-2 labels replaced with person1/person2.
 
-Total sources: **41** (20 vendored · 5 local-research-only · 16 reference-only).
+Total sources: **41** (17 vendored · 8 local-research-only · 16 reference-only).
 
 ---
 
@@ -77,9 +77,9 @@ kimi-model-family, glm-model-family, code-review-assistant.
 
 | Functional name | Import mode | License | Status |
 |---|---|---|---|
-| dance-studio-api | vendored-snapshot | unknown | candidate — no code reuse until license confirmed |
-| ride-booking-php | vendored-snapshot | unknown | candidate — upstream/ not to be exposed; demo credential in login.php |
-| twitter-sentiment-classifier | vendored-snapshot | unknown | candidate — no code reuse until license confirmed |
+| dance-studio-api | local-research-only | unknown | studied locally; upstream not committed; license unknown |
+| ride-booking-php | local-research-only | unknown | studied locally; upstream not committed; demo credentials in upstream assessed as non-production |
+| twitter-sentiment-classifier | local-research-only | unknown | studied locally; upstream not committed; license unknown |
 
 ---
 
