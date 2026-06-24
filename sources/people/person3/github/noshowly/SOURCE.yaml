@@ -1,0 +1,28 @@
+display_name: noshowly
+functional_name: appointment-scheduling-saas
+source_url: person3/noshowly
+source_label: person3
+lab_label: person3
+upstream_owner: person3
+upstream_repository: noshowly
+pinned_commit: e5296a3cbb383af1cfe481f5d2b030c81d028d0d
+retrieved_at: "2026-06-24T00:00:00Z"
+license: MIT
+license_file_verified: true
+import_mode: vendored-snapshot
+snapshot_path: sources/people/person3/github/noshowly/upstream
+adapted_path: sources/people/person3/github/noshowly/adapted
+subsystem: ""
+removed_paths:
+  - .git/
+local_modifications: []
+security_review_status: reviewed-clean
+license_review_status: reviewed
+copy_allowed: true
+execution_allowed: false
+decision: vendored-snapshot
+notes: |
+  MIT licensed. Appointment scheduling SaaS.
+  Stack: Next.js 16, TypeScript, Supabase (PostgreSQL + Auth + RLS), Resend,
+  Stripe, Vercel. Secret scan: clean (package-lock.json integrity hashes only).
+  No hardcoded credentials found.

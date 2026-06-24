@@ -1,0 +1,14 @@
+functional_name: person4-github-profile
+display_name: person4 GitHub Profile README
+source_label: person4
+import_mode: reference-only
+pinned_commit: a582d69a6232f6537bc8455d68b3e20cd5fdd1d8
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: not-required
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: false
+decision: reference-only — profile README only; no code to study
+research_dossier: research/people/person4/OVERVIEW.md

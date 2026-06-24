@@ -3,7 +3,7 @@
 display_name: ""                     # Human-readable name
 functional_name: ""                  # Must match directory name
 source_url: ""                       # Full GitHub URL
-source_label: "external"            # external | student-1 | student-2
+source_label: "external"            # external | person1 | person2 | person3 | person4
 upstream_owner: ""                   # GitHub username or org
 upstream_repository: ""              # Repository name
 pinned_commit: ""                    # Full 40-char SHA

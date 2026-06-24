@@ -1,0 +1,20 @@
+functional_name: cyprus-price-scrapers
+display_name: Cyprus Price Scrapers (timicy-scrapers)
+source_label: person3
+import_mode: local-research-only
+pinned_commit: c06679035e7292308018b10d53b446777a888865
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: reviewed-locally
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: false
+decision: local-research-only — no LICENSE file; code studied locally; clean-room
+  reimplementation of patterns is permitted
+research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+notes: >
+  Async Python scraper suite targeting 6 Cyprus electronics retailers.
+  Key patterns: AdaptiveFetcher with semaphore + 429 throttling, Pydantic VariantRow
+  model, mpn_root normalization, identifier_source confidence tiers, Supabase upsert.
+  No code committed to lab. Analysis documented in research dossier.

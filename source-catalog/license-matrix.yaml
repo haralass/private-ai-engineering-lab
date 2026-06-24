@@ -1,4 +1,4 @@
-# License matrix — updated 2026-06-23
+# License matrix — updated 2026-06-24
 # Canonical license status for every source.
 # Populated from SOURCE.yaml at import time; updated after manual review.
 # Fields:
@@ -102,6 +102,16 @@ license_matrix:
     review_status: pending
     vendoring_allowed: true
     copy_allowed: true
+
+  appointment-scheduling-saas:
+    license: MIT
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: true
+    source_label: person3
+    secret_scan: clean
+    notes: package-lock.json integrity hashes only; no real secrets
 
   # ── Vendored (Apache-2.0) ─────────────────────────────────────────────────
 
@@ -228,3 +238,104 @@ license_matrix:
     review_status: pending
     vendoring_allowed: false
     copy_allowed: false
+
+  # ── person3 no-license sources ────────────────────────────────────────────
+
+  cyprus-price-scrapers:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person3
+    import_mode: local-research-only
+    notes: Code analyzed locally. Clean-room reimplementation of patterns allowed.
+
+  static-business-website:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person3
+    import_mode: local-research-only
+
+  java-search-engine:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person3
+    import_mode: local-research-only
+
+  latin-square-solver:
+    license: NOT-FOUND
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person3
+    import_mode: reference-only
+
+  # ── student-collab no-license sources ────────────────────────────────────
+
+  dance-studio-api:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed. Do not reuse code until license confirmed.
+
+  ride-booking-php:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed. Demo credentials assessed as non-production.
+
+  twitter-sentiment-classifier:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: local-research-only
+    notes: License unknown. Studied locally; upstream not committed.
+
+  # ── person4 no-license sources ────────────────────────────────────────────
+
+  llm-structured-object-generator:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person4
+    import_mode: local-research-only
+    notes: Code analyzed locally. Clean-room reimplementation of patterns allowed.
+
+  unity-3d-platformer:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person4
+    import_mode: local-research-only
+
+  person4-github-profile:
+    license: NOT-FOUND
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: person4
+    import_mode: reference-only

@@ -169,9 +169,41 @@ and how problems, sources, research, and ideas connect to each other.
 
 ## Research people index
 
-| Directory | Subject | Coverage |
-|---|---|---|
-| `research/people/stylianos-gavriil/` | Student developer (student-1 label in lab) | 5 repositories in lab |
+| Directory | Lab label | Repos | Research depth |
+|---|---|---|---|
+| `research/people/person1/` | person1 | 5 | Reference-only analysis (1 vendored, 4 metadata-only) |
+| `research/people/person2/` | person2 | 6 | Code-level for 2 vendored repos |
+| `research/people/person3/` | person3 | 5 | Code-level for 4/5 repos (1 vendored MIT) |
+| `research/people/person4/` | person4 | 3 | Code-level for 2/3 repos (no vendored) |
+
+---
+
+### Appointment scheduling / SaaS infrastructure
+
+**Problem:** Service businesses (salons, clinics, tutors) need affordable scheduling with
+automated reminders and online booking pages.
+
+→ `sources/people/person3/github/noshowly/` (person3/noshowly, vendored MIT)
+→ `research/people/person3/IDEAS_DERIVED.md` (appointment SaaS for non-salon verticals)
+
+---
+
+### LLM structured output generation
+
+**Problem:** LLMs generating structured JSON/YAML/XML produce outputs that violate
+referential integrity and semantic constraints that JSON Schema alone cannot catch.
+
+→ `research/people/person4/TECHNICAL_PATTERNS.md` (dual validation, repair loop, injectable client)
+→ `research/people/person4/IDEAS_DERIVED.md` (generalizable structured generation framework)
+
+---
+
+### Cyprus electronics price comparison
+
+**Problem:** No unified price comparison product exists for Cyprus electronics retailers.
+
+→ `research/people/person3/` (timicy-scrapers: 6-store scraper infrastructure with MPN normalization)
+→ `research/people/person3/IDEAS_DERIVED.md`
 
 ---
 

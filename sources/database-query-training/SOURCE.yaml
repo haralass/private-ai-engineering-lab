@@ -1,7 +1,7 @@
 display_name: SQL-Gym
 functional_name: database-query-training
 source_url: https://github.com/tsembp/SQL-Gym
-source_label: student-2
+source_label: person2
 upstream_owner: tsembp
 upstream_repository: SQL-Gym
 pinned_commit: cf16081778edddd663d333b0fc2c1287b1af98e1

@@ -1,7 +1,7 @@
 display_name: forgequeue
 functional_name: durable-background-job-queue
 source_url: https://github.com/sgavriil01/forgequeue
-source_label: student-1
+source_label: person1
 upstream_owner: sgavriil01
 upstream_repository: forgequeue
 pinned_commit: a08a6f9caf24a929db50fac00f8096983a8a8f1f

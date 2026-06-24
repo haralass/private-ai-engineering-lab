@@ -1,0 +1,17 @@
+functional_name: java-search-engine
+display_name: Java Mini Search Engine (mini-search-engine)
+source_label: person3
+import_mode: local-research-only
+pinned_commit: ccd313de3beb1cad02f742b16c272640f6358fb7
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: reviewed-locally
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: false
+decision: local-research-only — no LICENSE file; Java project; studied locally
+research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+notes: >
+  Java mini search engine with UCY CS department URLs in sample data.
+  Likely academic course work (strong-inference). No code committed to lab.

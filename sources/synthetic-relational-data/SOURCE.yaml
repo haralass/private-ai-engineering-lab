@@ -1,7 +1,7 @@
 display_name: "one-stop-ride-hail"
 functional_name: synthetic-relational-data
 source_url: https://github.com/tsembp/one-stop-ride-hail
-source_label: student-2
+source_label: person2
 upstream_owner: "tsembp"
 upstream_repository: "one-stop-ride-hail"
 pinned_commit: 14e0f42a9b32ea0b7f27543f7eeb6fe9fb92a9ff

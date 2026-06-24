@@ -8,18 +8,15 @@ pinned_commit: d06f49fd9ec6a250d1ab816ceae914aa8487a0bf
 retrieved_at: '2026-06-23T00:00:00.000000+00:00'
 license: unknown
 license_file_verified: false
-import_mode: vendored-snapshot
-snapshot_path: sources/dance-studio-api/upstream
-adapted_path: sources/dance-studio-api/adapted
-subsystem: backend
+import_mode: local-research-only
+research_dossier: sources/dance-studio-api/ATTRIBUTION.md
 removed_paths:
 - .git/
-local_modifications: []
+- upstream/
 security_review_status: clean
 license_review_status: pending
-execution_allowed: false
-decision: candidate
-notes: 'ASP.NET Core 8 REST API for dance studio management. Good reference patterns:
-  service layer + DTOs, soft-delete, JWT + Identity auth, auto-link user/student by
-  email on login, 10-installment payment tracking, CSV export, EF Core with SQL Server.
-  JWT key absent from committed config (correct practice).'
+copy_allowed: false
+notes: 'ASP.NET Core 8 REST API for dance studio management. Studied locally.
+  Key patterns: service layer + DTOs, soft-delete, JWT + Identity auth, auto-link
+  user/student by email on login, 10-installment payment tracking, CSV export,
+  EF Core with SQL Server. License unknown — upstream not committed to lab.'

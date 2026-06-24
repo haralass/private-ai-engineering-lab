@@ -5,7 +5,7 @@
 ## Repository identity
 
 - **Name:** sms-platform
-- **Creator:** Stylianos Gavriil (sgavriil01)
+- **Creator:** person1 (sgavriil01)
 - **GitHub URL:** https://github.com/sgavriil01/sms-platform
 - **Source path:** `sources/asynchronous-job-processing/`
 - **License:** NOT-FOUND (no LICENSE file)

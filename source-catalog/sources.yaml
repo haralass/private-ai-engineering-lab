@@ -1,184 +1,366 @@
 # Source catalog — master registry of all imported sources
-# Each entry corresponds to a directory under sources/
-# Detailed metadata lives in sources/<functional-name>/SOURCE.yaml
+# Each entry corresponds to a SOURCE.yaml file under sources/ (flat or nested)
+# Detailed metadata lives in sources/<path>/SOURCE.yaml
+# Labels: external | person1 | person2 | person3 | person4 | student-collab
+# Import modes: vendored-snapshot | selected-subsystem | local-research-only | reference-only
 
 sources:
+
+  # ── External sources ──────────────────────────────────────────────────────
+
   - functional_name: deterministic-agent-safety
     upstream_repo: poshan0126/dotclaude
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: structured-agent-development
     upstream_repo: obra/superpowers
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: full-product-engineering-agent-stack
     upstream_repo: garrytan/gstack
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: anthropic-skills
     upstream_repo: anthropics/skills
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: vercel-skills
     upstream_repo: vercel-labs/skills
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: persistent-agent-memory
     upstream_repo: thedotmack/claude-mem
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: Apache-2.0
+    status: complete
     phase: 1
 
   - functional_name: design-quality-and-review
     upstream_repo: pbakaus/impeccable
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: Apache-2.0
+    status: complete
     phase: 1
 
   - functional_name: interaction-and-motion-design
     upstream_repo: emilkowalski/skills
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: design-taste
     upstream_repo: Leonxlnx/taste-skill
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: ui-ux-reference
     upstream_repo: nextlevelbuilder/ui-ux-pro-max-skill
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: writing-quality
     upstream_repo: hardikpandya/stop-slop
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: product-marketing-context
     upstream_repo: coreyhaines31/marketingskills
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: terminal-coding-agent
     upstream_repo: MoonshotAI/kimi-code
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: kimi-model-family
     upstream_repo: MoonshotAI/Kimi-K2
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: glm-model-family
     upstream_repo: zai-org/GLM-5
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: model-layer-streaming
     upstream_repo: lyogavin/airllm
     label: external
-    status: pending
-    phase: 1
-
-  - functional_name: asynchronous-job-processing
-    upstream_repo: sgavriil01/sms-platform
-    label: student-1
-    status: pending
-    phase: 1
-
-  - functional_name: business-energy-dispatch
-    upstream_repo: sgavriil01/neura-btm-battery-dispatch
-    label: student-1
-    status: pending
-    phase: 1
-
-  - functional_name: semantic-audio-search
-    upstream_repo: sgavriil01/whisper-faiss-example
-    label: student-1
-    status: pending
-    phase: 1
-
-  - functional_name: durable-background-job-queue
-    upstream_repo: sgavriil01/forgequeue
-    label: student-1
-    status: pending
-    phase: 1
-
-  - functional_name: privacy-safe-commit-assistant
-    upstream_repo: sgavriil01/commitgen
-    label: student-1
-    status: pending
-    phase: 1
-
-  - functional_name: database-query-training
-    upstream_repo: tsembp/SQL-Gym
-    label: student-2
-    status: pending
-    phase: 1
-
-  - functional_name: change-monitoring-notifications
-    upstream_repo: tsembp/WG-Course-Task-Notifier-Bot
-    label: student-2
-    status: pending
-    phase: 1
-
-  - functional_name: synthetic-relational-data
-    upstream_repo: tsembp/one-stop-ride-hail
-    label: student-2
-    status: pending
-    phase: 1
-
-  - functional_name: algorithm-benchmarking
-    upstream_repo: tsembp/Hitting-Set-Problem
-    label: student-2
-    status: pending
-    phase: 1
-
-  - functional_name: modular-rag-learning
-    upstream_repo: tsembp/AI-Study-Mate
-    label: student-2
-    status: pending
-    phase: 1
-
-  - functional_name: data-structure-search-engine
-    upstream_repo: tsembp/EPL231-GroupAssignment
-    label: student-2
-    status: pending
+    import_mode: vendored-snapshot
+    license: Apache-2.0
+    status: complete
     phase: 1
 
   - functional_name: code-review-assistant
     upstream_repo: pbakaus/code-review-assistant
     label: external
-    status: pending
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
     phase: 1
 
   - functional_name: design-agent-reviews
     upstream_repo: pbakaus/agent-reviews
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
 
   - functional_name: interaction-motion-toast
     upstream_repo: emilkowalski/sonner
     label: external
-    status: pending
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
     phase: 1
+
+  # ── person1 sources ───────────────────────────────────────────────────────
+
+  - functional_name: durable-background-job-queue
+    upstream_repo: sgavriil01/forgequeue
+    label: person1
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
+    phase: 1
+
+  - functional_name: asynchronous-job-processing
+    upstream_repo: sgavriil01/sms-platform
+    label: person1
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: business-energy-dispatch
+    upstream_repo: sgavriil01/neura-btm-battery-dispatch
+    label: person1
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: semantic-audio-search
+    upstream_repo: sgavriil01/whisper-faiss-example
+    label: person1
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: privacy-safe-commit-assistant
+    upstream_repo: sgavriil01/commitgen
+    label: person1
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  # ── person2 sources ───────────────────────────────────────────────────────
+
+  - functional_name: database-query-training
+    upstream_repo: tsembp/SQL-Gym
+    label: person2
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
+    phase: 1
+
+  - functional_name: modular-rag-learning
+    upstream_repo: tsembp/AI-Study-Mate
+    label: person2
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
+    phase: 1
+
+  - functional_name: change-monitoring-notifications
+    upstream_repo: tsembp/WG-Course-Task-Notifier-Bot
+    label: person2
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: synthetic-relational-data
+    upstream_repo: tsembp/one-stop-ride-hail
+    label: person2
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: algorithm-benchmarking
+    upstream_repo: tsembp/Hitting-Set-Problem
+    label: person2
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  - functional_name: data-structure-search-engine
+    upstream_repo: tsembp/EPL231-GroupAssignment
+    label: person2
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 1
+    notes: "No LICENSE file. Metadata and README only — no code in lab."
+
+  # ── person3 sources ───────────────────────────────────────────────────────
+
+  - functional_name: appointment-scheduling-saas
+    upstream_repo: person3/noshowly
+    label: person3
+    import_mode: vendored-snapshot
+    license: MIT
+    status: complete
+    phase: 2
+    source_path: sources/people/person3/github/noshowly/
+
+  - functional_name: cyprus-price-scrapers
+    upstream_repo: person3/timicy-scrapers
+    label: person3
+    import_mode: local-research-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. Code studied locally, not committed. Dossier in research/people/person3/."
+
+  - functional_name: static-business-website
+    upstream_repo: person3/articya-website
+    label: person3
+    import_mode: local-research-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. Studied locally."
+
+  - functional_name: java-search-engine
+    upstream_repo: person3/mini-search-engine
+    label: person3
+    import_mode: local-research-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. Studied locally."
+
+  - functional_name: latin-square-solver
+    upstream_repo: person3/latin-square-solver
+    label: person3
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. Metadata only."
+
+  # ── person4 sources ───────────────────────────────────────────────────────
+
+  - functional_name: llm-structured-object-generator
+    upstream_repo: person4/llm-smart-objects
+    label: person4
+    import_mode: local-research-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. Code studied locally, not committed. Full dossier in research/people/person4/."
+
+  - functional_name: unity-3d-platformer
+    upstream_repo: person4/3d-platformer-unity
+    label: person4
+    import_mode: local-research-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "No LICENSE file. C# scripts studied locally, not committed."
+
+  - functional_name: person4-github-profile
+    upstream_repo: person4/github-profile
+    label: person4
+    import_mode: reference-only
+    license: NOT-FOUND
+    status: complete
+    phase: 2
+    notes: "Profile README only."
+
+  # ── student-collab sources (UCY course work, license pending) ─────────────
+
+  - functional_name: dance-studio-api
+    upstream_repo: CS-UCY-EPL343/epl343.winter25.team6
+    label: student-collab
+    import_mode: local-research-only
+    license: unknown
+    status: candidate
+    phase: 2
+    notes: "ASP.NET Core 8 REST API. Studied locally; upstream not committed. License unknown."
+
+  - functional_name: ride-booking-php
+    upstream_repo: giannisHadjizorzis/OSRH
+    label: student-collab
+    import_mode: local-research-only
+    license: unknown
+    status: candidate
+    phase: 2
+    notes: "PHP ride-booking. Studied locally; upstream not committed. Demo credentials in upstream (password123, localhost/root/root) — assessed as non-production, no rotation required. License unknown. See AUDIT.md."
+
+  - functional_name: twitter-sentiment-classifier
+    upstream_repo: Matheos-Ioannides/epl499_group_project_TeamWIP
+    label: student-collab
+    import_mode: local-research-only
+    license: unknown
+    status: candidate
+    phase: 2
+    notes: "NLP pipeline (EPL499 group project). Studied locally; upstream not committed. License unknown."

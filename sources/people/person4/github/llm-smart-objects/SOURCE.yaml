@@ -1,0 +1,22 @@
+functional_name: llm-structured-object-generator
+display_name: LLM Smart Object Generator (llm-smart-objects)
+source_label: person4
+import_mode: local-research-only
+pinned_commit: 9d07655a5c49be237fccd0fe09eba6493682ba5b
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: reviewed-locally
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: true
+decision: local-research-only — no LICENSE file; code studied locally; clean-room
+  reimplementation of patterns is permitted
+research_dossier: research/people/person4/REPOSITORIES_REVIEWED.md
+notes: >
+  Node.js 18+ / Express / vanilla JS frontend. Google Gemini 2.5 Flash with
+  responseJsonSchema structured output (temperature 0.35). AJV 8.17.1 for structural
+  validation + bespoke semantic validator for referential integrity + repair loop.
+  Dynamic schema injection buildSmartObjectResponseSchema(needs). Injectable LLM client
+  factory pattern. node:test suite. No code committed to lab. Full dossier in
+  research/people/person4/.

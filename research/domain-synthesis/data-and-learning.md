@@ -21,7 +21,7 @@ sources_analyzed: 6
 
 ## Creator analysis
 
-### tsembp (Panagiotis Tsembekis) — student-2
+### tsembp (Panagiotis Tsembekis) — person2
 
 tsembp contributes 5 of the 6 sources in this batch. Reading across all five:
 
@@ -35,9 +35,9 @@ tsembp contributes 5 of the 6 sources in this batch. Reading across all five:
 
 **Note on quality inference**: Because SQL-Gym is the only vendored source (real code visible), we can verify quality directly. The code quality is above average for a student project: clean endpoint design, proper Pydantic models, sensible separation of concerns (challenge definitions separate from the API), and a polished React frontend. We can reasonably infer that the other tsembp projects are of comparable quality for their respective domains, though we cannot verify this without code.
 
-### sgavriil01 (Stylianos Gavriil) — student-1
+### sgavriil01 (person1) — person1
 
-sgavriil01 contributes 1 of the 6 sources in this batch. According to `research/people/stylianos-gavriil/OVERVIEW.md`, five of his repositories are catalogued in this lab total, and all are reference-only except `forgequeue` (MIT, vendored in a separate batch not covered here).
+sgavriil01 contributes 1 of the 6 sources in this batch. According to `research/people/person1/OVERVIEW.md`, five of his repositories are catalogued in this lab total, and all are reference-only except `forgequeue` (MIT, vendored in a separate batch not covered here).
 
 **Profile**: The "neura-btm-battery-dispatch" naming — specifically the "neura" prefix — distinguishes this project from pure coursework. Most coursework projects are named by course code (like EPL231) or by the assignment topic. "Neura" suggests a startup concept, a research group, or a personal brand. This is the only source in this batch that appears to be a startup-oriented technical project rather than academic coursework.
 

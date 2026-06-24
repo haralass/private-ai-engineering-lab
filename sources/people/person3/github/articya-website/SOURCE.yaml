@@ -1,0 +1,17 @@
+functional_name: static-business-website
+display_name: Static Business Website (articya-website)
+source_label: person3
+import_mode: local-research-only
+pinned_commit: 02c088d72c1483c8975c0ff5552fed0016c290cc
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: reviewed-locally
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: true
+decision: local-research-only — no LICENSE file; static HTML/CSS site; code studied locally
+research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+notes: >
+  Static HTML/CSS business website. No code committed to lab.
+  Studied locally for structure and front-end patterns.
