@@ -1,6 +1,6 @@
 # Business Ideas — Master Index
 
-last_updated: 2026-06-23
+last_updated: 2026-06-24
 
 This file is the master index for all business ideas tracked in this lab.
 It cross-references product concepts, category-A ideas, and startup white spaces
@@ -40,11 +40,42 @@ Do not add an idea here without a corresponding file in one of:
 
 ## Startup White Spaces
 
+Wave 1 (original) and Wave 2–3 (parallel agent research) ideas.
+All 20 white-space files are indexed here. See `DEEP_RESEARCH_SYNTHESIS.md` Section 10b–10c for full scoring.
+
+### Agent safety / AI operations
+
 | White space | Status | Lab sources | Evidence level | Next action |
 |---|---|---|---|---|
 | [Agent Permission Firewall](startup-white-spaces/agent-permission-firewall.md) | research | `components/agent-safety-firewall/`, `sources/deterministic-agent-safety/` | initial-research | Customer discovery: 5 dev teams using agents |
-| [Mobile Privacy Truth Engine](startup-white-spaces/mobile-privacy-truth-engine.md) | research | `sources/privacy-safe-commit-assistant/` (indirect) | none | Interview enterprise IT admins about app vetting |
+| [Agent Liability Attribution Engine](startup-white-spaces/agent-liability-attribution-engine.md) | research | None | none | Interview enterprise legal/compliance teams |
+| [Agent Specification Firewall](startup-white-spaces/agent-specification-firewall.md) | research | `sources/deterministic-agent-safety/` | initial-research | Define spec language; interview 3 platform teams |
+| [AI Agent Cost Circuit Breaker](startup-white-spaces/ai-agent-cost-circuit-breaker.md) | research | None | none | Interview teams with high LLM API bills |
+| [LLM Prompt Regression Monitor](startup-white-spaces/llm-prompt-regression-monitor.md) | research | None | none | Interview ML engineers deploying LLM features |
+| [NHI Agent Identity Governance](startup-white-spaces/nhi-agent-identity-governance.md) | research | None | none | Interview platform security teams |
+| [Vibe Security Gate](startup-white-spaces/vibe-security-gate.md) | research | `sources/deterministic-agent-safety/` | initial-research | Interview security engineers using AI coding tools |
+| [AI Support Response Gate](startup-white-spaces/ai-support-response-gate.md) | research | None | none | Interview CS teams deploying LLM-powered support |
+| [Hallucination Cost Accounting](startup-white-spaces/hallucination-cost-accounting.md) | research | None | none | Research incident postmortems; find 3 teams with LLM errors |
+
+### Regulatory compliance / EU legislation
+
+| White space | Status | Lab sources | Evidence level | Next action |
+|---|---|---|---|---|
+| [CRA Vulnerability Disclosure Automation](startup-white-spaces/cra-vulnerability-disclosure-automation.md) | research | None | none | Research CRA timelines; interview product security teams |
+| [DORA Register of Information](startup-white-spaces/dora-register-of-information.md) | research | None | none | Interview EU financial entity compliance officers |
+| [GPAI Documentation Form Automation](startup-white-spaces/gpai-documentation-form-automation.md) | research | None | none | Interview AI product teams in EU |
+| [LC-as-a-Service](startup-white-spaces/lc-as-a-service.md) | research | None | none | Research LoA/LC issuing banks; interview trade finance desks |
+| [MDR + AI Act Dual Conformity](startup-white-spaces/mdr-ai-act-dual-conformity.md) | research | None | none | Interview EU MedTech compliance officers |
+| [Multi-Regulation Compliance Platform](startup-white-spaces/multi-regulation-compliance-platform.md) | research | None | none | Interview SME compliance managers |
+| [PLD Liability Evidence Vault](startup-white-spaces/pld-liability-evidence-vault.md) | research | None | none | Interview EU product liability counsel |
+| [Training Data Bill of Materials](startup-white-spaces/training-data-bill-of-materials.md) | research | None | none | Interview ML teams with EU deployment; research GPAI obligations |
+
+### Security / privacy / infrastructure
+
+| White space | Status | Lab sources | Evidence level | Next action |
+|---|---|---|---|---|
 | [Accessibility Source-Fix CI](startup-white-spaces/accessibility-source-fix-ci.md) | research | None | none | Interview 3 frontend devs about WCAG CI workflow |
+| [Mobile Privacy Truth Engine](startup-white-spaces/mobile-privacy-truth-engine.md) | research | `sources/privacy-safe-commit-assistant/` (indirect) | none | Interview enterprise IT admins about app vetting |
 | [PQC Discovery Copilot](startup-white-spaces/pqc-discovery-copilot.md) | research | None | none | Research NIST/NSA guidance; check SAST vendor coverage |
 
 ---

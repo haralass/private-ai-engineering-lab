@@ -278,6 +278,41 @@ license_matrix:
     source_label: person3
     import_mode: reference-only
 
+  # ── student-collab no-license sources ────────────────────────────────────
+
+  dance-studio-api:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: vendored-snapshot
+    status: candidate
+    notes: License unknown. Vendoring provisional. Do not reuse code until license confirmed.
+
+  ride-booking-php:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: vendored-snapshot
+    status: candidate
+    notes: License unknown. Hardcoded demo password in login.php. Do not expose upstream/ publicly.
+
+  twitter-sentiment-classifier:
+    license: unknown
+    file_present: false
+    review_status: pending
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: student-collab
+    import_mode: vendored-snapshot
+    status: candidate
+    notes: License unknown. Vendoring provisional.
+
   # ── person4 no-license sources ────────────────────────────────────────────
 
   llm-structured-object-generator:

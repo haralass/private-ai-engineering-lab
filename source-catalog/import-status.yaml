@@ -1,7 +1,8 @@
 # Import status — updated 2026-06-24
-# Canonical record of every import performed.
-# Vendored sources go under `imports:`.
-# Reference-only sources (no code copied) go under `reference_only:`.
+# Canonical record of every import and study record.
+# Vendored sources (code committed) go under `imports:`.
+# Code studied locally but not committed goes under `local_research_only:`.
+# Reference-only sources (no code studied, metadata only) go under `reference_only:`.
 
 imports:
   - functional_name: deterministic-agent-safety
@@ -179,6 +180,88 @@ imports:
     files_removed: [.git, node_modules]
     status: complete
 
+  - functional_name: dance-studio-api
+    url: https://github.com/CS-UCY-EPL343/epl343.winter25.team6
+    pinned_commit: d06f49fd9ec6a250d1ab816ceae914aa8487a0bf
+    imported_at: "2026-06-23T00:00:00Z"
+    secret_scan: clean
+    license_found: unknown
+    source_label: student-collab
+    files_kept: 69
+    files_removed: [.git]
+    status: candidate
+    notes: License unknown — vendoring provisional. No code may be reused until license confirmed.
+
+  - functional_name: ride-booking-php
+    url: https://github.com/giannisHadjizorzis/OSRH
+    pinned_commit: e4fe4835192974b22e42c5b4f45312906d93098c
+    imported_at: "2026-06-23T00:00:00Z"
+    secret_scan: flagged-demo-credential
+    license_found: unknown
+    source_label: student-collab
+    files_kept: 54
+    files_removed: [.git]
+    status: candidate
+    notes: >
+      Hardcoded demo password in login.php (password123). Not a real credential.
+      upstream/ must not be exposed publicly. License unknown.
+
+  - functional_name: twitter-sentiment-classifier
+    url: https://github.com/Matheos-Ioannides/epl499_group_project_TeamWIP
+    pinned_commit: cc1651262581da8fef830e47031310b216557bf5
+    imported_at: "2026-06-23T00:00:00Z"
+    secret_scan: clean
+    license_found: unknown
+    source_label: student-collab
+    files_kept: 7
+    files_removed: [.git]
+    status: candidate
+    notes: License unknown — vendoring provisional.
+
+local_research_only:
+  # Code studied locally but not committed to this lab (no LICENSE file in source repo).
+  # For each entry: dossier in research/people/<label>/
+
+  - functional_name: cyprus-price-scrapers
+    url: person3/timicy-scrapers
+    pinned_commit: c06679035e7292308018b10d53b446777a888865
+    studied_at: "2026-06-24T00:00:00Z"
+    source_label: person3
+    reason: No LICENSE file. Code analyzed locally. Dossier in research/people/person3/.
+    research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+
+  - functional_name: static-business-website
+    url: person3/articya-website
+    pinned_commit: 02c088d72c1483c8975c0ff5552fed0016c290cc
+    studied_at: "2026-06-24T00:00:00Z"
+    source_label: person3
+    reason: No LICENSE file. Code studied locally.
+    research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+
+  - functional_name: java-search-engine
+    url: person3/mini-search-engine
+    pinned_commit: ccd313de3beb1cad02f742b16c272640f6358fb7
+    studied_at: "2026-06-24T00:00:00Z"
+    source_label: person3
+    reason: No LICENSE file. Code studied locally.
+    research_dossier: research/people/person3/REPOSITORIES_REVIEWED.md
+
+  - functional_name: llm-structured-object-generator
+    url: person4/llm-smart-objects
+    pinned_commit: 9d07655a5c49be237fccd0fe09eba6493682ba5b
+    studied_at: "2026-06-24T00:00:00Z"
+    source_label: person4
+    reason: No LICENSE file. Full code analysis done locally. Dossier in research/people/person4/.
+    research_dossier: research/people/person4/REPOSITORIES_REVIEWED.md
+
+  - functional_name: unity-3d-platformer
+    url: person4/3d-platformer-unity
+    pinned_commit: 9da0610bcfcab3b817344cfde4afa47475edc5a6
+    studied_at: "2026-06-24T00:00:00Z"
+    source_label: person4
+    reason: No LICENSE file. C# scripts analyzed locally.
+    research_dossier: research/people/person4/REPOSITORIES_REVIEWED.md
+
 reference_only:
   - functional_name: asynchronous-job-processing
     url: https://github.com/sgavriil01/sms-platform
@@ -264,53 +347,14 @@ reference_only:
     source_label: external
     reason: No LICENSE file. Code review patterns studied.
 
-  # person3 local-research-only
-  - functional_name: cyprus-price-scrapers
-    url: person3/timicy-scrapers
-    pinned_commit: c06679035e7292308018b10d53b446777a888865
-    source_label: person3
-    import_mode: local-research-only
-    reason: No LICENSE file. Code studied locally. Dossier in research/people/person3/.
-
-  - functional_name: static-business-website
-    url: person3/articya-website
-    pinned_commit: 02c088d72c1483c8975c0ff5552fed0016c290cc
-    source_label: person3
-    import_mode: local-research-only
-    reason: No LICENSE file. Code studied locally.
-
-  - functional_name: java-search-engine
-    url: person3/mini-search-engine
-    pinned_commit: ccd313de3beb1cad02f742b16c272640f6358fb7
-    source_label: person3
-    import_mode: local-research-only
-    reason: No LICENSE file. Code studied locally.
-
   - functional_name: latin-square-solver
     url: person3/latin-square-solver
     pinned_commit: 0d7fc9977bb25e994a6bd65488c7efb161be56fd
     source_label: person3
-    import_mode: reference-only
     reason: No LICENSE file. Metadata only.
-
-  # person4 local-research-only
-  - functional_name: llm-structured-object-generator
-    url: person4/llm-smart-objects
-    pinned_commit: 9d07655a5c49be237fccd0fe09eba6493682ba5b
-    source_label: person4
-    import_mode: local-research-only
-    reason: No LICENSE file. Full code analysis done locally. Dossier in research/people/person4/.
-
-  - functional_name: unity-3d-platformer
-    url: person4/3d-platformer-unity
-    pinned_commit: 9da0610bcfcab3b817344cfde4afa47475edc5a6
-    source_label: person4
-    import_mode: local-research-only
-    reason: No LICENSE file. C# scripts analyzed locally.
 
   - functional_name: person4-github-profile
     url: person4/github-profile
     pinned_commit: a582d69a6232f6537bc8455d68b3e20cd5fdd1d8
     source_label: person4
-    import_mode: reference-only
     reason: Profile README only.

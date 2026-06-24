@@ -1,0 +1,34 @@
+{
+  "source": "twitter-sentiment-classifier",
+  "file_count": 7,
+  "files": [
+    {
+      "path": "EPL499_Assignment_2_Feature_\u0395ngineering_and_Classification_of_SPAM_and_HAM_SMS.ipynb",
+      "size": 27768
+    },
+    {
+      "path": "Group Project - Train a Twitter Sentiment Classifier.pdf",
+      "size": 172632
+    },
+    {
+      "path": "README.md",
+      "size": 1700
+    },
+    {
+      "path": "TeamWIP_Submission.zip",
+      "size": 1111685
+    },
+    {
+      "path": "profanity.txt",
+      "size": 3229
+    },
+    {
+      "path": "twitter_sentiment_test.csv",
+      "size": 632193
+    },
+    {
+      "path": "twitter_sentiment_train.csv",
+      "size": 1611044
+    }
+  ]
+}

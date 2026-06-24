@@ -1,0 +1,19 @@
+functional_name: unity-3d-platformer
+display_name: 3D Platformer (Unity)
+source_label: person4
+import_mode: local-research-only
+pinned_commit: 9da0610bcfcab3b817344cfde4afa47475edc5a6
+retrieved_at: "2026-06-24T00:00:00Z"
+license: NOT-FOUND
+license_file_verified: false
+security_review_status: reviewed-locally
+license_review_status: reviewed
+copy_allowed: false
+execution_allowed: false
+decision: local-research-only — no LICENSE file; C# scripts studied locally; Unity
+  project requires Unity 2022.3.62f1 LTS to execute
+research_dossier: research/people/person4/REPOSITORIES_REVIEWED.md
+notes: >
+  Unity 2022.3.62f1 LTS 3D platformer. CharacterController-based physics with Cinemachine,
+  new Input System, TextMeshPro. Profile README confirms built for a CS course.
+  40+ C# scripts analyzed locally. No code committed to lab.

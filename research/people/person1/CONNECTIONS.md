@@ -1,23 +1,37 @@
 ---
 lab_label: person1
 research_date: 2026-06-24
+last_updated: 2026-06-24
 ---
 
 # person1 — Connections
 
-## Public connections found
+## Scope of this review
 
-No public GitHub connections reviewed yet (no code-level collaborators, PRs, or
-shared organizations analyzed). This file will be updated if connections are found
-through public repository data.
+Read-only pass on repository content available in the lab.
+Git commit history not available — upstream `.git` directories removed at import for
+vendored sources; reference-only sources have no code in lab.
 
-## Candidate collaborators
+---
 
-None identified from available public data.
+## Confirmed findings
 
-## Notes
+None. No co-authored commits, shared repositories, or GitHub organization memberships
+were confirmable from content available in the lab.
 
-Connections analysis requires reviewing public commit history, PR reviews, and
-shared organizations on upstream repositories. This has not been done for person1
-because the repositories are reference-only (no code in lab) and local code review
-has not been performed.
+## Inferences requiring confirmation
+
+**UCY affiliation:** `strong-inference` — person1's repositories (forgequeue, commitgen,
+neura-btm-battery-dispatch, whisper-faiss-example, sms-platform) are consistent with
+a UCY CS student profile. Username pattern `sgavriil01` also suggests UCY affiliation
+(common username format for UCY students).
+
+**Shared institution with persons 2–4:** `strong-inference` — All four persons have
+repositories consistent with UCY CS course requirements. This implies they are peers
+at the same institution, but no direct collaboration evidence was found.
+
+## Connections not reviewed
+
+- Commit author/co-author history (requires upstream git access)
+- GitHub organization memberships
+- Pull request reviews across repositories

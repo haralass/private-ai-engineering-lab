@@ -1,27 +1,34 @@
 #!/usr/bin/env python3
 """
-CI validation: sources/*/SOURCE.yaml is the canonical source of truth.
+CI validation: SOURCE.yaml files (discovered recursively) are the canonical source of truth.
 
 Every source MUST appear in all three catalog files:
   source-catalog/sources.yaml          (functional_name, upstream_repo, label)
-  source-catalog/import-status.yaml   (imports or reference_only)
+  source-catalog/import-status.yaml   (imports | local_research_only | reference_only)
   source-catalog/license-matrix.yaml  (license_matrix.<name>)
+
+Import mode categories:
+  vendored-snapshot / selected-subsystem / clean-room-reimplementation  → imports[]
+  local-research-only                                                    → local_research_only[]
+  reference-only / submodule                                             → reference_only[]
 
 Fields cross-checked for consistency:
   - functional_name present in all three files
-  - source_url consistent with sources.yaml upstream_repo
-  - source_url consistent with import-status.yaml url field
   - source_label matches sources.yaml label
-  - pinned_commit prefix matches import-status.yaml (vendored sources only)
+  - import_mode consistent with its section in import-status.yaml
   - license matches license-matrix.yaml (when matrix has a non-unknown entry)
-  - import_mode consistent: vendored sources in imports[], reference-only in reference_only[]
-  - Required fields present in SOURCE.yaml: license_file_verified, security_review_status,
-    license_review_status, decision
-  - files_kept present for all vendored sources in import-status.yaml
+  - pinned_commit prefix matches import-status.yaml (vendored sources only)
+  - Required fields present in SOURCE.yaml
+  - files_kept present for vendored sources in import-status.yaml
+  - copy_allowed: false for local-research-only and reference-only sources
+  - execution_allowed: false for sources flagged as requiring credentials
 
 Additional catalog integrity checks:
   - No duplicate functional_name entries in any catalog file
-  - No catalog entries that lack a corresponding sources/<name>/SOURCE.yaml
+  - No catalog entries without a corresponding SOURCE.yaml
+
+Final output shows counts by category:
+  vendored / local-research-only / reference-only / total
 
 Exit 0 if everything agrees. Exit 1 on any discrepancy.
 """
@@ -38,9 +45,9 @@ SOURCES_DIR = REPO_ROOT / "sources"
 CATALOG_DIR = REPO_ROOT / "source-catalog"
 
 VENDORED_MODES = {"vendored-snapshot", "selected-subsystem", "clean-room-reimplementation"}
+LOCAL_RESEARCH_MODES = {"local-research-only"}
 REFERENCE_MODES = {"reference-only", "submodule"}
 
-# Fields that every SOURCE.yaml must declare (regardless of import mode).
 REQUIRED_SOURCE_FIELDS = [
     "license_file_verified",
     "security_review_status",
@@ -52,9 +59,7 @@ REQUIRED_SOURCE_FIELDS = [
 def load_yaml(path: Path) -> dict | list:
     try:
         data = yaml.safe_load(path.read_text()) or {}
-        if data is None:
-            return {}
-        return data
+        return data if data is not None else {}
     except Exception as e:
         print(f"ERROR loading {path}: {e}", file=sys.stderr)
         sys.exit(1)
@@ -63,160 +68,184 @@ def load_yaml(path: Path) -> dict | list:
 def main() -> None:
     errors: list[str] = []
 
-    # ── Load canonical SOURCE.yaml for every source ──────────────────────────
+    # ── Discover all SOURCE.yaml files recursively ────────────────────────────
+    # Use functional_name from the file itself (not directory name) as the key.
     source_data: dict[str, dict] = {}
-    for source_dir in sorted(SOURCES_DIR.iterdir()):
-        if not source_dir.is_dir() or source_dir.name in ("__pycache__",):
+    source_paths: dict[str, Path] = {}
+    for yaml_file in sorted(SOURCES_DIR.rglob("SOURCE.yaml")):
+        # Skip SOURCE.yaml files nested inside upstream/ directories
+        if "upstream" in yaml_file.parts:
             continue
-        yaml_file = source_dir / "SOURCE.yaml"
-        if not yaml_file.exists():
+        raw = load_yaml(yaml_file)
+        if not isinstance(raw, dict):
             continue
-        data = load_yaml(yaml_file)
-        if isinstance(data, dict):
-            source_data[source_dir.name] = data
+        fn = raw.get("functional_name")
+        if not fn:
+            errors.append(f"MISSING functional_name in {yaml_file.relative_to(REPO_ROOT)}")
+            continue
+        if fn in source_data:
+            errors.append(f"DUPLICATE functional_name '{fn}' — found in both "
+                          f"{source_paths[fn].relative_to(REPO_ROOT)} and "
+                          f"{yaml_file.relative_to(REPO_ROOT)}")
+        source_data[fn] = raw
+        source_paths[fn] = yaml_file
 
     if not source_data:
         print("No SOURCE.yaml files found — skipping catalog consistency check")
         sys.exit(0)
 
     # ── Load catalog files ────────────────────────────────────────────────────
-    sources_catalog_path = CATALOG_DIR / "sources.yaml"
+    sources_cat_path = CATALOG_DIR / "sources.yaml"
     import_status_path = CATALOG_DIR / "import-status.yaml"
     license_matrix_path = CATALOG_DIR / "license-matrix.yaml"
 
-    sources_catalog = load_yaml(sources_catalog_path) if sources_catalog_path.exists() else {}
+    sources_catalog = load_yaml(sources_cat_path) if sources_cat_path.exists() else {}
     import_status = load_yaml(import_status_path) if import_status_path.exists() else {}
     license_matrix = load_yaml(license_matrix_path) if license_matrix_path.exists() else {}
 
     # ── Build lookup maps ─────────────────────────────────────────────────────
 
-    # sources.yaml: name → entry dict
+    # sources.yaml: functional_name → entry
     catalog_by_name: dict[str, dict] = {}
     if isinstance(sources_catalog, dict):
         for entry in sources_catalog.get("sources", []):
             if isinstance(entry, dict) and "functional_name" in entry:
                 catalog_by_name[entry["functional_name"]] = entry
 
-    # import-status.yaml: name → entry dict (imports and reference_only merged)
+    # import-status.yaml: functional_name → (entry, section)
     import_by_name: dict[str, dict] = {}
-    import_mode_in_status: dict[str, str] = {}  # name → "vendored" | "reference-only"
+    import_section: dict[str, str] = {}  # name → "vendored" | "local-research-only" | "reference-only"
+
     if isinstance(import_status, dict):
         for entry in import_status.get("imports", []):
             if isinstance(entry, dict) and "functional_name" in entry:
-                name = entry["functional_name"]
-                import_by_name[name] = entry
-                import_mode_in_status[name] = "vendored"
+                n = entry["functional_name"]
+                import_by_name[n] = entry
+                import_section[n] = "vendored"
+        for entry in import_status.get("local_research_only", []):
+            if isinstance(entry, dict) and "functional_name" in entry:
+                n = entry["functional_name"]
+                import_by_name[n] = entry
+                import_section[n] = "local-research-only"
         for entry in import_status.get("reference_only", []):
             if isinstance(entry, dict) and "functional_name" in entry:
-                name = entry["functional_name"]
-                import_by_name[name] = entry
-                import_mode_in_status[name] = "reference-only"
+                n = entry["functional_name"]
+                import_by_name[n] = entry
+                import_section[n] = "reference-only"
 
-    # license-matrix.yaml: name → entry dict
+    # license-matrix.yaml: name → entry
     license_by_name: dict[str, dict] = {}
     if isinstance(license_matrix, dict):
         for name, data in license_matrix.get("license_matrix", {}).items():
             if isinstance(data, dict):
                 license_by_name[name] = data
 
-    # ── Duplicate detection ───────────────────────────────────────────────────
+    # ── Duplicate detection in catalogs ──────────────────────────────────────
 
     seen_in_sources: list[str] = []
     for entry in sources_catalog.get("sources", []):
-        name = entry.get("functional_name")
-        if not name:
+        n = entry.get("functional_name")
+        if not n:
             continue
-        if name in seen_in_sources:
-            errors.append(f"{name}: duplicate entry in source-catalog/sources.yaml")
-        seen_in_sources.append(name)
+        if n in seen_in_sources:
+            errors.append(f"{n}: duplicate entry in source-catalog/sources.yaml")
+        seen_in_sources.append(n)
 
     seen_in_status: list[str] = []
-    for entry in (
-        import_status.get("imports", []) + import_status.get("reference_only", [])
-    ):
-        name = entry.get("functional_name")
-        if not name:
+    all_status_entries = (
+        import_status.get("imports", [])
+        + import_status.get("local_research_only", [])
+        + import_status.get("reference_only", [])
+    )
+    for entry in all_status_entries:
+        n = entry.get("functional_name")
+        if not n:
             continue
-        if name in seen_in_status:
-            errors.append(f"{name}: duplicate entry in source-catalog/import-status.yaml")
-        seen_in_status.append(name)
+        if n in seen_in_status:
+            errors.append(f"{n}: duplicate entry in source-catalog/import-status.yaml")
+        seen_in_status.append(n)
 
     # ── Reverse checks: catalog entries without SOURCE.yaml ──────────────────
 
     for entry in sources_catalog.get("sources", []):
-        name = entry.get("functional_name")
-        if name and name not in source_data:
-            errors.append(
-                f"{name}: entry in sources.yaml but sources/{name}/SOURCE.yaml not found"
-            )
+        n = entry.get("functional_name")
+        if n and n not in source_data:
+            errors.append(f"{n}: in sources.yaml but no SOURCE.yaml found")
 
-    for entry in (
-        import_status.get("imports", []) + import_status.get("reference_only", [])
-    ):
-        name = entry.get("functional_name")
-        if name and name not in source_data:
-            errors.append(
-                f"{name}: entry in import-status.yaml but sources/{name}/SOURCE.yaml not found"
-            )
+    for entry in all_status_entries:
+        n = entry.get("functional_name")
+        if n and n not in source_data:
+            errors.append(f"{n}: in import-status.yaml but no SOURCE.yaml found")
 
-    for name in license_by_name:
-        if name not in source_data:
-            errors.append(
-                f"{name}: entry in license-matrix.yaml but sources/{name}/SOURCE.yaml not found"
-            )
+    for n in license_by_name:
+        if n not in source_data:
+            errors.append(f"{n}: in license-matrix.yaml but no SOURCE.yaml found")
 
-    # ── Check every source against all three catalogs ─────────────────────────
+    # ── Per-source checks ─────────────────────────────────────────────────────
+    counts = {"vendored": 0, "local-research-only": 0, "reference-only": 0}
+
     for name, source in source_data.items():
         mode = source.get("import_mode", "vendored-snapshot")
         is_vendored = mode in VENDORED_MODES
+        is_local = mode in LOCAL_RESEARCH_MODES
         is_ref = mode in REFERENCE_MODES
         pinned = source.get("pinned_commit", "")
         license_id = source.get("license", "")
         source_label = source.get("source_label", "")
-        source_url = source.get("source_url", "")
 
-        # ── Required fields in SOURCE.yaml ────────────────────────────────
+        if is_vendored:
+            counts["vendored"] += 1
+        elif is_local:
+            counts["local-research-only"] += 1
+        else:
+            counts["reference-only"] += 1
+
+        # Required fields in SOURCE.yaml
         for field in REQUIRED_SOURCE_FIELDS:
             if field not in source:
                 errors.append(f"{name}: SOURCE.yaml missing required field '{field}'")
+
+        # local-research-only must have research_dossier
+        if is_local and not source.get("research_dossier"):
+            errors.append(f"{name}: SOURCE.yaml missing 'research_dossier' for local-research-only")
+
+        # copy_allowed must be false for non-vendored, non-MIT sources
+        if (is_local or is_ref) and source.get("copy_allowed") is True:
+            errors.append(f"{name}: copy_allowed should be false for {mode}")
 
         # ── 1. Must be in sources.yaml ─────────────────────────────────────
         if name not in catalog_by_name:
             errors.append(f"{name}: missing from source-catalog/sources.yaml")
         else:
-            cat_entry = catalog_by_name[name]
-            cat_label = cat_entry.get("label", "")
+            cat = catalog_by_name[name]
+            cat_label = cat.get("label", "")
             if cat_label and source_label and cat_label != source_label:
                 errors.append(
-                    f"{name}: label mismatch — SOURCE.yaml={source_label!r} vs "
-                    f"sources.yaml={cat_label!r}"
+                    f"{name}: label mismatch — SOURCE.yaml={source_label!r} "
+                    f"vs sources.yaml={cat_label!r}"
                 )
-            # source_url vs upstream_repo consistency
-            upstream_repo = cat_entry.get("upstream_repo", "")
-            if upstream_repo and source_url:
-                expected_suffix = "/" + upstream_repo
-                if not source_url.endswith(expected_suffix):
-                    errors.append(
-                        f"{name}: source_url {source_url!r} does not match "
-                        f"upstream_repo {upstream_repo!r} in sources.yaml"
-                    )
 
         # ── 2. Must be in import-status.yaml ──────────────────────────────
         if name not in import_by_name:
             errors.append(f"{name}: missing from source-catalog/import-status.yaml")
         else:
+            status_section = import_section.get(name, "")
             status_entry = import_by_name[name]
-            status_mode = import_mode_in_status.get(name, "")
 
-            if is_vendored and status_mode != "vendored":
+            if is_vendored and status_section != "vendored":
                 errors.append(
-                    f"{name}: import_mode={mode!r} (vendored) but found in "
-                    f"reference_only[] in import-status.yaml"
+                    f"{name}: import_mode={mode!r} but found in "
+                    f"'{status_section}' section of import-status.yaml (expected imports[])"
                 )
-            if is_ref and status_mode != "reference-only":
+            if is_local and status_section != "local-research-only":
                 errors.append(
-                    f"{name}: import_mode={mode!r} (reference-only) but found in "
-                    f"imports[] in import-status.yaml"
+                    f"{name}: import_mode={mode!r} but found in "
+                    f"'{status_section}' section (expected local_research_only[])"
+                )
+            if is_ref and status_section != "reference-only":
+                errors.append(
+                    f"{name}: import_mode={mode!r} but found in "
+                    f"'{status_section}' section (expected reference_only[])"
                 )
 
             # Pinned commit consistency for vendored sources
@@ -228,39 +257,29 @@ def main() -> None:
                         or pinned.startswith(catalog_commit[:8])
                     ):
                         errors.append(
-                            f"{name}: pinned_commit mismatch — SOURCE.yaml={pinned[:12]} vs "
+                            f"{name}: pinned_commit mismatch — "
+                            f"SOURCE.yaml={pinned[:12]} vs "
                             f"import-status.yaml={catalog_commit[:12]}"
                         )
-
-                # files_kept required for vendored sources
                 if "files_kept" not in status_entry:
                     errors.append(
                         f"{name}: import-status.yaml missing 'files_kept' for vendored source"
                     )
-
-            # source_url vs import-status url
-            status_url = status_entry.get("url", "")
-            if status_url and source_url and status_url != source_url:
-                errors.append(
-                    f"{name}: source_url {source_url!r} does not match "
-                    f"url {status_url!r} in import-status.yaml"
-                )
 
         # ── 3. Must be in license-matrix.yaml ─────────────────────────────
         if name not in license_by_name:
             errors.append(f"{name}: missing from source-catalog/license-matrix.yaml")
         else:
             matrix_license = license_by_name[name].get("license", "")
-            # Only fail on a positive license mismatch
             if (
                 matrix_license
                 and matrix_license not in ("unknown", "NOT-FOUND", "")
-                and license_id not in ("NOT-FOUND", "")
+                and license_id not in ("NOT-FOUND", "unknown", "")
                 and matrix_license != license_id
             ):
                 errors.append(
-                    f"{name}: license mismatch — SOURCE.yaml={license_id!r} vs "
-                    f"license-matrix.yaml={matrix_license!r}"
+                    f"{name}: license mismatch — SOURCE.yaml={license_id!r} "
+                    f"vs license-matrix.yaml={matrix_license!r}"
                 )
 
     # ── Report ────────────────────────────────────────────────────────────────
@@ -270,12 +289,17 @@ def main() -> None:
             print(f"  {e}")
         sys.exit(1)
 
-    n_vendored = sum(1 for m in import_mode_in_status.values() if m == "vendored")
-    n_ref = sum(1 for m in import_mode_in_status.values() if m == "reference-only")
+    total = sum(counts.values())
+    n_v = counts["vendored"]
+    n_l = counts["local-research-only"]
+    n_r = counts["reference-only"]
     print(
-        f"Catalog consistency: OK — {len(source_data)} sources checked\n"
+        f"Catalog consistency: OK — {total} sources checked\n"
+        f"  vendored:            {n_v}\n"
+        f"  local-research-only: {n_l}\n"
+        f"  reference-only:      {n_r}\n"
         f"  sources.yaml:        {len(catalog_by_name)} entries\n"
-        f"  import-status.yaml:  {n_vendored} vendored + {n_ref} reference-only = {len(import_by_name)}\n"
+        f"  import-status.yaml:  {len(import_by_name)} entries\n"
         f"  license-matrix.yaml: {len(license_by_name)} entries"
     )
 

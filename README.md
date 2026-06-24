@@ -44,7 +44,7 @@ docs/             Architecture, decisions, policies, roadmap
 
 | Component | Implementation | Tests | License reviewed | Security reviewed | Approved for reuse |
 |---|---|---|---|---|---|
-| **agent-safety-firewall** | **real** — command analyzer, path guard, policy engine | **40/40 passing** | MIT (deterministic-agent-safety) | pending manual | no |
+| **agent-safety-firewall** | **real** — command analyzer, path guard, policy engine | **40/40 passing** (component tests only) | MIT (deterministic-agent-safety) | pending manual | no |
 | application-security-review-agent | planned | — | — | — | no |
 | code-quality-review-agent | planned | — | — | — | no |
 | design-generation-and-review-pipeline | planned | — | — | — | no |
@@ -96,13 +96,37 @@ All changes go through a branch and Pull Request. CI must pass before merge. No 
 
 ## Source modes
 
-| Mode | Meaning |
-|---|---|
-| `vendored-snapshot` | Full upstream code copied at a pinned commit |
-| `selected-subsystem` | Specific subdirectory or module copied |
-| `clean-room-reimplementation` | Our own implementation inspired by the source |
-| `reference-only` | Study only — no code copied, no license issue |
-| `submodule` | Git submodule (large repos only) |
+| Mode | Code in lab? | License required? | Meaning |
+|---|---|---|---|
+| `vendored-snapshot` | Yes (`upstream/`) | Yes | Full upstream code copied at a pinned commit |
+| `selected-subsystem` | Yes (`upstream/`) | Yes | Specific subdirectory or module copied |
+| `clean-room-reimplementation` | Yes (`upstream/`) | Recommended | Our own reimplementation of a studied pattern |
+| `local-research-only` | No | No | Code studied locally; patterns documented; no files committed |
+| `reference-only` | No | No | Metadata and README only — no code studied locally |
+| `submodule` | Via git | Yes | Git submodule (large repos only) |
+
+## Sources directory structure
+
+Sources are stored either flat or nested:
+
+```
+sources/<functional-name>/          # flat — most external and person1/person2 sources
+  SOURCE.yaml
+  README.md
+  ATTRIBUTION.md
+  AUDIT.md                          # vendored only
+  FILE_MANIFEST.json                # vendored only
+  upstream/                         # vendored only — pinned upstream code
+
+sources/people/personN/github/<repo>/  # nested — person3 and person4 sources
+  SOURCE.yaml
+  README.md
+  ATTRIBUTION.md
+  upstream/                         # vendored only (e.g., noshowly)
+```
+
+The `sources/people/` intermediate directories are NOT sources — only directories
+with a `SOURCE.yaml` file are treated as sources.
 
 ---
 

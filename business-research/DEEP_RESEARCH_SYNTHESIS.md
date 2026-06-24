@@ -102,7 +102,7 @@ See full scoring tables in Section 10 (original 15) and Section 10b (wave 2+3 ne
 
 By urgency and specificity of regulatory obligation:
 
-1. **EU AI Act** (Regulation (EU) 2024/1689): Full application **2 August 2026** — 14 months away. Article 85 GPAI obligations live from August 2025. SMEs in scope (no exemption); Article 62 offers reduced fees, not exemption. This is the most urgent regulatory trigger for the EvidenceOps product.
+1. **EU AI Act** (Regulation (EU) 2024/1689): Full application date: **2 August 2026**. Article 85 GPAI obligations live from August 2025. SMEs in scope (no exemption); Article 62 offers reduced fees, not exemption. This is the most urgent regulatory trigger for the EvidenceOps product.
 
 2. **EAA** (Directive (EU) 2019/882): Enforcement **already active** since 28 June 2025. E-commerce, fintech, media — any company with ≥10 employees providing in-scope services must comply. Existing infrastructure has until 2030. Accessibility Source-Fix CI directly addresses this.
 
@@ -249,7 +249,7 @@ Next validation step: Find 5 developers using Claude Code in a team setting. Ask
 
 **EvidenceOps — AI Act / NIS2 / VSME (104/150 — PURSUE)**
 
-High because: Regulatory tailwind is maximum (10/10 — AI Act August 2026 is a real, near-term deadline with no exemption for SMEs). Founder fit business is 9/10 (CS + Economics is the ideal profile for this product). Validation is cheap (8/10 — talking to 3 SME founders about compliance anxiety costs nothing).
+High because: Regulatory tailwind is maximum (10/10 — AI Act full application: 2 August 2026, no exemption for SMEs). Founder fit business is 9/10 (CS + Economics is the ideal profile for this product). Validation is cheap (8/10 — talking to 3 SME founders about compliance anxiety costs nothing).
 
 Low because: Lab leverage is only 4/10 (no lab sources directly apply; the product is a web form + PDF export). Competition gap is 6/10 — Legalithm offers free AI Act compliance through ~April 2028. This is a serious threat. The multi-framework angle (AI Act + NIS2 + VSME together) is the differentiation that justifies pursuing.
 

@@ -1,14 +1,15 @@
 # Current State
 
 Last updated: 2026-06-24
-Branch: research/people-sources-cleanup-and-import
 
 ---
 
 ## Repository status
 
-Phase 1 complete (merged to main). Phase 2 in progress: person3 and person4 source
-ingestion and people research. All student-1/student-2 labels replaced with person1/person2.
+Phase 1 complete (merged to main). Phase 2 complete: person3 and person4 sources
+ingested and researched. All student-1/student-2 labels replaced with person1/person2.
+
+Total sources: **41** (20 vendored · 5 local-research-only · 16 reference-only).
 
 ---
 
@@ -71,6 +72,14 @@ design-taste, ui-ux-reference, writing-quality, product-marketing-context,
 terminal-coding-agent, model-layer-streaming, design-agent-reviews, interaction-motion-toast.
 Reference-only: anthropic-skills, vercel-skills, interaction-and-motion-design,
 kimi-model-family, glm-model-family, code-review-assistant.
+
+## Source import status — student-collab (3 repos, license pending)
+
+| Functional name | Import mode | License | Status |
+|---|---|---|---|
+| dance-studio-api | vendored-snapshot | unknown | candidate — no code reuse until license confirmed |
+| ride-booking-php | vendored-snapshot | unknown | candidate — upstream/ not to be exposed; demo credential in login.php |
+| twitter-sentiment-classifier | vendored-snapshot | unknown | candidate — no code reuse until license confirmed |
 
 ---
 
