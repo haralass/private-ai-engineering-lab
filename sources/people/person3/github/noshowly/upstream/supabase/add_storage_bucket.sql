@@ -1,0 +1,6 @@
+-- Storage bucket: staff-photos
+--
+-- Supabase Storage buckets cannot be created via SQL.
+-- Create manually: Dashboard -> Storage -> New Bucket
+--   Name: staff-photos
+--   Public bucket: YES

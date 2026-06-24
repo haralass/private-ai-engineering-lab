@@ -1,7 +1,7 @@
 display_name: "sms-platform"
 functional_name: asynchronous-job-processing
 source_url: https://github.com/sgavriil01/sms-platform
-source_label: student-1
+source_label: person1
 upstream_owner: "sgavriil01"
 upstream_repository: "sms-platform"
 pinned_commit: 46398c4e423ae5ed017658004487c9309a2ce127

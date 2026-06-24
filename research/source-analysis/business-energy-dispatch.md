@@ -10,12 +10,12 @@ import_type: reference-only (no upstream/ code — web research + SOURCE.yaml on
 
 - **Display name**: neura-btm-battery-dispatch
 - **Functional name**: business-energy-dispatch
-- **Creator**: sgavriil01 (Stylianos Gavriil)
+- **Creator**: sgavriil01 (person1)
 - **GitHub URL**: https://github.com/sgavriil01/neura-btm-battery-dispatch
 - **Source path**: `sources/business-energy-dispatch/`
 - **License**: NOT-FOUND (no LICENSE file — reference-only, copy not permitted)
 - **Import type**: reference-only (no code copied into lab)
-- **Creator context**: sgavriil01 is Stylianos Gavriil, catalogued as student-1 in this lab. According to `research/people/stylianos-gavriil/OVERVIEW.md`, five of his repositories are catalogued here. His work spans async job processing, battery dispatch simulation, semantic audio search, and commit message generation. The "neura" prefix in the repository name suggests it may be associated with a startup or project named Neura, rather than pure coursework — this is a possible indication of more serious intent than the tsembp repositories [inference].
+- **Creator context**: sgavriil01 is person1, catalogued as person1 in this lab. According to `research/people/person1/OVERVIEW.md`, five of his repositories are catalogued here. His work spans async job processing, battery dispatch simulation, semantic audio search, and commit message generation. The "neura" prefix in the repository name suggests it may be associated with a startup or project named Neura, rather than pure coursework — this is a possible indication of more serious intent than the tsembp repositories [inference].
 - **Pinned commit**: d0e3735dd26855ceb41509022c71a44696ef42aa
 
 ---
@@ -216,7 +216,7 @@ From web research (2026-06-23):
 ## Related business ideas in this lab
 
 - `product-concepts/business-energy-optimization/README.md` — the direct product concept
-- `research/people/stylianos-gavriil/IDEAS_DERIVED.md` — explicitly connects this source to the energy optimization concept
+- `research/people/person1/IDEAS_DERIVED.md` — explicitly connects this source to the energy optimization concept
 - `business-research/BUSINESS_IDEAS_INDEX.md` — evidence level: initial-research
 
 ---

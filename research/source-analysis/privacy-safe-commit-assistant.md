@@ -5,7 +5,7 @@
 ## Repository identity
 
 - **Name:** commitgen
-- **Creator:** Stylianos Gavriil (sgavriil01)
+- **Creator:** person1 (sgavriil01)
 - **GitHub URL:** https://github.com/sgavriil01/commitgen
 - **Source path:** `sources/privacy-safe-commit-assistant/`
 - **License:** NOT-FOUND (no LICENSE file)

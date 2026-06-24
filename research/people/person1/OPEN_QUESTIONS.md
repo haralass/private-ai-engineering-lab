@@ -1,4 +1,4 @@
-# Open Questions — Stylianos Gavriil repositories
+# Open Questions — person1 repositories
 
 These questions cannot be answered from the existing lab content alone.
 Each requires either direct code review of upstream, or user clarification.

@@ -1,7 +1,7 @@
-# Repositories Reviewed — Stylianos Gavriil (student-1)
+# Repositories Reviewed — person1 (person1)
 
 research_date: 2026-06-22
-source_paths: sources/ (label: student-1)
+source_paths: sources/ (label: person1)
 
 All source info is drawn from `SOURCE.yaml` and `README.md` in each source directory.
 Fields marked `needs-user-input` require direct review of the upstream code or user clarification.

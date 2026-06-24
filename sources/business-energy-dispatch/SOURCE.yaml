@@ -1,7 +1,7 @@
 display_name: "neura-btm-battery-dispatch"
 functional_name: business-energy-dispatch
 source_url: https://github.com/sgavriil01/neura-btm-battery-dispatch
-source_label: student-1
+source_label: person1
 upstream_owner: "sgavriil01"
 upstream_repository: "neura-btm-battery-dispatch"
 pinned_commit: d0e3735dd26855ceb41509022c71a44696ef42aa

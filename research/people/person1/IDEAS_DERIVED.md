@@ -1,4 +1,4 @@
-# Ideas Derived from Stylianos Gavriil's Repositories
+# Ideas Derived from person1's Repositories
 
 research_date: 2026-06-22
 source: connections documented in product-concepts/ and reference-implementations/

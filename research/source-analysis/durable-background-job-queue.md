@@ -5,7 +5,7 @@
 ## Repository identity
 
 - **Name:** ForgeQueue
-- **Creator:** Stylianos Gavriil (sgavriil01)
+- **Creator:** person1 (sgavriil01)
 - **GitHub URL:** https://github.com/sgavriil01/forgequeue
 - **Source path:** `sources/durable-background-job-queue/`
 - **License:** MIT (verified, copy allowed with attribution)

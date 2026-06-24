@@ -1,0 +1,410 @@
+{
+  "pinned_commit": "e5296a3cbb383af1cfe481f5d2b030c81d028d0d",
+  "total_files": 101,
+  "files": [
+    {
+      "path": ".github/workflows/keep-alive.yml",
+      "size": 506
+    },
+    {
+      "path": ".gitignore",
+      "size": 480
+    },
+    {
+      "path": "LICENSE",
+      "size": 1069
+    },
+    {
+      "path": "README.md",
+      "size": 3879
+    },
+    {
+      "path": "app/api/account/route.ts",
+      "size": 4829
+    },
+    {
+      "path": "app/api/appointments/[id]/route.ts",
+      "size": 21284
+    },
+    {
+      "path": "app/api/appointments/[id]/test-reminder/route.ts",
+      "size": 6096
+    },
+    {
+      "path": "app/api/appointments/route.ts",
+      "size": 24611
+    },
+    {
+      "path": "app/api/auth/callback/route.ts",
+      "size": 3445
+    },
+    {
+      "path": "app/api/auth/register/route.ts",
+      "size": 9229
+    },
+    {
+      "path": "app/api/barber-services/route.ts",
+      "size": 9763
+    },
+    {
+      "path": "app/api/barbers/[id]/route.ts",
+      "size": 8153
+    },
+    {
+      "path": "app/api/barbers/route.ts",
+      "size": 5773
+    },
+    {
+      "path": "app/api/book/[slug]/appointments/route.ts",
+      "size": 28717
+    },
+    {
+      "path": "app/api/book/[slug]/route.ts",
+      "size": 10590
+    },
+    {
+      "path": "app/api/booking-page/route.ts",
+      "size": 15711
+    },
+    {
+      "path": "app/api/clients/route.ts",
+      "size": 10950
+    },
+    {
+      "path": "app/api/confirm/[token]/route.ts",
+      "size": 11610
+    },
+    {
+      "path": "app/api/cron/send-reminders/route.ts",
+      "size": 17061
+    },
+    {
+      "path": "app/api/salon/route.ts",
+      "size": 13540
+    },
+    {
+      "path": "app/api/services/[id]/route.ts",
+      "size": 8091
+    },
+    {
+      "path": "app/api/services/route.ts",
+      "size": 6795
+    },
+    {
+      "path": "app/api/staff-availability/route.ts",
+      "size": 8692
+    },
+    {
+      "path": "app/api/stripe/checkout/route.ts",
+      "size": 9749
+    },
+    {
+      "path": "app/api/upload/staff-photo/route.ts",
+      "size": 3956
+    },
+    {
+      "path": "app/api/webhooks/stripe/route.ts",
+      "size": 15005
+    },
+    {
+      "path": "app/auth/callback/route.ts",
+      "size": 5858
+    },
+    {
+      "path": "app/auth/reset-password/page.tsx",
+      "size": 14334
+    },
+    {
+      "path": "app/book/[slug]/BookingFlow.tsx",
+      "size": 69121
+    },
+    {
+      "path": "app/book/[slug]/page.tsx",
+      "size": 8021
+    },
+    {
+      "path": "app/dashboard/booking/page.tsx",
+      "size": 125188
+    },
+    {
+      "path": "app/dashboard/calendar/page.tsx",
+      "size": 490
+    },
+    {
+      "path": "app/dashboard/layout.tsx",
+      "size": 4031
+    },
+    {
+      "path": "app/dashboard/page.tsx",
+      "size": 1297
+    },
+    {
+      "path": "app/dashboard/settings/page.tsx",
+      "size": 53379
+    },
+    {
+      "path": "app/dashboard/week/page.tsx",
+      "size": 755
+    },
+    {
+      "path": "app/favicon.ico",
+      "size": 25931
+    },
+    {
+      "path": "app/globals.css",
+      "size": 5284
+    },
+    {
+      "path": "app/layout.tsx",
+      "size": 1884
+    },
+    {
+      "path": "app/login/page.tsx",
+      "size": 18097
+    },
+    {
+      "path": "app/page.tsx",
+      "size": 1458
+    },
+    {
+      "path": "app/pricing/CheckoutButton.tsx",
+      "size": 2590
+    },
+    {
+      "path": "app/pricing/PricingPageHeader.tsx",
+      "size": 2061
+    },
+    {
+      "path": "app/pricing/PricingTabs.tsx",
+      "size": 5936
+    },
+    {
+      "path": "app/pricing/page.tsx",
+      "size": 2306
+    },
+    {
+      "path": "app/privacy/page.tsx",
+      "size": 7046
+    },
+    {
+      "path": "app/register/page.tsx",
+      "size": 13298
+    },
+    {
+      "path": "app/terms/page.tsx",
+      "size": 9989
+    },
+    {
+      "path": "components.json",
+      "size": 516
+    },
+    {
+      "path": "components/dashboard/AddAppointmentModal.tsx",
+      "size": 50602
+    },
+    {
+      "path": "components/dashboard/AppointmentCard.tsx",
+      "size": 6706
+    },
+    {
+      "path": "components/dashboard/DashboardNavLinks.tsx",
+      "size": 4734
+    },
+    {
+      "path": "components/dashboard/DayView.tsx",
+      "size": 16616
+    },
+    {
+      "path": "components/dashboard/StatsCards.tsx",
+      "size": 5529
+    },
+    {
+      "path": "components/dashboard/WeekView.tsx",
+      "size": 38134
+    },
+    {
+      "path": "components/landing/LandingContent.tsx",
+      "size": 28224
+    },
+    {
+      "path": "components/landing/LandingFooter.tsx",
+      "size": 3327
+    },
+    {
+      "path": "components/landing/LandingNav.tsx",
+      "size": 4064
+    },
+    {
+      "path": "components/layout/LogoutButton.tsx",
+      "size": 1484
+    },
+    {
+      "path": "components/ui/Badge.tsx",
+      "size": 2964
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "size": 3197
+    },
+    {
+      "path": "components/ui/card.tsx",
+      "size": 2641
+    },
+    {
+      "path": "components/ui/dialog.tsx",
+      "size": 4075
+    },
+    {
+      "path": "components/ui/input.tsx",
+      "size": 1040
+    },
+    {
+      "path": "components/ui/label.tsx",
+      "size": 518
+    },
+    {
+      "path": "components/ui/select.tsx",
+      "size": 6655
+    },
+    {
+      "path": "components/ui/separator.tsx",
+      "size": 545
+    },
+    {
+      "path": "components/ui/tabs.tsx",
+      "size": 3497
+    },
+    {
+      "path": "lib/appointment-helpers.ts",
+      "size": 14881
+    },
+    {
+      "path": "lib/plans.ts",
+      "size": 6762
+    },
+    {
+      "path": "lib/reminder-templates.ts",
+      "size": 13595
+    },
+    {
+      "path": "lib/resend.ts",
+      "size": 4606
+    },
+    {
+      "path": "lib/stripe.ts",
+      "size": 1418
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "size": 1965
+    },
+    {
+      "path": "lib/supabase/server.ts",
+      "size": 3830
+    },
+    {
+      "path": "lib/utils.ts",
+      "size": 166
+    },
+    {
+      "path": "middleware.ts",
+      "size": 8130
+    },
+    {
+      "path": "next.config.ts",
+      "size": 133
+    },
+    {
+      "path": "package-lock.json",
+      "size": 318781
+    },
+    {
+      "path": "package.json",
+      "size": 881
+    },
+    {
+      "path": "postcss.config.mjs",
+      "size": 94
+    },
+    {
+      "path": "public/Logo.png",
+      "size": 202039
+    },
+    {
+      "path": "supabase/add_barber_services.sql",
+      "size": 1132
+    },
+    {
+      "path": "supabase/add_barber_services_overrides.sql",
+      "size": 273
+    },
+    {
+      "path": "supabase/add_booking_phase1.sql",
+      "size": 2933
+    },
+    {
+      "path": "supabase/add_booking_phase2.sql",
+      "size": 1217
+    },
+    {
+      "path": "supabase/add_business_hours.sql",
+      "size": 244
+    },
+    {
+      "path": "supabase/add_confirmation_settings.sql",
+      "size": 438
+    },
+    {
+      "path": "supabase/add_currency.sql",
+      "size": 544
+    },
+    {
+      "path": "supabase/add_email_reminders_counter.sql",
+      "size": 1391
+    },
+    {
+      "path": "supabase/add_email_template_fields.sql",
+      "size": 414
+    },
+    {
+      "path": "supabase/add_message_templates.sql",
+      "size": 358
+    },
+    {
+      "path": "supabase/add_reminder_token.sql",
+      "size": 395
+    },
+    {
+      "path": "supabase/add_services_table.sql",
+      "size": 560
+    },
+    {
+      "path": "supabase/add_staff_services.sql",
+      "size": 1207
+    },
+    {
+      "path": "supabase/add_storage_bucket.sql",
+      "size": 193
+    },
+    {
+      "path": "supabase/add_unlimited_breaks.sql",
+      "size": 762
+    },
+    {
+      "path": "supabase/fix_missing_user.sql",
+      "size": 658
+    },
+    {
+      "path": "supabase/schema.sql",
+      "size": 5909
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 666
+    },
+    {
+      "path": "types/index.ts",
+      "size": 19681
+    }
+  ]
+}

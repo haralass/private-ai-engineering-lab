@@ -79,6 +79,6 @@ Downloaded dependencies
 
 Repositories from known colleagues are treated identically to external sources:
 - Full audit required
-- Source label set to `student-1` or `student-2` in SOURCE.yaml metadata
+- Source label set to `person1` or `person2` in SOURCE.yaml metadata
 - Real names and GitHub URLs recorded for attribution
 - Functional folder names used (not author names)

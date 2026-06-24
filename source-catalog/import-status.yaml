@@ -1,4 +1,4 @@
-# Import status — updated 2026-06-23
+# Import status — updated 2026-06-24
 # Canonical record of every import performed.
 # Vendored sources go under `imports:`.
 # Reference-only sources (no code copied) go under `reference_only:`.
@@ -80,7 +80,7 @@ imports:
     imported_at: "2026-06-22T00:00:00Z"
     secret_scan: reviewed-example-password-in-docker-compose
     license_found: MIT
-    source_label: student-1
+    source_label: person1
     files_kept: 30
     files_removed: [.git]
     status: complete
@@ -91,7 +91,7 @@ imports:
     imported_at: "2026-06-22T00:00:00Z"
     secret_scan: clean
     license_found: MIT
-    source_label: student-2
+    source_label: person2
     files_kept: 36
     files_removed: [.git]
     status: complete
@@ -132,9 +132,21 @@ imports:
     imported_at: "2026-06-22T00:00:00Z"
     secret_scan: reviewed-readme-placeholder
     license_found: MIT
-    source_label: student-2
+    source_label: person2
     files_kept: 13
     files_removed: [.git]
+    status: complete
+
+  - functional_name: appointment-scheduling-saas
+    url: person3/noshowly
+    pinned_commit: e5296a3cbb383af1cfe481f5d2b030c81d028d0d
+    imported_at: "2026-06-24T00:00:00Z"
+    secret_scan: reviewed-clean-package-lock-integrity-hashes-only
+    license_found: MIT
+    source_label: person3
+    files_kept: 101
+    files_removed: [.git]
+    source_path: sources/people/person3/github/noshowly/upstream
     status: complete
 
   - functional_name: ui-ux-reference
@@ -171,49 +183,49 @@ reference_only:
   - functional_name: asynchronous-job-processing
     url: https://github.com/sgavriil01/sms-platform
     pinned_commit: 46398c4e423ae5ed017658004487c9309a2ce127
-    source_label: student-1
+    source_label: person1
     reason: No LICENSE file
 
   - functional_name: business-energy-dispatch
     url: https://github.com/sgavriil01/neura-btm-battery-dispatch
     pinned_commit: d0e3735dd26855ceb41509022c71a44696ef42aa
-    source_label: student-1
+    source_label: person1
     reason: No LICENSE file
 
   - functional_name: semantic-audio-search
     url: https://github.com/sgavriil01/whisper-faiss-example
     pinned_commit: b60476ac98494293fce46f8c299b991e4dfa5007
-    source_label: student-1
+    source_label: person1
     reason: No LICENSE file
 
   - functional_name: privacy-safe-commit-assistant
     url: https://github.com/sgavriil01/commitgen
     pinned_commit: 0619458775acb2da839ce627763fbf61ee7220fa
-    source_label: student-1
+    source_label: person1
     reason: No LICENSE file
 
   - functional_name: change-monitoring-notifications
     url: https://github.com/tsembp/WG-Course-Task-Notifier-Bot
     pinned_commit: 9abbac6f4f4126e44187da84889cf6b6571397b0
-    source_label: student-2
+    source_label: person2
     reason: No LICENSE file
 
   - functional_name: synthetic-relational-data
     url: https://github.com/tsembp/one-stop-ride-hail
     pinned_commit: 14e0f42a9b32ea0b7f27543f7eeb6fe9fb92a9ff
-    source_label: student-2
+    source_label: person2
     reason: No LICENSE file
 
   - functional_name: algorithm-benchmarking
     url: https://github.com/tsembp/Hitting-Set-Problem
     pinned_commit: fe6bd5947d28f7170a4a2cd5bccfa26f4c3ecbcf
-    source_label: student-2
+    source_label: person2
     reason: No LICENSE file
 
   - functional_name: data-structure-search-engine
     url: https://github.com/tsembp/EPL231-GroupAssignment
     pinned_commit: 8026a0a9a73ef10f742592e948bef2a82c26589f
-    source_label: student-2
+    source_label: person2
     reason: No LICENSE file
 
   - functional_name: kimi-model-family
@@ -251,3 +263,54 @@ reference_only:
     pinned_commit: 5e801967db2cba84c0f69faff4e896538a31ae77
     source_label: external
     reason: No LICENSE file. Code review patterns studied.
+
+  # person3 local-research-only
+  - functional_name: cyprus-price-scrapers
+    url: person3/timicy-scrapers
+    pinned_commit: c06679035e7292308018b10d53b446777a888865
+    source_label: person3
+    import_mode: local-research-only
+    reason: No LICENSE file. Code studied locally. Dossier in research/people/person3/.
+
+  - functional_name: static-business-website
+    url: person3/articya-website
+    pinned_commit: 02c088d72c1483c8975c0ff5552fed0016c290cc
+    source_label: person3
+    import_mode: local-research-only
+    reason: No LICENSE file. Code studied locally.
+
+  - functional_name: java-search-engine
+    url: person3/mini-search-engine
+    pinned_commit: ccd313de3beb1cad02f742b16c272640f6358fb7
+    source_label: person3
+    import_mode: local-research-only
+    reason: No LICENSE file. Code studied locally.
+
+  - functional_name: latin-square-solver
+    url: person3/latin-square-solver
+    pinned_commit: 0d7fc9977bb25e994a6bd65488c7efb161be56fd
+    source_label: person3
+    import_mode: reference-only
+    reason: No LICENSE file. Metadata only.
+
+  # person4 local-research-only
+  - functional_name: llm-structured-object-generator
+    url: person4/llm-smart-objects
+    pinned_commit: 9d07655a5c49be237fccd0fe09eba6493682ba5b
+    source_label: person4
+    import_mode: local-research-only
+    reason: No LICENSE file. Full code analysis done locally. Dossier in research/people/person4/.
+
+  - functional_name: unity-3d-platformer
+    url: person4/3d-platformer-unity
+    pinned_commit: 9da0610bcfcab3b817344cfde4afa47475edc5a6
+    source_label: person4
+    import_mode: local-research-only
+    reason: No LICENSE file. C# scripts analyzed locally.
+
+  - functional_name: person4-github-profile
+    url: person4/github-profile
+    pinned_commit: a582d69a6232f6537bc8455d68b3e20cd5fdd1d8
+    source_label: person4
+    import_mode: reference-only
+    reason: Profile README only.

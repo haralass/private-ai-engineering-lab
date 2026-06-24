@@ -1,7 +1,7 @@
 display_name: AI-Study-Mate
 functional_name: modular-rag-learning
 source_url: https://github.com/tsembp/AI-Study-Mate
-source_label: student-2
+source_label: person2
 upstream_owner: tsembp
 upstream_repository: AI-Study-Mate
 pinned_commit: 0e9fc7fd69b3aa0f993f09b09a54381865a28d1b

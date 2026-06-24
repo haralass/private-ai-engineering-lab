@@ -6,7 +6,7 @@ Decision: Top-level source folders named by function (`deterministic-agent-safet
 
 Reason: Author-named folders make the repository dependent on who created the code rather than what it does. When we build components, we want to find "async job queue patterns" not "sgavriil01 work".
 
-Student contributors are labelled `student-1` and `student-2` in `SOURCE.yaml` metadata only.
+Student contributors are labelled `person1` and `person2` in `SOURCE.yaml` metadata only.
 
 ## 2026-06-22 — First components are report-only
 

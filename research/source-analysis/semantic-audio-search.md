@@ -5,7 +5,7 @@
 ## Repository identity
 
 - **Name:** whisper-faiss-example
-- **Creator:** Stylianos Gavriil (sgavriil01)
+- **Creator:** person1 (sgavriil01)
 - **GitHub URL:** https://github.com/sgavriil01/whisper-faiss-example
 - **Source path:** `sources/semantic-audio-search/`
 - **License:** NOT-FOUND (no LICENSE file)

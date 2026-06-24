@@ -9,18 +9,18 @@ sources_analyzed: 6
 
 | Source | Creator | Type | License |
 |---|---|---|---|
-| durable-background-job-queue (forgequeue) | Stylianos Gavriil (sgavriil01) | VENDORED | MIT |
-| asynchronous-job-processing (sms-platform) | Stylianos Gavriil (sgavriil01) | REF-ONLY | none |
+| durable-background-job-queue (forgequeue) | person1 (sgavriil01) | VENDORED | MIT |
+| asynchronous-job-processing (sms-platform) | person1 (sgavriil01) | REF-ONLY | none |
 | model-layer-streaming (airllm) | Gavin Li (lyogavin) | VENDORED | Apache-2.0 |
-| semantic-audio-search (whisper-faiss-example) | Stylianos Gavriil (sgavriil01) | REF-ONLY | none |
-| privacy-safe-commit-assistant (commitgen) | Stylianos Gavriil (sgavriil01) | REF-ONLY | none |
+| semantic-audio-search (whisper-faiss-example) | person1 (sgavriil01) | REF-ONLY | none |
+| privacy-safe-commit-assistant (commitgen) | person1 (sgavriil01) | REF-ONLY | none |
 | code-review-assistant | Paul Bakaus (pbakaus) | REF-ONLY | none |
 
 ---
 
 ## Creator connections
 
-**Stylianos Gavriil (sgavriil01)** contributed 4 of 6 sources in this domain. His portfolio within this lab is infrastructure-oriented:
+**person1 (sgavriil01)** contributed 4 of 6 sources in this domain. His portfolio within this lab is infrastructure-oriented:
 - `forgequeue`: durable job queue infrastructure (Go, PostgreSQL)
 - `sms-platform`: async job processing application (application layer)
 - `whisper-faiss-example`: semantic audio search pipeline (ML + vector search)

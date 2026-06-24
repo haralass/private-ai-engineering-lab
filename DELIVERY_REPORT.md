@@ -168,19 +168,19 @@ Consistency check runs in CI; exits 1 on any missing entry or field mismatch.
 
 | Source | Label | Reason |
 |---|---|---|
-| algorithm-benchmarking | student-2 | No LICENSE file |
+| algorithm-benchmarking | person2 | No LICENSE file |
 | anthropic-skills | external | No LICENSE in root |
-| asynchronous-job-processing | student-1 | No LICENSE file |
-| business-energy-dispatch | student-1 | No LICENSE file |
-| change-monitoring-notifications | student-2 | No LICENSE file |
+| asynchronous-job-processing | person1 | No LICENSE file |
+| business-energy-dispatch | person1 | No LICENSE file |
+| change-monitoring-notifications | person2 | No LICENSE file |
 | code-review-assistant | external | No LICENSE file |
-| data-structure-search-engine | student-2 | No LICENSE file |
+| data-structure-search-engine | person2 | No LICENSE file |
 | glm-model-family | external | No LICENSE file |
 | interaction-and-motion-design | external | No LICENSE file |
 | kimi-model-family | external | No LICENSE file |
-| privacy-safe-commit-assistant | student-1 | No LICENSE file |
-| semantic-audio-search | student-1 | No LICENSE file |
-| synthetic-relational-data | student-2 | No LICENSE file |
+| privacy-safe-commit-assistant | person1 | No LICENSE file |
+| semantic-audio-search | person1 | No LICENSE file |
+| synthetic-relational-data | person2 | No LICENSE file |
 | vercel-skills | external | No LICENSE file |
 
 ---
