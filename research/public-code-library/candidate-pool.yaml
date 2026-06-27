@@ -1,0 +1,607 @@
+# Public Code Research Library — Candidate Pool
+# Generated: 2026-06-27
+# All discovered candidates including retained, rejected, and unverified
+# status: retained | rejected | unverified | metadata-only
+
+candidate_pool:
+
+  # ── People Track: Maxime Heckel ──────────────────────────────────────────
+
+  - repo: MaximeHeckel/blog.maximeheckel.com
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: MaximeHeckel/design-system
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: MaximeHeckel/linear-vaporwave-react-three-fiber
+    status: retained
+    action: clone
+    priority: low
+    note: Blog post companion demo; educational only
+
+  # ── People Track: Anthony Fu ─────────────────────────────────────────────
+
+  - repo: antfu/antfu.me
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: antfu/eslint-config
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: antfu/node-modules-inspector
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: antfu-collective/vitesse
+    status: retained
+    action: clone
+    priority: high
+    note: Transferred from antfu/vitesse
+
+  - repo: antfu/vscode-file-nesting-config
+    status: retained
+    action: clone
+    priority: high
+    note: Config file repo; reusable dataset
+
+  - repo: antfu/vue-starport
+    status: rejected
+    reason: Experimental, unmaintained; superseded by View Transition API
+
+  # ── People Track: Kent C. Dodds ──────────────────────────────────────────
+
+  - repo: kentcdodds/kentcdodds.com
+    status: retained
+    action: reference-only
+    priority: medium
+    license_flag: NOASSERTION
+
+  - repo: kentcdodds/match-sorter
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: kentcdodds/mdx-bundler
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: epicweb-dev/epic-stack
+    status: retained
+    action: clone
+    priority: critical
+    note: Transferred from kentcdodds org to epicweb-dev
+
+  # ── People Track: Max Böck ───────────────────────────────────────────────
+
+  - repo: maxboeck/mxb
+    status: retained
+    action: reference-only
+    priority: low
+    license_flag: NONE
+
+  - repo: maxboeck/emergency-site
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: maxboeck/eleventastic
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: maxboeck/whimsical
+    status: retained
+    action: clone
+    priority: low
+
+  # ── People Track: Paco Coursey ───────────────────────────────────────────
+
+  - repo: dip/cmdk
+    status: retained
+    action: clone
+    priority: critical
+    note: Original pacocoursey/cmdk; now maintained by dip; use dip/cmdk
+
+  - repo: pacocoursey/next-themes
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: pacocoursey/paco
+    status: retained
+    action: clone
+    priority: low
+    license_flag: NONE
+
+  - repo: pacocoursey/writer
+    status: retained
+    action: clone
+    priority: low
+    license_flag: NONE
+
+  # ── People Track: Tania Rascia ───────────────────────────────────────────
+
+  - repo: taniarascia/takenote
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: taniarascia/taniarascia.com
+    status: retained
+    action: reference-only
+    priority: low
+
+  # ── People Track: Sindre Sorhus ──────────────────────────────────────────
+
+  - repo: sindresorhus/KeyboardShortcuts
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: sindresorhus/Defaults
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: sindresorhus/Settings
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: sindresorhus/DockProgress
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: sindresorhus/LaunchAtLogin-Modern
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: sindresorhus/Gifski
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: sindresorhus/macos-trash
+    status: retained
+    action: reference-only
+    priority: high
+
+  - repo: sindresorhus/sindresorhus.github.com
+    status: rejected
+    reason: Simple profile page; no architectural value
+
+  # ── People Track: Brittany Chiang ────────────────────────────────────────
+
+  - repo: bchiang7/v4
+    status: retained
+    action: clone
+    priority: low
+
+  - repo: bchiang7/spotify-profile
+    status: retained
+    action: clone
+    priority: low
+
+  - repo: bchiang7/octoprofile
+    status: rejected
+    reason: No license, outdated (CRA), no architectural value
+
+  - repo: bchiang7/Halcyon
+    status: rejected
+    reason: VS Code color theme; not code architecture
+
+  # ── People Track: Lea Verou ──────────────────────────────────────────────
+
+  - repo: LeaVerou/style-observer
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: LeaVerou/parsel
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: LeaVerou/awesomplete
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: LeaVerou/stretchy
+    status: retained
+    action: clone
+    priority: medium
+    license_flag: NOASSERTION
+
+  - repo: LeaVerou/leaverou.github.io
+    status: retained
+    action: metadata-only
+    priority: low
+    note: Data repository, not site source
+
+  - repo: LeaVerou/lea.verou.me
+    status: rejected
+    reason: Task brief explicitly excluded this repository
+
+  # ── People Track: Rauno Freiberg ─────────────────────────────────────────
+
+  - repo: raunofreiberg/inspx
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: raunofreiberg/interfaces
+    status: retained
+    action: clone
+    priority: low
+    license_flag: NONE
+
+  - repo: raunofreiberg/ui-playbook
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: raunofreiberg/primitives
+    status: rejected
+    reason: This is the Radix Primitives upstream repo forked by Rauno for contribution; not his original work
+
+  # ── People Track: Emil Kowalski ──────────────────────────────────────────
+
+  - repo: emilkowalski/sonner
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: emilkowalski/vaul
+    status: retained
+    action: clone
+    priority: low
+    note: Marked reference-only due to prior unmaintained concerns; 2025 push suggests renewed activity
+
+  # ── People Track: Tobias Ahlin ───────────────────────────────────────────
+
+  - repo: tobiasahlin/SpinKit
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: tobiasahlin/moving-letters
+    status: retained
+    action: clone
+    priority: low
+
+  - repo: tobiasahlin/animated-menu
+    status: retained
+    action: clone
+    priority: low
+    note: 2016; outdated but educational
+
+  - repo: tobiasahlin/bendable
+    status: retained
+    action: clone
+    priority: low
+
+  # ── People Track: Jhey Tompkins ──────────────────────────────────────────
+
+  - repo: jh3y/whirl
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: jh3y/meanderer
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: jh3y/vincent-van-git
+    status: retained
+    action: reference-only
+    priority: low
+    license_flag: NONE
+
+  # ── Organizations Track: Bruno Simon ─────────────────────────────────────
+
+  - repo: brunosimon/folio-2019
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: brunosimon/threejs-template-complex
+    status: retained
+    action: clone
+    priority: low
+    license_flag: UNLICENSED
+    note: Kept for study only; all rights reserved; use folio-2019 instead
+
+  - repo: brunosimon/folio-2025
+    status: unverified
+    action: reference-only
+    note: Newer portfolio; inspect license and structure before cloning
+
+  - repo: brunosimon/my-room-in-3d
+    status: retained
+    action: reference-only
+    priority: low
+
+  - repo: brunosimon/keppler
+    status: rejected
+    reason: Screen-share presentation tool; out of scope
+
+  # ── Organizations Track: 14islands ───────────────────────────────────────
+
+  - repo: 14islands/r3f-scroll-rig
+    status: retained
+    action: clone
+    priority: high
+
+  - repo: 14islands/codrops-scroll-rig-tutorial
+    status: retained
+    action: clone
+    priority: medium
+    license_flag: Codrops
+
+  - repo: 14islands/next-boilerplate
+    status: rejected
+    reason: Generic Next.js boilerplate; superseded by more specific starters
+
+  - repo: 14islands/r3f-scroll-rig-with-pointer-events
+    status: rejected
+    reason: Example repo; covered by r3f-scroll-rig and codrops tutorial
+
+  - repo: 14islands/webvr-*
+    status: rejected
+    reason: WebVR API deprecated; superseded by WebXR
+
+  # ── Organizations Track: bitbybit-dev ────────────────────────────────────
+
+  - repo: bitbybit-dev/bitbybit
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: bitbybit-dev/bitbybit-occt
+    status: metadata-only
+    note: OCCT WASM packages; tracked in organizations/bitbybit-dev.md
+
+  - repo: bitbybit-dev/bitbybit-core
+    status: metadata-only
+    note: Core library; installed as npm dependency of bitbybit
+
+  # ── Organizations Track: Shopify ─────────────────────────────────────────
+
+  - repo: Shopify/hydrogen
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: Shopify/dawn
+    status: retained
+    action: reference-only
+    priority: medium
+    license_flag: RESTRICTED
+
+  - repo: Shopify/draggable
+    status: retained
+    action: reference-only
+    priority: medium
+    note: Use via npm
+
+  - repo: Shopify/polaris-react
+    status: retained
+    action: metadata-only
+    priority: low
+    note: Archived January 2026
+
+  - repo: Shopify/react-native-skia
+    status: retained
+    action: reference-only
+    priority: medium
+    note: Use via npm
+
+  - repo: Shopify/flash-list
+    status: retained
+    action: reference-only
+    priority: medium
+    note: Use via npm
+
+  - repo: Shopify/polaris-viz
+    status: rejected
+    reason: Shopify-specific chart library; use Victory or Recharts for general use
+
+  - repo: Shopify/restyle
+    status: rejected
+    reason: React Native styling only; not relevant to web projects
+
+  # ── Organizations Track: Vercel ──────────────────────────────────────────
+
+  - repo: vercel/commerce
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: vercel/geist-font
+    status: retained
+    action: reference-only
+    priority: low
+    note: Use via npm
+
+  - repo: vercel/ai
+    status: metadata-only
+    note: Vercel AI SDK; tracked in organizations/vercel.md; rapidly evolving
+
+  - repo: vercel/next.js
+    status: rejected
+    reason: Framework itself, not an application or template
+
+  # ── Organizations Track: nhsuk ───────────────────────────────────────────
+
+  - repo: nhsuk/nhsuk-service-manual
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: nhsuk/nhsuk-frontend
+    status: retained
+    action: reference-only
+    priority: medium
+    note: 444MB; install via npm
+
+  - repo: nhsuk/nhsuk-prototype-kit
+    status: retained
+    action: metadata-only
+    priority: low
+
+  - repo: nhsuk/wagtail-*
+    status: rejected
+    reason: Python/Django/Wagtail stack; out of scope for this library
+
+  # ── Organizations Track: Medplum ─────────────────────────────────────────
+
+  - repo: medplum/foomedical
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: medplum/medplum-chart-demo
+    status: retained
+    action: clone
+    priority: critical
+
+  - repo: medplum/medplum-demo-bots
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: medplum/medplum-hello-world
+    status: retained
+    action: clone
+    priority: low
+
+  - repo: medplum/medplum
+    status: metadata-only
+    note: Medplum platform monorepo; tracked in organizations/medplum.md
+
+  # ── Organizations Track: PayloadCMS ──────────────────────────────────────
+
+  - repo: payloadcms/website
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: payloadcms/payload
+    status: metadata-only
+    note: CMS framework itself; tracked in organizations/payloadcms.md
+
+  - repo: payloadcms/plugin-*
+    status: metadata-only
+    note: Individual plugins tracked in organizations/payloadcms.md
+
+  # ── Organizations Track: webstudio-is ────────────────────────────────────
+
+  - repo: webstudio-is/webstudio
+    status: retained
+    action: clone
+    priority: medium
+    license_flag: AGPL-3.0
+
+  # ── Organizations Track: packdigital ─────────────────────────────────────
+
+  - repo: packdigital/pack-hydrogen-theme-blueprint
+    status: retained
+    action: clone
+    priority: medium
+
+  # ── Organizations Track: spree ───────────────────────────────────────────
+
+  - repo: spree/storefront
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: spree/spree
+    status: metadata-only
+    note: Spree API; tracked in organizations/spree.md
+
+  # ── Organizations Track: saleor ──────────────────────────────────────────
+
+  - repo: saleor/storefront
+    status: retained
+    action: clone
+    priority: medium
+    license_flag: FSL-1.1-ALv2
+
+  - repo: saleor/saleor
+    status: metadata-only
+    note: Saleor commerce API; tracked in organizations/saleor.md
+
+  # ── Organizations Track: medusajs ────────────────────────────────────────
+
+  - repo: medusajs/nextjs-starter-medusa
+    status: retained
+    action: clone
+    priority: medium
+
+  - repo: medusajs/medusa
+    status: metadata-only
+    note: Medusa commerce framework; tracked in organizations/medusajs.md
+
+  # ── Unverified / Pending Review ──────────────────────────────────────────
+
+  - repo: 4Akera/openkairo
+    status: unverified
+    action: reject
+    reason: Ownership unverified, maturity unconfirmed, no live-site relationship confirmed; revisit when publicly launched
+
+  - repo: brunosimon/folio-2025
+    status: unverified
+    action: pending
+    note: Newer portfolio; needs license inspection before cloning
+
+  # ── Discovered Candidates (agents' new-candidates-discovered.md) ─────────
+
+  - repo: pacocoursey/cmdk
+    status: rejected
+    reason: Repository transferred to dip/cmdk; use dip/cmdk instead
+
+  - repo: emilkowalski/motion-primitives
+    status: unverified
+    note: Framer Motion component library; inspect before including
+
+  - repo: rauchg/next-ai-news
+    status: rejected
+    reason: Demo app for blog post; insufficient standalone value
+
+  - repo: raunofreiberg/bezel
+    status: unverified
+    note: Device frame component; inspect license and maintenance
+
+  - repo: shadcn-ui/ui
+    status: rejected
+    reason: Widely known commodity; already a dependency in many projects; no unique insight
+
+  - repo: radix-ui/primitives
+    status: rejected
+    reason: Foundation library; install via npm; not a research candidate
+
+  - repo: tailwindlabs/tailwindcss
+    status: rejected
+    reason: Framework itself; not an application or pattern library
+
+summary:
+  total_discovered: 115
+  retained: 68
+  rejected: 27
+  unverified: 7
+  metadata_only: 13
+  as_of: 2026-06-27

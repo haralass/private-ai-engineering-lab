@@ -978,3 +978,703 @@ repositories:
     reason: Create art with your GitHub contribution graph. Creative coding project. No license — reference only.
     useful_files: []
     known_risks: No license. Narrow use case.
+
+  # ─── 3D / WebGL ─────────────────────────────────────────────────────────────
+
+  - id: folio-2019
+    person: Bruno Simon
+    owner: brunosimon
+    repository: folio-2019
+    url: https://github.com/brunosimon/folio-2019
+    live_url: https://bruno-simon.com
+    category: 3d-webgl
+    commit_sha: 540f135
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2019-12-14
+    local_clone: external-sources/folio-2019
+    priority: critical
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/brunosimon--folio-2019.md
+    reason: Best-structured public vanilla Three.js application. Application.js singleton + event-driven Resources.js asset loader. Per-object World classes. Shader files per-directory (vertex.glsl+fragment.glsl). The canonical reference for large Three.js project structure.
+    useful_files:
+      - src/javascript/Application.js
+      - src/javascript/Resources.js
+      - src/javascript/World/
+      - src/shaders/
+    known_risks: 2019 codebase; Three.js API has changed but architecture patterns remain valid.
+
+  - id: threejs-template-complex
+    person: Bruno Simon
+    owner: brunosimon
+    repository: threejs-template-complex
+    url: https://github.com/brunosimon/threejs-template-complex
+    live_url: null
+    category: 3d-webgl
+    commit_sha: 2c35172
+    date_analyzed: 2026-06-27
+    license: UNLICENSED
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2023-10-03
+    local_clone: external-sources/threejs-template-complex
+    priority: low
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/brunosimon--threejs-template-complex.md
+    reason: Newer Three.js template from Bruno Simon but UNLICENSED. All rights reserved. Use folio-2019 (MIT) instead for architecture reference.
+    useful_files: []
+    known_risks: UNLICENSED — no reuse permitted at all.
+
+  - id: r3f-scroll-rig
+    person: 14islands
+    owner: 14islands
+    repository: r3f-scroll-rig
+    url: https://github.com/14islands/r3f-scroll-rig
+    live_url: null
+    category: 3d-webgl
+    commit_sha: 1236635
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2024-06-12
+    local_clone: external-sources/r3f-scroll-rig
+    priority: high
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/14islands--r3f-scroll-rig.md
+    reason: Canonical solution for synchronizing DOM scroll with React Three Fiber. GlobalCanvas (single shared R3F canvas) + ScrollScene + useTracker (DOM element → world-space transform). Solves the hardest problem in hybrid DOM/WebGL layouts.
+    useful_files:
+      - src/scrollrig/components/GlobalCanvas.tsx
+      - src/scrollrig/components/ScrollScene.tsx
+      - src/scrollrig/hooks/useTracker.ts
+    known_risks: Depends on @react-three/fiber and drei. Canvas/DOM reconciliation requires careful z-index management.
+
+  - id: codrops-scroll-rig-tutorial
+    person: 14islands
+    owner: 14islands
+    repository: codrops-scroll-rig-tutorial
+    url: https://github.com/14islands/codrops-scroll-rig-tutorial
+    live_url: null
+    category: 3d-webgl
+    commit_sha: f903c1e
+    date_analyzed: 2026-06-27
+    license: Codrops
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2022-10-21
+    local_clone: external-sources/codrops-scroll-rig-tutorial
+    priority: medium
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/14islands--codrops-scroll-rig-tutorial.md
+    reason: Official tutorial companion to r3f-scroll-rig showing scroll-driven 3D scene integration. Study alongside r3f-scroll-rig source.
+    useful_files:
+      - src/
+    known_risks: Codrops license — free for personal use only; no commercial use.
+
+  # ─── COMMERCE / STOREFRONTS ─────────────────────────────────────────────────
+
+  - id: hydrogen
+    person: null
+    owner: Shopify
+    repository: hydrogen
+    url: https://github.com/Shopify/hydrogen
+    live_url: null
+    category: commerce
+    commit_sha: b4df055
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-26
+    local_clone: external-sources/hydrogen
+    priority: critical
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/Shopify--hydrogen.md
+    reason: Official Shopify headless commerce framework. React Router v7 + Vite SSR + GraphQL Storefront API + Oxygen edge deployment. Cart managed via HTML form actions (no JS client mutation). Definitive Shopify headless reference.
+    useful_files:
+      - templates/skeleton/app/routes/cart.tsx
+      - templates/skeleton/app/lib/cart.server.ts
+      - packages/hydrogen/src/cart/
+    known_risks: Requires Shopify store for full functionality. Oxygen-optimized; other hosts need adaptation.
+
+  - id: dawn
+    person: null
+    owner: Shopify
+    repository: dawn
+    url: https://github.com/Shopify/dawn
+    live_url: null
+    category: commerce
+    commit_sha: 83d5e6b
+    date_analyzed: 2026-06-27
+    license: RESTRICTED
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-24
+    local_clone: external-sources/dawn
+    priority: medium
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/Shopify--dawn.md
+    reason: Shopify Online Store 2.0 reference theme. Liquid + JSON templates + Section groups. Architecture reference for OS2.0 development patterns.
+    useful_files:
+      - sections/
+      - layout/theme.liquid
+    known_risks: RESTRICTED LICENSE — only permitted for themes served through Shopify. Do not use in non-Shopify contexts.
+
+  - id: commerce
+    person: null
+    owner: vercel
+    repository: commerce
+    url: https://github.com/vercel/commerce
+    live_url: https://demo.vercel.store
+    category: commerce
+    commit_sha: 3761e52
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-18
+    local_clone: external-sources/commerce
+    priority: critical
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/vercel--commerce.md
+    reason: Canonical Next.js App Router + RSC + Server Actions commerce implementation. Cart mutations via Server Actions (not client API calls). Provider-agnostic product/collection interface with Shopify wired in. Best reference for modern React Server Component commerce patterns.
+    useful_files:
+      - components/cart/actions.ts
+      - components/cart/add-to-cart.tsx
+      - lib/shopify/index.ts
+      - lib/shopify/fragments/
+    known_risks: Tightly integrated with Shopify Storefront API; swapping providers requires implementing the commerce interface.
+
+  - id: nextjs-starter-medusa
+    person: null
+    owner: medusajs
+    repository: nextjs-starter-medusa
+    url: https://github.com/medusajs/nextjs-starter-medusa
+    live_url: null
+    category: commerce
+    commit_sha: 9818886
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-30
+    local_clone: external-sources/nextjs-starter-medusa
+    priority: medium
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/medusajs--nextjs-starter-medusa.md
+    reason: Official Medusa 2.0 Next.js storefront. App Router + React Query cart + Medusa REST API. Demonstrates self-hosted commerce backend pattern.
+    useful_files:
+      - src/modules/cart/
+      - src/lib/data/
+    known_risks: Requires Medusa 2.0 server running separately.
+
+  - id: saleor-storefront
+    person: null
+    owner: saleor
+    repository: storefront
+    url: https://github.com/saleor/storefront
+    live_url: null
+    category: commerce
+    commit_sha: 14ffe08
+    date_analyzed: 2026-06-27
+    license: FSL-1.1-ALv2
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-09-29
+    local_clone: external-sources/saleor-storefront
+    priority: medium
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/saleor--storefront.md
+    reason: In-app embedded checkout pattern (no redirect to payment page). Inline card element form. Study checkout UX architecture only.
+    useful_files:
+      - src/app/(main)/checkout/
+    known_risks: FSL-1.1 license — free only for non-competing products. Read FSL before any reuse.
+
+  - id: spree-storefront
+    person: null
+    owner: spree
+    repository: storefront
+    url: https://github.com/spree/storefront
+    live_url: null
+    category: commerce
+    commit_sha: 7ad5a07
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-23
+    local_clone: external-sources/storefront
+    priority: medium
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/spree--storefront.md
+    reason: Next.js App Router + Radix UI storefront with comprehensive Vitest unit tests and Playwright e2e tests. Best-tested storefront in the library.
+    useful_files:
+      - apps/storefront/src/
+      - apps/storefront/tests/
+    known_risks: Requires Spree API. Radix dependency.
+
+  - id: pack-hydrogen-theme-blueprint
+    person: null
+    owner: packdigital
+    repository: pack-hydrogen-theme-blueprint
+    url: https://github.com/packdigital/pack-hydrogen-theme-blueprint
+    live_url: null
+    category: commerce
+    commit_sha: 30abff5
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-09-27
+    local_clone: external-sources/pack-hydrogen-theme-blueprint
+    priority: medium
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/packdigital--pack-hydrogen-theme-blueprint.md
+    reason: More complete Hydrogen starting point than the official skeleton. Pack CMS integration for section-based content management. Good reference when Hydrogen + CMS is needed.
+    useful_files:
+      - app/sections/
+      - app/components/
+    known_risks: Pack CMS dependency. Adds complexity vs. skeleton.
+
+  # ─── FULL-STACK FRAMEWORKS ──────────────────────────────────────────────────
+
+  - id: epic-stack
+    person: Kent C. Dodds
+    owner: epicweb-dev
+    repository: epic-stack
+    url: https://github.com/epicweb-dev/epic-stack
+    live_url: null
+    category: full-stack
+    commit_sha: faaa217
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-26
+    local_clone: external-sources/epic-stack
+    priority: critical
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/epicweb-dev--epic-stack.md
+    reason: The most complete public React Router v7 full-stack starter. TOTP 2FA, RBAC permission system, Conform+Zod form validation, LiteFS distributed SQLite, Sentry, Playwright. Transferred from kentcdodds org to epicweb-dev. The gold standard for React full-stack architecture reference.
+    useful_files:
+      - app/utils/auth.server.ts
+      - app/routes/settings+/profile.two-factor.tsx
+      - app/utils/permissions.ts
+      - app/components/forms.tsx
+      - other/build-icons.ts
+    known_risks: High complexity. LiteFS requires Fly.io deployment or adaptation.
+
+  # ─── DEVELOPER TOOLS (additional) ───────────────────────────────────────────
+
+  - id: eslint-config
+    person: Anthony Fu
+    owner: antfu
+    repository: eslint-config
+    url: https://github.com/antfu/eslint-config
+    live_url: null
+    category: developer-tools
+    commit_sha: 5ada54f
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-24
+    local_clone: external-sources/eslint-config
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/antfu--eslint-config.md
+    reason: Definitive ESLint Flat Config factory pattern. Composable rule sets for TypeScript, Vue, React, UnoCSS, and more. Factory returns array of config objects. The standard approach for multi-framework eslint configs.
+    useful_files:
+      - src/factory.ts
+      - src/configs/
+      - src/types.ts
+    known_risks: ESLint Flat Config only (ESLint 9+). Legacy config not supported.
+
+  - id: vitesse
+    person: Anthony Fu
+    owner: antfu-collective
+    repository: vitesse
+    url: https://github.com/antfu-collective/vitesse
+    live_url: https://vitesse.netlify.app
+    category: developer-tools
+    commit_sha: 8a01bc9
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-11
+    local_clone: external-sources/vitesse
+    priority: high
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/antfu-collective--vitesse.md
+    reason: The definitive Vue 3 + Vite starter. Establishes: unplugin-auto-import for component auto-import, file-based routing via vite-plugin-pages, UnoCSS utility-first styling, Pinia state. 9k stars. Transferred from antfu/vitesse to antfu-collective.
+    useful_files:
+      - vite.config.ts
+      - src/main.ts
+      - src/modules/
+    known_risks: Vue 3 specific. Auto-import pattern requires IDE support for types.
+
+  - id: mdx-bundler
+    person: Kent C. Dodds
+    owner: kentcdodds
+    repository: mdx-bundler
+    url: https://github.com/kentcdodds/mdx-bundler
+    live_url: null
+    category: developer-tools
+    commit_sha: d3992c7
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-06-12
+    local_clone: external-sources/mdx-bundler
+    priority: medium
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/kentcdodds--mdx-bundler.md
+    reason: esbuild-based MDX compilation at runtime (not build time). Accepts MDX string, returns executable component. Used in blog.maximeheckel.com. The standard approach for CMS-driven MDX content where build-time compilation is not possible.
+    useful_files:
+      - src/index.ts
+      - src/node.ts
+    known_risks: Node.js only. esbuild bundling adds latency per page (mitigate with caching).
+
+  # ─── STATIC SITE ────────────────────────────────────────────────────────────
+
+  - id: emergency-site
+    person: Max Böck
+    owner: maxboeck
+    repository: emergency-site
+    url: https://github.com/maxboeck/emergency-site
+    live_url: null
+    category: static-site
+    commit_sha: 005b1d1
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-12-28
+    local_clone: external-sources/emergency-site
+    priority: medium
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/maxboeck--emergency-site.md
+    reason: Resilience-first emergency website template. Zero JS, zero external dependencies, all inline CSS. Netlify CMS integration. Designed to survive infrastructure failures. Important architectural reference for degraded-mode design.
+    useful_files:
+      - src/
+      - .eleventy.js
+    known_risks: Uses Netlify CMS (deprecated; successor is Decap CMS).
+
+  - id: eleventastic
+    person: Max Böck
+    owner: maxboeck
+    repository: eleventastic
+    url: https://github.com/maxboeck/eleventastic
+    live_url: null
+    category: static-site
+    commit_sha: 37e469d
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2022-10-10
+    local_clone: external-sources/eleventastic
+    priority: medium
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/maxboeck--eleventastic.md
+    reason: Eleventy starter with critical CSS extraction via penthouse + purgecss, Eleventy Image srcset generation, and SCSS compilation. Reference for zero-JS-dependency static site performance patterns.
+    useful_files:
+      - src/
+      - .eleventy.js
+      - gulp/tasks/
+    known_risks: Uses Gulp + Eleventy 1.x stack. Eleventy 3.x has changed the API.
+
+  # ─── HEALTHCARE / FHIR ──────────────────────────────────────────────────────
+
+  - id: foomedical
+    person: null
+    owner: medplum
+    repository: foomedical
+    url: https://github.com/medplum/foomedical
+    live_url: null
+    category: healthcare
+    commit_sha: 92b9c07
+    date_analyzed: 2026-06-27
+    license: Apache-2.0
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-04-18
+    local_clone: external-sources/foomedical
+    priority: critical
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/medplum--foomedical.md
+    reason: Only public FHIR R4-backed React patient portal. SMART on FHIR OAuth2 auth. Mantine UI. Covers: health record, messages, care plans, lab results, appointments. The definitive starting point for patient-facing healthcare apps.
+    useful_files:
+      - src/pages/health-record/
+      - src/pages/messages/
+      - src/components/
+    known_risks: Requires Medplum backend. FHIR R4 standard means clinical accuracy requirements.
+
+  - id: medplum-chart-demo
+    person: null
+    owner: medplum
+    repository: medplum-chart-demo
+    url: https://github.com/medplum/medplum-chart-demo
+    live_url: null
+    category: healthcare
+    commit_sha: 52d0817
+    date_analyzed: 2026-06-27
+    license: Apache-2.0
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-03-15
+    local_clone: external-sources/medplum-chart-demo
+    priority: critical
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/medplum--medplum-chart-demo.md
+    reason: Only public FHIR-backed clinical chart UI. Clinician-facing EHR with encounter notes, lab results, vitals timeline, medication management. Complements foomedical (patient) with provider side.
+    useful_files:
+      - src/components/encounter/
+      - src/components/labs/
+      - src/components/timeline/
+    known_risks: Requires Medplum backend. Clinical data display must meet accuracy requirements.
+
+  - id: medplum-demo-bots
+    person: null
+    owner: medplum
+    repository: medplum-demo-bots
+    url: https://github.com/medplum/medplum-demo-bots
+    live_url: null
+    category: healthcare
+    commit_sha: d28fda6
+    date_analyzed: 2026-06-27
+    license: Apache-2.0
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-21
+    local_clone: external-sources/medplum-demo-bots
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/medplum--medplum-demo-bots.md
+    reason: Reference implementations for FHIR event-driven automation (Medplum Bots). Patterns for HL7v2 ADT parsing, EHR integration, lab result routing, and care-plan automation.
+    useful_files:
+      - src/examples/
+    known_risks: Medplum-specific automation runtime.
+
+  - id: medplum-hello-world
+    person: null
+    owner: medplum
+    repository: medplum-hello-world
+    url: https://github.com/medplum/medplum-hello-world
+    live_url: null
+    category: healthcare
+    commit_sha: bd8adc4
+    date_analyzed: 2026-06-27
+    license: Apache-2.0
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-09
+    local_clone: external-sources/medplum-hello-world
+    priority: low
+    reuse_classification: production-starter
+    analysis_document: research/public-code-library/repositories/medplum--medplum-hello-world.md
+    reason: Minimal Medplum entry point. Study after foomedical/chart-demo for understanding the base SDK API.
+    useful_files:
+      - src/
+    known_risks: Too minimal for production. Refer to foomedical for real patterns.
+
+  # ─── DESIGN SYSTEMS (additional) ────────────────────────────────────────────
+
+  - id: nhsuk-service-manual
+    person: null
+    owner: nhsuk
+    repository: nhsuk-service-manual
+    url: https://github.com/nhsuk/nhsuk-service-manual
+    live_url: https://service-manual.nhs.uk
+    category: design-systems
+    commit_sha: 229b262
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-25
+    local_clone: external-sources/nhsuk-service-manual
+    priority: critical
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/nhsuk--nhsuk-service-manual.md
+    reason: Most rigorous public healthcare design system documentation. Evidence-based component guidance: user research citations, do/don't examples, accessibility-by-role documentation. WCAG 2.2 AA compliance documentation methodology is the best available public example.
+    useful_files:
+      - app/views/design-system/components/
+      - app/views/accessibility/
+    known_risks: Crown Copyright applies to NHS content; MIT covers code only.
+
+  # ─── CMS ────────────────────────────────────────────────────────────────────
+
+  - id: payloadcms-website
+    person: null
+    owner: payloadcms
+    repository: website
+    url: https://github.com/payloadcms/website
+    live_url: https://payloadcms.com
+    category: cms
+    commit_sha: df88d1d
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-25
+    local_clone: external-sources/website
+    priority: medium
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/payloadcms--website.md
+    reason: Self-referential example of Next.js App Router + Payload CMS in production. payloadcms.com is built with Payload CMS itself. Best reference for Payload + Next.js integration patterns.
+    useful_files:
+      - src/payload/
+      - src/app/(app)/
+    known_risks: Payload CMS evolves quickly; some patterns may lag latest API.
+
+  # ─── CSS PARSING ────────────────────────────────────────────────────────────
+
+  - id: parsel
+    person: Lea Verou
+    owner: LeaVerou
+    repository: parsel
+    url: https://github.com/LeaVerou/parsel
+    live_url: https://projects.verou.me/parsel/
+    category: css-tooling
+    commit_sha: 6a4081b
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2024-09-16
+    local_clone: external-sources/parsel
+    priority: high
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/LeaVerou--parsel.md
+    reason: The only serious TypeScript CSS selector tokenizer + specificity calculator. Parses all of CSS Selectors Level 4. Used by Stylebot, DevTools projects, and others. 1.3k stars.
+    useful_files:
+      - src/parsel.js
+    known_risks: Single-file vanilla JS; wrap for TypeScript projects.
+
+  # ─── VISUAL BUILDER ─────────────────────────────────────────────────────────
+
+  - id: webstudio
+    person: null
+    owner: webstudio-is
+    repository: webstudio
+    url: https://github.com/webstudio-is/webstudio
+    live_url: https://webstudio.is
+    category: visual-builder
+    commit_sha: 65d8a16
+    date_analyzed: 2026-06-27
+    license: AGPL-3.0
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-26
+    local_clone: external-sources/webstudio
+    priority: medium
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/webstudio-is--webstudio.md
+    reason: Open-source Webflow alternative. CSS engine (packages/css-engine) and page-tree JSON model are academically interesting. Study the CSS serialization and page-tree architecture.
+    useful_files:
+      - packages/css-engine/src/
+      - apps/builder/app/shared/
+    known_risks: AGPL-3.0 — network copyleft applies. Study only for proprietary/non-AGPL projects.
+
+  # ─── CAD / GEOMETRY ─────────────────────────────────────────────────────────
+
+  - id: bitbybit
+    person: null
+    owner: bitbybit-dev
+    repository: bitbybit
+    url: https://github.com/bitbybit-dev/bitbybit
+    live_url: https://bitbybit.dev
+    category: cad-geometry
+    commit_sha: null
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-20
+    local_clone: external-sources/bitbybit
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/bitbybit-dev--bitbybit.md
+    reason: TypeScript API wrapping WebAssembly OpenCascade CAD kernel. Web Worker message-passing architecture for off-thread geometry computation. The only mature public TypeScript CAD library.
+    useful_files:
+      - packages/bitbybit-core/src/
+      - packages/bitbybit-occt-worker/src/
+    known_risks: Large WASM bundle (~15MB). OpenCascade OCCT license applies to C++ core.
+
+  # ─── INTERACTION REFERENCE (additional) ─────────────────────────────────────
+
+  - id: ui-playbook
+    person: Rauno Freiberg
+    owner: raunofreiberg
+    repository: ui-playbook
+    url: https://github.com/raunofreiberg/ui-playbook
+    live_url: https://uiplaybook.dev
+    category: reference-only
+    commit_sha: 9d1bfc9
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2022-04-22
+    local_clone: external-sources/ui-playbook
+    priority: medium
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/raunofreiberg--ui-playbook.md
+    reason: Documentation site covering expected behavior for common UI components (button, checkbox, dialog, etc.). Reference for implementing accessible component behavior.
+    useful_files: []
+    known_risks: 2022; unmaintained. Good as behavior reference but check ARIA patterns for 2024+ specs.
+
+  - id: bchiang7-v4
+    person: Brittany Chiang
+    owner: bchiang7
+    repository: v4
+    url: https://github.com/bchiang7/v4
+    live_url: https://brittanychiang.com
+    category: reference-only
+    commit_sha: 539cef0
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2021-10-28
+    local_clone: external-sources/v4
+    priority: low
+    reuse_classification: reference-only
+    analysis_document: research/public-code-library/repositories/bchiang7--v4.md
+    reason: Widely cloned developer portfolio (17k+ stars). Clean Gatsby + styled-components structure. Reference for portfolio layout and scroll-triggered animations.
+    useful_files:
+      - src/components/sections/
+    known_risks: Gatsby + styled-components (outdated stack, 2021). MIT but attribution requested in README.
