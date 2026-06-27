@@ -1,0 +1,25 @@
+display_name: 'EfficientViT'
+functional_name: efficientvit
+source_url: https://github.com/mit-han-lab/efficientvit
+source_label: external
+upstream_owner: mit-han-lab
+upstream_repository: efficientvit
+pinned_commit: de7d7733cc0329f391b33f1f459271562ec27bd5
+upstream_default_branch: master
+retrieved_at: '2026-06-27T00:00:00Z'
+date_inspected: '2026-06-27'
+license: Apache-2.0
+license_file_verified: true
+license_evidence: 'Root `LICENSE` at the pinned commit contains Apache License 2.0 text.'
+license_permits_redistribution: true
+import_mode: local-research-only
+research_dossier: sources/efficientvit/USEFUL_PATHS.md
+removed_paths:
+- upstream/
+security_review_status: metadata-only
+license_review_status: reviewed
+copy_allowed: false
+vendoring_allowed: true
+execution_allowed: false
+verification_confidence: high
+notes: 'Local clone studied outside Git history. No third-party source snapshot is committed.'

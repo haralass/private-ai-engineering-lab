@@ -100,4 +100,4 @@ Rankings are based on a composite of: technical quality, originality, general re
 | LeaVerou/parsel | Lea Verou | — | medium candidate |
 | antfu-collective/vitesse | Anthony Fu | — | low candidate |
 
-See `reports/new-candidates-discovered.md` for full candidate list.
+See `synthesis/new-candidates-discovered.md` for full candidate list.
