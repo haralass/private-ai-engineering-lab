@@ -61,3 +61,6 @@ __snapshots__/
 *.sqlite
 *.sqlite3
 *.db
+
+# External source repositories — never commit third-party code
+external-sources/

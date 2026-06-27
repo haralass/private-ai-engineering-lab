@@ -1,0 +1,980 @@
+---
+# Public Code Research Library — Master Manifest
+# Lab: private-ai-engineering-lab
+# Generated: 2026-06-27
+# Purpose: Record every repository examined, its provenance, priority, and research output paths.
+
+repositories:
+
+  # ─── FULL APPLICATIONS ──────────────────────────────────────────────────────
+
+  - id: blog-maximeheckel-com
+    person: Maxime Heckel
+    owner: MaximeHeckel
+    repository: blog.maximeheckel.com
+    url: https://github.com/MaximeHeckel/blog.maximeheckel.com
+    live_url: https://blog.maximeheckel.com
+    category: applications
+    commit_sha: c3ef52f16ac0479ad7b575e4578bf1d68799f647
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-25
+    local_clone: external-sources/applications/blog.maximeheckel.com
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/MaximeHeckel--blog.maximeheckel.com.md
+    reason: Exceptionally sophisticated personal blog with GPU-tier detection, custom shader components, MDX pipeline, view transitions, and interactive canvas experiments.
+    useful_files:
+      - core/components/Charts/
+      - core/components/CommandMenu/
+      - core/components/Code/
+      - core/hooks/useGPUTier.ts
+      - core/hooks/useViewTransitionNavigation.ts
+      - core/components/Glow/
+      - core/components/Slideshow/
+    known_risks: MIT license covers code; post content and design are author's personal work — do not copy.
+
+  - id: antfu-me
+    person: Anthony Fu
+    owner: antfu
+    repository: antfu.me
+    url: https://github.com/antfu/antfu.me
+    live_url: https://antfu.me
+    category: applications
+    commit_sha: 7db9f1eff3037e714d3fe97976a685cbac527965
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-23
+    local_clone: external-sources/applications/antfu.me
+    priority: medium
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/antfu--antfu.me.md
+    reason: Clean Vite+Vue3+UnoCSS personal site with minimal dependencies. Reference for fast static personal sites.
+    useful_files:
+      - src/pages/
+      - src/components/
+    known_risks: Personal branding and content are not reusable.
+
+  - id: kentcdodds-com
+    person: Kent C. Dodds
+    owner: kentcdodds
+    repository: kentcdodds.com
+    url: https://github.com/kentcdodds/kentcdodds.com
+    live_url: https://kentcdodds.com
+    category: applications
+    commit_sha: 8b271231bcb0f4c8c2d33f0fa1b5ddf3e20357ae
+    date_analyzed: 2026-06-27
+    license: NOASSERTION
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-25
+    local_clone: null
+    priority: medium
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/kentcdodds--kentcdodds.com.md
+    reason: Large Remix/MDX site with sophisticated content authoring pipeline and workshop integration. Architecture reference for content-heavy sites.
+    useful_files: []
+    known_risks: Mixed/unclear license (NOASSERTION). Content is personal. Do not reuse without explicit permission.
+
+  - id: mxb
+    person: Max Böck
+    owner: maxboeck
+    repository: mxb
+    url: https://github.com/maxboeck/mxb
+    live_url: https://mxb.dev
+    category: applications
+    commit_sha: 5a922eaea07d95b048b5d515d5afd2aa54c2c204
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-01-26
+    local_clone: external-sources/applications/mxb
+    priority: medium
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/maxboeck--mxb.md
+    reason: Eleventy static site with excellent accessibility practices, dark/light mode, and web standards approach.
+    useful_files: []
+    known_risks: No license — reference only, do not copy code.
+
+  - id: taniarascia-com
+    person: Tania Rascia
+    owner: taniarascia
+    repository: taniarascia.com
+    url: https://github.com/taniarascia/taniarascia.com
+    live_url: https://www.taniarascia.com
+    category: applications
+    commit_sha: e1ba0efdaa7c46284ced8e76116268d9931b3d1f
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-27
+    local_clone: null
+    priority: low
+    reuse_classification: visual inspiration only
+    analysis_document: research/public-code-library/repositories/taniarascia--taniarascia.com.md
+    reason: Well-structured Gatsby blog with good CSS practices and light/dark mode.
+    useful_files: []
+    known_risks: Primarily personal content.
+
+  - id: spotify-profile
+    person: Brittany Chiang
+    owner: bchiang7
+    repository: spotify-profile
+    url: https://github.com/bchiang7/spotify-profile
+    live_url: https://spotify-profile.herokuapp.com
+    category: applications
+    commit_sha: d78c3c43f23232a7ddf0d859bacb003ad2ffac89
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-01-04
+    local_clone: external-sources/spotify-profile
+    priority: low
+    reuse_classification: outdated but educational
+    analysis_document: research/public-code-library/repositories/bchiang7--spotify-profile.md
+    reason: OAuth + Spotify Web API integration reference. Last active 2023. Outdated stack (CRA).
+    useful_files:
+      - client/src/spotify/
+    known_risks: No license. Outdated stack. API integration patterns may be stale.
+
+  - id: octoprofile
+    person: Brittany Chiang
+    owner: bchiang7
+    repository: octoprofile
+    url: https://github.com/bchiang7/octoprofile
+    live_url: null
+    category: applications
+    commit_sha: 18712864fc106f04f6079b16891a0f5e3e81fca8
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-01-05
+    local_clone: null
+    priority: reject
+    reuse_classification: reject
+    analysis_document: research/public-code-library/repositories/bchiang7--octoprofile.md
+    reason: GitHub profile visualizer. No license, outdated stack. Limited general value.
+    useful_files: []
+    known_risks: No license. Outdated.
+
+  # ─── DESIGN SYSTEMS ─────────────────────────────────────────────────────────
+
+  - id: design-system-maximeheckel
+    person: Maxime Heckel
+    owner: MaximeHeckel
+    repository: design-system
+    url: https://github.com/MaximeHeckel/design-system
+    live_url: null
+    category: design-systems
+    commit_sha: 54a19e07f016d67f349e19e064278bd00ae549c4
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-29
+    local_clone: external-sources/design-system
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/MaximeHeckel--design-system.md
+    reason: Stitches-based design system with composable Box/Card/Tooltip/TextInput components. Excellent token architecture and variant system.
+    useful_files:
+      - src/components/Box/
+      - src/components/Card/
+      - src/components/Tooltip/
+      - src/components/TextInput/
+      - src/components/Checkbox/
+      - src/components/Callout/
+      - src/hooks/
+      - src/lib/
+    known_risks: No license — reference and adapt only, do not copy verbatim.
+
+  # ─── UI COMPONENTS ──────────────────────────────────────────────────────────
+
+  - id: cmdk
+    person: Paco Coursey (original; now maintained by dip)
+    owner: dip
+    repository: cmdk
+    url: https://github.com/dip/cmdk
+    live_url: https://cmdk.paco.me
+    category: ui-components
+    commit_sha: dd2250ed608443e8f32bafc5fa2d1d07a3746aa3
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-10-29
+    local_clone: external-sources/ui-components/cmdk
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/dip--cmdk.md
+    reason: The definitive command-menu/palette implementation for React. Used by Vercel, Linear, Raycast Web. MIT license. Built on Radix Dialog. Custom fuzzy scoring via command-score.ts.
+    useful_files:
+      - cmdk/src/index.tsx
+      - cmdk/src/command-score.ts
+    known_risks: Depends on @radix-ui. Heavy reliance on Radix patterns.
+
+  - id: next-themes
+    person: Paco Coursey
+    owner: pacocoursey
+    repository: next-themes
+    url: https://github.com/pacocoursey/next-themes
+    live_url: null
+    category: ui-components
+    commit_sha: a7eeabc39cfb37d74ea3d82eac674d0e1851b1cb
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-02-25
+    local_clone: external-sources/ui-components/next-themes
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/pacocoursey--next-themes.md
+    reason: Gold standard for theme switching in Next.js. Flash-of-incorrect-theme prevention via inline script injection. Zero-dependency approach except React.
+    useful_files:
+      - next-themes/src/index.tsx
+      - next-themes/src/script.ts
+      - next-themes/src/types.ts
+    known_risks: Next.js specific, though the pattern is framework-agnostic.
+
+  - id: sonner
+    person: Emil Kowalski
+    owner: emilkowalski
+    repository: sonner
+    url: https://github.com/emilkowalski/sonner
+    live_url: https://sonner.emilkowal.ski
+    category: ui-components
+    commit_sha: 45d894085af8ca8421912789a8f5a4ac4ac3d0ea
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-23
+    local_clone: external-sources/ui-components/sonner
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/emilkowalski--sonner.md
+    reason: Best-in-class React toast notification library. 12k+ stars. Single-file architecture. Stacked layout with physics-based animation. Swipe-to-dismiss. Excellent state management pattern.
+    useful_files:
+      - src/index.tsx
+      - src/state.ts
+      - src/types.ts
+      - src/hooks.tsx
+      - src/styles.css
+    known_risks: React-specific. CSS-in-JS pattern may need adaptation for some stacks.
+
+  - id: awesomplete
+    person: Lea Verou
+    owner: LeaVerou
+    repository: awesomplete
+    url: https://github.com/LeaVerou/awesomplete
+    live_url: https://leaverou.github.io/awesomplete/
+    category: ui-components
+    commit_sha: 7bafd6bbe4d09d994ebdd628dd7568ed339eb4f8
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2024-07-25
+    local_clone: external-sources/awesomplete
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/LeaVerou--awesomplete.md
+    reason: Zero-dependency accessible autocomplete. Single JS file (~2KB min+gzip). Works with any backend. Excellent accessibility design. ~7k stars.
+    useful_files:
+      - awesomplete.js
+    known_risks: Vanilla JS, pre-ES modules. Would need wrapping for modern stacks.
+
+  - id: stretchy
+    person: Lea Verou
+    owner: LeaVerou
+    repository: stretchy
+    url: https://github.com/LeaVerou/stretchy
+    live_url: https://leaverou.github.io/stretchy/
+    category: ui-components
+    commit_sha: 68bc05935f43cb76b6ebdf8a217b0eea1ab733ed
+    date_analyzed: 2026-06-27
+    license: NOASSERTION
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2023-12-15
+    local_clone: external-sources/stretchy
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/LeaVerou--stretchy.md
+    reason: Form element auto-resize (textarea, input, select). Clever algorithm using sizing shims. Educational for understanding form auto-sizing.
+    useful_files:
+      - src/stretchy.js
+    known_risks: NOASSERTION license — verify before reuse.
+
+  - id: spinkit
+    person: Tobias Ahlin
+    owner: TobiasAhlin
+    repository: SpinKit
+    url: https://github.com/TobiasAhlin/SpinKit
+    live_url: https://tobiasahlin.com/spinkit/
+    category: ui-components
+    commit_sha: 742a71277c49b69053b5beb9fad80d720840a2ab
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2020-08-01
+    local_clone: external-sources/SpinKit
+    priority: high
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/tobiasahlin--SpinKit.md
+    reason: 19k+ stars. 10 pure CSS loading animations. Zero JS required. Production-proven. Timeless design — CSS @keyframes don't go stale.
+    useful_files:
+      - css/spinkit.css
+      - scss/
+    known_risks: Not updated since 2020 but CSS animations are stable. No maintenance risk.
+
+  - id: vaul
+    person: Emil Kowalski
+    owner: emilkowalski
+    repository: vaul
+    url: https://github.com/emilkowalski/vaul
+    live_url: https://vaul.emilkowal.ski
+    category: ui-components
+    commit_sha: 3e97aac6a38e4481bade71d7233ed6002e80f9b0
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-10-03
+    local_clone: external-sources/vaul
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/emilkowalski--vaul.md
+    reason: Drawer/bottom-sheet component for React. 8k+ stars. Snap points, velocity-based physics, background scale effect. Note task brief said "unmaintained" — actual status shows active with 2025-10 push.
+    useful_files:
+      - src/index.tsx
+      - src/use-snap-points.ts
+      - src/use-scale-background.ts
+      - src/use-prevent-scroll.ts
+      - src/use-controllable-state.ts
+      - src/context.ts
+    known_risks: Depends on @radix-ui/react-dialog.
+
+  - id: style-observer
+    person: Lea Verou
+    owner: LeaVerou
+    repository: style-observer
+    url: https://github.com/LeaVerou/style-observer
+    live_url: null
+    category: ui-components
+    commit_sha: 972e75a2eae0a3f77924feb6a50375682cf65a82
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-04
+    local_clone: external-sources/style-observer
+    priority: high
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/LeaVerou--style-observer.md
+    reason: Novel CSS property observation API using ResizeObserver-like pattern for CSS custom properties and computed styles. Solves a real missing browser primitive.
+    useful_files:
+      - src/StyleObserver.js
+    known_risks: Experimental API surface. Browser support dependent on ResizeObserver.
+
+  # ─── SEARCH, RANKING, LARGE-DATA INTERFACES ─────────────────────────────────
+
+  - id: match-sorter
+    person: Kent C. Dodds
+    owner: kentcdodds
+    repository: match-sorter
+    url: https://github.com/kentcdodds/match-sorter
+    live_url: null
+    category: developer-tools
+    commit_sha: 3bfa8803d64a2c0fe4b532822e5abf8e956e37f8
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-13
+    local_clone: external-sources/developer-tools/match-sorter
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/kentcdodds--match-sorter.md
+    reason: Definitive simple, predictable client-side search-ranking library. MIT. Ranks by case-sensitive equal → equal → starts-with → word-starts-with → contains → acronym → matches. 4k+ stars. Zero dependencies.
+    useful_files:
+      - src/index.ts
+    known_risks: Client-side only. For large datasets, prefer server-side search.
+
+  - id: node-modules-inspector
+    person: Anthony Fu
+    owner: antfu
+    repository: node-modules-inspector
+    url: https://github.com/antfu/node-modules-inspector
+    live_url: https://node-modules.dev
+    category: developer-tools
+    commit_sha: 8be7f9c1b6c7eff682ba792c2cb56fcf011d1737
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-05-30
+    local_clone: external-sources/node-modules-inspector
+    priority: high
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/antfu--node-modules-inspector.md
+    reason: Visual dependency graph explorer for node_modules. Multi-package architecture. Excellent pattern for build graph visualization tools. 2.9k stars.
+    useful_files:
+      - packages/node-modules-inspector/
+      - packages/node-modules-tools/
+    known_risks: Complex multi-package monorepo. Depends on antfu ecosystem.
+
+  - id: inspx
+    person: Rauno Freiberg
+    owner: raunofreiberg
+    repository: inspx
+    url: https://github.com/raunofreiberg/inspx
+    live_url: null
+    category: developer-tools
+    commit_sha: 061f3831900f5a89ca10567823915e7b5aacace4
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-02-01
+    local_clone: external-sources/inspx
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/raunofreiberg--inspx.md
+    reason: Pixel-perfect inspection overlay for React apps (like browser devtools but in-app). Useful pattern for debug/preview layers. 1.5k stars.
+    useful_files:
+      - src/
+    known_risks: Not updated since 2023. May not work with React 18+.
+
+  - id: writer
+    person: Paco Coursey
+    owner: pacocoursey
+    repository: writer
+    url: https://github.com/pacocoursey/writer
+    live_url: https://writer.paco.me
+    category: reference-only
+    commit_sha: d0b3379b13199bc518188709e56efbee03817d49
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2021-10-28
+    local_clone: external-sources/paco
+    priority: low
+    reuse_classification: UX or interaction reference
+    analysis_document: research/public-code-library/repositories/pacocoursey--writer.md
+    reason: Minimal writing interface with ambient background. Visual interaction reference. No license — reference only.
+    useful_files: []
+    known_risks: No license. Outdated (2021).
+
+  # ─── LOCAL-FIRST AND PRODUCTIVITY ───────────────────────────────────────────
+
+  - id: takenote
+    person: Tania Rascia
+    owner: taniarascia
+    repository: takenote
+    url: https://github.com/taniarascia/takenote
+    live_url: https://takenote.dev
+    category: applications
+    commit_sha: e0eddbb9a21ae4cf4c4c7c183f29cfd666e08331
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2024-06-29
+    local_clone: external-sources/takenote
+    priority: high
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/taniarascia--takenote.md
+    reason: Full local-first note-taking app with React/Redux/Redux-Saga/CodeMirror. 7k+ stars. Offline-first with GitHub sync. Client/server architecture separation. Keyboard-driven UI.
+    useful_files:
+      - src/client/slices/
+      - src/client/sagas/
+      - src/client/components/
+      - src/client/selectors/
+      - src/server/
+    known_risks: Redux-Saga is a dated pattern. CodeMirror 5 not 6.
+
+  # ─── NATIVE MACOS AND SWIFT ─────────────────────────────────────────────────
+
+  - id: sindresorhus-settings
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: Settings
+    url: https://github.com/sindresorhus/Settings
+    live_url: null
+    category: native-macos
+    commit_sha: f41475771f65379ca10852c95119a7f53f0de5a5
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-11-10
+    local_clone: external-sources/native-macos/Settings
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--Settings.md
+    reason: Production-quality macOS Settings window framework for SwiftUI. Toolbar and segmented control styles. Native appearance. SPM compatible. 1.5k stars.
+    useful_files:
+      - Sources/Settings/Settings.swift
+      - Sources/Settings/Container.swift
+      - Sources/Settings/Pane.swift
+      - Sources/Settings/SettingsWindowController.swift
+      - Sources/Settings/Style.swift
+    known_risks: macOS 13+ required for some features.
+
+  - id: keyboard-shortcuts
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: KeyboardShortcuts
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    live_url: null
+    category: native-macos
+    commit_sha: 49c3fc04ea827f816df67843bfcc57286b47ff06
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-17
+    local_clone: external-sources/native-macos/KeyboardShortcuts
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--KeyboardShortcuts.md
+    reason: Best-in-class global keyboard shortcut manager for macOS. SwiftUI-native. User-configurable shortcuts with persistent storage. HotKey conflict detection. 2.6k stars. Actively maintained 2026.
+    useful_files:
+      - Sources/KeyboardShortcuts/KeyboardShortcuts.swift
+      - Sources/KeyboardShortcuts/Shortcut.swift
+      - Sources/KeyboardShortcuts/Recorder.swift
+      - Sources/KeyboardShortcuts/Name.swift
+      - Sources/KeyboardShortcuts/ConflictPolicy.swift
+    known_risks: macOS only (guard at top of main file).
+
+  - id: defaults
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: Defaults
+    url: https://github.com/sindresorhus/Defaults
+    live_url: null
+    category: native-macos
+    commit_sha: 00a7465a0668a87fa159e779b9d80f1f9652357e
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-23
+    local_clone: external-sources/native-macos/Defaults
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--Defaults.md
+    reason: Swifty type-safe UserDefaults wrapper. Subscript-based API. Swift Macros for @Observable. iCloud sync support. 2.5k stars. Actively maintained 2026.
+    useful_files:
+      - Sources/Defaults/Defaults.swift
+      - Sources/Defaults/Defaults+Bridge.swift
+      - Sources/Defaults/Defaults+Protocol.swift
+      - Sources/Defaults/Defaults+iCloud.swift
+      - Sources/Defaults/Observation.swift
+      - Sources/DefaultsMacros/ObservableDefault.swift
+    known_risks: Requires Swift Macros for full ObservableDefault feature.
+
+  - id: dock-progress
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: DockProgress
+    url: https://github.com/sindresorhus/DockProgress
+    live_url: null
+    category: native-macos
+    commit_sha: 43ca0137201a479fbd891b129155f4a84c1e1b13
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-01-25
+    local_clone: external-sources/native-macos/DockProgress
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--DockProgress.md
+    reason: Dock icon progress bar for macOS. Two files. Multiple styles (bar, circle, badge, custom). Drop-in for any download/processing task. 1.3k stars.
+    useful_files:
+      - Sources/DockProgress/DockProgress.swift
+      - Sources/DockProgress/Utilities.swift
+    known_risks: Dock animation can interfere if multiple apps use it simultaneously.
+
+  - id: launch-at-login-modern
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: LaunchAtLogin-Modern
+    url: https://github.com/sindresorhus/LaunchAtLogin-Modern
+    live_url: null
+    category: native-macos
+    commit_sha: a04ec1c363be3627734f6dad757d82f5d4fa8fcc
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2024-01-11
+    local_clone: external-sources/native-macos/LaunchAtLogin-Modern
+    priority: critical
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--LaunchAtLogin-Modern.md
+    reason: Single-file LaunchAtLogin implementation using SMAppService (macOS 13+). Replaces legacy LaunchAtLogin-Legacy. Tiny footprint.
+    useful_files:
+      - Sources/LaunchAtLogin/LaunchAtLogin.swift
+    known_risks: macOS 13+ only. Legacy approach needed for 12-.
+
+  - id: macos-trash
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: macos-trash
+    url: https://github.com/sindresorhus/macos-trash
+    live_url: null
+    category: native-macos
+    commit_sha: 9358749ddd1bff42e2251168e35f2e11dbbb88db
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-02-25
+    local_clone: null
+    priority: high
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/sindresorhus--macos-trash.md
+    reason: Move files to macOS Trash programmatically from Swift/Node. Safe alternative to `rm -rf`. 438 stars.
+    useful_files: []
+    known_risks: None significant.
+
+  - id: gifski
+    person: Sindre Sorhus
+    owner: sindresorhus
+    repository: Gifski
+    url: https://github.com/sindresorhus/Gifski
+    live_url: null
+    category: native-macos
+    commit_sha: b765f6cdb88675c5e358071c890724546658ed99
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-10
+    local_clone: null
+    priority: medium
+    reuse_classification: architecture reference
+    analysis_document: research/public-code-library/repositories/sindresorhus--Gifski.md
+    reason: Full native macOS app (8.5k stars) for GIF conversion. Excellent reference for file conversion pipelines, progress reporting, and SwiftUI app architecture.
+    useful_files: []
+    known_risks: Depends on gifski Rust crate via Swift package.
+
+  # ─── DEVELOPER TOOLING ──────────────────────────────────────────────────────
+
+  - id: vscode-file-nesting-config
+    person: Anthony Fu
+    owner: antfu
+    repository: vscode-file-nesting-config
+    url: https://github.com/antfu/vscode-file-nesting-config
+    live_url: null
+    category: developer-tools
+    commit_sha: 7c701eadbe7d37d9687ec24c5303b702bb5b2de7
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2026-06-24
+    local_clone: external-sources/developer-tools
+    priority: high
+    reuse_classification: reusable dataset
+    analysis_document: research/public-code-library/repositories/antfu--vscode-file-nesting-config.md
+    reason: The definitive VS Code file nesting configuration. 3.6k+ stars. Community-maintained pattern rules for every major framework. Directly importable into .vscode/settings.json.
+    useful_files:
+      - package.json (nesting rules embedded)
+    known_risks: VS Code-specific. No runtime dependency.
+
+  # ─── INTERACTION REFERENCE ──────────────────────────────────────────────────
+
+  - id: interfaces
+    person: Rauno Freiberg
+    owner: raunofreiberg
+    repository: interfaces
+    url: https://github.com/raunofreiberg/interfaces
+    live_url: https://rauno.me/craft/interfaces
+    category: reference-only
+    commit_sha: 81f523a5b469ba1ea877fef262588f3b4b65d31f
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-09-07
+    local_clone: external-sources/interfaces
+    priority: high
+    reuse_classification: UX or interaction reference
+    analysis_document: research/public-code-library/repositories/raunofreiberg--interfaces.md
+    reason: Reference showcase for polished micro-interactions. Individual interaction demos (iOS rubber-band, spring physics, magnetic buttons). Very small codebase but extremely high craft density.
+    useful_files:
+      - app/page.js
+      - app/icons.js
+    known_risks: No license — reference only. Rauno's personal creative work.
+
+  # ─── CREATIVE INTERACTION AND ANIMATION ─────────────────────────────────────
+
+  - id: linear-vaporwave-r3f
+    person: Maxime Heckel
+    owner: MaximeHeckel
+    repository: linear-vaporwave-react-three-fiber
+    url: https://github.com/MaximeHeckel/linear-vaporwave-react-three-fiber
+    live_url: null
+    category: interaction-animation
+    commit_sha: 1bf94daa0999ddd1b908deb3e1d479166b82cf79
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2022-11-16
+    local_clone: null
+    priority: low
+    reuse_classification: visual inspiration only
+    analysis_document: research/public-code-library/repositories/MaximeHeckel--linear-vaporwave-react-three-fiber.md
+    reason: R3F vaporwave effect demo accompanying a blog post. Educational for Three.js/R3F patterns. Low general reuse value.
+    useful_files: []
+    known_risks: Outdated R3F version.
+
+  - id: vue-starport
+    person: Anthony Fu
+    owner: antfu
+    repository: vue-starport
+    url: https://github.com/antfu/vue-starport
+    live_url: https://vue-starport.netlify.app
+    category: interaction-animation
+    commit_sha: a6a0e9b40d7f49b3ff11da60ef7794513178b0cb
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-09-14
+    local_clone: null
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/antfu--vue-starport.md
+    reason: Shared element transition across routes in Vue 3. Clever use of teleportation and position tracking. Pattern is applicable to React (Shared Element Transitions API). 2k stars.
+    useful_files:
+      - src/components/Starport.vue
+      - src/composables/
+    known_risks: Vue 3 specific. 2023, not updated.
+
+  - id: whimsical
+    person: Max Böck
+    owner: maxboeck
+    repository: whimsical
+    url: https://github.com/maxboeck/whimsical
+    live_url: https://whimsical.maxbo.me
+    category: interaction-animation
+    commit_sha: d952b079c48d4bd4562934f8f1a1f6ea52447a03
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-05-10
+    local_clone: null
+    priority: low
+    reuse_classification: visual inspiration only
+    analysis_document: research/public-code-library/repositories/maxboeck--whimsical.md
+    reason: Collection of delightful CSS/JS micro-effects. More inspiration than reusable code. 242 stars.
+    useful_files: []
+    known_risks: Eleventy-based, small project. Visual reference only.
+
+  - id: paco-website
+    person: Paco Coursey
+    owner: pacocoursey
+    repository: paco
+    url: https://github.com/pacocoursey/paco
+    live_url: https://paco.me
+    category: reference-only
+    commit_sha: e011620d0fca28fb25d9877c1d739feaddd06b53
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2022-04-04
+    local_clone: external-sources/paco
+    priority: low
+    reuse_classification: UX or interaction reference
+    analysis_document: research/public-code-library/repositories/pacocoursey--paco.md
+    reason: Archived personal website. Historically notable for minimal aesthetic. No license. Reference only.
+    useful_files: []
+    known_risks: Archived. No license.
+
+  - id: moving-letters
+    person: Tobias Ahlin
+    owner: tobiasahlin
+    repository: moving-letters
+    url: https://github.com/tobiasahlin/moving-letters
+    live_url: https://tobiasahlin.com/moving-letters/
+    category: interaction-animation
+    commit_sha: 57b2ec66f59894b42030bc707747247ec42b743b
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2020-10-01
+    local_clone: external-sources/moving-letters
+    priority: medium
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/tobiasahlin--moving-letters.md
+    reason: 16 text animation recipes using anime.js. MIT licensed. Each is a standalone HTML demo. Valuable pattern reference for letter-by-letter animation.
+    useful_files:
+      - "*.html (all 16 demos)"
+    known_risks: anime.js dependency. Vanilla HTML, no framework.
+
+  - id: animated-menu
+    person: Tobias Ahlin
+    owner: tobiasahlin
+    repository: animated-menu
+    url: https://github.com/tobiasahlin/animated-menu
+    live_url: null
+    category: interaction-animation
+    commit_sha: d0bd44fbc628a12c69763356b63aea76d94970db
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2016-05-03
+    local_clone: null
+    priority: low
+    reuse_classification: outdated but educational
+    analysis_document: research/public-code-library/repositories/tobiasahlin--animated-menu.md
+    reason: 2016 CSS hamburger menu animation. Educational for CSS transition techniques but outdated.
+    useful_files: []
+    known_risks: CSS-only, 10 years old. Better modern alternatives exist.
+
+  - id: bendable
+    person: Tobias Ahlin
+    owner: tobiasahlin
+    repository: bendable
+    url: https://github.com/tobiasahlin/bendable
+    live_url: null
+    category: interaction-animation
+    commit_sha: a1c2c6c40ba7a6069aa40426af5cc98807faff54
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-09-22
+    local_clone: null
+    priority: low
+    reuse_classification: visual inspiration only
+    analysis_document: research/public-code-library/repositories/tobiasahlin--bendable.md
+    reason: CSS-only bendy/elastic scroll animations. 73 stars. Small creative experiment. More visual inspiration than reusable library.
+    useful_files: []
+    known_risks: Pure CSS technique, limited compatibility.
+
+  - id: whirl
+    person: Jhey Tompkins
+    owner: jh3y
+    repository: whirl
+    url: https://github.com/jh3y/whirl
+    live_url: https://whirl.netlify.app
+    category: interaction-animation
+    commit_sha: a43ebd524ca890e87d651e2530c5596ab1f0a563
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-01-03
+    local_clone: external-sources/whirl
+    priority: high
+    reuse_classification: directly reusable code
+    analysis_document: research/public-code-library/repositories/jh3y--whirl.md
+    reason: 100+ CSS-only loading animations. MIT. SCSS-based, each animation isolated. The most comprehensive loading animation reference available.
+    useful_files:
+      - src/whirls/ (individual SCSS files for each animation)
+    known_risks: SCSS build system. Animations only, no JS logic.
+
+  - id: meanderer
+    person: Jhey Tompkins
+    owner: jh3y
+    repository: meanderer
+    url: https://github.com/jh3y/meanderer
+    live_url: null
+    category: interaction-animation
+    commit_sha: cbb0f9a475dc730cadf26b50114253342e548879
+    date_analyzed: 2026-06-27
+    license: MIT
+    fork: false
+    upstream: null
+    active: false
+    last_pushed: 2023-01-05
+    local_clone: external-sources/meanderer
+    priority: low
+    reuse_classification: adaptable implementation pattern
+    analysis_document: research/public-code-library/repositories/jh3y--meanderer.md
+    reason: CSS motion path animation library — animates elements along SVG/CSS paths. 224 stars. Lightweight. Interesting motion design primitive.
+    useful_files:
+      - src/meanderer.js
+    known_risks: CSS Motion Path browser support is now good (2024+). Small project.
+
+  - id: vincent-van-git
+    person: Jhey Tompkins
+    owner: jh3y
+    repository: vincent-van-git
+    url: https://github.com/jh3y/vincent-van-git
+    live_url: null
+    category: interaction-animation
+    commit_sha: 801e87a4e223f14eb9b3fadeb491d69b3a7e9747
+    date_analyzed: 2026-06-27
+    license: NONE
+    fork: false
+    upstream: null
+    active: true
+    last_pushed: 2025-12-29
+    local_clone: null
+    priority: low
+    reuse_classification: visual inspiration only
+    analysis_document: research/public-code-library/repositories/jh3y--vincent-van-git.md
+    reason: Create art with your GitHub contribution graph. Creative coding project. No license — reference only.
+    useful_files: []
+    known_risks: No license. Narrow use case.
