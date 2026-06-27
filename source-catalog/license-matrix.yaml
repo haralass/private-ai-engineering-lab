@@ -136,6 +136,98 @@ license_matrix:
     vendoring_allowed: true
     copy_allowed: true
 
+  mit-viscompare:
+    license: Apache-2.0
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  efficientvit:
+    license: Apache-2.0
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but model weights/full snapshots are not committed.
+
+  workspace-multiselect:
+    license: Apache-2.0
+    file_present: false
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: No root LICENSE file; package.json and source headers identify Apache-2.0. No source snapshot committed.
+
+  # ── Local-research-only licensed sources ─────────────────────────────────
+
+  cognimates-gui:
+    license: BSD-3-Clause
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  config-utilities:
+    license: BSD-3-Clause
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  django-channels-presence:
+    license: MIT
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  multimodal-analytics:
+    license: MIT
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  para-visual-programming:
+    license: MIT
+    file_present: true
+    review_status: reviewed
+    vendoring_allowed: true
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: License permits redistribution, but this repository stores only research metadata.
+
+  viznet:
+    license: UNKNOWN
+    file_present: false
+    review_status: restricted
+    vendoring_allowed: false
+    copy_allowed: false
+    source_label: external
+    import_mode: local-research-only
+    notes: No clear project-wide root license at pinned commit. Do not vendor or copy source.
+
   # ── Reference-only (no LICENSE file) ─────────────────────────────────────
 
   algorithm-benchmarking:

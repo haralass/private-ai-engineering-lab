@@ -1,0 +1,25 @@
+display_name: 'Cognimates GUI'
+functional_name: cognimates-gui
+source_url: https://github.com/mitmedialab/cognimates-gui
+source_label: external
+upstream_owner: mitmedialab
+upstream_repository: cognimates-gui
+pinned_commit: 7025907ad83168089e307b321a4d0f81bb740dcf
+upstream_default_branch: develop
+retrieved_at: '2026-06-27T00:00:00Z'
+date_inspected: '2026-06-27'
+license: BSD-3-Clause
+license_file_verified: true
+license_evidence: 'Root `LICENSE` and `package.json` at the pinned commit identify BSD-style/BSD-3-Clause licensing.'
+license_permits_redistribution: true
+import_mode: local-research-only
+research_dossier: sources/cognimates-gui/USEFUL_PATHS.md
+removed_paths:
+- upstream/
+security_review_status: metadata-only
+license_review_status: reviewed
+copy_allowed: false
+vendoring_allowed: true
+execution_allowed: false
+verification_confidence: high
+notes: 'Local clone studied outside Git history. No third-party source snapshot is committed.'

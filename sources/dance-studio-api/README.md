@@ -3,8 +3,8 @@
 Source: [CS-UCY-EPL343/epl343.winter25.team6](https://github.com/CS-UCY-EPL343/epl343.winter25.team6)
 Pinned commit: `d06f49fd9ec6a250d1ab816ceae914aa8487a0bf`
 License: unknown
-Import mode: vendored-snapshot
-Status: candidate (pending review)
+Import mode: local-research-only
+Status: candidate (license pending)
 
 ## What this is
 
@@ -12,14 +12,14 @@ ASP.NET Core 8 REST API for a dance studio management platform (Harris Dance Stu
 Collaborative university project (EPL343). Manages students, classes, academic years,
 enrollments, payments, media, and news.
 
-## What was imported
+## What was studied locally
 
-Full repository:
-- `HDSBackend/` — complete .NET 8 Web API project
-  - Controllers: Auth, Student, Class, AcademicYear, AppUser, StudentClass, StudentAcademicYear, News, Media
-  - Services: full service layer with interfaces
-  - Models: EF Core entities with soft-delete and audit fields
-  - Migrations: complete EF migration history
+No upstream source snapshot is committed here. The local clone was used to study:
+- `HDSBackend/` — .NET 8 Web API project structure
+- Controllers: Auth, Student, Class, AcademicYear, AppUser, StudentClass, StudentAcademicYear, News, Media
+- Services: service layer with interfaces
+- Models: EF Core entities with soft-delete and audit fields
+- Migrations: EF migration history
 
 ## Key reference patterns
 
@@ -33,10 +33,6 @@ Full repository:
 - **File upload** with GUID suffix + alphanumeric-only base name (path injection prevention)
 - **Startup seeding** — admin user and role created automatically on first run
 
-## upstream/
+## Repository handling
 
-Clean snapshot at the pinned commit. Do not modify.
-
-## adapted/
-
-Extracted patterns and integrations go here.
+Keep any local clone under the gitignored `external-sources/` directory. Do not commit upstream code while the license remains unknown.

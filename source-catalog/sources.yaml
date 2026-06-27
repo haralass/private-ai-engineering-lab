@@ -160,6 +160,87 @@ sources:
     status: complete
     phase: 1
 
+  - functional_name: mit-viscompare
+    upstream_repo: mit-han-lab/VisCompare
+    label: external
+    import_mode: local-research-only
+    license: Apache-2.0
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: cognimates-gui
+    upstream_repo: mitmedialab/cognimates-gui
+    label: external
+    import_mode: local-research-only
+    license: BSD-3-Clause
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: config-utilities
+    upstream_repo: MIT-SPARK/config_utilities
+    label: external
+    import_mode: local-research-only
+    license: BSD-3-Clause
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: django-channels-presence
+    upstream_repo: mitmedialab/django-channels-presence
+    label: external
+    import_mode: local-research-only
+    license: MIT
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: efficientvit
+    upstream_repo: mit-han-lab/efficientvit
+    label: external
+    import_mode: local-research-only
+    license: Apache-2.0
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: multimodal-analytics
+    upstream_repo: mitdbg/multimodal-analytics
+    label: external
+    import_mode: local-research-only
+    license: MIT
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: para-visual-programming
+    upstream_repo: mitmedialab/para
+    label: external
+    import_mode: local-research-only
+    license: MIT
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed."
+
+  - functional_name: viznet
+    upstream_repo: mitmedialab/viznet
+    label: external
+    import_mode: local-research-only
+    license: UNKNOWN
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed. No clear project-wide root license at pinned commit."
+
+  - functional_name: workspace-multiselect
+    upstream_repo: mit-cml/workspace-multiselect
+    label: external
+    import_mode: local-research-only
+    license: Apache-2.0
+    status: complete
+    phase: 2
+    notes: "Local clone studied; no upstream source snapshot committed. License evidence comes from package metadata and source headers."
+
   # ── person1 sources ───────────────────────────────────────────────────────
 
   - functional_name: durable-background-job-queue

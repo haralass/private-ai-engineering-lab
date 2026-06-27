@@ -3,22 +3,22 @@
 Source: [giannisHadjizorzis/OSRH](https://github.com/giannisHadjizorzis/OSRH)
 Pinned commit: `e4fe4835192974b22e42c5b4f45312906d93098c`
 License: unknown
-Import mode: vendored-snapshot
-Status: candidate (pending review)
+Import mode: local-research-only
+Status: candidate (license pending; demo credentials documented)
 
 ## What this is
 
 Collaborative PHP ride-booking platform with multi-segment ride logic, Leaflet maps,
 Nominatim geocoding, and SQL Server backend. Collaborative work.
 
-## What was imported
+## What was studied locally
 
-Full repository including:
-- `book_ride.js` — main frontend logic (793 lines)
+No upstream source snapshot is committed here. The local clone was used to study:
+- `book_ride.js` — main frontend ride-booking logic
 - `book_ride.php` / `book_ride.css` — booking UI
-- `my_frontend_files/` — upgraded UI versions (5-step wizard, analytics dashboard)
+- `my_frontend_files/` — upgraded UI versions
 - `files_for_frontend_upgrade/` — intermediate upgrade versions
-- All PHP backend files (login, register, dashboard, driver flow, tracking)
+- PHP backend files for login, register, dashboard, driver flow, and tracking
 
 ## Key reusable utilities (in upstream/book_ride.js)
 
@@ -30,13 +30,10 @@ Full repository including:
 
 ## Security note
 
-`upstream/dashboard.php` and several other files contain hardcoded SQL Server credentials
-from the original repo. Do NOT expose `upstream/` publicly. Keep this source private.
+The studied upstream contained hardcoded demo credentials (`password123`,
+`localhost/root/root`). They were assessed as non-production demo values and
+the upstream source tree is not committed to this repository.
 
-## upstream/
+## Repository handling
 
-Clean snapshot at the pinned commit. Do not modify.
-
-## adapted/
-
-Extracted utilities (haversine, Nominatim search, Greek NLP helpers) go here.
+Keep any local clone under the gitignored `external-sources/` directory. Do not commit upstream code while the license remains unknown.

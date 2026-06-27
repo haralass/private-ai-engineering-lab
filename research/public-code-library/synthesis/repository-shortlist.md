@@ -2,8 +2,8 @@
 
 **Public Code Research Library**
 **Analysis date**: 2026-06-27
-**Total candidates evaluated**: 130+
-**Total retained**: 68 (46 clone, 15 reference-only, 7 metadata-only)
+**Total candidates evaluated**: 108
+**Manifest repositories**: 68; **candidate pool**: 75 accepted, 19 rejected, 5 needs-verification, 9 summary-only
 
 ---
 
@@ -84,7 +84,7 @@ These repositories are shallow-cloned to `external-sources/` and analyzed in dep
 | tobiasahlin/moving-letters | tobiasahlin | 57b2ec6 | MIT | reference-only | anime.js text animation patterns; visual inspiration |
 | pacocoursey/paco | pacocoursey | e011620 | none | reference-only | Personal site; study only, no license |
 | bchiang7/v4 | bchiang7 | 539cef0 | MIT | reference-only | Clean frontend portfolio patterns |
-| bchiang7/spotify-profile | bchiang7 | d78c3c4 | MIT | visual-or-technical-experiment | Spotify OAuth + audio feature visualization |
+| bchiang7/spotify-profile | bchiang7 | d78c3c4 | ISC package metadata; no root LICENSE | visual-or-technical-experiment | Spotify OAuth + audio feature visualization |
 | raunofreiberg/interfaces | raunofreiberg | 81f523a | none | reference-only | Interaction design research; no license |
 | brunosimon/threejs-template-complex | brunosimon | 2c35172 | UNLICENSED | reference-only | Unlicensed; study only; use folio-2019 instead |
 
@@ -102,7 +102,7 @@ These repositories are documented but not shallow-cloned. Accessed via GitHub.
 | Shopify/polaris-react | MIT | reference-only | Archived Jan 2026; design system reference |
 | Shopify/react-native-skia | MIT | reusable-engine-or-library | React Native 2D rendering; use via npm |
 | Shopify/flash-list | MIT | reusable-engine-or-library | High-performance React Native list; use via npm |
-| brunosimon/folio-2025 | unknown | candidate-unverified | Newer portfolio; inspect before cloning |
+| brunosimon/folio-2025 | unknown | needs-verification | Newer portfolio; inspect before cloning |
 | brunosimon/my-room-in-3d | MIT | reference-only | GLTF loading patterns |
 | vercel/geist-font | MIT | reference-only | Variable font; use via npm |
 | LeaVerou/leaverou.github.io | none | reference-only | Data repo, not site source |
