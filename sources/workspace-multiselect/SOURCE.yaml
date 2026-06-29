@@ -1,0 +1,25 @@
+display_name: 'workspace-multiselect'
+functional_name: workspace-multiselect
+source_url: https://github.com/mit-cml/workspace-multiselect
+source_label: external
+upstream_owner: mit-cml
+upstream_repository: workspace-multiselect
+pinned_commit: 2ae843226a40f530e7b658f03d570615ca66b952
+upstream_default_branch: main
+retrieved_at: '2026-06-27T00:00:00Z'
+date_inspected: '2026-06-27'
+license: Apache-2.0
+license_file_verified: false
+license_evidence: 'No root LICENSE file was found at the pinned commit, but `package.json` declares `Apache-2.0` and source files include `SPDX-License-Identifier: Apache-2.0` headers.'
+license_permits_redistribution: true
+import_mode: local-research-only
+research_dossier: sources/workspace-multiselect/USEFUL_PATHS.md
+removed_paths:
+- upstream/
+security_review_status: metadata-only
+license_review_status: reviewed
+copy_allowed: false
+vendoring_allowed: false
+execution_allowed: false
+verification_confidence: high
+notes: 'Local clone studied outside Git history. No third-party source snapshot is committed. Full-repository vendoring is not authorized because no root LICENSE exists; a future PR may approve only individually verified SPDX-header files.'

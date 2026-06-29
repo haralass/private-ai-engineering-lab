@@ -17,7 +17,7 @@ These were excluded by explicit instruction in the task brief.
 | raunofreiberg/primitives | Task brief: not Rauno's original work | This is the Radix Primitives upstream repo; Rauno submitted PRs to it but did not author it |
 | emilkowalski/vaul | Task brief: treat as reference-only if unmaintained | Actually active (push Oct 2025); reclassified as low-priority clone |
 | Old portfolio repos without proof | Task brief: no old portfolios without current deployment proof | Several personal sites were downgraded to reference-only without confirmed live deployment |
-| 4Akera/openkairo | Task brief: keep as candidate-unverified | Ownership unverified; no live-site relationship confirmed; cannot verify maturity |
+| 4Akera/openkairo | Task brief: keep as needs-verification | Ownership unverified; no live-site relationship confirmed; cannot verify maturity |
 
 ---
 
@@ -104,22 +104,22 @@ These tools are valuable and MIT-licensed but are better used as npm dependencie
 ## Unverified — Pending Decision
 
 ### 4Akera/openkairo
-**Status**: candidate-unverified
-**Reason held**: Task brief explicitly flagged this as candidate-unverified. Author identity and relationship to any live product not independently confirmed. No GitHub stars or public deployment evidence at time of analysis.
+**Status**: needs-verification
+**Reason held**: Task brief explicitly flagged this as needs-verification. Author identity and relationship to any live product not independently confirmed. No GitHub stars or public deployment evidence at time of analysis.
 **Action required**: Re-evaluate when the project has a public launch announcement or verifiable author identity. Do not clone until verified.
 
 ### brunosimon/folio-2025
-**Status**: unverified
+**Status**: needs-verification
 **Reason held**: Newer personal portfolio from Bruno Simon. Not yet inspected (not cloned). License unknown.
 **Action required**: Inspect license before cloning. If MIT, would likely qualify as medium-priority 3D reference.
 
 ### emilkowalski/motion-primitives
-**Status**: unverified
+**Status**: needs-verification
 **Reason held**: Discovered via agents' new-candidates-discovered report. Framer Motion component library. Not inventoried in main pass.
 **Action required**: Check license, maintenance status, and whether patterns differ meaningfully from sonner/vaul patterns already captured.
 
 ### raunofreiberg/bezel
-**Status**: unverified
+**Status**: needs-verification
 **Reason held**: Device frame component discovered by agents. Not inventoried in main pass.
 **Action required**: Check license, stars, maintenance. If MIT + maintained, would fit the medium-priority UI component category.
 

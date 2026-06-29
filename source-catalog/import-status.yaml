@@ -258,6 +258,96 @@ local_research_only:
     reason: No LICENSE file. C# scripts analyzed locally.
     research_dossier: research/people/person4/REPOSITORIES_REVIEWED.md
 
+  - functional_name: mit-viscompare
+    url: https://github.com/mit-han-lab/VisCompare
+    pinned_commit: 39b819d73fabf84353f0a60d900a8a56ca4b6f8b
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: Apache-2.0
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/mit-viscompare/USEFUL_PATHS.md
+
+  - functional_name: cognimates-gui
+    url: https://github.com/mitmedialab/cognimates-gui
+    pinned_commit: 7025907ad83168089e307b321a4d0f81bb740dcf
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: BSD-3-Clause
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/cognimates-gui/USEFUL_PATHS.md
+
+  - functional_name: config-utilities
+    url: https://github.com/MIT-SPARK/config_utilities
+    pinned_commit: 629688a1f6c24ff38130aebd528838a569179dac
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: BSD-3-Clause
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/config-utilities/USEFUL_PATHS.md
+
+  - functional_name: django-channels-presence
+    url: https://github.com/mitmedialab/django-channels-presence
+    pinned_commit: bcc9f71ca2162d8d8539466ad9787715d43c0faf
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: MIT
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/django-channels-presence/USEFUL_PATHS.md
+
+  - functional_name: efficientvit
+    url: https://github.com/mit-han-lab/efficientvit
+    pinned_commit: de7d7733cc0329f391b33f1f459271562ec27bd5
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: Apache-2.0
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/efficientvit/USEFUL_PATHS.md
+
+  - functional_name: multimodal-analytics
+    url: https://github.com/mitdbg/multimodal-analytics
+    pinned_commit: de8fd18e20bbbcd13786dc20841cb3ea859b5335
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: MIT
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/multimodal-analytics/USEFUL_PATHS.md
+
+  - functional_name: para-visual-programming
+    url: https://github.com/mitmedialab/para
+    pinned_commit: 5aa5a2801b78159ebcd1ff45bd55c2b43d1daa7a
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: MIT
+    reason: Licensed local research record. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/para-visual-programming/USEFUL_PATHS.md
+
+  - functional_name: viznet
+    url: https://github.com/mitmedialab/viznet
+    pinned_commit: 21a56e3e5cc76979357ddaf944dc7d9058e28ee2
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: UNKNOWN
+    reason: No clear project-wide root license at pinned commit. Full upstream snapshot not committed.
+    research_dossier: sources/viznet/USEFUL_PATHS.md
+
+  - functional_name: workspace-multiselect
+    url: https://github.com/mit-cml/workspace-multiselect
+    pinned_commit: 2ae843226a40f530e7b658f03d570615ca66b952
+    studied_at: "2026-06-27T00:00:00Z"
+    source_label: external
+    secret_scan: not_applicable_metadata_only
+    license_found: Apache-2.0
+    reason: Package metadata/source headers indicate Apache-2.0. Full upstream snapshot intentionally not committed.
+    research_dossier: sources/workspace-multiselect/USEFUL_PATHS.md
+
 reference_only:
   - functional_name: asynchronous-job-processing
     url: https://github.com/sgavriil01/sms-platform

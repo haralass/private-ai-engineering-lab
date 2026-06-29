@@ -81,7 +81,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/kentcdodds--kentcdodds.com.md
     reason: Large Remix/MDX site with sophisticated content authoring pipeline and workshop integration. Architecture reference for content-heavy sites.
     useful_files: []
-    known_risks: Mixed/unclear license (NOASSERTION). Content is personal. Do not reuse without explicit permission.
+    known_risks: Mixed/unclear license (NOASSERTION). Study/reference only; do not copy code or content without explicit permission.
 
   - id: mxb
     person: Max Böck
@@ -92,7 +92,8 @@ repositories:
     category: applications
     commit_sha: 5a922eaea07d95b048b5d515d5afd2aa54c2c204
     date_analyzed: 2026-06-27
-    license: NONE
+    license: ISC
+    license_source: package.json only; no root LICENSE file found at pinned commit
     fork: false
     upstream: null
     active: true
@@ -148,7 +149,7 @@ repositories:
     reason: OAuth + Spotify Web API integration reference. Last active 2023. Outdated stack (CRA).
     useful_files:
       - client/src/spotify/
-    known_risks: No license. Outdated stack. API integration patterns may be stale.
+    known_risks: No root LICENSE file. Study/reference only; do not copy code without separate license verification. Outdated stack; API integration patterns may be stale.
 
   - id: octoprofile
     person: Brittany Chiang
@@ -170,7 +171,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/bchiang7--octoprofile.md
     reason: GitHub profile visualizer. No license, outdated stack. Limited general value.
     useful_files: []
-    known_risks: No license. Outdated.
+    known_risks: No license. Reference-only; do not copy code. Outdated.
 
   # ─── DESIGN SYSTEMS ─────────────────────────────────────────────────────────
 
@@ -190,7 +191,7 @@ repositories:
     last_pushed: 2025-12-29
     local_clone: external-sources/design-system
     priority: high
-    reuse_classification: adaptable implementation pattern
+    reuse_classification: reference-only
     analysis_document: research/public-code-library/repositories/MaximeHeckel--design-system.md
     reason: Stitches-based design system with composable Box/Card/Tooltip/TextInput components. Excellent token architecture and variant system.
     useful_files:
@@ -321,12 +322,12 @@ repositories:
     last_pushed: 2023-12-15
     local_clone: external-sources/stretchy
     priority: medium
-    reuse_classification: adaptable implementation pattern
+    reuse_classification: reference-only
     analysis_document: research/public-code-library/repositories/LeaVerou--stretchy.md
     reason: Form element auto-resize (textarea, input, select). Clever algorithm using sizing shims. Educational for understanding form auto-sizing.
     useful_files:
       - src/stretchy.js
-    known_risks: NOASSERTION license — verify before reuse.
+    known_risks: NOASSERTION license. Study/reference only; do not copy code until reuse permission is verified.
 
   - id: spinkit
     person: Tobias Ahlin
@@ -495,7 +496,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/pacocoursey--writer.md
     reason: Minimal writing interface with ambient background. Visual interaction reference. No license — reference only.
     useful_files: []
-    known_risks: No license. Outdated (2021).
+    known_risks: No license. Reference-only; do not copy code. Outdated (2021).
 
   # ─── LOCAL-FIRST AND PRODUCTIVITY ───────────────────────────────────────────
 
@@ -842,7 +843,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/pacocoursey--paco.md
     reason: Archived personal website. Historically notable for minimal aesthetic. No license. Reference only.
     useful_files: []
-    known_risks: Archived. No license.
+    known_risks: Archived. No license. Reference-only; do not copy code.
 
   - id: moving-letters
     person: Tobias Ahlin
@@ -977,7 +978,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/jh3y--vincent-van-git.md
     reason: Create art with your GitHub contribution graph. Creative coding project. No license — reference only.
     useful_files: []
-    known_risks: No license. Narrow use case.
+    known_risks: No license. Reference-only; do not copy code. Narrow use case.
 
   # ─── 3D / WebGL ─────────────────────────────────────────────────────────────
 
@@ -998,7 +999,8 @@ repositories:
     local_clone: external-sources/folio-2019
     priority: critical
     reuse_classification: architecture reference
-    analysis_document: research/public-code-library/repositories/brunosimon--folio-2019.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Best-structured public vanilla Three.js application. Application.js singleton + event-driven Resources.js asset loader. Per-object World classes. Shader files per-directory (vertex.glsl+fragment.glsl). The canonical reference for large Three.js project structure.
     useful_files:
       - src/javascript/Application.js
@@ -1024,10 +1026,11 @@ repositories:
     local_clone: external-sources/threejs-template-complex
     priority: low
     reuse_classification: reference-only
-    analysis_document: research/public-code-library/repositories/brunosimon--threejs-template-complex.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Newer Three.js template from Bruno Simon but UNLICENSED. All rights reserved. Use folio-2019 (MIT) instead for architecture reference.
     useful_files: []
-    known_risks: UNLICENSED — no reuse permitted at all.
+    known_risks: UNLICENSED. Study/reference only; no reuse or copying permitted.
 
   - id: r3f-scroll-rig
     person: 14islands
@@ -1046,7 +1049,8 @@ repositories:
     local_clone: external-sources/r3f-scroll-rig
     priority: high
     reuse_classification: directly reusable code
-    analysis_document: research/public-code-library/repositories/14islands--r3f-scroll-rig.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Canonical solution for synchronizing DOM scroll with React Three Fiber. GlobalCanvas (single shared R3F canvas) + ScrollScene + useTracker (DOM element → world-space transform). Solves the hardest problem in hybrid DOM/WebGL layouts.
     useful_files:
       - src/scrollrig/components/GlobalCanvas.tsx
@@ -1071,7 +1075,8 @@ repositories:
     local_clone: external-sources/codrops-scroll-rig-tutorial
     priority: medium
     reuse_classification: reference-only
-    analysis_document: research/public-code-library/repositories/14islands--codrops-scroll-rig-tutorial.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Official tutorial companion to r3f-scroll-rig showing scroll-driven 3D scene integration. Study alongside r3f-scroll-rig source.
     useful_files:
       - src/
@@ -1096,7 +1101,8 @@ repositories:
     local_clone: external-sources/hydrogen
     priority: critical
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/Shopify--hydrogen.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Official Shopify headless commerce framework. React Router v7 + Vite SSR + GraphQL Storefront API + Oxygen edge deployment. Cart managed via HTML form actions (no JS client mutation). Definitive Shopify headless reference.
     useful_files:
       - templates/skeleton/app/routes/cart.tsx
@@ -1121,12 +1127,13 @@ repositories:
     local_clone: external-sources/dawn
     priority: medium
     reuse_classification: reference-only
-    analysis_document: research/public-code-library/repositories/Shopify--dawn.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Shopify Online Store 2.0 reference theme. Liquid + JSON templates + Section groups. Architecture reference for OS2.0 development patterns.
     useful_files:
       - sections/
       - layout/theme.liquid
-    known_risks: RESTRICTED LICENSE — only permitted for themes served through Shopify. Do not use in non-Shopify contexts.
+    known_risks: RESTRICTED LICENSE. Study/reference only unless the intended use is a verified Shopify theme context; do not copy for non-Shopify contexts.
 
   - id: commerce
     person: null
@@ -1145,7 +1152,8 @@ repositories:
     local_clone: external-sources/commerce
     priority: critical
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/vercel--commerce.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Canonical Next.js App Router + RSC + Server Actions commerce implementation. Cart mutations via Server Actions (not client API calls). Provider-agnostic product/collection interface with Shopify wired in. Best reference for modern React Server Component commerce patterns.
     useful_files:
       - components/cart/actions.ts
@@ -1171,7 +1179,8 @@ repositories:
     local_clone: external-sources/nextjs-starter-medusa
     priority: medium
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/medusajs--nextjs-starter-medusa.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Official Medusa 2.0 Next.js storefront. App Router + React Query cart + Medusa REST API. Demonstrates self-hosted commerce backend pattern.
     useful_files:
       - src/modules/cart/
@@ -1195,7 +1204,8 @@ repositories:
     local_clone: external-sources/saleor-storefront
     priority: medium
     reuse_classification: reference-only
-    analysis_document: research/public-code-library/repositories/saleor--storefront.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: In-app embedded checkout pattern (no redirect to payment page). Inline card element form. Study checkout UX architecture only.
     useful_files:
       - src/app/(main)/checkout/
@@ -1218,7 +1228,8 @@ repositories:
     local_clone: external-sources/storefront
     priority: medium
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/spree--storefront.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Next.js App Router + Radix UI storefront with comprehensive Vitest unit tests and Playwright e2e tests. Best-tested storefront in the library.
     useful_files:
       - apps/storefront/src/
@@ -1242,7 +1253,8 @@ repositories:
     local_clone: external-sources/pack-hydrogen-theme-blueprint
     priority: medium
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/packdigital--pack-hydrogen-theme-blueprint.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: More complete Hydrogen starting point than the official skeleton. Pack CMS integration for section-based content management. Good reference when Hydrogen + CMS is needed.
     useful_files:
       - app/sections/
@@ -1268,7 +1280,8 @@ repositories:
     local_clone: external-sources/epic-stack
     priority: critical
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/epicweb-dev--epic-stack.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: The most complete public React Router v7 full-stack starter. TOTP 2FA, RBAC permission system, Conform+Zod form validation, LiteFS distributed SQLite, Sentry, Playwright. Transferred from kentcdodds org to epicweb-dev. The gold standard for React full-stack architecture reference.
     useful_files:
       - app/utils/auth.server.ts
@@ -1323,7 +1336,7 @@ repositories:
     priority: high
     reuse_classification: production-starter
     analysis_document: research/public-code-library/repositories/antfu-collective--vitesse.md
-    reason: The definitive Vue 3 + Vite starter. Establishes: unplugin-auto-import for component auto-import, file-based routing via vite-plugin-pages, UnoCSS utility-first styling, Pinia state. 9k stars. Transferred from antfu/vitesse to antfu-collective.
+    reason: "The definitive Vue 3 + Vite starter. Establishes: unplugin-auto-import for component auto-import, file-based routing via vite-plugin-pages, UnoCSS utility-first styling, Pinia state. 9k stars. Transferred from antfu/vitesse to antfu-collective."
     useful_files:
       - vite.config.ts
       - src/main.ts
@@ -1424,8 +1437,9 @@ repositories:
     local_clone: external-sources/foomedical
     priority: critical
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/medplum--foomedical.md
-    reason: Only public FHIR R4-backed React patient portal. SMART on FHIR OAuth2 auth. Mantine UI. Covers: health record, messages, care plans, lab results, appointments. The definitive starting point for patient-facing healthcare apps.
+    analysis_document: null
+    analysis_status: summary-only
+    reason: "Only public FHIR R4-backed React patient portal. SMART on FHIR OAuth2 auth. Mantine UI. Covers: health record, messages, care plans, lab results, appointments. The definitive starting point for patient-facing healthcare apps."
     useful_files:
       - src/pages/health-record/
       - src/pages/messages/
@@ -1449,7 +1463,8 @@ repositories:
     local_clone: external-sources/medplum-chart-demo
     priority: critical
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/medplum--medplum-chart-demo.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Only public FHIR-backed clinical chart UI. Clinician-facing EHR with encounter notes, lab results, vitals timeline, medication management. Complements foomedical (patient) with provider side.
     useful_files:
       - src/components/encounter/
@@ -1474,7 +1489,8 @@ repositories:
     local_clone: external-sources/medplum-demo-bots
     priority: medium
     reuse_classification: adaptable implementation pattern
-    analysis_document: research/public-code-library/repositories/medplum--medplum-demo-bots.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Reference implementations for FHIR event-driven automation (Medplum Bots). Patterns for HL7v2 ADT parsing, EHR integration, lab result routing, and care-plan automation.
     useful_files:
       - src/examples/
@@ -1497,7 +1513,8 @@ repositories:
     local_clone: external-sources/medplum-hello-world
     priority: low
     reuse_classification: production-starter
-    analysis_document: research/public-code-library/repositories/medplum--medplum-hello-world.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Minimal Medplum entry point. Study after foomedical/chart-demo for understanding the base SDK API.
     useful_files:
       - src/
@@ -1522,8 +1539,9 @@ repositories:
     local_clone: external-sources/nhsuk-service-manual
     priority: critical
     reuse_classification: architecture reference
-    analysis_document: research/public-code-library/repositories/nhsuk--nhsuk-service-manual.md
-    reason: Most rigorous public healthcare design system documentation. Evidence-based component guidance: user research citations, do/don't examples, accessibility-by-role documentation. WCAG 2.2 AA compliance documentation methodology is the best available public example.
+    analysis_document: null
+    analysis_status: summary-only
+    reason: "Most rigorous public healthcare design system documentation. Evidence-based component guidance: user research citations, do/don't examples, accessibility-by-role documentation. WCAG 2.2 AA compliance documentation methodology is the best available public example."
     useful_files:
       - app/views/design-system/components/
       - app/views/accessibility/
@@ -1548,7 +1566,8 @@ repositories:
     local_clone: external-sources/website
     priority: medium
     reuse_classification: architecture reference
-    analysis_document: research/public-code-library/repositories/payloadcms--website.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Self-referential example of Next.js App Router + Payload CMS in production. payloadcms.com is built with Payload CMS itself. Best reference for Payload + Next.js integration patterns.
     useful_files:
       - src/payload/
@@ -1599,7 +1618,8 @@ repositories:
     local_clone: external-sources/webstudio
     priority: medium
     reuse_classification: reference-only
-    analysis_document: research/public-code-library/repositories/webstudio-is--webstudio.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: Open-source Webflow alternative. CSS engine (packages/css-engine) and page-tree JSON model are academically interesting. Study the CSS serialization and page-tree architecture.
     useful_files:
       - packages/css-engine/src/
@@ -1625,7 +1645,8 @@ repositories:
     local_clone: external-sources/bitbybit
     priority: medium
     reuse_classification: adaptable implementation pattern
-    analysis_document: research/public-code-library/repositories/bitbybit-dev--bitbybit.md
+    analysis_document: null
+    analysis_status: summary-only
     reason: TypeScript API wrapping WebAssembly OpenCascade CAD kernel. Web Worker message-passing architecture for off-thread geometry computation. The only mature public TypeScript CAD library.
     useful_files:
       - packages/bitbybit-core/src/
