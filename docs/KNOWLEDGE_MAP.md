@@ -1,221 +1,201 @@
 # Knowledge Map
 
-This document explains where each type of information lives in this repository,
-and how problems, sources, research, and ideas connect to each other.
+This document explains where each type of information lives in this repository and how sources, research, product ideas, validation, and implementation work connect.
 
 ---
 
-## Directory purposes
+## Directory Purposes
 
 | Directory | What goes here |
 |---|---|
-| `sources/` | External repositories and reference code — vendored snapshots or reference-only catalogs |
-| `research/` | Analysis of people, repositories, and topics — observations and patterns, not product specs |
+| `sources/` | Source records: vendored snapshots, selected subsystems, local-research-only dossiers, and reference-only metadata |
+| `source-catalog/` | Cross-source catalog metadata, import status, and license matrix |
+| `research/` | Analysis of people, repositories, public code, and topics |
+| `research/public-code-library/` | Public-code research library: manifest, dossiers, synthesis, candidates, raw evidence |
 | `business-research/` | Startup research, thematic opportunities, and structured business idea evaluation |
-| `ideas/` | Personal raw business ideas — short-form inbox before formal evaluation |
-| `product-concepts/` | Ideas that have survived initial evaluation — structured concept files |
+| `ideas/` | Personal raw business ideas before formal evaluation |
+| `product-concepts/` | Ideas that survived initial evaluation and have structured concept files |
 | `components/` | Our own reusable code, built and tested in this repo |
-| `experiments/` | Isolated test runs, runtime explorations, single-purpose trials |
+| `experiments/` | Isolated runtime explorations and single-purpose trials |
 | `reference-implementations/` | Adapted or reimplemented patterns from studied sources |
-| `skill-library/` | Claude Code skill candidates and approved skills |
+| `skill-library/` | AI skill candidates, approved skills, rejected skills, and evaluation notes |
 | `workflows/` | Documented multi-step processes and agent workflows |
-| `docs/` | Lab-wide documentation: architecture, decisions, policies, roadmap |
+| `scripts/validation/` | Validators for source records, catalog consistency, and public-code-library integrity |
+| `docs/` | Lab-wide documentation: current state, architecture, decisions, policies, roadmap |
 
 ---
 
-## Problem → sources → research → ideas
+## Public-Code Library Map
 
-### Agent safety
+| Path | Purpose |
+|---|---|
+| `research/public-code-library/README.md` | Public-code-library overview and active counts |
+| `research/public-code-library/manifest.yaml` | Canonical 68-repository research manifest |
+| `research/public-code-library/candidate-pool.yaml` | 107 candidate entries with controlled statuses and actions |
+| `research/public-code-library/repositories/` | 48 full repository dossiers |
+| `research/public-code-library/synthesis/` | Cross-repo synthesis: top assets, shortlist, licensing, rejected repos, useful assets |
+| `research/public-code-library/professional-websites/` | Professional website catalogue and verified live/source pairs |
+| `research/public-code-library/rejected/` | Rejected and unverified notes retained outside active synthesis |
+| `research/public-code-library/data/raw/` | Raw JSON evidence preserved for traceability |
+| `research/public-code-library/archive/` | Historical reports and superseded documents |
 
-**Problem:** AI coding agents take irreversible actions (force push, drop table, mass delete) with no structured enforcement layer.
+Validation entrypoint: `scripts/validation/validate_public_code_library.py`.
 
-→ `sources/deterministic-agent-safety/` (poshan0126/dotclaude, vendored MIT)
-→ `sources/structured-agent-development/` (obra/superpowers, vendored MIT)
-→ `components/agent-safety-firewall/` (prototype built in Phase 1)
-→ `product-concepts/agent-permission-firewall/`
+---
+
+## Source Catalog Map
+
+| Path | Purpose |
+|---|---|
+| `source-catalog/sources.yaml` | Source registry keyed by functional source name |
+| `source-catalog/import-status.yaml` | Import mode, decision, and source-level status |
+| `source-catalog/license-matrix.yaml` | License evidence, review state, and copy/vendoring decisions |
+| `sources/**/SOURCE.yaml` | Per-source canonical source manifest |
+| `sources/**/ATTRIBUTION.md` | Attribution and source URL record |
+| `sources/**/AUDIT.md` | Vendored/selected-source audit notes |
+| `sources/**/FILE_MANIFEST.json` | Vendored/selected-source file manifest |
+| `sources/**/USEFUL_PATHS.md` | Local-research-only useful path notes |
+
+Validation entrypoints:
+
+```bash
+python scripts/validation/validate_source_manifests.py
+python scripts/validation/validate_catalog_consistency.py
+```
+
+---
+
+## Problem → Sources → Research → Ideas
+
+### Agent Safety
+
+**Problem:** AI coding agents take irreversible actions without structured enforcement.
+
+→ `sources/deterministic-agent-safety/` (vendored MIT)  
+→ `sources/structured-agent-development/` (vendored MIT)  
+→ `components/agent-safety-firewall/`  
+→ `product-concepts/agent-permission-firewall/`  
 → `business-research/startup-white-spaces/agent-permission-firewall.md`
 
----
+### Public Code And Professional Websites
 
-### Synthetic data
+**Problem:** High-quality public implementations contain useful architecture, interaction, and content patterns, but licensing and provenance need strict separation from inspiration.
 
-**Problem:** Real data can't be used in dev/test (privacy). Naive random data violates relational integrity.
+→ `research/public-code-library/repositories/`  
+→ `research/public-code-library/synthesis/top-30-lab-assets.md`  
+→ `research/public-code-library/synthesis/licensing-and-provenance.md`  
+→ `research/public-code-library/professional-websites/catalogue.md`  
+→ `research/public-code-library/professional-websites/verified-live-source-pairs.md`
 
-→ `sources/synthetic-relational-data/` (tsembp/one-stop-ride-hail, reference-only)
-→ `reference-implementations/synthetic-relational-data-generation/`
+### Business And Product Research
+
+**Problem:** Product ideas need a trail from observed technical patterns to market hypotheses and risk analysis.
+
+→ `business-research/`  
+→ `ideas/`  
+→ `product-concepts/`  
+→ relevant `sources/` and `research/` dossiers
+
+### Synthetic Data
+
+**Problem:** Real data cannot be used safely in dev/test, and naive random data violates relational integrity.
+
+→ `sources/synthetic-relational-data/` (reference-only)  
+→ `reference-implementations/synthetic-relational-data-generation/`  
 → `product-concepts/synthetic-test-data-platform/`
-→ `business-research/category-a/synthetic-regulatory-document-ai.md`
 
----
+### Database / SQL Learning
 
-### Database / SQL learning
+**Problem:** SQL practice platforms often use toy data and weak feedback loops.
 
-**Problem:** SQL practice platforms use toy data and don't explain errors in context.
-
-→ `sources/database-query-training/` (tsembp/SQL-Gym, vendored MIT)
-→ `reference-implementations/database-query-training-environment/`
+→ `sources/database-query-training/` (vendored MIT)  
+→ `reference-implementations/database-query-training-environment/`  
 → `product-concepts/adaptive-sql-learning-platform/`
 
----
+### Change Monitoring And Notifications
 
-### Change monitoring and notifications
+**Problem:** Tracking many sources requires polling, deduplication, and importance filtering.
 
-**Problem:** Tracking multiple sources (job listings, regulatory updates, pricing) requires polling, deduplication, and importance filtering.
-
-→ `sources/change-monitoring-notifications/` (tsembp/WG-Course-Task-Notifier-Bot, reference-only)
-→ `reference-implementations/monitored-source-notifications/`
+→ `sources/change-monitoring-notifications/` (reference-only)  
+→ `reference-implementations/monitored-source-notifications/`  
 → `product-concepts/intelligent-change-monitoring/`
 
----
+### Business Energy Optimization
 
-### Business energy optimization
+**Problem:** Commercial buildings with solar and batteries need accessible dispatch optimization and ROI analysis.
 
-**Problem:** Commercial buildings with solar + battery installations lack accessible dispatch optimization and ROI analysis tools.
-
-→ `sources/business-energy-dispatch/` (sgavriil01/neura-btm-battery-dispatch, reference-only)
-→ `reference-implementations/business-energy-dispatch-simulation/`
+→ `sources/business-energy-dispatch/` (reference-only)  
+→ `reference-implementations/business-energy-dispatch-simulation/`  
 → `product-concepts/business-energy-optimization/`
 
----
+### Background Job Processing
 
-### Background job processing
+**Problem:** Reliable async job queues are a recurring backend infrastructure need.
 
-**Problem:** Reliable async job queues are a recurring infrastructure need in most product backends.
-
-→ `sources/asynchronous-job-processing/` (sgavriil01/sms-platform, reference-only)
-→ `sources/durable-background-job-queue/` (sgavriil01/forgequeue, vendored MIT)
-→ `reference-implementations/asynchronous-job-processing/`
+→ `sources/asynchronous-job-processing/` (reference-only)  
+→ `sources/durable-background-job-queue/` (vendored MIT)  
+→ `reference-implementations/asynchronous-job-processing/`  
 → `reference-implementations/durable-background-job-queue/`
 
----
+### AI Skill Infrastructure
 
-### AI skill infrastructure
+**Problem:** AI agent skills need auditing, benchmarking, and verification before deployment.
 
-**Problem:** No standard exists for auditing, benchmarking, or verifying AI agent skills before deployment.
-
-→ `sources/anthropic-skills/` (anthropics/skills, reference-only)
-→ `sources/vercel-skills/` (vercel-labs/skills, reference-only)
-→ `skill-library/`
-→ `components/skill-evaluation-runner/` (stub)
-→ `product-concepts/skill-benchmarking-platform/`
+→ `sources/anthropic-skills/` (reference-only)  
+→ `sources/vercel-skills/` (reference-only)  
+→ `skill-library/`  
+→ `components/skill-evaluation-runner/`  
+→ `product-concepts/skill-benchmarking-platform/`  
 → `product-concepts/trusted-skill-marketplace/`
 
----
+### Design Quality And UI Systems
 
-### Design quality and UI systems
+**Problem:** Maintaining visual and interaction quality at scale needs systematic review tools.
 
-**Problem:** Maintaining visual and interaction quality at scale requires systematic review tools, not ad-hoc feedback.
+→ `sources/design-quality-and-review/` (vendored Apache-2.0)  
+→ `sources/design-agent-reviews/` (vendored MIT)  
+→ `sources/design-taste/` (vendored MIT)  
+→ `sources/ui-ux-reference/` (vendored MIT)  
+→ `sources/interaction-and-motion-design/` (reference-only)  
+→ `sources/interaction-motion-toast/` (selected subsystem, MIT)  
+→ `research/public-code-library/repositories/`  
+→ `components/design-generation-and-review-pipeline/`
 
-→ `sources/design-quality-and-review/` (pbakaus/impeccable, vendored Apache-2.0)
-→ `sources/design-agent-reviews/` (pbakaus/agent-reviews, vendored MIT)
-→ `sources/design-taste/` (Leonxlnx/taste-skill, vendored MIT)
-→ `sources/ui-ux-reference/` (nextlevelbuilder/ui-ux-pro-max-skill, vendored MIT)
-→ `sources/interaction-and-motion-design/` (emilkowalski/skills, reference-only)
-→ `sources/interaction-motion-toast/` (emilkowalski/sonner, vendored MIT)
-→ `components/design-generation-and-review-pipeline/` (stub)
+### Model Inference And Streaming
 
----
+**Problem:** Large models are expensive and slow when loaded conventionally; layer-by-layer loading can reduce VRAM requirements.
 
-### Commit and code quality
-
-**Problem:** Commit messages and PR descriptions are often low-quality or leak sensitive information.
-
-→ `sources/privacy-safe-commit-assistant/` (sgavriil01/commitgen, reference-only)
-→ `reference-implementations/privacy-safe-commit-assistant/`
-→ `components/pull-request-review-orchestrator/` (stub)
-→ `components/code-quality-review-agent/` (stub)
-
----
-
-### Audio search and transcription
-
-**Problem:** Finding moments in audio recordings semantically (not keyword search) is technically solved but not productized for small teams.
-
-→ `sources/semantic-audio-search/` (sgavriil01/whisper-faiss-example, reference-only)
-→ `reference-implementations/semantic-audio-search/`
-
----
-
-### Model inference and streaming
-
-**Problem:** Large language models are expensive and slow when loaded conventionally; layer-by-layer loading can reduce VRAM requirements.
-
-→ `sources/model-layer-streaming/` (lyogavin/airllm, vendored Apache-2.0)
-→ `sources/kimi-model-family/` (MoonshotAI/Kimi-K2, reference-only)
-→ `sources/glm-model-family/` (zai-org/GLM-5, reference-only)
-→ `sources/terminal-coding-agent/` (MoonshotAI/kimi-code, vendored MIT)
+→ `sources/model-layer-streaming/` (vendored Apache-2.0)  
+→ `sources/kimi-model-family/` (reference-only)  
+→ `sources/glm-model-family/` (reference-only)  
+→ `sources/terminal-coding-agent/` (vendored MIT)  
 → `experiments/terminal-coding-agent-runtime/`
-→ `experiments/multi-model-comparison/`
 
 ---
 
-### Retrieval-Augmented Generation (RAG)
-
-**Problem:** Building production RAG pipelines requires combining chunking, embedding, retrieval, and reranking in a maintainable way.
-
-→ `sources/modular-rag-learning/` (tsembp/AI-Study-Mate, vendored MIT)
-
----
-
-### Regulatory compliance (EU AI Act, NIS2, VSME/ESG)
-
-**Problem:** SMEs face new compliance obligations (AI Act, NIS2, VSME ESG reporting) with limited tooling.
-
-→ `business-research/category-a/evidenceops-ai-act-nis2-vsme.md`
-→ `business-research/category-a/vsme-esg-data-room.md`
-→ `business-research/category-a/synthetic-regulatory-document-ai.md`
-
----
-
-## Research people index
+## Research People Index
 
 | Directory | Lab label | Repos | Research depth |
-|---|---|---|---|
-| `research/people/person1/` | person1 | 5 | Reference-only analysis (1 vendored, 4 metadata-only) |
+|---|---|---:|---|
+| `research/people/person1/` | person1 | 5 | Reference-heavy analysis; 1 vendored source |
 | `research/people/person2/` | person2 | 6 | Code-level for 2 vendored repos |
-| `research/people/person3/` | person3 | 5 | Code-level for 4/5 repos (1 vendored MIT) |
-| `research/people/person4/` | person4 | 3 | Code-level for 2/3 repos (no vendored) |
+| `research/people/person3/` | person3 | 5 | Code-level/local research for 4 repos; 1 vendored source |
+| `research/people/person4/` | person4 | 3 | Code-level/local research for 2 repos; no vendored source |
 
 ---
 
-### Appointment scheduling / SaaS infrastructure
-
-**Problem:** Service businesses (salons, clinics, tutors) need affordable scheduling with
-automated reminders and online booking pages.
-
-→ `sources/people/person3/github/noshowly/` (person3/noshowly, vendored MIT)
-→ `research/people/person3/IDEAS_DERIVED.md` (appointment SaaS for non-salon verticals)
-
----
-
-### LLM structured output generation
-
-**Problem:** LLMs generating structured JSON/YAML/XML produce outputs that violate
-referential integrity and semantic constraints that JSON Schema alone cannot catch.
-
-→ `research/people/person4/TECHNICAL_PATTERNS.md` (dual validation, repair loop, injectable client)
-→ `research/people/person4/IDEAS_DERIVED.md` (generalizable structured generation framework)
-
----
-
-### Cyprus electronics price comparison
-
-**Problem:** No unified price comparison product exists for Cyprus electronics retailers.
-
-→ `research/people/person3/` (timicy-scrapers: 6-store scraper infrastructure with MPN normalization)
-→ `research/people/person3/IDEAS_DERIVED.md`
-
----
-
-## Navigation shortcuts
+## Navigation Shortcuts
 
 | I want to… | Go to |
 |---|---|
-| Understand what's in a specific source | `sources/<name>/SOURCE.yaml` and `sources/<name>/README.md` |
-| Find a business idea | `business-research/BUSINESS_IDEAS_INDEX.md` |
-| See raw idea inbox | `ideas/` |
-| Read a structured product concept | `product-concepts/<name>/README.md` |
-| Find research on a person | `research/people/<name>/` |
-| Find research on a business category | `business-research/` |
-| Understand CI and safety infrastructure | `components/agent-safety-firewall/`, `docs/SECURITY_MODEL.md` |
-| Understand source import policy | `docs/SOURCE_POLICY.md`, `scripts/source-management/import_source.py` |
+| See the canonical current status | `docs/CURRENT_STATE.md` |
+| Understand source import rules | `docs/SOURCE_POLICY.md` |
+| Inspect source metadata | `sources/<name>/SOURCE.yaml` and `source-catalog/` |
+| Find public-code repository dossiers | `research/public-code-library/repositories/` |
+| Read public-code synthesis | `research/public-code-library/synthesis/` |
+| Check professional website research | `research/public-code-library/professional-websites/` |
+| Inspect rejected/unverified public-code items | `research/public-code-library/rejected/` |
+| See raw public-code evidence | `research/public-code-library/data/raw/` |
+| Find business research | `business-research/` |
+| Read product concepts | `product-concepts/` |
+| Understand CI and safety infrastructure | `components/agent-safety-firewall/`, `docs/SECURITY_MODEL.md`, `.github/workflows/ci.yml` |

@@ -2,7 +2,9 @@
 
 Generated: 2026-06-23 (third pre-merge quality gate — 5-item fix list applied)
 Branch: `research/initial-agent-engineering-knowledge-base`
-PR: #1 (open, pending merge)
+PR: #1 (historical Phase 1 PR; no longer the active current-status reference)
+
+> Historical context only: this report preserves the Phase 1 delivery state and older counts from 2026-06-23. The canonical current-status document is `docs/CURRENT_STATE.md`.
 
 ---
 
@@ -215,9 +217,9 @@ Consistency check runs in CI; exits 1 on any missing entry or field mismatch.
 
 ---
 
-## 9. PR #1 Merge Recommendation
+## 9. Historical PR #1 Merge Recommendation
 
-**Ready to merge.**
+At the time this report was written, PR #1 was considered ready to merge. This section is retained as historical Phase 1 context, not as a statement about any currently open PR.
 
 All 5 second-pass quality requirements addressed:
 
