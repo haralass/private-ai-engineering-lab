@@ -1,43 +1,26 @@
-    # Useful Path Index — config_utilities
+# Useful Path Index - config_utilities
 
-    ## Source Record
+## Source Record
 
-    - Upstream: [MIT-SPARK/config_utilities](https://github.com/MIT-SPARK/config_utilities)
-    - Pinned commit: `629688a1f6c24ff38130aebd528838a569179dac`
-    - Default branch inspected: `main`
-    - Date inspected: 2026-06-27
-    - Languages/frameworks observed: C++, Python, CMake, ROS package metadata
-    - License status: `BSD-3-Clause`
-    - Verification confidence: high
+- Upstream: [MIT-SPARK/config_utilities](https://github.com/MIT-SPARK/config_utilities)
+- Pinned commit: `629688a1f6c24ff38130aebd528838a569179dac`
+- Default branch inspected: `main`
+- Date inspected: 2026-06-27
+- License status: `BSD-3-Clause`
+- Import mode: `local-research-only`
 
-    ## Useful Files And Directories
+## Useful Files And Subdirectories
 
-    These paths are selected as research pointers only. They are not copied into this repository.
+These are local research pointers only. No upstream files are copied into this repository.
 
-    - `config_utilities/`
-- `config_utilities_ros/`
-- `config_utilities_msgs/`
-- `docs/`
-- `README.md`
+- `config_utilities/include/config_utilities/config.h` - core typed-config interface pattern for C++ systems.
+- `config_utilities/src/yaml_parser.cpp` - YAML parsing boundary that keeps external config format handling out of domain logic.
+- `config_utilities/src/validation.cpp` - validation layer pattern for rejecting bad config early.
+- `config_utilities/demos/demo_config.cpp` - small usage example showing how configs are declared and loaded.
+- `config_utilities/test/tests/yaml_parsing.cpp` - focused tests for parser behavior and edge cases.
+- `config_utilities_ros/include/config_utilities_ros/ros_dynamic_config_server.h` - ROS adapter boundary for exposing dynamic config without mixing it into the core package.
 
-    ## Useful Patterns
+## Risks And Limitations
 
-    - typed configuration loading utilities
-- ROS-facing configuration wrappers
-- message package separation
-- documentation structure for robotics utilities
-
-    ## Potential Uses
-
-    - Architecture reference for future lab experiments.
-    - Source of implementation ideas to reimplement or adapt according to license and project needs.
-    - Comparison point for reusable component, data, visualization, or tooling patterns.
-
-    ## Risks And Limitations
-
-    - ROS/C++ environment assumptions; reuse requires dependency compatibility review.
-    - Full upstream code should remain in a gitignored local clone unless a future PR documents a specific, licensed, minimal vendoring exception.
-
-    ## Maintenance / Activity Status
-
-    Last inspected from the pinned local clone on 2026-06-27. The commit date and default branch were read from Git metadata; no broad new repository analysis was performed in this cleanup PR.
+- ROS/C++ assumptions require compatibility review before any adaptation.
+- Future vendoring, if any, should be limited to a specifically approved subsystem.

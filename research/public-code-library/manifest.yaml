@@ -81,7 +81,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/kentcdodds--kentcdodds.com.md
     reason: Large Remix/MDX site with sophisticated content authoring pipeline and workshop integration. Architecture reference for content-heavy sites.
     useful_files: []
-    known_risks: Mixed/unclear license (NOASSERTION). Content is personal. Do not reuse without explicit permission.
+    known_risks: Mixed/unclear license (NOASSERTION). Study/reference only; do not copy code or content without explicit permission.
 
   - id: mxb
     person: Max Böck
@@ -149,7 +149,7 @@ repositories:
     reason: OAuth + Spotify Web API integration reference. Last active 2023. Outdated stack (CRA).
     useful_files:
       - client/src/spotify/
-    known_risks: No root LICENSE file. package.json declares ISC, but repository-level reuse clarity is lower than a root LICENSE. Outdated stack. API integration patterns may be stale.
+    known_risks: No root LICENSE file. Study/reference only; do not copy code without separate license verification. Outdated stack; API integration patterns may be stale.
 
   - id: octoprofile
     person: Brittany Chiang
@@ -171,7 +171,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/bchiang7--octoprofile.md
     reason: GitHub profile visualizer. No license, outdated stack. Limited general value.
     useful_files: []
-    known_risks: No license. Outdated.
+    known_risks: No license. Reference-only; do not copy code. Outdated.
 
   # ─── DESIGN SYSTEMS ─────────────────────────────────────────────────────────
 
@@ -191,7 +191,7 @@ repositories:
     last_pushed: 2025-12-29
     local_clone: external-sources/design-system
     priority: high
-    reuse_classification: adaptable implementation pattern
+    reuse_classification: reference-only
     analysis_document: research/public-code-library/repositories/MaximeHeckel--design-system.md
     reason: Stitches-based design system with composable Box/Card/Tooltip/TextInput components. Excellent token architecture and variant system.
     useful_files:
@@ -322,12 +322,12 @@ repositories:
     last_pushed: 2023-12-15
     local_clone: external-sources/stretchy
     priority: medium
-    reuse_classification: adaptable implementation pattern
+    reuse_classification: reference-only
     analysis_document: research/public-code-library/repositories/LeaVerou--stretchy.md
     reason: Form element auto-resize (textarea, input, select). Clever algorithm using sizing shims. Educational for understanding form auto-sizing.
     useful_files:
       - src/stretchy.js
-    known_risks: NOASSERTION license — verify before reuse.
+    known_risks: NOASSERTION license. Study/reference only; do not copy code until reuse permission is verified.
 
   - id: spinkit
     person: Tobias Ahlin
@@ -496,7 +496,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/pacocoursey--writer.md
     reason: Minimal writing interface with ambient background. Visual interaction reference. No license — reference only.
     useful_files: []
-    known_risks: No license. Outdated (2021).
+    known_risks: No license. Reference-only; do not copy code. Outdated (2021).
 
   # ─── LOCAL-FIRST AND PRODUCTIVITY ───────────────────────────────────────────
 
@@ -843,7 +843,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/pacocoursey--paco.md
     reason: Archived personal website. Historically notable for minimal aesthetic. No license. Reference only.
     useful_files: []
-    known_risks: Archived. No license.
+    known_risks: Archived. No license. Reference-only; do not copy code.
 
   - id: moving-letters
     person: Tobias Ahlin
@@ -978,7 +978,7 @@ repositories:
     analysis_document: research/public-code-library/repositories/jh3y--vincent-van-git.md
     reason: Create art with your GitHub contribution graph. Creative coding project. No license — reference only.
     useful_files: []
-    known_risks: No license. Narrow use case.
+    known_risks: No license. Reference-only; do not copy code. Narrow use case.
 
   # ─── 3D / WebGL ─────────────────────────────────────────────────────────────
 
@@ -1030,7 +1030,7 @@ repositories:
     analysis_status: summary-only
     reason: Newer Three.js template from Bruno Simon but UNLICENSED. All rights reserved. Use folio-2019 (MIT) instead for architecture reference.
     useful_files: []
-    known_risks: UNLICENSED — no reuse permitted at all.
+    known_risks: UNLICENSED. Study/reference only; no reuse or copying permitted.
 
   - id: r3f-scroll-rig
     person: 14islands
@@ -1133,7 +1133,7 @@ repositories:
     useful_files:
       - sections/
       - layout/theme.liquid
-    known_risks: RESTRICTED LICENSE — only permitted for themes served through Shopify. Do not use in non-Shopify contexts.
+    known_risks: RESTRICTED LICENSE. Study/reference only unless the intended use is a verified Shopify theme context; do not copy for non-Shopify contexts.
 
   - id: commerce
     person: null

@@ -19,7 +19,7 @@ removed_paths:
 security_review_status: metadata-only
 license_review_status: reviewed
 copy_allowed: false
-vendoring_allowed: true
+vendoring_allowed: false
 execution_allowed: false
 verification_confidence: high
-notes: 'Local clone studied outside Git history. No third-party source snapshot is committed.'
+notes: 'Local clone studied outside Git history. No third-party source snapshot is committed. Full-repository vendoring is not authorized because no root LICENSE exists; a future PR may approve only individually verified SPDX-header files.'

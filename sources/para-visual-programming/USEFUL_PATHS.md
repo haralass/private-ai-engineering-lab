@@ -1,43 +1,26 @@
-    # Useful Path Index — Para
+# Useful Path Index - Para
 
-    ## Source Record
+## Source Record
 
-    - Upstream: [mitmedialab/para](https://github.com/mitmedialab/para)
-    - Pinned commit: `5aa5a2801b78159ebcd1ff45bd55c2b43d1daa7a`
-    - Default branch inspected: `master`
-    - Date inspected: 2026-06-27
-    - Languages/frameworks observed: JavaScript, HTML, CSS, SVG assets
-    - License status: `MIT`
-    - Verification confidence: high
+- Upstream: [mitmedialab/para](https://github.com/mitmedialab/para)
+- Pinned commit: `5aa5a2801b78159ebcd1ff45bd55c2b43d1daa7a`
+- Default branch inspected: `master`
+- Date inspected: 2026-06-27
+- License status: `MIT`
+- Import mode: `local-research-only`
 
-    ## Useful Files And Directories
+## Useful Files And Subdirectories
 
-    These paths are selected as research pointers only. They are not copied into this repository.
+These are local research pointers only. No upstream files are copied into this repository.
 
-    - `js/`
-- `server/`
-- `html/`
-- `style/`
-- `images/`
-- `test/`
+- `js/src/app.js` - application bootstrap pattern for a browser-based creative tool.
+- `js/src/router.js` - simple route/view coordination in a multi-screen editor.
+- `js/src/views/CanvasView.js` - canvas interaction boundary for a visual programming workspace.
+- `js/src/views/ParametersView.js` - parameter editing panel pattern for generated/constraint-driven objects.
+- `js/src/utils/GeometryGenerator.js` - geometry helper boundary for keeping math utilities separate from UI views.
+- `server/app.js` - small server companion pattern for a mostly client-side creative tool.
 
-    ## Useful Patterns
+## Risks And Limitations
 
-    - visual programming canvas/tool architecture
-- constraint/rendering UI organization
-- client/server separation for creative tools
-
-    ## Potential Uses
-
-    - Architecture reference for future lab experiments.
-    - Source of implementation ideas to reimplement or adapt according to license and project needs.
-    - Comparison point for reusable component, data, visualization, or tooling patterns.
-
-    ## Risks And Limitations
-
-    - Old JavaScript stack; use for patterns, not direct product integration without modernization.
-    - Full upstream code should remain in a gitignored local clone unless a future PR documents a specific, licensed, minimal vendoring exception.
-
-    ## Maintenance / Activity Status
-
-    Last inspected from the pinned local clone on 2026-06-27. The commit date and default branch were read from Git metadata; no broad new repository analysis was performed in this cleanup PR.
+- Older browser/JavaScript stack; useful for architecture and interaction patterns rather than direct integration.
+- Future reuse should target exact files or clean-room reimplementation, not a full snapshot.

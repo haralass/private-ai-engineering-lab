@@ -14,8 +14,10 @@ candidate_pool:
 
   - repo: MaximeHeckel/design-system
     status: accepted
-    action: clone
+    action: reference-only
     priority: high
+    license_flag: NONE
+    note: No license; keep as local/reference study only and do not copy code verbatim
 
   - repo: MaximeHeckel/linear-vaporwave-react-three-fiber
     status: accepted
@@ -118,15 +120,17 @@ candidate_pool:
 
   - repo: pacocoursey/paco
     status: accepted
-    action: clone
+    action: reference-only
     priority: low
     license_flag: NONE
+    note: Archived and unlicensed; reference-only study material
 
   - repo: pacocoursey/writer
     status: accepted
-    action: clone
+    action: reference-only
     priority: low
     license_flag: NONE
+    note: Unlicensed and outdated; reference-only study material
 
   # ── People Track: Tania Rascia ───────────────────────────────────────────
 
@@ -190,11 +194,15 @@ candidate_pool:
 
   - repo: bchiang7/spotify-profile
     status: accepted
-    action: clone
+    action: reference-only
     priority: low
+    license_flag: NONE
+    note: No root LICENSE; reference-only OAuth/API pattern study
 
   - repo: bchiang7/octoprofile
     status: rejected
+    action: reference-only
+    license_flag: NONE
     reason: No license, outdated (CRA), no architectural value
 
   - repo: bchiang7/Halcyon
@@ -220,7 +228,7 @@ candidate_pool:
 
   - repo: LeaVerou/stretchy
     status: accepted
-    action: clone
+    action: reference-only
     priority: medium
     license_flag: NOASSERTION
 
@@ -243,7 +251,7 @@ candidate_pool:
 
   - repo: raunofreiberg/interfaces
     status: accepted
-    action: clone
+    action: reference-only
     priority: low
     license_flag: NONE
 
@@ -267,7 +275,7 @@ candidate_pool:
     status: accepted
     action: clone
     priority: low
-    note: Marked reference-only due to prior unmaintained concerns; 2025 push suggests renewed activity
+    note: MIT licensed and active again as of 2025; clone action is allowed after preserving notices
 
   # ── People Track: Tobias Ahlin ───────────────────────────────────────────
 
@@ -319,10 +327,10 @@ candidate_pool:
 
   - repo: brunosimon/threejs-template-complex
     status: accepted
-    action: clone
+    action: reference-only
     priority: low
     license_flag: UNLICENSED
-    note: Kept for study only; all rights reserved; use folio-2019 instead
+    note: Explicitly unlicensed; local-research-only/reference-only study, no vendoring or copying
 
   - repo: brunosimon/folio-2025
     status: needs-verification
@@ -347,9 +355,10 @@ candidate_pool:
 
   - repo: 14islands/codrops-scroll-rig-tutorial
     status: accepted
-    action: clone
+    action: reference-only
     priority: medium
     license_flag: Codrops
+    note: Codrops terms are personal-use/non-commercial; reference-only unless intended use is separately verified
 
   - repo: 14islands/next-boilerplate
     status: rejected
@@ -511,9 +520,10 @@ candidate_pool:
 
   - repo: webstudio-is/webstudio
     status: accepted
-    action: clone
+    action: reference-only
     priority: medium
     license_flag: AGPL-3.0
+    note: AGPL network copyleft; study/reference only for proprietary or non-AGPL work
 
   # ── Organizations Track: packdigital ─────────────────────────────────────
 
@@ -537,9 +547,10 @@ candidate_pool:
 
   - repo: saleor/storefront
     status: accepted
-    action: clone
+    action: reference-only
     priority: medium
     license_flag: FSL-1.1-ALv2
+    note: FSL terms are restricted for competing products; reference-only unless intended use is separately verified
 
   - repo: saleor/saleor
     status: summary-only
@@ -560,7 +571,7 @@ candidate_pool:
 
   - repo: 4Akera/openkairo
     status: needs-verification
-    action: reject
+    action: reference-only
     reason: Ownership unverified, maturity unconfirmed, no live-site relationship confirmed; revisit when publicly launched
 
   - repo: pacocoursey/cmdk

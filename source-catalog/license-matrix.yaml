@@ -160,11 +160,11 @@ license_matrix:
     license: Apache-2.0
     file_present: false
     review_status: reviewed
-    vendoring_allowed: true
+    vendoring_allowed: false
     copy_allowed: false
     source_label: external
     import_mode: local-research-only
-    notes: No root LICENSE file; package.json and source headers identify Apache-2.0. No source snapshot committed.
+    notes: No root LICENSE file; package.json and source headers identify Apache-2.0. Full-repository vendoring is not authorized. A future PR may approve only individually verified SPDX-header files.
 
   # ── Local-research-only licensed sources ─────────────────────────────────
 

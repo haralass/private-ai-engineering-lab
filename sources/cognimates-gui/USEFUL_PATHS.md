@@ -1,43 +1,26 @@
-    # Useful Path Index — Cognimates GUI
+# Useful Path Index - Cognimates GUI
 
-    ## Source Record
+## Source Record
 
-    - Upstream: [mitmedialab/cognimates-gui](https://github.com/mitmedialab/cognimates-gui)
-    - Pinned commit: `7025907ad83168089e307b321a4d0f81bb740dcf`
-    - Default branch inspected: `develop`
-    - Date inspected: 2026-06-27
-    - Languages/frameworks observed: JavaScript, React, Redux, CSS, SVG assets
-    - License status: `BSD-3-Clause`
-    - Verification confidence: high
+- Upstream: [mitmedialab/cognimates-gui](https://github.com/mitmedialab/cognimates-gui)
+- Pinned commit: `7025907ad83168089e307b321a4d0f81bb740dcf`
+- Default branch inspected: `develop`
+- Date inspected: 2026-06-27
+- License status: `BSD-3-Clause`
+- Import mode: `local-research-only`
 
-    ## Useful Files And Directories
+## Useful Files And Subdirectories
 
-    These paths are selected as research pointers only. They are not copied into this repository.
+These are local research pointers only. No upstream files are copied into this repository.
 
-    - `src/components/`
-- `src/containers/`
-- `src/reducers/`
-- `src/lib/`
-- `package.json`
+- `src/containers/gui.jsx` - top-level GUI composition pattern for a large creative tool shell.
+- `src/containers/blocks.jsx` - container boundary around a block-programming workspace; useful for separating VM/block state from presentation.
+- `src/containers/target-pane.jsx` - pattern for coordinating sprites/stage-like side panels in a dense editor UI.
+- `src/reducers/gui.js` - Redux slice organization for global GUI state in a multi-panel application.
+- `src/lib/make-toolbox-xml.js` - generated toolbox/config pattern for block categories.
+- `src/css/units.css` and `src/css/colors.css` - token-style CSS constants for a mature editor surface.
 
-    ## Useful Patterns
+## Risks And Limitations
 
-    - Scratch-like block programming UI composition
-- React container/component separation
-- asset panel and modal component patterns
-- Redux state organization for creative tools
-
-    ## Potential Uses
-
-    - Architecture reference for future lab experiments.
-    - Source of implementation ideas to reimplement or adapt according to license and project needs.
-    - Comparison point for reusable component, data, visualization, or tooling patterns.
-
-    ## Risks And Limitations
-
-    - Old 2018 React stack; treat as historical UI architecture reference.
-    - Full upstream code should remain in a gitignored local clone unless a future PR documents a specific, licensed, minimal vendoring exception.
-
-    ## Maintenance / Activity Status
-
-    Last inspected from the pinned local clone on 2026-06-27. The commit date and default branch were read from Git metadata; no broad new repository analysis was performed in this cleanup PR.
+- Historical React/Redux stack; use as architecture reference, not as a modern dependency choice.
+- Full-repository vendoring is not needed for current lab work.

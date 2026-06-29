@@ -1,41 +1,26 @@
-    # Useful Path Index — django-channels-presence
+# Useful Path Index - django-channels-presence
 
-    ## Source Record
+## Source Record
 
-    - Upstream: [mitmedialab/django-channels-presence](https://github.com/mitmedialab/django-channels-presence)
-    - Pinned commit: `bcc9f71ca2162d8d8539466ad9787715d43c0faf`
-    - Default branch inspected: `master`
-    - Date inspected: 2026-06-27
-    - Languages/frameworks observed: Python, Django, Sphinx docs
-    - License status: `MIT`
-    - Verification confidence: high
+- Upstream: [mitmedialab/django-channels-presence](https://github.com/mitmedialab/django-channels-presence)
+- Pinned commit: `bcc9f71ca2162d8d8539466ad9787715d43c0faf`
+- Default branch inspected: `master`
+- Date inspected: 2026-06-27
+- License status: `MIT`
+- Import mode: `local-research-only`
 
-    ## Useful Files And Directories
+## Useful Files And Subdirectories
 
-    These paths are selected as research pointers only. They are not copied into this repository.
+These are local research pointers only. No upstream files are copied into this repository.
 
-    - `channels_presence/`
-- `docs/`
-- `setup.py`
-- `README.rst`
+- `channels_presence/models.py` - room/presence data model for tracking live websocket participants.
+- `channels_presence/decorators.py` - lightweight decorator API for joining/leaving presence-aware channels.
+- `channels_presence/tasks.py` - cleanup task pattern for expiring stale presence rows.
+- `channels_presence/management/commands/prune_presences.py` - operational maintenance command for scheduled pruning.
+- `channels_presence/tests.py` - compact tests for presence lifecycle behavior.
+- `docs/usage.rst` - concise package usage documentation structure.
 
-    ## Useful Patterns
+## Risks And Limitations
 
-    - presence room/channel abstractions
-- Django package layout
-- Sphinx docs for reusable Django apps
-
-    ## Potential Uses
-
-    - Architecture reference for future lab experiments.
-    - Source of implementation ideas to reimplement or adapt according to license and project needs.
-    - Comparison point for reusable component, data, visualization, or tooling patterns.
-
-    ## Risks And Limitations
-
-    - Django Channels API may have changed since the 2020 pinned commit.
-    - Full upstream code should remain in a gitignored local clone unless a future PR documents a specific, licensed, minimal vendoring exception.
-
-    ## Maintenance / Activity Status
-
-    Last inspected from the pinned local clone on 2026-06-27. The commit date and default branch were read from Git metadata; no broad new repository analysis was performed in this cleanup PR.
+- Django Channels APIs may have changed since the pinned commit.
+- Keep current use as pattern research unless a future PR approves exact MIT-file reuse.
