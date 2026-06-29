@@ -1,6 +1,6 @@
 # Source Governance Policy
 
-This lab studies external repositories, but external code is not automatically reusable and should not be committed merely because it is useful.
+This lab studies external repositories for private engineering work. Codex may use the research material broadly for personal lab prototypes, experiments, and implementation guidance. The governance labels exist so the lab always knows what is safe for direct reuse, what is private-only, and what needs review or rewriting before any public/commercial release.
 
 ## Default Workflow
 
@@ -13,6 +13,17 @@ Use **local-research-only** for external code-level research:
 5. Do not commit upstream source files unless a later PR explicitly approves a minimal vendoring scope.
 
 This default keeps Codex and future research sessions able to use the findings without turning the lab into an archive of third-party repositories.
+
+## Private Lab Use
+
+For this private lab, `reference-only` and `local-research-only` sources are allowed as working material for Codex:
+
+- Codex may study them, compare approaches, borrow structure conceptually, and produce private prototypes.
+- Codex may use them to guide a clean implementation in this lab.
+- If code is copied or closely followed for a private experiment, keep the provenance visible in notes or commit context.
+- Before anything becomes public, commercial, distributed, or client-facing, review the source labels and rewrite or replace anything that is not clearly reusable.
+
+The labels are therefore release-safety labels, not creativity blockers.
 
 ## Import Modes
 
@@ -27,9 +38,9 @@ This default keeps Codex and future research sessions able to use the findings w
 
 ## License Rules
 
-- If there is no clear license, use `reference-only` or `local-research-only` with `copy_allowed: false`.
+- If there is no clear license, use `reference-only` or `local-research-only` with `copy_allowed: false` for release/distribution purposes.
 - If the license value is `NONE`, `NOASSERTION`, `UNLICENSED`, `RESTRICTED`, `UNKNOWN`, `NOT-FOUND`, Codrops, FSL, or AGPL, do not mark it for unrestricted reuse.
-- Restricted or non-commercial licenses are study/reference only unless the specific intended use is verified.
+- Restricted or non-commercial licenses are private-lab/reference material unless the specific intended public/commercial use is verified.
 - AGPL repositories are study/reference only for proprietary or non-AGPL work unless the whole downstream use is compatible.
 - Package metadata and source-file SPDX headers can support file-level conclusions, but they do not equal a root repository license.
 
@@ -48,7 +59,7 @@ Do not vendor a full repository merely for archival purposes. Prefer a focused d
 
 ## If No Clear License
 
-- Set `copy_allowed: false`.
+- Set `copy_allowed: false` for public release or distribution.
 - Set `vendoring_allowed: false` unless a later review identifies individually licensed files and approves that limited scope.
 - Keep the source `reference-only` or `local-research-only`.
 - Document the reason in `SOURCE.yaml`, `ATTRIBUTION.md`, and relevant catalog entries.

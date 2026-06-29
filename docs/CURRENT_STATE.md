@@ -72,8 +72,9 @@ Canonical public-code licensing summary: `research/public-code-library/synthesis
 
 - Local-research-only records preserve useful implementation notes but do not include upstream code in Git.
 - Reference-only records may contain metadata and README-level observations only.
-- Repositories with no root license, unclear license evidence, restricted terms, AGPL terms, Codrops terms, FSL terms, or no assertion are safe study/reference material only unless a later review verifies a permitted reuse path.
-- Public-code-library dossiers are research outputs, not legal opinions and not automatic approval to copy code.
+- For private lab work, Codex may still use reference-only and local-research-only material as study material, private prototype guidance, and rewrite-before-release context.
+- Repositories with no root license, unclear license evidence, restricted terms, AGPL terms, Codrops terms, FSL terms, or no assertion are private-lab/reference material only unless a later review verifies a permitted public/commercial reuse path.
+- Public-code-library dossiers are research outputs, not legal opinions. They are usable for private lab work, but they are not automatic approval for public/commercial reuse.
 - Raw evidence in `research/public-code-library/data/raw/` is retained for traceability and is not a curated public API.
 - Archived reports in `research/public-code-library/archive/` are historical context and may contain older paths or superseded recommendations.
 - Component directories other than `agent-safety-firewall` remain planned/research unless their own tests and review state say otherwise.

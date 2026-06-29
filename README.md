@@ -2,7 +2,7 @@
 
 Personal engineering and research laboratory for studying public code, product patterns, professional websites, business ideas, AI systems, and reusable implementation techniques.
 
-This is **not a production monorepo**. It is a private research lab used to preserve source metadata, document implementation patterns, run small experiments, and incubate ideas without treating external code as automatically reusable.
+This is **not a production monorepo**. It is a private research lab used to preserve source metadata, document implementation patterns, run small experiments, and incubate ideas. Codex may use the research material freely for private lab prototypes, while the metadata keeps track of what would need review or rewriting before public/commercial release.
 
 ---
 
@@ -90,6 +90,8 @@ External research defaults to **local-research-only**. Keep the upstream reposit
 4. Use vendoring only for minimal, explicitly approved code with license evidence, attribution, secret scan, file manifest, and CI validation.
 5. Do not commit full repositories merely for archival purposes.
 
+For private lab work, `reference-only` and `local-research-only` are still usable by Codex as study material, inspiration, and temporary prototype guidance. The label means "track provenance and review before public/commercial reuse", not "ignore this source".
+
 Run the validators after any source or research change:
 
 ```bash
@@ -107,8 +109,8 @@ python scripts/validation/validate_public_code_library.py
 | `vendored-snapshot` | Yes (`upstream/`) | Clear permission required | Full upstream code copied at a pinned commit after approval |
 | `selected-subsystem` | Yes (`upstream/`) | Clear permission required | Specific file set, package, or subdirectory copied after approval |
 | `clean-room-reimplementation` | Our code only | License uncertainty allowed if no code is copied | Pattern is studied and reimplemented independently |
-| `local-research-only` | No upstream code committed | License recorded; unclear licenses stay non-copyable | Code studied in a local clone; only notes/metadata committed |
-| `reference-only` | No upstream code committed | Used when license is unclear or reuse is restricted | Metadata, README, and research pointers only |
+| `local-research-only` | No upstream code committed | License recorded; unclear licenses stay non-copyable for release | Code studied in a local clone; usable for private lab guidance; only notes/metadata committed |
+| `reference-only` | No upstream code committed | Used when license is unclear or reuse is restricted | Metadata, README, and research pointers; usable as private lab reference and rewrite-before-release guidance |
 | `submodule` | Via git | Clear permission required | Rare, for large repos when a submodule is explicitly justified |
 
 ## Sources Directory Structure
